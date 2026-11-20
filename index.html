@@ -529,7 +529,6 @@
             display: block;
         }
 
-        /* صندوق البحث الخاص بقسم مواعيد الأدوية وبطاقة التفاصيل الكاملة */
         .sched-local-search {
             background: rgba(15, 23, 42, 0.8);
             border: 1.5px solid rgba(56, 189, 248, 0.45);
@@ -1382,19 +1381,19 @@
         </div>
     </div>
 
-    <!-- القسم الرابع: مواعيد الأدوية مع بحث فوري متكامل (المواعيد + التداخلات + الأضرار الجانبية + التنبيهات) -->
+    <!-- القسم الرابع: مواعيد الأدوية مع بحث فوري متكامل لجميع الأدوية -->
     <div id="sec4" class="section-content">
         <div class="card" id="sec4-card">
             <div class="card-header">
                 <span class="card-title">🕒 مواعيد الأدوية وكيفية أخذها ومواعيدها بالمضبوط</span>
-                <span class="badge">قسمين + بحث ذكي</span>
+                <span class="badge">بحث شامل كل الأدوية</span>
             </div>
 
             <!-- مربع البحث المخصص داخل قسم مواعيد الأدوية -->
             <div class="sched-local-search">
                 <div class="sched-local-search-row">
                     <span>🔎</span>
-                    <input type="text" id="scheduleDrugSearch" placeholder="ابحث هنا عن أي دواء أو حالة (Levothyroxine، Atorvastatin، Metformin، ضغط، سكر، غدة، نقرس، معدة)..." oninput="searchScheduleMedication()">
+                    <input type="text" id="scheduleDrugSearch" placeholder="ابحث عن أي دواء أو مرض (Amoxicillin، Augmentin، Azithromycin، Ciprofloxacin، Aspirin، Furosemide، Ibuprofen، Levothyroxine، Metformin، Allopurinol، Omeprazole، Pregabalin، Iron)..." oninput="searchScheduleMedication()">
                     <button id="clearSchedSearchBtn" class="clear-search" onclick="clearScheduleSearch()" style="display:none;">✕</button>
                 </div>
                 <div id="scheduleSearchResults" class="sched-search-results"></div>
@@ -1563,35 +1562,46 @@
                     </div>
                 </div>
 
-                <div class="accordion-item searchable-item" data-title="أدوية القلب وأدوية الضغط">
+                <div class="accordion-item searchable-item" data-title="أدوية القلب وأدوية الضغط ومميعات الدم والمدرات">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
                         <div>
-                            <span class="class-pill">القلب والضغط</span> أدوية القلب وأدوية الضغط
-                            <span class="en-sub">Heart & Hypertension Drugs</span>
+                            <span class="class-pill">القلب والضغط</span> أدوية القلب والضغط والمدرات ومميعات الدم
+                            <span class="en-sub">Heart, Hypertension, Diuretics & Antiplatelets</span>
                         </div>
                         <span class="icon">▼</span>
                     </button>
                     <div class="accordion-body">
                         <div class="sub-family">
-                            <h4>حاصرات بيتا والقلب (Bisoprolol / Metoprolol / Atenolol)</h4>
+                            <h4>حاصرات بيتا والقلب (Bisoprolol / Metoprolol / Atenolol / Propranolol)</h4>
                             <p><strong>طريقة الأخذ:</strong> حبة كاملة مع الماء؛ يُمنع التوقف المفاجئ عنها.</p>
                             <p><strong>متى يؤخذ ومواعيده:</strong> مرة إلى مرتين يومياً في موعد ثابت (صباحاً أو مع الوجبة حسب النوع).</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Bisoprolol</span>
                                 <span class="drug-tag">Metoprolol</span>
                                 <span class="drug-tag">Atenolol</span>
+                                <span class="drug-tag">Propranolol</span>
                             </div>
                         </div>
                         <div class="sub-family">
-                            <h4>أدوية الضغط (Amlodipine / Valsartan / Losartan / Telmisartan / Ramipril / Enalapril)</h4>
+                            <h4>أدوية الضغط (Amlodipine / Valsartan / Losartan / Telmisartan / Ramipril / Captopril)</h4>
                             <p><strong>طريقة الأخذ:</strong> جرعة منتظمة يومياً لضبط الضغط وحماية القلب والكلى.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة واحدة يومياً كل 24 ساعة في وقت ثابت يومياً.</p>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة واحدة يومياً كل 24 ساعة في وقت ثابت يومياً (Captopril قبل الأكل بساعة).</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Amlodipine</span>
                                 <span class="drug-tag">Valsartan</span>
                                 <span class="drug-tag">Losartan</span>
                                 <span class="drug-tag">Telmisartan</span>
                                 <span class="drug-tag">Ramipril</span>
+                                <span class="drug-tag">Captopril</span>
+                            </div>
+                        </div>
+                        <div class="sub-family">
+                            <h4>المدرات ومميعات الدم (Furosemide / Aspirin)</h4>
+                            <p><strong>طريقة الأخذ:</strong> Furosemide صباحاً لتجنب التبول الليلي • Aspirin بعد الأكل مع كوب ماء.</p>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة واحدة يومياً صباحاً أو حسب إرشاد الطبيب.</p>
+                            <div class="drugs-tags">
+                                <span class="drug-tag">Furosemide</span>
+                                <span class="drug-tag">Aspirin</span>
                             </div>
                         </div>
                     </div>
@@ -1659,32 +1669,60 @@
                     </div>
                 </div>
 
-                <div class="accordion-item searchable-item" data-title="باقي الأمراض المزمنة والمعدة والتنفس والمفاصل">
+                <div class="accordion-item searchable-item" data-title="المضادات الحيوية والالتهابات والميكروبات">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
                         <div>
-                            <span class="class-pill">أمراض أخرى</span> باقي الأمراض (المعدة، التنفس، الأعصاب، المفاصل)
-                            <span class="en-sub">Other Chronic & Clinical Conditions</span>
+                            <span class="class-pill">المضادات الحيوية</span> المضادات الحيوية ومواعيدها بالمضبوط
+                            <span class="en-sub">Antimicrobials & Antibiotics</span>
                         </div>
                         <span class="icon">▼</span>
                     </button>
                     <div class="accordion-body">
                         <div class="sub-family">
-                            <h4>المعدة والحموضة (Omeprazole / Pantoprazole)</h4>
-                            <p><strong>طريقة الأخذ:</strong> تُبلع كاملة مع الماء دون كسر أو مضغ.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> قبل الفطور بـ 30-60 دقيقة مرة واحدة يومياً (أو كل 12 ساعة في الحالات الشديدة).</p>
+                            <h4>Amoxicillin / Augmentin / Cephalexin / Cefixime / Azithromycin / Ciprofloxacin / Metronidazole</h4>
+                            <p><strong>طريقة الأخذ:</strong> إكمال الكورس كاملاً; Augmentin و Metronidazole بعد الأكل; Ciprofloxacin يُفصل عن الحليب والكالسيوم والحديد بـ 2-4 ساعات.</p>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> كل 8 ساعات (Amoxicillin / Cephalexin / Metronidazole) • كل 12 ساعة (Augmentin 1g/625 / Ciprofloxacin / Cefuroxime) • مرة يومياً (Azithromycin / Cefixime).</p>
+                            <div class="drugs-tags">
+                                <span class="drug-tag">Amoxicillin</span>
+                                <span class="drug-tag">Augmentin</span>
+                                <span class="drug-tag">Cefixime</span>
+                                <span class="drug-tag">Azithromycin</span>
+                                <span class="drug-tag">Ciprofloxacin</span>
+                                <span class="drug-tag">Metronidazole</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item searchable-item" data-title="المعدة والمغص والقيء والمسكنات والمفاصل والتنفس والأعصاب والمسالك والفيتامينات">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <div>
+                            <span class="class-pill">أمراض أخرى</span> باقي الأمراض (المعدة، المسكنات، التنفس، الأعصاب، المسالك، الفيتامينات)
+                            <span class="en-sub">GIT, Analgesics, Respiratory, CNS, Urology & Vitamins</span>
+                        </div>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="sub-family">
+                            <h4>المعدة والقيء والمغص (Omeprazole / Pantoprazole / Domperidone / Ondansetron / Hyoscine / Mebeverine)</h4>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> Omeprazole/Pantoprazole قبل الفطور بـ 30-60 دقيقة • Domperidone و Mebeverine قبل الأكل بـ 15-30 دقيقة • Hyoscine عند المغص حتى 3 مرات.</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Omeprazole</span>
-                                <span class="drug-tag">Pantoprazole</span>
+                                <span class="drug-tag">Domperidone</span>
+                                <span class="drug-tag">Mebeverine</span>
+                                <span class="drug-tag">Hyoscine</span>
                             </div>
                         </div>
                         <div class="sub-family">
-                            <h4>التنفس والحساسية والأعصاب (Montelukast / Cetirizine / Pregabalin)</h4>
-                            <p><strong>طريقة الأخذ:</strong> حسب الجرعة والالتزام بالمواعيد دون انقطاع مفاجئ لأدوية الأعصاب.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> Montelukast و Cetirizine مساءً مرة يومياً • Pregabalin كل 12 ساعة في مواعيد ثابتة.</p>
+                            <h4>المسكنات، التنفس، الأعصاب، المسالك، والفيتامينات</h4>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> Ibuprofen/Diclofenac بعد الأكل • Montelukast/Cetirizine مساءً • Pregabalin كل 12 ساعة • Tamsulosin بعد الفطور بـ 30 دقيقة • Vitamin D3 و Iron و Calcium.</p>
                             <div class="drugs-tags">
+                                <span class="drug-tag">Ibuprofen</span>
+                                <span class="drug-tag">Diclofenac</span>
                                 <span class="drug-tag">Montelukast</span>
-                                <span class="drug-tag">Cetirizine</span>
                                 <span class="drug-tag">Pregabalin</span>
+                                <span class="drug-tag">Tamsulosin</span>
+                                <span class="drug-tag">Vitamin D3 / Iron / Calcium</span>
                             </div>
                         </div>
                     </div>
@@ -2264,7 +2302,7 @@
         `;
     }
 
-    // قاعدة بيانات البحث المتكاملة لقسم مواعيد الأدوية (المواعيد + طريقة الأخذ + التنبيهات + التداخلات + الأضرار الجانبية)
+    // قاعدة بيانات البحث الشاملة لكل الأدوية والحالات في قسم مواعيد الأدوية
     const scheduleMedicationsDB = [
         {
             title: "Atorvastatin / Rosuvastatin / Simvastatin (الدهون والكوليسترول)",
@@ -2303,7 +2341,7 @@
             sideEffects: "طفح جلدي أو حكة، آلام مفاصل، غثيان، صداع، ونادراً انخفاض كريات الدم البيضاء أو تأثر الكبد."
         },
         {
-            title: "Bisoprolol / Metoprolol / Atenolol (حاصرات بيتا والقلب)",
+            title: "Bisoprolol / Metoprolol / Atenolol / Propranolol (حاصرات بيتا والقلب)",
             category: "أدوية القلب وأدوية الضغط",
             timing: "مرة إلى مرتين يومياً في موعد ثابت (صباحاً أو مع الوجبة حسب النوع).",
             howToTake: "حبة كاملة مع الماء؛ يُمنع التوقف المفاجئ عنها.",
@@ -2312,13 +2350,31 @@
             sideEffects: "تعب أو خمول، دوخة خفيفة، برودة الأطراف، بطء نبض القلب، أو اضطرابات نوم."
         },
         {
-            title: "Amlodipine / Valsartan / Losartan / Telmisartan / Ramipril / Enalapril (أدوية الضغط)",
+            title: "Amlodipine / Valsartan / Losartan / Telmisartan / Ramipril / Enalapril / Captopril (أدوية الضغط)",
             category: "أدوية القلب وأدوية الضغط",
-            timing: "مرة واحدة يومياً كل 24 ساعة في وقت ثابت يومياً.",
+            timing: "مرة واحدة يومياً كل 24 ساعة في وقت ثابت يومياً (Captopril قبل الأكل بساعة).",
             howToTake: "جرعة منتظمة يومياً لضبط الضغط وحماية القلب والكلى.",
-            importantNote: "مجموعات ACEi و ARB (مثل Ramipril و Valsartan و Losartan) ممنوعة أثناء الحمل؛ يُراقب الضغط والكلى والبوتاسيوم.",
+            importantNote: "مجموعات ACEi و ARB (مثل Ramipril و Valsartan و Losartan و Captopril) ممنوعة أثناء الحمل؛ يُراقب الضغط والكلى والبوتاسيوم.",
             interactions: "تتداخل مع مكملات البوتاسيوم ومدرات البوتاسيوم (ترفع البوتاسيوم)، ومع NSAIDs (تضعف خفض الضغط وتؤثر على الكلى)، ومع Lithium، والجمع بين أكثر من دواء من نفس المسار (ACEi + ARB).",
             sideEffects: "تورم الكاحلين أو القدمين وصداع أو احمرار وجه مع Amlodipine؛ سعال جاف أحياناً مع Ramipril/Enalapril؛ دوخة عند الوقوف."
+        },
+        {
+            title: "Furosemide (المدرات / لازيكس)",
+            category: "أدوية القلب والضغط والمدرات",
+            timing: "صباحاً (أو صباحاً وظهراً إذا كانت مرتين) وتُتجنب الجرعات المسائية المتأخرة.",
+            howToTake: "مع كوب ماء صباحاً حتى لا يقطع التبول النوم ليلاً.",
+            importantNote: "يُراقب مستوى البوتاسيوم والصوديوم والسوائل وضغط الدم.",
+            interactions: "يتداخل مع Digoxin (نقص البوتاسيوم يزيد سمية الديجوكسين)، ومع Lithium (يرفع سميته)، ومع Aminoglycosides (يرفع سمية الأذن/الكلى)، ومع NSAIDs (تقلل مفعول المدر).",
+            sideEffects: "كثرة التبول، جفاف أو عطش، دوخة عند الوقوف، نقص البوتاسيوم وتشنج عضلات."
+        },
+        {
+            title: "Aspirin (أسبرين 81 / 100 مميع الدم)",
+            category: "أدوية القلب ومميعات الدم",
+            timing: "مرة واحدة يومياً بعد الوجبة (الغداء أو الفطور) في موعد ثابت.",
+            howToTake: "يُبلع بعد الأكل مع كوب ماء كامل لحماية المعدة.",
+            importantNote: "يُمنع في القرحة الهضمية النشطة أو النزيف أو الحساسية للأسبرين أو الربو المحرض بالأسبرين.",
+            interactions: "يتداخل مع المميعات الأخرى (Clopidogrel, Warfarin, Apixaban) بزيادة خطر النزيف، ومع Ibuprofen (قد يقلل حماية الأسبرين للقلب إذا أُخذ قبله مباشرة)، ومع الكورتيزون.",
+            sideEffects: "حرقة أو تهيج بالمعدة، غثيان، زيادة القابلية للكدمات أو النزيف."
         },
         {
             title: "Metformin / Metformin XR (أدوية السكري)",
@@ -2326,7 +2382,7 @@
             timing: "مرتين يومياً (كل 12 ساعة) مع الفطور والعشاء، أو مرة واحدة لنسخة XR.",
             howToTake: "يُؤخذ مع الطعام أو بعده لتقليل اضطرابات المعدة.",
             importantNote: "يُؤجل أو يُراجع مع الطبيب قبل الفحوصات الصبغية الوريدية (Contrast) أو في حالات الجفاف الشديد أو قصور الكلى/الكبد.",
-            interactions: "يتداخل مع الكحول (يرفع خطر الحماض اللبني)، ومع بعض مدرات البول أو الكورتيزون أو مضادات الحموضة/الصبغات حسب الحالة الكلوية، وقد يقلل مع الاستخدام الطويل مستوى فيتامين B12.",
+            interactions: "يتداخل مع الكحول (يرفع خطر الحماض اللبني)، ومع بعض مدرات البول أو الكورتيزون أو الصبغات الوريدية، وقد يقلل مع الاستخدام الطويل مستوى فيتامين B12.",
             sideEffects: "غثيان، انتفاخ، إسهال أو اضطراب معدة (يخف بأخذه مع الأكل)، ونقص فيتامين B12 على المدى الطويل."
         },
         {
@@ -2357,22 +2413,112 @@
             sideEffects: "إسهال، غثيان، قيء، أو تقلصات بطنية (غالباً علامة مبكرة لزيادة الجرعة)."
         },
         {
-            title: "Omeprazole / Pantoprazole (المعدة والحموضة)",
-            category: "باقي الأمراض (المعدة والحموضة)",
+            title: "Amoxicillin / Co-Amoxiclav (Augmentin) (المضادات الحيوية - البنسلينات)",
+            category: "المضادات الميكروبية (Class 1)",
+            timing: "كل 8 ساعات (Amoxicillin / Augmentin 625) أو كل 12 ساعة (Augmentin 1g / شراب 457/228) حسب الجرعة.",
+            howToTake: "Augmentin يُفضل في بداية الوجبة أو بعدها لتقليل اضطراب المعدة؛ يجب إكمال الكورس كاملاً.",
+            importantNote: "ممنوع لمن لديهم حساسية من البنسلين.",
+            interactions: "يتداخل مع Methotrexate (يقلل إطراحه)، ومع Allopurinol (يرفع الطفح الجلدي)، وقد يؤثر على توازن مميعات الدم Warfarin.",
+            sideEffects: "إسهال، غثيان، آلام بطن خفيفة، فطريات فموية أو مهبلية، أو طفح تحسسي."
+        },
+        {
+            title: "Cefixime / Cephalexin / Cefdinir / Cefuroxime / Cefaclor (السيفالوسبورينات)",
+            category: "المضادات الميكروبية (Class 1)",
+            timing: "Cefixime مرة يومياً (أو كل 12 ساعة) • Cefuroxime و Cefdinir كل 12 ساعة • Cephalexin و Cefaclor كل 8 ساعات.",
+            howToTake: "Cefuroxime يُفضل بعد الطعام لزيادة امتصاصه؛ يُكمل الكورس كاملاً.",
+            importantNote: "الحذر عند وجود حساسية شديدة سابقة من السيفالوسبورينات أو البنسلينات.",
+            interactions: "يتداخل Cefuroxime مع مضادات الحموضة ومثبطات الحموضة (قد تقلل امتصاصه)، ومع Probenecid أو مميعات الدم.",
+            sideEffects: "إسهال خفيف، غثيان، ألم معدة، أو طفح جلدي تحسسي."
+        },
+        {
+            title: "Azithromycin / Clarithromycin / Erythromycin (الماكروليدات)",
+            category: "المضادات الميكروبية (Class 1)",
+            timing: "Azithromycin مرة واحدة يومياً لمدة 3-5 أيام • Clarithromycin كل 12 ساعة • Erythromycin كل 6-8 ساعات.",
+            howToTake: "كبسولات Azithromycin قبل الأكل بساعة أو بعده بساعتين (الأقراص/الشراب مع أو بدون أكل).",
+            importantNote: "يُحذر لدى مرضى اضطرابات نظم القلب (إطالة QT).",
+            interactions: "Clarithromycin و Erythromycin يتداخلان بشدة مع Statins (Simvastatin/Atorvastatin)، Colchicine، Warfarin، Carbamazepine، وأدوية نظم القلب.",
+            sideEffects: "غثيان، تقلصات بطن، إسهال، طعم معدني/مر بالفم مع Clarithromycin."
+        },
+        {
+            title: "Ciprofloxacin (سيبروفلوكساسين - الفلوروكينولونات)",
+            category: "المضادات الميكروبية (Class 1)",
+            timing: "كل 12 ساعة (مرتين يومياً) مع شرب كمية وفيرة من الماء.",
+            howToTake: "يُفصل عن الحليب والألبان والحديد والكالسيوم والزنك ومضادات الحموضة بـ 2 إلى 4 ساعات.",
+            importantNote: "ممنوع أثناء الحمل والرضاعة وللأطفال في معظم الحالات؛ يُوقف فوراً عند ألم أو التهاب الأوتار.",
+            interactions: "يتداخل بقوة مع الحديد، الكالسيوم، المغنيسيوم، الزنك، مضادات الحموضة (تمنع امتصاصه)، ومع Theophylline، Tizanidine، Warfarin، وأدوية السكري.",
+            sideEffects: "غثيان، إسهال، دوخة أو صداع، حساسية للشمس، ونادراً التهاب أو تمزق الأوتار."
+        },
+        {
+            title: "Metronidazole (ميترونيدازول / فلاجيل)",
+            category: "المضادات الميكروبية (Class 1)",
+            timing: "كل 8 ساعات (3 مرات يومياً) لمدة 5-7 أيام حسب الحالة.",
+            howToTake: "يُؤخذ مع الطعام أو بعده لتقليل الغثيان وتهيج المعدة.",
+            importantNote: "يُمنع تناول الكحول تماماً أثناء العلاج ولمدة 48 ساعة بعده لتجنب تفاعل شديد (قيء وخفقان).",
+            interactions: "يتداخل مع الكحول (تفاعل شبيه بالديسلفيرام)، ومع Warfarin (يزيد سيولة الدم)، ومع Lithium، وبعض أدوية الصرع.",
+            sideEffects: "طعم معدني في الفم، غثيان، فقدان شهية، صداع، أو تغير لون البول للداكن."
+        },
+        {
+            title: "Omeprazole / Pantoprazole / Esomeprazole (المعدة والحموضة)",
+            category: "أدوية الجهاز الهضمي (Class 10)",
             timing: "قبل الفطور بـ 30-60 دقيقة مرة واحدة يومياً (أو كل 12 ساعة في الحالات الشديدة).",
             howToTake: "تُبلع كاملة مع الماء دون كسر أو مضغ.",
             importantNote: "الاستخدام الطويل لعدة أشهر قد يقلل امتصاص المغنيسيوم أو B12 أو يؤثر على كثافة العظام.",
-            interactions: "يتداخل مع Clopidogrel (خصوصاً Omeprazole الذي قد يقلل فاعليته)، ومع الأدوية المعتمدة على حموضة المعدة للامتصاص (مثل بعض مضادات الفطريات أو الحديد)، ومع Methotrexate.",
+            interactions: "يتداخل مع Clopidogrel (خصوصاً Omeprazole الذي قد يقلل فاعليته)، ومع الأدوية المعتمدة على حموضة المعدة للامتصاص (مثل Ketoconazole أو الحديد)، ومع Methotrexate.",
             sideEffects: "صداع، إسهال أو إمساك، غازات، أو ألم بطني خفيف."
         },
         {
-            title: "Montelukast / Cetirizine / Pregabalin (التنفس والحساسية والأعصاب)",
-            category: "باقي الأمراض (التنفس والحساسية والأعصاب)",
-            timing: "Montelukast و Cetirizine مساءً مرة يومياً • Pregabalin كل 12 ساعة في مواعيد ثابتة.",
-            howToTake: "حسب الجرعة والالتزام بالمواعيد دون انقطاع مفاجئ لأدوية الأعصاب.",
-            importantNote: "Pregabalin لا يُوقف فجأة لتجنب أعراض الانسحاب أو الأرق والقلق؛ ويُحذر مع القيادة في بداية الاستخدام.",
-            interactions: "يتداخل Pregabalin مع المسكنات الأفيونية والمهدئات والمنومات (يزيد النعاس وتثبيط التنفس)؛ ويتداخل Cetirizine مع المهدئات الأخرى بزيادة النعاس.",
-            sideEffects: "نعاس أو دوخة أو جفاف فم وزيادة وزن خفيفة مع Pregabalin؛ نعاس خفيف مع Cetirizine؛ صداع أو أرق أو تغيرات مزاجية نادرة مع Montelukast."
+            title: "Domperidone / Ondansetron / Hyoscine / Mebeverine (القيء والمغص والقولون)",
+            category: "أدوية الجهاز الهضمي (Class 10)",
+            timing: "Domperidone و Mebeverine قبل الأكل بـ 15-30 دقيقة • Hyoscine عند المغص حتى 3 مرات • Ondansetron عند القيء.",
+            howToTake: "مع الماء؛ يُلتزم بالجرعة اليومية القصوى لـ Domperidone.",
+            importantNote: "Domperidone يُحذر في أمراض القلب واضطرابات النظم؛ Hyoscine يُحذر في الجلوكوما وتضخم البروستاتا.",
+            interactions: "Domperidone يتداخل مع الأدوية المطيلة لـ QT (مثل Clarithromycin, Erythromycin, Ketoconazole) ومضادات الكولين التي تضعف مفعوله.",
+            sideEffects: "جفاف الفم وتشوش الرؤية الخفيف مع Hyoscine؛ صداع أو إمساك مع Ondansetron؛ جفاف فم خفيف مع Domperidone."
+        },
+        {
+            title: "Ibuprofen / Diclofenac / Mefenamic Acid / Paracetamol (المسكنات ومضادات الالتهاب)",
+            category: "المسكنات والعظام والمفاصل (Class 15)",
+            timing: "Ibuprofen و Diclofenac و Mefenamic Acid بعد الأكل كل 8-12 ساعة • Paracetamol كل 6-8 ساعات.",
+            howToTake: "المسكنات المضادة للالتهاب (NSAIDs) تُؤخذ بعد الطعام مع كوب ماء كامل.",
+            importantNote: "NSAIDs ممنوعة في قرحة المعدة النشطة، قصور الكلى الشديد، والثلث الثالث من الحمل؛ Paracetamol يُلتزم بالحد الأقصى لحماية الكبد.",
+            interactions: "NSAIDs تتداخل مع أدوية الضغط والمدرات (تقلل مفعولها وتؤذي الكلى)، ومع مميعات الدم والأسبرين (ترفع خطر النزف الهضمي)، ومع الكورتيزون والليثيوم.",
+            sideEffects: "حرقة أو ألم بالمعدة، غثيان، احتباس سوائل أو ارتفاع ضغط مع NSAIDs."
+        },
+        {
+            title: "Montelukast / Cetirizine / Loratadine / Salbutamol (الحساسية والربو)",
+            category: "الجهاز التنفسي والحساسية (Class 9)",
+            timing: "Montelukast و Cetirizine مساءً مرة يومياً • Loratadine مرة يومياً • Salbutamol حسب الحاجة أو كل 8 ساعات.",
+            howToTake: "أقراص/شراب مع الماء أو بخاخ Salbutamol بالاستنشاق الصحيح.",
+            importantNote: "Montelukast دواء وقائي يومي للربو والحساسية وليس لإسعاف نوبة الربو الحادة.",
+            interactions: "Cetirizine يتداخل مع المهدئات والمنومات بزيادة النعاس؛ Salbutamol يتداخل مع حاصرات بيتا غير الانتقائية (مثل Propranolol) التي تعاكس مفعوله.",
+            sideEffects: "نعاس خفيف مع Cetirizine؛ صداع أو أرق مع Montelukast؛ رجفة يدين خفيفة أو تسارع نبض مع Salbutamol."
+        },
+        {
+            title: "Pregabalin / Gabapentin / Sertraline / Escitalopram (الأعصاب)",
+            category: "الجهاز العصبي المركزي (Class 11)",
+            timing: "Pregabalin كل 12 ساعة • Sertraline و Escitalopram مرة واحدة صباحاً أو مساءً في وقت ثابت.",
+            howToTake: "تُؤخذ بانتظام ويُمنع التوقف المفاجئ عنها دون تدرج بإشراف الطبيب.",
+            importantNote: "أدوية الاكتئاب والقلق تحتاج 2-4 أسابيع لظهور كامل التحسن؛ التوقف المفاجئ يسبب دوخة وأعراض انسحاب.",
+            interactions: "Pregabalin يتداخل مع المسكنات الأفيونية والمنومات بزيادة النعاس؛ Sertraline/Escitalopram تتداخل مع NSAIDs والأسبرين (زيادة النزيف) ومع Tramadol ومثبطات MAO (خطر متلازمة السيروتونين).",
+            sideEffects: "نعاس، دوخة، جفاف فم، زيادة وزن مع Pregabalin؛ غثيان خفيف أو أرق أو نعاس في أول أسبوعين مع Sertraline/Escitalopram."
+        },
+        {
+            title: "Tamsulosin / Nitrofurantoin (المسالك البولية والبروستاتا)",
+            category: "الجهاز البولي والتناسلي (Class 8)",
+            timing: "Tamsulosin مرة واحدة يومياً بعد الفطور بـ 30 دقيقة • Nitrofurantoin كل 6-12 ساعة مع الطعام.",
+            howToTake: "كبسولة Tamsulosin تُبلع كاملة دون فتحها أو سحقها؛ Nitrofurantoin يُؤخذ مع الأكل لتحسين الامتصاص وتقليل الغثيان.",
+            importantNote: "Tamsulosin قد يسبب هبوط ضغط عند الوقوف المفاجئ في الأيام الأولى.",
+            interactions: "Tamsulosin يتداخل مع أدوية الضغط وأدوية الضعف الجنسي (Sildenafil/Tadalafil) بزيادة هبوط الضغط؛ Nitrofurantoin يقل امتصاصه مع مضادات الحموضة المحتوية على المغنيسيوم.",
+            sideEffects: "دوخة عند الوقوف واحتقان أنف مع Tamsulosin؛ غثيان وتغير لون البول للأصفر الغامق/البني مع Nitrofurantoin."
+        },
+        {
+            title: "Vitamin D3 / Iron / Calcium / Folic Acid (الفيتامينات والمعادن)",
+            category: "التغذية والفيتامينات (Class 16)",
+            timing: "Vitamin D3 و Calcium مع الوجبة الدسمة • Iron على معدة فارغة أو بعد وجبة خفيفة ويفصل عن الشاي/القهوة والكالسيوم بـ 2-4 ساعات.",
+            howToTake: "تُفصل أملاح الحديد والكالسيوم عن Levothyroxine والمضادات الحيوية (Ciprofloxacin) بـ 4 ساعات.",
+            importantNote: "الحديد يغير لون البراز للأسود وهذا طبيعي وغير مقلق.",
+            interactions: "الحديد والكالسيوم يقللان امتصاص Levothyroxine و Ciprofloxacin و Tetracyclines؛ الكالسيوم يقلل امتصاص الحديد إذا أُخذا معاً.",
+            sideEffects: "إمساك أو غثيان وتلون البراز بالأسود مع الحديد؛ إمساك خفيف مع الكالسيوم."
         }
     ];
 
@@ -2476,7 +2622,7 @@
 
         scheduleMedicationsDB.forEach(m => {
             const blob = `${m.title} ${m.category} ${m.timing} ${m.interactions} ${m.sideEffects}`.toLowerCase();
-            if (blob.includes(term) && count < 5) {
+            if (blob.includes(term) && count < 6) {
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToScheduleWithQuery('${m.title.split('(')[0].trim()}')">
                         <strong>🕒 مواعيد وتداخلات: ${m.title}</strong>
@@ -2489,7 +2635,7 @@
 
         Object.entries(ivSolutionsMeta).forEach(([ivKey, ivObj]) => {
             const hay = `${ivKey} ${ivObj.name} ${ivObj.hint} ${ivObj.howGiven}`.toLowerCase();
-            if (hay.includes(term) && count < 7) {
+            if (hay.includes(term) && count < 8) {
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#38bdf8; cursor:pointer;" onclick="jumpToIvSolution('${ivKey}')">
                         <strong>💧 محلول وريدي: ${ivObj.name}</strong>
@@ -2504,7 +2650,7 @@
             const isMatch = rule.name.toLowerCase().includes(term) ||
                             rule.conc.toLowerCase().includes(term) ||
                             rule.keywords.some(k => k.toLowerCase().includes(term) || term.includes(k.toLowerCase()));
-            if (isMatch && count < 10) {
+            if (isMatch && count < 11) {
                 const ex15 = rule.calc(15);
                 const f15 = Number.isInteger(ex15) ? ex15 : ex15.toFixed(2);
                 hitsHTML += `
