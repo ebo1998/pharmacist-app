@@ -89,6 +89,12 @@
             border: 1px solid rgba(6, 182, 212, 0.45);
         }
 
+        .status-admin {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(139, 92, 246, 0.25));
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.6);
+        }
+
         .status-expired {
             background: rgba(244, 63, 94, 0.2);
             color: #fda4af;
@@ -116,6 +122,14 @@
             color: #0f172a;
             border: none;
             font-weight: 900;
+        }
+
+        .mini-top-btn.admin-btn {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            color: #fff;
+            border: 1px solid rgba(196, 181, 253, 0.4);
+            font-weight: 800;
+            display: none;
         }
 
         /* بوابات الدخول والاشتراك */
@@ -219,7 +233,7 @@
             border: 1px solid rgba(6, 182, 212, 0.35);
             border-radius: 10px;
             padding: 8px 12px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -232,13 +246,13 @@
             font-size: 0.92rem;
         }
 
-        .whatsapp-pay-btn {
+        .instagram-pay-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             width: 100%;
-            background: linear-gradient(135deg, #22c55e, #15803d);
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white;
             border: none;
             padding: 11px;
@@ -246,8 +260,22 @@
             font-weight: 800;
             font-size: 0.88rem;
             cursor: pointer;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.35);
+        }
+
+        .copy-msg-ig-btn {
+            width: 100%;
+            background: rgba(236, 72, 153, 0.15);
+            color: #f9a8d4;
+            border: 1px solid rgba(236, 72, 153, 0.4);
+            padding: 8px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-bottom: 12px;
         }
 
         header {
@@ -770,12 +798,6 @@
             font-weight: 600;
         }
 
-        .drug-tag small {
-            color: #fbbf24;
-            font-size: 0.7rem;
-            margin-right: 4px;
-        }
-
         .calc-subtabs {
             display: flex;
             gap: 6px;
@@ -1160,8 +1182,8 @@
         <span id="subscriptionBadge" class="status-chip status-trial">جاري التحقق...</span>
     </div>
     <div class="top-bar-actions">
-        <button class="mini-top-btn pay-now" onclick="openPaymentModal()">💎 ترقية الاشتراك ($1 / شهر)</button>
-        <button class="mini-top-btn" onclick="openOwnerDashboard()">🔐 الإدارة</button>
+        <button id="upgradeSubBtn" class="mini-top-btn pay-now" onclick="openPaymentModal()">💎 ترقية الاشتراك ($1 / شهر)</button>
+        <button id="adminPanelBtn" class="mini-top-btn admin-btn" onclick="openOwnerDashboard()">🔐 لوحة الإدارة</button>
         <button class="mini-top-btn" onclick="logoutUserEmail()">تغيير الإيميل</button>
     </div>
 </div>
@@ -1176,7 +1198,7 @@
             <label>📧 البريد الإلكتروني (Gmail / Email):</label>
             <input type="email" id="loginEmailInput" class="form-control" placeholder="example@gmail.com" dir="ltr">
         </div>
-        <button class="calc-btn" onclick="registerUserEmail()">🚀 دخول وبدء الفترة المجانية (7 أيام)</button>
+        <button class="calc-btn" onclick="registerUserEmail()">🚀 دخول البرنامج</button>
     </div>
 </div>
 
@@ -1185,7 +1207,7 @@
     <div class="gate-box">
         <div class="ai-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:#f59e0b;">💎 اشتراك التطبيق — Pro License</div>
         <h2>تفعيل الاشتراك الشهري (30 يوماً)</h2>
-        <p id="paymentGateReason">لتفعيل النسخة الكاملة لمدة <strong>30 يوماً</strong>، قم بتحويل <strong>1$</strong> عبر الكي كارد ثم أرسل معرّف جهازك لاستلام كود التفعيل الخاص بجهازك فوراً:</p>
+        <p id="paymentGateReason">لتفعيل النسخة الكاملة لمدة <strong>30 يوماً</strong>، قم بتحويل <strong>1$</strong> عبر الكي كارد ثم أرسل معرّف جهازك على إنستغرام الإدارة لاستلام كود التفعيل فوراً:</p>
         
         <div class="app-plan-card">
             <div class="app-plan-header">
@@ -1207,9 +1229,12 @@
             <button class="copy-mini-btn" style="color:#22d3ee; border-color:rgba(34,211,238,0.4); background:rgba(34,211,238,0.12);" onclick="copyTextValue('userDeviceIdDisplay')">نسخ المعرّف</button>
         </div>
 
-        <a id="whatsappRequestLink" href="#" target="_blank" class="whatsapp-pay-btn">
-            💬 إرسال إشعار الدفع ($1) ومعرّف الجهاز عبر واتساب
+        <a id="instagramRequestLink" href="https://instagram.com/ebo.rr" target="_blank" class="instagram-pay-btn">
+            📸 مراسلة الإدارة على إنستغرام (@ebo.rr) لإرسال الإشعار
         </a>
+        <button class="copy-msg-ig-btn" onclick="copyActivationRequestMessage()">
+            📋 نسخ رسالة التفعيل جاهزة (الإيميل + معرّف الجهاز) للصقها في إنستغرام
+        </button>
 
         <div class="form-group">
             <label>🔑 أدخل كود التفعيل (Activation Key) الخاص بجهازك:</label>
@@ -1221,18 +1246,18 @@
     </div>
 </div>
 
-<!-- 3. لوحة تحكم الحساب الرئيسي -->
+<!-- 3. لوحة تحكم الحساب الرئيسي الحصرية (iboibo4422@gmail.com) -->
 <div id="ownerDashboardModal" class="gate-overlay">
     <div class="gate-box" style="max-width:540px; text-align:right;">
-        <h2 style="text-align:center;">🔐 لوحة تحكم الحساب الرئيسي</h2>
-        <p style="text-align:center;">توليد أكواد تفعيل المشتركين وإدارة بطاقة الكي كارد الرئيسية.</p>
+        <h2 style="text-align:center;">🔐 لوحة تحكم الإدارة الحصرية</h2>
+        <p style="text-align:center; color:#fbbf24; font-weight:700;">الحساب الرئيسي: iboibo4422@gmail.com • إنستغرام: @ebo.rr</p>
 
         <div id="ownerAuthArea">
             <div class="form-group">
-                <label>🔑 رمز التحقق:</label>
+                <label>🔑 رمز التحقق الأمني:</label>
                 <input type="password" id="ownerPinInput" class="form-control" placeholder="••••••••••" dir="ltr">
             </div>
-            <button class="calc-btn" onclick="unlockOwnerDashboard()">دخول</button>
+            <button class="calc-btn" onclick="unlockOwnerDashboard()">دخول لوحة الإدارة</button>
             <button class="mini-pdf-btn" style="width:100%;" onclick="closeOwnerDashboard()">إغلاق</button>
         </div>
 
@@ -1249,7 +1274,7 @@
                 </div>
                 <button class="calc-btn" style="padding:9px; font-size:0.85rem;" onclick="generateSubscriberKey()">🔑 توليد كود التفعيل وتسجيل $1</button>
                 <div id="generatedKeyBox" style="display:none; margin-top:8px; background:rgba(16,185,129,0.15); border:1px solid #10b981; padding:8px; border-radius:8px; text-align:center;">
-                    <span style="font-size:0.75rem; color:#a7f3d0; display:block;">انسخ هذا الكود وأرسله للمشترك:</span>
+                    <span style="font-size:0.75rem; color:#a7f3d0; display:block;">انسخ هذا الكود وأرسله للمشترك على إنستغرام:</span>
                     <code id="generatedKeyOutput" style="font-size:1.05rem; font-weight:900; color:#34d399; letter-spacing:1px;"></code>
                 </div>
             </div>
@@ -1260,8 +1285,8 @@
                     <input type="text" id="merchantCardEditInput" class="form-control" dir="ltr">
                 </div>
                 <div class="form-group">
-                    <label style="font-size:0.78rem;">📱 رقم واتساب الاستلام (مع رمز الدولة):</label>
-                    <input type="text" id="merchantWhatsappInput" class="form-control" placeholder="9647700000000" dir="ltr">
+                    <label style="font-size:0.78rem;">📸 معرّف إنستغرام الاستلام:</label>
+                    <input type="text" id="merchantInstagramInput" class="form-control" value="ebo.rr" dir="ltr">
                 </div>
             </div>
             <button class="calc-btn" style="padding:9px; font-size:0.85rem;" onclick="saveMerchantSettings()">💾 حفظ بيانات الاستلام</button>
@@ -1492,7 +1517,7 @@
         </div>
     </div>
 
-    <!-- القسم الثاني: الـ 18 Class العالمي بنظام الشجرة المتداخلة (الكلاس -> العائلة الدوائية -> الأدوية القياسية) -->
+    <!-- القسم الثاني: الـ 18 Class العالمي بنظام الشجرة المتداخلة -->
     <div id="sec2" class="section-content">
         <div class="action-bar">
             <span>🧬 موسوعة الـ 18 Class القياسية — اضغط على الكلاس لتظهر العوائل الدوائية، واضغط على أي عائلة لتظهر أدويتها:</span>
@@ -1911,7 +1936,7 @@
 </div>
 
 <footer>
-    <p>تم التصميم والتطوير بواسطة <strong>إبراهيم إسماعيل</strong> | #Made_by_Ibrahim_Ismail</p>
+    <p>تم التصميم والتطوير بواسطة <strong>إبراهيم إسماعيل</strong> | Instagram: <strong>@ebo.rr</strong> | #Made_by_Ibrahim_Ismail</p>
 </footer>
 
 <script>
@@ -1927,15 +1952,21 @@
         }
     });
 
-    /* ================= 2. نظام ربط الإيميل + التجربة المجانية 7 أيام + تفعيل التطبيق ================= */
-    const STORAGE_KEY_USER = "ai_pharmacy_user_account_v2";
-    const STORAGE_KEY_DEVICE = "ai_pharmacy_device_id_v2";
-    const STORAGE_KEY_MERCHANT_CARD = "ai_pharmacy_merchant_qicard_v2";
-    const STORAGE_KEY_MERCHANT_WA = "ai_pharmacy_merchant_wa_v2";
-    const STORAGE_KEY_PAYMENTS = "ai_pharmacy_payments_log_v2";
-    const STORAGE_KEY_USED_KEYS = "ai_pharmacy_used_keys_v2";
+    /* ================= 2. نظام ربط الإيميل + الإيميل الحصري للإدارة + التفعيل عبر إنستغرام ================= */
+    const EXCLUSIVE_ADMIN_EMAIL = "iboibo4422@gmail.com";
+    const DEFAULT_INSTAGRAM_HANDLE = "ebo.rr";
+    const STORAGE_KEY_USER = "ai_pharmacy_user_account_v3";
+    const STORAGE_KEY_DEVICE = "ai_pharmacy_device_id_v3";
+    const STORAGE_KEY_MERCHANT_CARD = "ai_pharmacy_merchant_qicard_v3";
+    const STORAGE_KEY_MERCHANT_IG = "ai_pharmacy_merchant_ig_v3";
+    const STORAGE_KEY_PAYMENTS = "ai_pharmacy_payments_log_v3";
+    const STORAGE_KEY_USED_KEYS = "ai_pharmacy_used_keys_v3";
     const _0xADMIN_KEY = "AA9955BB66";
     const DAY_MS = 24 * 60 * 60 * 1000;
+
+    function isExclusiveAdmin(email) {
+        return (email || "").trim().toLowerCase() === EXCLUSIVE_ADMIN_EMAIL;
+    }
 
     function getOrCreateDeviceId() {
         let devId = localStorage.getItem(STORAGE_KEY_DEVICE);
@@ -1965,8 +1996,8 @@
         return localStorage.getItem(STORAGE_KEY_MERCHANT_CARD) || "7110-4829-9301-2026";
     }
 
-    function getMerchantWhatsapp() {
-        return localStorage.getItem(STORAGE_KEY_MERCHANT_WA) || "9647700000000";
+    function getMerchantInstagram() {
+        return (localStorage.getItem(STORAGE_KEY_MERCHANT_IG) || DEFAULT_INSTAGRAM_HANDLE).replace(/^@/, '');
     }
 
     function copyTextValue(elId) {
@@ -1977,20 +2008,37 @@
         }
     }
 
-    function updatePaymentModalInfo(userEmail) {
+    function copyActivationRequestMessage() {
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        const email = saved ? JSON.parse(saved).email : "";
         const devId = getOrCreateDeviceId();
+        const igHandle = getMerchantInstagram();
+        const msg = `مرحباً @${igHandle}، قمت بتحويل 1$ عبر الكي كارد لتفعيل تطبيق الصيدلة (30 يوم).\n📧 الإيميل: ${email}\n📱 معرّف الجهاز: ${devId}`;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(msg);
+            alert("✅ تم نسخ رسالة التفعيل، افتح إنستغرام والصقها في الرسائل الخاصة لـ @" + igHandle);
+        }
+    }
+
+    function updatePaymentModalInfo() {
+        const devId = getOrCreateDeviceId();
+        const igHandle = getMerchantInstagram();
         document.getElementById('merchantQiCardDisplay').innerText = getMerchantCard();
         document.getElementById('userDeviceIdDisplay').innerText = devId;
-        const waNum = getMerchantWhatsapp().replace(/[^0-9]/g, '');
-        const msg = encodeURIComponent(`مرحباً، قمت بتحويل 1$ عبر الكي كارد لتفعيل تطبيق الصيدلة (30 يوم).\nالإيميل: ${userEmail || ''}\nمعرّف الجهاز: ${devId}`);
-        document.getElementById('whatsappRequestLink').href = `https://wa.me/${waNum}?text=${msg}`;
+        const igLink = document.getElementById('instagramRequestLink');
+        igLink.href = `https://instagram.com/${igHandle}`;
+        igLink.innerText = `📸 مراسلة الإدارة على إنستغرام (@${igHandle}) لإرسال الإشعار`;
     }
 
     function initSubscriptionSystem() {
         const saved = localStorage.getItem(STORAGE_KEY_USER);
-        updatePaymentModalInfo(saved ? JSON.parse(saved).email : "");
+        updatePaymentModalInfo();
+
+        const adminBtn = document.getElementById('adminPanelBtn');
+        const upgradeBtn = document.getElementById('upgradeSubBtn');
 
         if (!saved) {
+            adminBtn.style.display = 'none';
             document.getElementById('emailGateModal').classList.add('open');
             return;
         }
@@ -1999,6 +2047,18 @@
         document.getElementById('displayUserEmail').innerText = user.email;
         const now = Date.now();
         const badge = document.getElementById('subscriptionBadge');
+
+        if (isExclusiveAdmin(user.email)) {
+            badge.className = "status-chip status-admin";
+            badge.innerText = "👑 حساب الإدارة الحصري • مفتوح بالكامل";
+            adminBtn.style.display = 'inline-block';
+            upgradeBtn.style.display = 'none';
+            document.getElementById('paymentGateModal').classList.remove('open');
+            return;
+        } else {
+            adminBtn.style.display = 'none';
+            upgradeBtn.style.display = 'inline-block';
+        }
 
         if (user.paidUntil && now < user.paidUntil) {
             const daysLeft = Math.ceil((user.paidUntil - now) / DAY_MS);
@@ -2038,6 +2098,7 @@
             const now = Date.now();
             userObj = {
                 email: email,
+                isAdmin: isExclusiveAdmin(email),
                 createdAt: now,
                 trialEndsAt: now + (7 * DAY_MS),
                 paidUntil: null,
@@ -2056,8 +2117,7 @@
     }
 
     function openPaymentModal() {
-        const saved = localStorage.getItem(STORAGE_KEY_USER);
-        updatePaymentModalInfo(saved ? JSON.parse(saved).email : "");
+        updatePaymentModalInfo();
         document.getElementById('closePayModalBtn').style.display = 'inline-block';
         document.getElementById('paymentGateModal').classList.add('open');
     }
@@ -2067,7 +2127,7 @@
         if (!saved) return;
         const user = JSON.parse(saved);
         const now = Date.now();
-        if ((user.paidUntil && now < user.paidUntil) || now < user.trialEndsAt) {
+        if (isExclusiveAdmin(user.email) || (user.paidUntil && now < user.paidUntil) || now < user.trialEndsAt) {
             document.getElementById('paymentGateModal').classList.remove('open');
         } else {
             alert("انتهت فترة الـ 7 أيام المجانية، يرجى إدخال كود التفعيل الشهري ($1) للاستمرار.");
@@ -2120,6 +2180,12 @@
     }
 
     function openOwnerDashboard() {
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        const currentEmail = saved ? JSON.parse(saved).email : "";
+        if (!isExclusiveAdmin(currentEmail)) {
+            alert("⛔ هذه اللوحة حصرية لإيميل الإدارة الرئيسي فقط.");
+            return;
+        }
         document.getElementById('ownerAuthArea').style.display = 'block';
         document.getElementById('ownerContentArea').style.display = 'none';
         document.getElementById('ownerPinInput').value = "";
@@ -2131,6 +2197,12 @@
     }
 
     function unlockOwnerDashboard() {
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        const currentEmail = saved ? JSON.parse(saved).email : "";
+        if (!isExclusiveAdmin(currentEmail)) {
+            alert("⛔ غير مصرح بالدخول.");
+            return;
+        }
         const pin = document.getElementById('ownerPinInput').value.trim();
         if (pin !== _0xADMIN_KEY) {
             alert("رمز التحقق غير صحيح.");
@@ -2139,7 +2211,7 @@
         document.getElementById('ownerAuthArea').style.display = 'none';
         document.getElementById('ownerContentArea').style.display = 'block';
         document.getElementById('merchantCardEditInput').value = getMerchantCard();
-        document.getElementById('merchantWhatsappInput').value = getMerchantWhatsapp();
+        document.getElementById('merchantInstagramInput').value = getMerchantInstagram();
         renderOwnerLogs();
     }
 
@@ -2185,14 +2257,15 @@
 
     function saveMerchantSettings() {
         const newCard = document.getElementById('merchantCardEditInput').value.trim();
-        const newWa = document.getElementById('merchantWhatsappInput').value.trim();
+        const newIg = document.getElementById('merchantInstagramInput').value.trim().replace(/^@/, '');
         if (newCard.length >= 6) {
             localStorage.setItem(STORAGE_KEY_MERCHANT_CARD, newCard);
         }
-        if (newWa.length >= 8) {
-            localStorage.setItem(STORAGE_KEY_MERCHANT_WA, newWa);
+        if (newIg.length >= 2) {
+            localStorage.setItem(STORAGE_KEY_MERCHANT_IG, newIg);
         }
-        alert("✅ تم حفظ رقم بطاقة الكي كارد وواتساب الاستلام.");
+        updatePaymentModalInfo();
+        alert("✅ تم حفظ بطاقة الكي كارد ومعرّف إنستغرام الاستلام (@" + getMerchantInstagram() + ").");
     }
 
     initSubscriptionSystem();
@@ -3244,7 +3317,7 @@
             hitsList.innerHTML = hitsHTML;
             instantBox.style.display = 'block';
         } else {
-            hitsList.innerHTML = `<div class="instant-hit">لم يتم العثور على تطابق مباشر لـ "${rawTerm}".</div>`;
+            hitsList.innerHTML = `<div class="instant-hit">لم يتم العور على تطابق مباشر لـ "${rawTerm}".</div>`;
             instantBox.style.display = 'block';
         }
     });
@@ -3311,7 +3384,7 @@
             </div>
             <div>${clone.innerHTML}</div>
             <div style="margin-top:20px; padding-top:8px; border-top:1px solid #cbd5e1; text-align:center; font-size:0.78rem;">
-                إعداد وتطوير: إبراهيم إسماعيل | Made by Ibrahim Ismail
+                إعداد وتطوير: إبراهيم إسماعيل | Instagram: @ebo.rr | Made by Ibrahim Ismail
             </div>
         `;
         document.getElementById('pdfModalTitle').innerText = "📄 " + fileName.replace(/_/g, ' ');
