@@ -576,12 +576,12 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
         }
 
         table.dose-table th, table.dose-table td {
             border: 1px solid rgba(148, 163, 184, 0.25);
-            padding: 8px 5px;
+            padding: 8px 6px;
             text-align: center;
         }
 
@@ -697,16 +697,16 @@
 <body>
 
 <header>
-    <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الذكاء الصيدلاني (مل / سي سي)</div>
+    <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الحساب الميداني بالسي سي (1 مل = 1 سي سي)</div>
     <h1>أكاديمية الصيدلة والجرعات الذكية</h1>
-    <p>تعليم الصيدلة • الـ 18 كلاس العالمي • حساب الجرعات بالمل والسي سي • مواعيد الأدوية</p>
+    <p>تعليم الصيدلة • الـ 18 كلاس العالمي • حساب الجرعات بالسي سي • مواعيد الأدوية</p>
 </header>
 
 <!-- شريط البحث الذكي الفوري -->
 <div class="ai-search-wrapper">
     <div class="ai-search-box">
         <span style="font-size:1.2rem; margin-left:6px;">🤖</span>
-        <input type="text" id="aiSearchInput" placeholder="ابحث فوراً (مثلاً: مل، سي سي، Cefixime، Amoxicillin، Omeprazole)...">
+        <input type="text" id="aiSearchInput" placeholder="ابحث بالسي سي أو مل أو اسم الدواء (مثلاً: ميترونيدازول، سيفيكسيم، بروفين، مغذيات، no-vomit)...">
         <button id="clearSearchBtn" class="clear-search" onclick="clearAiSearch()">✕</button>
     </div>
 </div>
@@ -716,7 +716,7 @@
     <div class="ai-instant-card">
         <div class="ai-instant-header">
             <span id="aiHitsCount">⚡ نتائج البحث الفورية الذكية:</span>
-            <span style="font-size:0.75rem; color:#94a3b8;">نظام مل / سي سي</span>
+            <span style="font-size:0.75rem; color:#94a3b8;">1 مل = 1 سي سي</span>
         </div>
         <div id="aiHitsList"></div>
     </div>
@@ -774,7 +774,7 @@
             <ul class="step-list">
                 <li><strong>التداخلات الدوائية (Drug Interactions):</strong> منع إعطاء أدوية تتعارض مع بعضها (مثل الكالسيوم أو الحديد مع المضاد الحيوي Ciprofloxacin).</li>
                 <li><strong>موانع الاستعمال (Contraindications):</strong> الأدوية الممنوعة للحوامل (تصنيف X و D)، المرضعات، مرضى الربو، وقرحة المعدة.</li>
-                <li><strong>حساب الجرعات للأطفال وكبار السن:</strong> ضبط الجرعة حسب الوزن (mg/kg) ووظائف الكلى.</li>
+                <li><strong>حساب الجرعات للأطفال وكبار السن:</strong> ضبط الجرعة حسب الوزن ووظائف الكلى.</li>
             </ul>
             <button class="mini-pdf-btn" onclick="openPdfViewer('card-clinical', 'الصيدلة_السريرية')">📄 فتح ملف PDF الخاص بالقسم</button>
         </div>
@@ -805,59 +805,28 @@
                 <button class="accordion-header" onclick="toggleAccordion(this)">
                     <div>
                         <span class="class-pill">Class 1</span> المضادات الميكروبية والحيوية
-                        <span class="en-sub">Antimicrobial drugs (Antibiotics, Antivirals, Antifungals, Antiparasitics)</span>
+                        <span class="en-sub">Antimicrobial drugs</span>
                     </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. البنسلينات (Penicillins)</h4>
+                        <h4>البنسلينات، السيفالوسبورينات، الماكروليدات، والمضادات الأخرى</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Amoxicillin</span>
                             <span class="drug-tag">Co-Amoxiclav (Augmentin)</span>
-                            <span class="drug-tag">Ampicillin</span>
-                            <span class="drug-tag">Benzathine Penicillin</span>
-                            <span class="drug-tag">Piperacillin + Tazobactam</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>2. السيفالوسبورينات (Cephalosporins - الأجيال الخمسة)</h4>
-                        <p>الجيل 1: Cephalexin, Cefadroxil | الجيل 2: Cefuroxime, Cefaclor | الجيل 3: Ceftriaxone, Cefixime, Cefotaxime, Cefpodoxime | الجيل 4: Cefepime | الجيل 5: Ceftaroline.</p>
-                    </div>
-                    <div class="sub-family">
-                        <h4>3. الماكروليدات (Macrolides) & اللينكوزاميدات</h4>
-                        <div class="drugs-tags">
+                            <span class="drug-tag">Cefixime</span>
+                            <span class="drug-tag">Cefdinir</span>
+                            <span class="drug-tag">Cephalexin</span>
+                            <span class="drug-tag">Cefadroxil</span>
+                            <span class="drug-tag">Cefaclor</span>
+                            <span class="drug-tag">Cefuroxime</span>
+                            <span class="drug-tag">Cefpodoxime</span>
                             <span class="drug-tag">Azithromycin</span>
                             <span class="drug-tag">Clarithromycin</span>
                             <span class="drug-tag">Erythromycin</span>
-                            <span class="drug-tag">Clindamycin</span>
-                            <span class="drug-tag">Lincomycin</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>4. الفلوروكينولونات، التتراسيكلينات، الأمينوغليكوزيدات، والكاربابينيمات</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Ciprofloxacin</span>
-                            <span class="drug-tag">Levofloxacin</span>
-                            <span class="drug-tag">Moxifloxacin</span>
-                            <span class="drug-tag">Doxycycline</span>
-                            <span class="drug-tag">Gentamicin</span>
-                            <span class="drug-tag">Amikacin</span>
-                            <span class="drug-tag">Meropenem</span>
-                            <span class="drug-tag">Vancomycin</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>5. مضادات الفطريات والفيروسات والطفيليات والديدان</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Fluconazole</span>
-                            <span class="drug-tag">Itraconazole</span>
-                            <span class="drug-tag">Nystatin</span>
-                            <span class="drug-tag">Acyclovir</span>
-                            <span class="drug-tag">Oseltamivir</span>
                             <span class="drug-tag">Metronidazole</span>
-                            <span class="drug-tag">Albendazole</span>
-                            <span class="drug-tag">Mebendazole</span>
+                            <span class="drug-tag">Ciprofloxacin</span>
                         </div>
                     </div>
                 </div>
@@ -873,21 +842,12 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. مثبطات ACE، حاصرات ARBs، حاصرات بيتا، وحاصرات قنوات الكالسيوم</h4>
+                        <h4>أدوية الضغط، القلب، الدهون، ومميعات الدم</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Captopril / Enalapril / Lisinopril / Ramipril</span>
                             <span class="drug-tag">Losartan / Valsartan / Candesartan / Telmisartan</span>
-                            <span class="drug-tag">Bisoprolol / Metoprolol / Atenolol / Propranolol / Carvedilol</span>
-                            <span class="drug-tag">Amlodipine / Nifedipine / Verapamil / Diltiazem</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>2. مدرات البول، خافضات الدهون، مميعات الدم، ومقويات القلب</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Furosemide / Hydrochlorothiazide / Spironolactone</span>
-                            <span class="drug-tag">Atorvastatin / Rosuvastatin</span>
-                            <span class="drug-tag">Aspirin / Clopidogrel / Warfarin / Rivaroxaban</span>
-                            <span class="drug-tag">Nitroglycerin / Digoxin</span>
+                            <span class="drug-tag">Bisoprolol / Metoprolol / Atenolol / Propranolol</span>
+                            <span class="drug-tag">Amlodipine / Furosemide / Atorvastatin / Aspirin</span>
                         </div>
                     </div>
                 </div>
@@ -903,14 +863,12 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>قطرات ومراهم المضادات، الكورتيزون، الحساسية، ضغط العين، والترطيب</h4>
+                        <h4>قطرات ومراهم العيون</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Tobramycin</span>
                             <span class="drug-tag">Moxifloxacin</span>
-                            <span class="drug-tag">Fluorometholone (FML)</span>
                             <span class="drug-tag">Tobradex</span>
                             <span class="drug-tag">Olopatadine</span>
-                            <span class="drug-tag">Timolol / Latanoprost</span>
                             <span class="drug-tag">Sodium Hyaluronate</span>
                         </div>
                     </div>
@@ -927,12 +885,10 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>قطرات الأذن، مذيبات الشمع، وأدوية الدوار</h4>
+                        <h4>قطرات الأذن وأدوية الدوار</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Ciprofloxacin Ear Drops</span>
-                            <span class="drug-tag">Ciprofloxacin + Dexamethasone</span>
                             <span class="drug-tag">Clotrimazole Otic</span>
-                            <span class="drug-tag">Docusate Sodium</span>
                             <span class="drug-tag">Betahistine</span>
                         </div>
                     </div>
@@ -949,14 +905,13 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>خافضات السكر الفموية والإنسولين ونظائر GLP-1</h4>
+                        <h4>خافضات السكر الفموية والإنسولين</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Metformin</span>
-                            <span class="drug-tag">Glimepiride / Gliclazide</span>
-                            <span class="drug-tag">Sitagliptin / Vildagliptin / Linagliptin</span>
-                            <span class="drug-tag">Empagliflozin / Dapagliflozin</span>
-                            <span class="drug-tag">Insulin Regular / NPH / Glargine / Aspart</span>
-                            <span class="drug-tag">Semaglutide / Liraglutide</span>
+                            <span class="drug-tag">Glimepiride</span>
+                            <span class="drug-tag">Sitagliptin</span>
+                            <span class="drug-tag">Empagliflozin</span>
+                            <span class="drug-tag">Insulin</span>
                         </div>
                     </div>
                 </div>
@@ -972,10 +927,10 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>أدوية خمول وفرط نشاط الغدة الدرقية</h4>
+                        <h4>أدوية الغدة الدرقية</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Levothyroxine</span>
-                            <span class="drug-tag">Carbimazole / Methimazole</span>
+                            <span class="drug-tag">Carbimazole</span>
                             <span class="drug-tag">Propylthiouracil</span>
                         </div>
                     </div>
@@ -992,13 +947,11 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>محفزات التبويض والهرمونات المحفزة للمناسل</h4>
+                        <h4>منشطات التبويض والهرمونات</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Clomiphene Citrate</span>
                             <span class="drug-tag">Letrozole</span>
-                            <span class="drug-tag">Menotropins (HMG)</span>
-                            <span class="drug-tag">hCG (Pregnyl)</span>
-                            <span class="drug-tag">Cabergoline</span>
+                            <span class="drug-tag">hCG</span>
                         </div>
                     </div>
                 </div>
@@ -1014,12 +967,11 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>أدوية البروستاتا، المسالك البولية، المثانة، والضعف الجنسي</h4>
+                        <h4>أدوية المسالك والبروستاتا</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Tamsulosin / Alfuzosin / Finasteride / Dutasteride</span>
-                            <span class="drug-tag">Nitrofurantoin / Fosfomycin / Phenazopyridine</span>
-                            <span class="drug-tag">Potassium Citrate / Solifenacin / Oxybutynin</span>
-                            <span class="drug-tag">Sildenafil / Tadalafil</span>
+                            <span class="drug-tag">Tamsulosin</span>
+                            <span class="drug-tag">Nitrofurantoin</span>
+                            <span class="drug-tag">Potassium Citrate</span>
                         </div>
                     </div>
                 </div>
@@ -1035,11 +987,12 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>مضادات الهيستامين، موسعات القصبات، بخاخات الربو، وأدوية السعال</h4>
+                        <h4>الحساسية، الربو، والسعال</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Loratadine / Desloratadine / Cetirizine / Levocetirizine / Fexofenadine</span>
-                            <span class="drug-tag">Salbutamol / Budesonide+Formoterol / Fluticasone+Salmeterol</span>
-                            <span class="drug-tag">Montelukast / Ambroxol / Bromhexine / Dextromethorphan</span>
+                            <span class="drug-tag">Loratadine</span>
+                            <span class="drug-tag">Cetirizine</span>
+                            <span class="drug-tag">Salbutamol</span>
+                            <span class="drug-tag">Montelukast</span>
                         </div>
                     </div>
                 </div>
@@ -1055,12 +1008,11 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>مثبطات الحموضة، مضادات التقلص، القيء، الملينات، ومضادات الإسهال</h4>
+                        <h4>المعدة، القيء، المغص، والإسهال</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Omeprazole / Esomeprazole / Pantoprazole / Famotidine</span>
-                            <span class="drug-tag">Hyoscine / Mebeverine / Tiemonium / Simethicone</span>
-                            <span class="drug-tag">Ondansetron / Domperidone / Metoclopramide</span>
-                            <span class="drug-tag">Lactulose / Bisacodyl / Loperamide / ORS</span>
+                            <span class="drug-tag">Omeprazole / Pantoprazole</span>
+                            <span class="drug-tag">No-Vomit / Domperidone / Ondansetron</span>
+                            <span class="drug-tag">Hyoscine / Mebeverine / ORS</span>
                         </div>
                     </div>
                 </div>
@@ -1076,12 +1028,10 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>مضادات الاكتئاب، القلق، الصرع، الذهان، باركنسون، والصداع النصفي</h4>
+                        <h4>أدوية الجهاز العصبي</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Sertraline / Fluoxetine / Escitalopram / Duloxetine</span>
-                            <span class="drug-tag">Pregabalin / Gabapentin / Carbamazepine / Valproic Acid / Levetiracetam</span>
-                            <span class="drug-tag">Risperidone / Olanzapine / Quetiapine / Haloperidol</span>
-                            <span class="drug-tag">Levodopa+Carbidopa / Sumatriptan</span>
+                            <span class="drug-tag">Sertraline / Escitalopram</span>
+                            <span class="drug-tag">Pregabalin / Gabapentin / Levetiracetam</span>
                         </div>
                     </div>
                 </div>
@@ -1097,11 +1047,10 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>الكورتيزونات الموضعية، حب الشباب، المضادات الجلدية، الفطريات، والحروق</h4>
+                        <h4>أدوية الجلدية</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Hydrocortisone / Mometasone / Betamethasone / Clobetasol</span>
-                            <span class="drug-tag">Isotretinoin / Adapalene / Benzoyl Peroxide</span>
-                            <span class="drug-tag">Fusidic Acid / Mupirocin / Terbinafine / Silver Sulfadiazine</span>
+                            <span class="drug-tag">Hydrocortisone / Betamethasone / Mometasone</span>
+                            <span class="drug-tag">Fusidic Acid / Terbinafine</span>
                         </div>
                     </div>
                 </div>
@@ -1117,10 +1066,9 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>المراهم والتحاميل الموضعية والمقويات الوريدية</h4>
+                        <h4>مراهم وتحاميل ومقويات الأوردة</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Tribenoside + Lidocaine</span>
-                            <span class="drug-tag">Fluocortolone + Lidocaine</span>
                             <span class="drug-tag">Diosmin + Hesperidin</span>
                         </div>
                     </div>
@@ -1137,12 +1085,10 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>مثبتات الحمل، منظمات الدورة، موانع الحمل، والتحاميل المهبلية</h4>
+                        <h4>أدوية النسائية</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Dydrogesterone / Progesterone / Norethisterone</span>
-                            <span class="drug-tag">Ethinylestradiol + Drospirenone</span>
-                            <span class="drug-tag">Clotrimazole / Miconazole / Metronidazole+Miconazole</span>
-                            <span class="drug-tag">Tranexamic Acid</span>
+                            <span class="drug-tag">Dydrogesterone / Progesterone</span>
+                            <span class="drug-tag">Clotrimazole / Tranexamic Acid</span>
                         </div>
                     </div>
                 </div>
@@ -1158,11 +1104,10 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>المسكنات، مضادات الالتهاب، مرخيات العضلات، النقرس، وهشاشة العظام</h4>
+                        <h4>المسكنات ومضادات الالتهاب</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Paracetamol / Ibuprofen / Diclofenac / Naproxen / Celecoxib / Etoricoxib</span>
-                            <span class="drug-tag">Chlorzoxazone / Orphenadrine / Baclofen / Tizanidine / Thiocolchicoside</span>
-                            <span class="drug-tag">Allopurinol / Febuxostat / Colchicine / Alendronate</span>
+                            <span class="drug-tag">Paracetamol / Ibuprofen / Diclofenac / Mefenamic Acid</span>
+                            <span class="drug-tag">Allopurinol / Colchicine</span>
                         </div>
                     </div>
                 </div>
@@ -1178,10 +1123,10 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>الفيتامينات، المعادن، الحديد، الكالسيوم، وفواتح الشهية</h4>
+                        <h4>الفيتامينات والمعادن</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Vitamin D3 / B-Complex / B12 / Folic Acid / Vitamin C / E</span>
-                            <span class="drug-tag">Ferrous Sulfate / Calcium+D3 / Zinc / Magnesium / Omega-3</span>
+                            <span class="drug-tag">Vitamin D3 / B-Complex / Folic Acid</span>
+                            <span class="drug-tag">Iron / Calcium / Zinc</span>
                         </div>
                     </div>
                 </div>
@@ -1197,10 +1142,9 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>العلاج الكيميائي الخلوي والهرموني والموجه</h4>
+                        <h4>أدوية الأورام</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Cyclophosphamide / Cisplatin / Doxorubicin / Paclitaxel / Capecitabine</span>
-                            <span class="drug-tag">Tamoxifen / Anastrozole / Imatinib / Trastuzumab</span>
+                            <span class="drug-tag">Cyclophosphamide / Cisplatin / Doxorubicin / Tamoxifen</span>
                         </div>
                     </div>
                 </div>
@@ -1216,274 +1160,152 @@
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>مثبطات المناعة والأدوية البيولوجية</h4>
+                        <h4>مثبطات المناعة</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Cyclosporine / Tacrolimus / Azathioprine / Mycophenolate / Methotrexate</span>
-                            <span class="drug-tag">Adalimumab / Infliximab / Etanercept / Rituximab</span>
+                            <span class="drug-tag">Cyclosporine / Tacrolimus / Azathioprine / Methotrexate</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Prescriptions & some useful information اختصارات الوصفات الطبية">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill" style="background:linear-gradient(135deg,#10b981,#059669);">Rx Info</span> الوصفات الطبية ومعلومات صيدلانية هامة
-                        <span class="en-sub">Prescriptions & some useful information</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>أشهر اختصارات الوصفات الطبية العالمية</h4>
-                        <p>
-                            • <strong>OD:</strong> مرة يومياً | <strong>BID:</strong> مرتين يومياً (كل 12 ساعة) | <strong>TID:</strong> 3 مرات يومياً (كل 8 ساعات) | <strong>QID:</strong> 4 مرات يومياً (كل 6 ساعات).<br>
-                            • <strong>PRN:</strong> عند الحاجة | <strong>AC:</strong> قبل الأكل | <strong>PC:</strong> بعد الأكل | <strong>HS:</strong> عند النوم | <strong>STAT:</strong> فوراً.
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- القسم الثالث: حساب الجرعات المدقق عالمياً بنظام مل / سي سي -->
+    <!-- القسم الثالث: حساب الجرعات على أصل طريقتك بالسي سي (1 مل = 1 سي سي) -->
     <div id="sec3" class="section-content">
         <div class="action-bar">
-            <span>🧮 فتح دليل الجرعات المدقق عالمياً (مل / سي سي) كملف PDF:</span>
-            <button class="pdf-btn" onclick="openPdfViewer('sec3-guide', 'دليل_الجرعات_العالمي_مل_سي_سي')">👁️ فتح PDF دليل الجرعات</button>
+            <span>🧮 فتح جدول وطرق حساب الجرعات بالسي سي كملف PDF:</span>
+            <button class="pdf-btn" onclick="openPdfViewer('sec3-table-card', 'جدول_حساب_الجرعات_بالسي_سي')">👁️ فتح PDF الجدول الكامل</button>
         </div>
 
         <div class="calc-subtabs">
-            <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. حاسبة الشرابات (مل / سي سي)</button>
-            <button class="calc-subbtn" onclick="switchCalc('calc-iv', this)">💧 2. المغذيات (مل/ساعة وقطرات)</button>
-            <button class="calc-subbtn" onclick="switchCalc('calc-tabs', this)">💊 3. الحبوب والقطرات والفوارات</button>
-            <button class="calc-subbtn" onclick="switchCalc('calc-guide', this)">📖 4. جداول الجرعات العالمية</button>
+            <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. حاسبة الشرابات (سي سي / مل)</button>
+            <button class="calc-subbtn" onclick="switchCalc('calc-iv', this)">💧 2. المغذيات (باراسيتامول وميترونيدازول)</button>
+            <button class="calc-subbtn" onclick="switchCalc('calc-guide', this)">📋 3. جدول الطرق والأمثلة المرتب</button>
         </div>
 
-        <!-- 1. حاسبة الشرابات المدققة -->
+        <!-- 1. حاسبة الشرابات على أصل معادلاتك -->
         <div id="calc-syrup" class="calc-panel active">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">🥄 حاسبة الشرابات المدققة عالمياً (بالمل / سي سي)</span>
-                    <span class="badge">mL / cc</span>
+                    <span class="card-title">🥄 حاسبة الشرابات والقطرات (بالسي سي / مل)</span>
+                    <span class="badge">1 مل = 1 سي سي</span>
                 </div>
 
                 <div class="formula-box">
-                    <strong>قاعدة الحساب بالمل (السي سي):</strong><br>
-                    • <strong>1 مل (mL) = 1 سي سي (cc)</strong> في قياس الشرابات والمحاليل الطبية.<br>
-                    • الجرعة بالمل (سي سي) = [ (الوزن بالكغم × الجرعة mg/kg/day ÷ عدد المرات) ÷ تركيز الشراب لكل 5 مل ] × 5.<br>
-                    • <em>تنبيه:</em> وزن الطفل الحقيقي هو الأدق دائماً (العمر يُستخدم فقط للتقدير التقريبي عند عدم معرفة الوزن).
+                    <strong>قاعدة التحويل:</strong> <strong>1 مل = 1 سي سي</strong>. اختر الدواء من القائمة أو اكتب وزنه في الأسفل ليحسب لك فوراً بالسي سي ويعرض المعادلة والتكرار اليومي.
                 </div>
 
                 <div class="form-group">
-                    <label>🔍 اختر الشراب (مرتب حسب العائلة الدوائية وجرعاته العالمية المعتمدة):</label>
-                    <select id="presetDrug" class="form-control" onchange="fillPresetDrug()">
-                        <option value="custom">-- إدخال يدوي حر لأي شراب --</option>
-                        <optgroup label="🦠 شرابات المضادات الحيوية (Antibiotics)">
-                            <option value="cefix_100">Cefixime 100mg/5ml (سيفيكسيم - 8mg/kg/day مرة أو مرتين)</option>
-                            <option value="cefix_200">Cefixime 200mg/5ml (سيفيكسيم تركيز 200 - 8mg/kg/day)</option>
-                            <option value="amox_125">Amoxicillin 125mg/5ml (أموكسيسيلين - 45mg/kg/day كل 8 ساعات)</option>
-                            <option value="amox_250">Amoxicillin 250mg/5ml (أموكسيسيلين - 45mg/kg/day كل 8 ساعات)</option>
-                            <option value="amox_high_250">Amoxicillin 250mg/5ml (التهاب أذن وسطى - 80mg/kg/day كل 12 ساعة)</option>
-                            <option value="aug_156">Augmentin 156.25mg/5ml (30mg/kg/day كل 8 ساعات)</option>
-                            <option value="aug_312">Augmentin 312.5mg/5ml (30mg/kg/day كل 8 ساعات)</option>
-                            <option value="aug_457">Augmentin 457mg/5ml (45mg/kg/day كل 12 ساعة)</option>
-                            <option value="aug_600">Augmentin ES 600mg/5ml (90mg/kg/day كل 12 ساعة)</option>
-                            <option value="azith_200">Azithromycin 200mg/5ml (10mg/kg مرة واحدة يومياً)</option>
-                            <option value="clarith_125">Clarithromycin 125mg/5ml (15mg/kg/day كل 12 ساعة)</option>
-                            <option value="clarith_250">Clarithromycin 250mg/5ml (15mg/kg/day كل 12 ساعة)</option>
-                            <option value="cephalex_125">Cephalexin 125mg/5ml (50mg/kg/day كل 8 ساعات)</option>
-                            <option value="cephalex_250">Cephalexin 250mg/5ml (50mg/kg/day كل 8 ساعات)</option>
-                            <option value="cefurox_125">Cefuroxime 125mg/5ml (25mg/kg/day كل 12 ساعة)</option>
-                            <option value="cefurox_250">Cefuroxime 250mg/5ml (25mg/kg/day كل 12 ساعة)</option>
-                            <option value="metro_125">Metronidazole 125mg/5ml (30mg/kg/day كل 8 ساعات)</option>
-                            <option value="metro_200">Metronidazole 200mg/5ml (30mg/kg/day كل 8 ساعات)</option>
+                    <label>🔍 اختر الشراب / الدواء (على أصل طريقتك):</label>
+                    <select id="presetDrug" class="form-control" onchange="updateSyrupPreview()">
+                        <optgroup label="🦠 ميترونيدازول (Metronidazole)">
+                            <option value="metro_125">ميترونيدازول 125 — (وزن الطفل × 0.4) — كل 8 ساعات (3 مرات باليوم)</option>
+                            <option value="metro_250">ميترونيدازول 250 — (وزن الطفل × 0.25) — كل 8 ساعات (3 مرات باليوم)</option>
                         </optgroup>
-                        <optgroup label="🌡️ خافضات الحرارة والمسكنات (Antipyretics & NSAIDs)">
-                            <option value="para_120">Paracetamol 120mg/5ml (15mg/kg للجرعة كل 6 ساعات)</option>
-                            <option value="para_250">Paracetamol 250mg/5ml (15mg/kg للجرعة كل 6 ساعات)</option>
-                            <option value="ibu_100">Ibuprofen 100mg/5ml (10mg/kg للجرعة كل 8 ساعات)</option>
-                            <option value="ibu_200">Ibuprofen 200mg/5ml (10mg/kg للجرعة كل 8 ساعات)</option>
-                            <option value="mefen_50">Mefenamic Acid 50mg/5ml (6.5mg/kg للجرعة كل 8 ساعات)</option>
+                        <optgroup label="🌡️ باراسيتامول شراب (Paracetamol)">
+                            <option value="para_120">باراسيتامول شراب 120 — (5 × 10 × وزن الطفل ÷ 120)</option>
+                            <option value="para_250">باراسيتامول شراب 250 — (5 × 10 × وزن الطفل ÷ 250)</option>
+                            <option value="para_custom">باراسيتامول شراب (إدخال تركيز الدواء يدوياً) — (5 × 10 × وزن الطفل ÷ جرعة الدواء)</option>
                         </optgroup>
-                        <optgroup label="🤧 الحساسية والسعال والربو والمعدة والديدان">
-                            <option value="lorat_5">Loratadine 5mg/5ml (مرة واحدة يومياً)</option>
-                            <option value="cetir_5">Cetirizine 5mg/5ml (مرة واحدة يومياً)</option>
-                            <option value="deslorat_2_5">Desloratadine 2.5mg/5ml (مرة واحدة يومياً)</option>
-                            <option value="salbut_2">Salbutamol 2mg/5ml (0.1mg/kg للجرعة كل 8 ساعات)</option>
-                            <option value="pred_5">Prednisolone 5mg/5ml (1.5mg/kg/day)</option>
-                            <option value="pred_15">Prednisolone 15mg/5ml (1.5mg/kg/day)</option>
-                            <option value="domper_5">Domperidone 5mg/5ml (0.25mg/kg للجرعة حتى 3 مرات)</option>
-                            <option value="ondans_4">Ondansetron 4mg/5ml (0.15mg/kg للجرعة)</option>
-                            <option value="albend_200">Albendazole 200mg/5ml (ألبيندازول للديدان)</option>
-                            <option value="mebend_100">Mebendazole 100mg/5ml (ميبيندازول للديدان)</option>
+                        <optgroup label="🦠 سيفيكسيم (Cefixime)">
+                            <option value="cefixime">Cefixime سيفيكسيم — (وزن الطفل × 0.4) — مرة واحدة باليوم</option>
+                        </optgroup>
+                        <optgroup label="💊 بروفين (Ibuprofen)">
+                            <option value="ibu_100_div2">بروفين 100/5 — (وزن الطفل ÷ 2) — كل 8 ساعات</option>
+                            <option value="ibu_100_mul025">بروفين 100/5 — (وزن الطفل × 0.25) — كل 8 ساعات</option>
+                            <option value="ibu_200_div4">بروفين 200/5 — (وزن الطفل ÷ 4) — كل 8 ساعات</option>
+                        </optgroup>
+                        <optgroup label="🦠 أزيثرومايسين (Azithromycin)">
+                            <option value="azith_200">أزيثرومايسين 200/5 — (وزن الطفل × 0.25)</option>
+                            <option value="azith_300">أزيثرومايسين 300 — (وزن الطفل × 0.167)</option>
+                        </optgroup>
+                        <optgroup label="🦠 أوگمنتين (Augmentin)">
+                            <option value="aug_156_312">أوگمنتين 156/312 — (وزن الطفل × 0.533) — كل 8 ساعات</option>
+                            <option value="aug_200_400">أوگمنتين 200/400 — (وزن الطفل × 62.5 حسب طريقتك) — كل 12 ساعة</option>
+                        </optgroup>
+                        <optgroup label="🦠 أموكسيسيلين (Amoxicillin)">
+                            <option value="amox_250">أموكسيسيلين 250 — (وزن الطفل × 0.2)</option>
+                            <option value="amox_125">أموكسيسيلين 125 — (وزن الطفل × 0.4)</option>
+                        </optgroup>
+                        <optgroup label="🦠 سيفالوسبورينات (Cefdinir, Cephalexin, Cefadroxil, Cefaclor, Cefuroxime, Cefpodoxime)">
+                            <option value="cefdin_125">سيفدينير 125 — (وزن الطفل × 0.28) — كل 12 ساعة (2 مرات باليوم)</option>
+                            <option value="ceph_125">سفلاكسين 125 — (وزن الطفل × 0.33) — كل 8 ساعات</option>
+                            <option value="ceph_250">سفلاكسين 250 — (وزن الطفل × 0.66)</option>
+                            <option value="cefad">سيفادروكسيل — (وزن الطفل × 0.6) — كل 12 ساعة</option>
+                            <option value="cefac_125">سيفاكلور 125 — (وزن الطفل × 0.24) — كل 8 ساعات (3 مرات باليوم)</option>
+                            <option value="cefac_250">سيفاكلور 250 — (وزن الطفل × 0.12) — كل 8 ساعات (3 مرات باليوم)</option>
+                            <option value="cefurox_125">سيفيوروكزيم 125 — (وزن الطفل × 0.4) — كل 12 ساعة (2 مرات باليوم)</option>
+                            <option value="cefurox_250">سيفيوروكزيم 250 — (وزن الطفل × 0.2) — كل 12 ساعة (2 مرات باليوم)</option>
+                            <option value="cefpod_50">سيفبودوكسيم 50 — (وزن الطفل × 0.5) — كل 12 ساعة (2 مرات باليوم)</option>
+                            <option value="cefpod_100">سيفبودوكسيم 100 — (وزن الطفل × 0.25) — كل 12 ساعة (2 مرات باليوم)</option>
+                        </optgroup>
+                        <optgroup label="🦠 كلاريثروميسين، إريثرومايسين، و No-Vomit">
+                            <option value="clarith">كلاريثروميسين — (وزن الطفل × 0.3) — كل 12 ساعة (2 مرات باليوم)</option>
+                            <option value="eryth_200">إريثرومايسين 200 — (وزن الطفل × 0.25) — كل 6 ساعات (4 مرات باليوم)</option>
+                            <option value="novomit">No-Vomit — (وزن الطفل × 0.2) — كل 8 ساعات (3 مرات باليوم)</option>
                         </optgroup>
                     </select>
                 </div>
 
                 <div class="grid-2">
                     <div class="form-group">
-                        <label>⚖️ وزن الطفل بالكغم (kg) - الأدق:</label>
-                        <input type="number" id="childWeight" class="form-control" placeholder="مثلاً: 15 أو 20">
+                        <label>⚖️ وزن الطفل (كغم):</label>
+                        <input type="number" id="childWeight" class="form-control" placeholder="مثلاً: 10 أو 15 أو 20" oninput="calculateSyrup()">
                     </div>
-                    <div class="form-group">
-                        <label>🎂 العمر بالسنوات (تقدير فقط):</label>
-                        <input type="number" id="childAge" class="form-control" placeholder="اختياري (مثلاً: 4 أو 10)" oninput="estimateWeightFromAge()">
-                    </div>
-                </div>
-
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label>💉 الجرعة اليومية المعتمدة (mg/kg/day):</label>
-                        <input type="number" id="mgPerKg" class="form-control" placeholder="مثلاً: 8 للسيفاكسيم">
-                    </div>
-                    <div class="form-group">
-                        <label>🧪 تركيز الشراب (mg في كل 5 مل / سي سي):</label>
-                        <input type="number" id="syrupStrength" class="form-control" value="100" placeholder="مثلاً: 100 أو 125 أو 250">
+                    <div class="form-group" id="customDrugDoseGroup" style="display:none;">
+                        <label>🧪 جرعة الدواء (لباراسيتامول):</label>
+                        <input type="number" id="customParaDose" class="form-control" value="120" oninput="calculateSyrup()">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>⏰ عدد مرات الإعطاء في اليوم:</label>
-                    <select id="dosesPerDay" class="form-control">
-                        <option value="1" selected>مرة واحدة يومياً (كل 24 ساعة - OD)</option>
-                        <option value="2">مرتين يومياً (كل 12 ساعة - BID)</option>
-                        <option value="3">3 مرات يومياً (كل 8 ساعات - TID)</option>
-                        <option value="4">4 مرات يومياً (كل 6 ساعات - QID)</option>
-                    </select>
-                </div>
+                <div id="activeRuleBanner" class="formula-box" style="border-right-color:#10b981; color:#a7f3d0;"></div>
 
-                <button class="calc-btn" onclick="calculateSyrup()">⚡ احسب الجرعة الآن (مل / سي سي)</button>
+                <button class="calc-btn" onclick="calculateSyrup()">⚡ احسب الجرعة الآن (سي سي / مل)</button>
 
                 <div id="syrupResult" class="result-box"></div>
             </div>
         </div>
 
-        <!-- 2. المغذيات -->
+        <!-- 2. المغذيات على أصل طريقتك -->
         <div id="calc-iv" class="calc-panel">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">💧 حاسبة المغذيات (مل / سي سي بالساعة وقطرات/دقيقة)</span>
-                    <span class="badge">IV Drip</span>
+                    <span class="card-title">💧 حاسبة المغذيات (1 مل = 1 سي سي)</span>
+                    <span class="badge">مغذيات</span>
                 </div>
                 <div class="formula-box">
-                    <strong>القانون:</strong> عدد القطرات بالدقيقة = [ الحجم بالمل (سي سي) × معامل الجهاز ] ÷ [ الوقت بالساعات × 60 ]
-                </div>
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label>حجم المغذي (مل / سي سي):</label>
-                        <input type="number" id="ivVolume" class="form-control" value="500">
-                    </div>
-                    <div class="form-group">
-                        <label>المدة الزمنية (ساعة):</label>
-                        <input type="number" id="ivHours" class="form-control" value="4">
-                    </div>
+                    • <strong>1 مل = 1 سي سي</strong><br>
+                    • <strong>باراسيتامول مغذي:</strong> 1.5 سي سي لكل كيلو غرام (الوزن × 1.5)<br>
+                    • <strong>ميترونيدازول مغذي:</strong> 2 سي سي لكل كيلو غرام (الوزن × 2)
                 </div>
                 <div class="form-group">
-                    <label>نوع جهاز الإعطاء:</label>
-                    <select id="dropFactor" class="form-control">
-                        <option value="20" selected>جهاز كبار قياسي (20 قطرة/مل)</option>
-                        <option value="15">جهاز قياسي (15 قطرة/مل)</option>
-                        <option value="10">جهاز نقل دم (10 قطرات/مل)</option>
-                        <option value="60">جهاز أطفال دقيق Microdrip (60 قطرة/مل)</option>
-                    </select>
+                    <label>⚖️ وزن الطفل / المريض (كيلو غرام):</label>
+                    <input type="number" id="ivWeight" class="form-control" placeholder="مثلاً: 10 أو 15 أو 20" oninput="calculateIVMethod()">
                 </div>
-                <button class="calc-btn" onclick="calculateIV()">احسب سرعة المغذي (مل/ساعة وقطرات)</button>
+                <button class="calc-btn" onclick="calculateIVMethod()">⚡ احسب جرعة المغذيات بالسي سي</button>
                 <div id="ivResult" class="result-box"></div>
             </div>
         </div>
 
-        <!-- 3. الحبوب والقطرات والفوارات -->
-        <div id="calc-tabs" class="calc-panel">
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">💊 الحبوب والقطرات والفوارات (تحويل مل / سي سي)</span>
-                    <span class="badge">تحويلات</span>
-                </div>
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label>الجرعة المطلوبة (mg):</label>
-                        <input type="number" id="tabDesired" class="form-control" placeholder="مثلاً: 500">
-                    </div>
-                    <div class="form-group">
-                        <label>تركيز الحبة المتوفرة (mg):</label>
-                        <input type="number" id="tabHave" class="form-control" placeholder="مثلاً: 250">
-                    </div>
-                </div>
-                <button class="calc-btn" onclick="calculateTabs()">احسب عدد الحبوب</button>
-                <div id="tabResult" class="result-box"></div>
-
-                <div class="formula-box" style="margin-top:16px;">
-                    <strong>ثوابت التحويل (مل / سي سي):</strong><br>
-                    • <strong>1 مل (1 سي سي)</strong> = <strong>20 قطرة (Drops)</strong>.<br>
-                    • <strong>ملعقة شاي صغيرة</strong> = <strong>5 مل (5 سي سي)</strong> | <strong>ملعقة طعام</strong> = <strong>15 مل (15 سي سي)</strong>.<br>
-                    • <strong>الفوارات والأكياس:</strong> تُذاب في نصف إلى كوب ماء كامل (150 مل / سي سي) وتُشرب بعد تمام الذوبان والفوران.
-                </div>
-                <div class="form-group">
-                    <label>تحويل فوري من مل (سي سي) إلى قطرات وملاعق:</label>
-                    <input type="number" id="mlConvert" class="form-control" placeholder="اكتب الرقم بالمل / سي سي (مثلاً: 3)" oninput="convertMl()">
-                </div>
-                <div id="convertResult" class="result-box" style="display:block;">
-                    <p>اكتب أي رقم بالمل (السي سي) بالأعلى للتحويل الفوري...</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. جداول الجرعات العالمية المدققة -->
+        <!-- 3. جدول الطرق والأمثلة المرتب -->
         <div id="calc-guide" class="calc-panel">
-            <div id="sec3-guide" class="card">
+            <div id="sec3-table-card" class="card">
                 <div class="card-header">
-                    <span class="card-title">📖 جداول الجرعات العالمية المعتمدة (بالمل / سي سي)</span>
-                    <span class="badge">مرجع مدقق</span>
+                    <span class="card-title">📋 جدول طرق حساب الجرعات بالسي سي (1 مل = 1 سي سي)</span>
+                    <span class="badge">مرتب وجاهز</span>
                 </div>
 
                 <table class="dose-table">
                     <thead>
                         <tr>
-                            <th>الدواء العلمي</th>
-                            <th>الجرعة العالمية المعتمدة</th>
+                            <th>الدواء / المغذي</th>
+                            <th>التركيز</th>
+                            <th>طريقة الحساب (سي سي / مل)</th>
                             <th>التكرار اليومي</th>
-                            <th>مثال: وزن 15 كغم</th>
-                            <th>مثال: وزن 25 كغم</th>
+                            <th>مثال (وزن 15 كغم)</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Cefixime</strong><br>(100mg/5ml)</td>
-                            <td><strong>8 mg/kg/day</strong></td>
-                            <td>مرة واحدة باليوم<br>(أو كل 12 ساعة)</td>
-                            <td><strong>6 مل (6 سي سي)</strong><br>مرة واحدة باليوم</td>
-                            <td><strong>10 مل (10 سي سي)</strong><br>مرة واحدة باليوم</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Amoxicillin</strong><br>(125 / 250mg/5ml)</td>
-                            <td><strong>40 - 50 mg/kg/day</strong><br>(أو 80-90 للأذن)</td>
-                            <td>كل 8 ساعات<br>(أو كل 12 ساعة)</td>
-                            <td><strong>9 مل</strong> من 125mg/5ml<br>أو <strong>4.5 مل</strong> من 250mg/5ml<br>(لكل جرعة بـ 45mg/kg/day)</td>
-                            <td><strong>7.5 مل</strong> من 250mg/5ml<br>لكل جرعة (كل 8 ساعات)<br>بـ 45mg/kg/day</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Azithromycin</strong><br>(200mg/5ml)</td>
-                            <td><strong>10 mg/kg/day</strong></td>
-                            <td>مرة واحدة يومياً<br>(3 إلى 5 أيام)</td>
-                            <td><strong>3.75 مل (حوالي 3.8 سي سي)</strong><br>مرة واحدة يومياً</td>
-                            <td><strong>6.25 مل (حوالي 6.3 سي سي)</strong><br>مرة واحدة يومياً</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Paracetamol</strong><br>(120 / 250mg/5ml)</td>
-                            <td><strong>15 mg/kg/dose</strong><br>(الحد الأقصى 60mg/kg/day)</td>
-                            <td>كل 6 ساعات عند اللزوم</td>
-                            <td><strong>9.4 مل</strong> من 120mg/5ml<br>أو <strong>4.5 مل</strong> من 250mg/5ml</td>
-                            <td><strong>7.5 مل (7.5 سي سي)</strong><br>من تركيز 250mg/5ml</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ibuprofen</strong><br>(100mg/5ml)</td>
-                            <td><strong>10 mg/kg/dose</strong><br>(الحد الأقصى 30-40mg/kg/day)</td>
-                            <td>كل 8 ساعات بعد الأكل</td>
-                            <td><strong>7.5 مل (7.5 سي سي)</strong><br>من تركيز 100mg/5ml</td>
-                            <td><strong>12.5 مل (12.5 سي سي)</strong><br>من تركيز 100mg/5ml</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="customMethodTableBody"></tbody>
                 </table>
             </div>
         </div>
@@ -1502,25 +1324,23 @@
             </div>
 
             <div class="form-group">
-                <label>🔍 اكتب اسم الدواء هنا (مثلاً: Omeprazole، Levothyroxine، Atorvastatin، Metformin، Cefixime):</label>
+                <label>🔍 اكتب اسم الدواء هنا (مثلاً: ميترونيدازول، سيفيكسيم، بروفين، أوميبرازول، ليفوثيروكسين):</label>
                 <input type="text" id="drugScheduleInput" class="form-control" placeholder="اكتب اسم الدواء للبحث الفوري عن تكراره وأفضل وقت..." oninput="lookupDrugSchedule()">
             </div>
 
             <div class="form-group">
                 <label style="font-size:0.78rem; color:#94a3b8;">اختصارات سريعة لأشهر الأدوية:</label>
                 <div class="quick-chips">
-                    <span class="quick-chip" onclick="selectScheduleChip('Cefixime')">Cefixime</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('ميترونيدازول')">ميترونيدازول</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('سيفيكسيم')">سيفيكسيم</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('بروفين')">بروفين</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('أزيثرومايسين')">أزيثرومايسين</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('أوگمنتين')">أوگمنتين</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('أموكسيسيلين')">أموكسيسيلين</span>
                     <span class="quick-chip" onclick="selectScheduleChip('Omeprazole')">Omeprazole</span>
                     <span class="quick-chip" onclick="selectScheduleChip('Levothyroxine')">Levothyroxine</span>
                     <span class="quick-chip" onclick="selectScheduleChip('Atorvastatin')">Atorvastatin</span>
                     <span class="quick-chip" onclick="selectScheduleChip('Metformin')">Metformin</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Amoxicillin')">Amoxicillin</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Azithromycin')">Azithromycin</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Ibuprofen')">Ibuprofen</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Montelukast')">Montelukast</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Cetirizine')">Cetirizine</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Furosemide')">Furosemide</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Captopril')">Captopril</span>
                 </div>
             </div>
 
@@ -1566,6 +1386,373 @@
 <script>
     let currentPdfFilename = "Pharmacy_Document";
 
+    // قاعدة بيانات طرق حسابك المعتمدة بالسي سي (1 مل = 1 سي سي)
+    const userDoseRules = [
+        {
+            id: "iv_para",
+            name: "مغذي باراسيتامول (IV Paracetamol)",
+            conc: "مغذي",
+            ruleText: "1.5 سي سي لكل كيلو غرام (وزن الطفل × 1.5)",
+            freq: "حسب الحاجة / الوصفة الطبية",
+            keywords: ["مغذي", "مغذيات", "باراسيتامول مغذي", "paracetamol iv", "سي سي", "مل"],
+            calc: (w) => w * 1.5
+        },
+        {
+            id: "iv_metro",
+            name: "مغذي ميترونيدازول (IV Metronidazole)",
+            conc: "مغذي",
+            ruleText: "2 سي سي لكل كيلو غرام (وزن الطفل × 2)",
+            freq: "حسب الوصفة الطبية",
+            keywords: ["مغذي", "مغذيات", "ميترونيدازول مغذي", "فلاجيل مغذي", "metronidazole iv", "سي سي", "مل"],
+            calc: (w) => w * 2
+        },
+        {
+            id: "metro_125",
+            name: "ميترونيدازول (Metronidazole)",
+            conc: "125",
+            ruleText: "وزن الطفل × 0.4",
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "flagyl", "125"],
+            calc: (w) => w * 0.4
+        },
+        {
+            id: "metro_250",
+            name: "ميترونيدازول (Metronidazole)",
+            conc: "250",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "flagyl", "250"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "para_120",
+            name: "باراسيتامول شراب (Paracetamol)",
+            conc: "120",
+            ruleText: "5 × 10 × وزن الطفل ÷ 120",
+            freq: "حسب الحاجة (كل 4-6 ساعات بحد أقصى حسب الإرشاد)",
+            keywords: ["باراسيتامول", "بنادول", "paracetamol", "panadol", "120"],
+            calc: (w) => (5 * 10 * w) / 120
+        },
+        {
+            id: "para_250",
+            name: "باراسيتامول شراب (Paracetamol)",
+            conc: "250",
+            ruleText: "5 × 10 × وزن الطفل ÷ 250",
+            freq: "حسب الحاجة",
+            keywords: ["باراسيتامول", "بنادول", "paracetamol", "panadol", "250"],
+            calc: (w) => (5 * 10 * w) / 250
+        },
+        {
+            id: "cefixime",
+            name: "سيفيكسيم (Cefixime)",
+            conc: "شراب / معلق",
+            ruleText: "وزن الطفل × 0.4",
+            freq: "مرة واحدة باليوم",
+            keywords: ["سيفيكسيم", "سيفاكسيم", "cefixime", "suprax"],
+            calc: (w) => w * 0.4
+        },
+        {
+            id: "ibu_100_div2",
+            name: "بروفين (Ibuprofen)",
+            conc: "100/5",
+            ruleText: "وزن الطفل ÷ 2",
+            freq: "كل 8 ساعات",
+            keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "100/5", "100"],
+            calc: (w) => w / 2
+        },
+        {
+            id: "ibu_100_mul025",
+            name: "بروفين (Ibuprofen)",
+            conc: "100/5",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "كل 8 ساعات",
+            keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "100/5", "0.25"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "ibu_200_div4",
+            name: "بروفين (Ibuprofen)",
+            conc: "200/5",
+            ruleText: "وزن الطفل ÷ 4",
+            freq: "كل 8 ساعات",
+            keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "200/5", "200"],
+            calc: (w) => w / 4
+        },
+        {
+            id: "azith_200",
+            name: "أزيثرومايسين (Azithromycin)",
+            conc: "200/5",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "مرة واحدة باليوم (حسب الكورس)",
+            keywords: ["ازيثرومايسين", "أزيثرومايسين", "azithromycin", "zithromax", "200/5"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "azith_300",
+            name: "أزيثرومايسين (Azithromycin)",
+            conc: "300",
+            ruleText: "وزن الطفل × 0.167",
+            freq: "مرة واحدة باليوم",
+            keywords: ["ازيثرومايسين", "أزيثرومايسين", "azithromycin", "300"],
+            calc: (w) => w * 0.167
+        },
+        {
+            id: "aug_156_312",
+            name: "أوگمنتين (Augmentin)",
+            conc: "156/312",
+            ruleText: "وزن الطفل × 0.533",
+            freq: "كل 8 ساعات",
+            keywords: ["اوگمنتين", "اوجمنتين", "أوغمنتين", "augmentin", "156", "312"],
+            calc: (w) => w * 0.533
+        },
+        {
+            id: "aug_200_400",
+            name: "أوگمنتين (Augmentin)",
+            conc: "200/400",
+            ruleText: "وزن الطفل × 62.5 (حسب طريقتك)",
+            freq: "كل 12 ساعة",
+            keywords: ["اوگمنتين", "اوجمنتين", "أوغمنتين", "augmentin", "200", "400"],
+            calc: (w) => w * 62.5
+        },
+        {
+            id: "amox_250",
+            name: "أموكسيسيلين (Amoxicillin)",
+            conc: "250",
+            ruleText: "وزن الطفل × 0.2",
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin", "250"],
+            calc: (w) => w * 0.2
+        },
+        {
+            id: "amox_125",
+            name: "أموكسيسيلين (Amoxicillin)",
+            conc: "125",
+            ruleText: "وزن الطفل × 0.4",
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin", "125"],
+            calc: (w) => w * 0.4
+        },
+        {
+            id: "cefdin_125",
+            name: "سيفدينير (Cefdinir)",
+            conc: "125",
+            ruleText: "وزن الطفل × 0.28",
+            freq: "كل 12 ساعة (2 مرات باليوم)",
+            keywords: ["سيفدينير", "cefdinir", "125"],
+            calc: (w) => w * 0.28
+        },
+        {
+            id: "ceph_125",
+            name: "سفلاكسين (Cephalexin)",
+            conc: "125",
+            ruleText: "وزن الطفل × 0.33",
+            freq: "كل 8 ساعات",
+            keywords: ["سفلاكسين", "سيفاليكسين", "cephalexin", "keflex", "125"],
+            calc: (w) => w * 0.33
+        },
+        {
+            id: "ceph_250",
+            name: "سفلاكسين (Cephalexin)",
+            conc: "250",
+            ruleText: "وزن الطفل × 0.66",
+            freq: "كل 8 ساعات",
+            keywords: ["سفلاكسين", "سيفاليكسين", "cephalexin", "keflex", "250"],
+            calc: (w) => w * 0.66
+        },
+        {
+            id: "cefad",
+            name: "سيفادروكسيل (Cefadroxil)",
+            conc: "شراب",
+            ruleText: "وزن الطفل × 0.6",
+            freq: "كل 12 ساعة",
+            keywords: ["سيفادروكسيل", "cefadroxil", "duricef"],
+            calc: (w) => w * 0.6
+        },
+        {
+            id: "cefac_125",
+            name: "سيفاكلور (Cefaclor)",
+            conc: "125",
+            ruleText: "وزن الطفل × 0.24",
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            keywords: ["سيفاكلور", "cefaclor", "ceclor", "125"],
+            calc: (w) => w * 0.24
+        },
+        {
+            id: "cefac_250",
+            name: "سيفاكلور (Cefaclor)",
+            conc: "250",
+            ruleText: "وزن الطفل × 0.12",
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            keywords: ["سيفاكلور", "cefaclor", "ceclor", "250"],
+            calc: (w) => w * 0.12
+        },
+        {
+            id: "cefurox_125",
+            name: "سيفيوروكزيم (Cefuroxime)",
+            conc: "125",
+            ruleText: "وزن الطفل × 0.4",
+            freq: "كل 12 ساعة (2 مرات باليوم)",
+            keywords: ["سيفيوروكزيم", "سيفوروكسيم", "cefuroxime", "zinnat", "125"],
+            calc: (w) => w * 0.4
+        },
+        {
+            id: "cefurox_250",
+            name: "سيفيوروكزيم (Cefuroxime)",
+            conc: "250",
+            ruleText: "وزن الطفل × 0.2",
+            freq: "كل 12 ساعة (2 مرات باليوم)",
+            keywords: ["سيفيوروكزيم", "سيفوروكسيم", "cefuroxime", "zinnat", "250"],
+            calc: (w) => w * 0.2
+        },
+        {
+            id: "cefpod_50",
+            name: "سيفبودوكسيم (Cefpodoxime)",
+            conc: "50",
+            ruleText: "وزن الطفل × 0.5",
+            freq: "كل 12 ساعة (2 مرات باليوم)",
+            keywords: ["سيفبودوكسيم", "cefpodoxime", "50"],
+            calc: (w) => w * 0.5
+        },
+        {
+            id: "cefpod_100",
+            name: "سيفبودوكسيم (Cefpodoxime)",
+            conc: "100",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "كل 12 ساعة (2 مرات باليوم)",
+            keywords: ["سيفبودوكسيم", "cefpodoxime", "100"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "clarith",
+            name: "كلاريثروميسين (Clarithromycin)",
+            conc: "شراب",
+            ruleText: "وزن الطفل × 0.3",
+            freq: "كل 12 ساعة (2 مرات باليوم)",
+            keywords: ["كلاريثروميسين", "clarithromycin", "klacid"],
+            calc: (w) => w * 0.3
+        },
+        {
+            id: "eryth_200",
+            name: "إريثرومايسين (Erythromycin)",
+            conc: "200",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "كل 6 ساعات (4 مرات باليوم)",
+            keywords: ["اريثرومايسين", "إريثرومايسين", "erythromycin", "200"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "novomit",
+            name: "No-Vomit",
+            conc: "شراب / قطرات",
+            ruleText: "وزن الطفل × 0.2",
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            keywords: ["no-vomit", "novomit", "نوفوميت", "استفراغ", "قيء"],
+            calc: (w) => w * 0.2
+        }
+    ];
+
+    function populateCustomMethodTable() {
+        const tbody = document.getElementById('customMethodTableBody');
+        if (!tbody) return;
+        tbody.innerHTML = userDoseRules.map(r => {
+            const ex15 = r.calc(15);
+            return `
+                <tr>
+                    <td style="text-align:right;"><strong>${r.name}</strong></td>
+                    <td>${r.conc}</td>
+                    <td style="color:#22d3ee; font-weight:700;">${r.ruleText}</td>
+                    <td>${r.freq}</td>
+                    <td><strong>${Number.isInteger(ex15) ? ex15 : ex15.toFixed(2)} سي سي</strong><br><span style="font-size:0.72rem; color:#94a3b8;">(${Number.isInteger(ex15) ? ex15 : ex15.toFixed(2)} مل)</span></td>
+                </tr>
+            `;
+        }).join('');
+    }
+    populateCustomMethodTable();
+
+    function updateSyrupPreview() {
+        const val = document.getElementById('presetDrug').value;
+        const customGroup = document.getElementById('customDrugDoseGroup');
+        customGroup.style.display = (val === 'para_custom') ? 'block' : 'none';
+
+        let ruleText = "";
+        let freqText = "";
+        if (val === 'para_custom') {
+            const d = parseFloat(document.getElementById('customParaDose').value) || 120;
+            ruleText = `5 × 10 × وزن الطفل ÷ ${d}`;
+            freqText = "حسب الحاجة";
+        } else {
+            const found = userDoseRules.find(r => r.id === val);
+            if (found) {
+                ruleText = found.ruleText;
+                freqText = found.freq;
+            }
+        }
+        document.getElementById('activeRuleBanner').innerHTML = `
+            <strong>المعادلة المعتمدة:</strong> <span style="color:#38bdf8;">${ruleText}</span><br>
+            <strong>التكرار:</strong> ${freqText}
+        `;
+        calculateSyrup();
+    }
+    updateSyrupPreview();
+
+    function calculateSyrup() {
+        const val = document.getElementById('presetDrug').value;
+        const w = parseFloat(document.getElementById('childWeight').value);
+        const resBox = document.getElementById('syrupResult');
+
+        if (isNaN(w) || w <= 0) {
+            resBox.style.display = 'none';
+            return;
+        }
+
+        let ccVal = 0;
+        let label = "";
+        let ruleText = "";
+        let freqText = "";
+
+        if (val === 'para_custom') {
+            const d = parseFloat(document.getElementById('customParaDose').value);
+            if (isNaN(d) || d <= 0) return;
+            ccVal = (5 * 10 * w) / d;
+            label = `باراسيتامول (جرعة الدواء ${d})`;
+            ruleText = `5 × 10 × ${w} ÷ ${d}`;
+            freqText = "حسب الحاجة";
+        } else {
+            const found = userDoseRules.find(r => r.id === val);
+            if (!found) return;
+            ccVal = found.calc(w);
+            label = `${found.name} (${found.conc})`;
+            ruleText = found.ruleText;
+            freqText = found.freq;
+        }
+
+        const formatted = Number.isInteger(ccVal) ? ccVal : ccVal.toFixed(2);
+        resBox.style.display = 'block';
+        resBox.innerHTML = `
+            <h4>✅ النتيجة على أصل طريقتك (1 مل = 1 سي سي):</h4>
+            <p style="font-size:1.15rem;">• <strong>${label}:</strong> <strong style="color:#22d3ee; font-size:1.35rem;">${formatted} سي سي</strong> (${formatted} مل)</p>
+            <p>• <strong>التكرار:</strong> <strong>${freqText}</strong></p>
+            <p style="font-size:0.84rem; color:#cbd5e1; margin-top:4px;">• <strong>المعادلة المطبقة:</strong> ${ruleText} (للوزن ${w} كغم)</p>
+        `;
+    }
+
+    function calculateIVMethod() {
+        const w = parseFloat(document.getElementById('ivWeight').value);
+        const resBox = document.getElementById('ivResult');
+        if (isNaN(w) || w <= 0) {
+            resBox.style.display = 'none';
+            return;
+        }
+        const paraCc = w * 1.5;
+        const metroCc = w * 2;
+        resBox.style.display = 'block';
+        resBox.innerHTML = `
+            <h4>💧 جرعات المغذيات للوزن ${w} كغم (1 مل = 1 سي سي):</h4>
+            <p>• <strong>باراسيتامول مغذي (1.5 سي سي/كغم):</strong> <strong style="color:#22d3ee; font-size:1.25rem;">${paraCc.toFixed(1)} سي سي</strong> (${paraCc.toFixed(1)} مل)</p>
+            <p>• <strong>ميترونيدازول مغذي (2 سي سي/كغم):</strong> <strong style="color:#34d399; font-size:1.25rem;">${metroCc.toFixed(1)} سي سي</strong> (${metroCc.toFixed(1)} مل)</p>
+        `;
+    }
+
     function switchTab(sectionId, btn) {
         document.querySelectorAll('.section-content').forEach(sec => sec.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1584,90 +1771,84 @@
         header.parentElement.classList.toggle('open');
     }
 
+    // مواعيد وتكرار الأدوية
     const drugSchedulesDB = [
         {
-            name: "Cefixime (سيفيكسيم - مضاد حيوي شراب أو كبسول)",
-            keywords: ["cefixime", "suprax", "سيفيكسيم", "سيفاكسيم", "مضاد"],
-            freq: "مرة واحدة يومياً (كل 24 ساعة) أو مقسمة مرتين كل 12 ساعة",
-            bestTime: "في أي وقت ثابت يومياً (مع أو بدون طعام)",
-            note: "الجرعة العالمية للأطفال: 8 mg/kg/day (بحد أقصى 400mg/day)؛ يُرج المعلق جيداً قبل كل استخدام."
+            name: "ميترونيدازول (Metronidazole - 125 / 250)",
+            keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "flagyl"],
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            bestTime: "بعد الأكل لتقليل طعم المعدن واضطراب المعدة",
+            note: "حسب طريقتك: 125 (الوزن × 0.4 سي سي) • 250 (الوزن × 0.25 سي سي) • مغذي (الوزن × 2 سي سي)."
         },
         {
-            name: "Omeprazole / Esomeprazole / Pantoprazole / Lansoprazole (مثبطات الحموضة)",
-            keywords: ["omeprazole", "esomeprazole", "pantoprazole", "lansoprazole", "أوميبرازول", "بانتوبرازول", "معدة", "حموضة"],
-            freq: "مرة واحدة يومياً (وقد يُعطى مرتين كل 12 ساعة في الحالات الشديدة)",
+            name: "سيفيكسيم (Cefixime)",
+            keywords: ["سيفيكسيم", "سيفاكسيم", "cefixime", "suprax"],
+            freq: "مرة واحدة باليوم",
+            bestTime: "في وقت ثابت يومياً (مع أو بدون طعام)",
+            note: "حسب طريقتك: وزن الطفل × 0.4 سي سي مرة واحدة باليوم."
+        },
+        {
+            name: "بروفين (Ibuprofen - 100/5 / 200/5)",
+            keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen"],
+            freq: "كل 8 ساعات",
+            bestTime: "بعد الأكل مع الماء",
+            note: "حسب طريقتك: 100/5 (الوزن ÷ 2 أو × 0.25 سي سي) • 200/5 (الوزن ÷ 4 سي سي)."
+        },
+        {
+            name: "أزيثرومايسين (Azithromycin - 200/5 / 300)",
+            keywords: ["ازيثرومايسين", "أزيثرومايسين", "azithromycin", "zithromax"],
+            freq: "مرة واحدة باليوم",
+            bestTime: "في وقت ثابت يومياً",
+            note: "حسب طريقتك: 200/5 (الوزن × 0.25 سي سي) • 300 (الوزن × 0.167 سي سي)."
+        },
+        {
+            name: "أوگمنتين (Augmentin - 156/312 / 200/400)",
+            keywords: ["اوگمنتين", "اوجمنتين", "أوغمنتين", "augmentin"],
+            freq: "كل 8 ساعات (156/312) أو كل 12 ساعة (200/400)",
+            bestTime: "بداية الوجبة لتقليل اضطرابات المعدة",
+            note: "حسب طريقتك: 156/312 (الوزن × 0.533 سي سي كل 8 ساعات) • 200/400 (الوزن × 62.5 كل 12 ساعة)."
+        },
+        {
+            name: "أموكسيسيلين (Amoxicillin - 125 / 250)",
+            keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin"],
+            freq: "كل 8 ساعات (3 مرات باليوم)",
+            bestTime: "مع أو بدون طعام",
+            note: "حسب طريقتك: 250 (الوزن × 0.2 سي سي) • 125 (الوزن × 0.4 سي سي)."
+        },
+        {
+            name: "سيفدينير / سفلاكسين / سيفادروكسيل / سيفاكلور / سيفيوروكزيم / سيفبودوكسيم",
+            keywords: ["سيفدينير", "سفلاكسين", "سيفادروكسيل", "سيفاكلور", "سيفيوروكزيم", "سيفبودوكسيم", "cefdinir", "cephalexin", "cefadroxil", "cefaclor", "cefuroxime", "cefpodoxime"],
+            freq: "كل 12 ساعة (2 مرات) أو كل 8 ساعات (3 مرات) حسب الدواء",
+            bestTime: "بانتظام في مواعيد متساوية",
+            note: "تُطبق معادلة كل دواء بالسي سي مباشرة من حاسبة الشرابات."
+        },
+        {
+            name: "كلاريثروميسين / إريثرومايسين / No-Vomit",
+            keywords: ["كلاريثروميسين", "اريثرومايسين", "إريثرومايسين", "no-vomit", "novomit", "clarithromycin", "erythromycin"],
+            freq: "كل 12 ساعة (كلاريثروميسين) • كل 6 ساعات (إريثرومايسين) • كل 8 ساعات (No-Vomit)",
+            bestTime: "حسب الدواء والوصفة",
+            note: "كلاريثروميسين (الوزن × 0.3) • إريثرومايسين 200 (الوزن × 0.25) • No-Vomit (الوزن × 0.2)."
+        },
+        {
+            name: "Omeprazole / Pantoprazole / Esomeprazole",
+            keywords: ["omeprazole", "pantoprazole", "esomeprazole", "أوميبرازول", "بانتوبرازول", "معدة"],
+            freq: "مرة واحدة يومياً (أو مرتين كل 12 ساعة حسب الحالة)",
             bestTime: "قبل الفطور بـ 30 إلى 60 دقيقة على معدة فارغة",
-            note: "يُبلع الكبسول أو القرص المغلف كاملاً دون فتح أو مضغ."
+            note: "يُبلع كاملاً دون مضغ أو فتح."
         },
         {
-            name: "Levothyroxine (ليفوثيروكسين - خمول الغدة الدرقية)",
-            keywords: ["levothyroxine", "eltroxin", "euthyrox", "ليفوثيروكسين", "غدة", "خمول"],
-            freq: "مرة واحدة يومياً (كل 24 ساعة)",
-            bestTime: "صباحاً على معدة فارغة قبل الفطور بـ 30 إلى 60 دقيقة مع كوب ماء",
-            note: "يُفصل عن الكالسيوم والحديد ومضادات الحموضة بـ 4 ساعات على الأقل."
+            name: "Levothyroxine (ليفوثيروكسين)",
+            keywords: ["levothyroxine", "ليفوثيروكسين", "غدة"],
+            freq: "مرة واحدة يومياً",
+            bestTime: "صباحاً على معدة فارغة قبل الفطور بـ 30-60 دقيقة",
+            note: "يُفصل عن الحديد والكالسيوم بـ 4 ساعات."
         },
         {
-            name: "Atorvastatin / Rosuvastatin / Simvastatin (أدوية الدهون)",
-            keywords: ["atorvastatin", "rosuvastatin", "simvastatin", "دهون", "كوليسترول", "أتورفاستاتين"],
-            freq: "مرة واحدة يومياً (كل 24 ساعة)",
-            bestTime: "مساءً أو قبل النوم (خصوصاً Simvastatin؛ بينما Atorvastatin و Rosuvastatin بأي وقت ثابت يومياً)",
-            note: "الالتزام بموعد ثابت يومياً يزيد من كفاءة خفض الكوليسترول."
-        },
-        {
-            name: "Metformin (ميتفورمين - جلوكوفاج للسكري)",
-            keywords: ["metformin", "glucophage", "ميتفورمين", "سكري", "جلوكوفاج"],
-            freq: "مرتين يومياً (كل 12 ساعة) أو مرة واحدة للنسخة الممتدة (XR)",
-            bestTime: "أثناء الأكل أو مباشرة بعد الوجبة (الفطور والعشاء)",
-            note: "تناوله مع الطعام يقلل من اضطرابات المعدة والغثيان."
-        },
-        {
-            name: "Amoxicillin / Co-Amoxiclav (أموكسيسيلين / أوغمنتين)",
-            keywords: ["amoxicillin", "augmentin", "amoxiclav", "أموكسيسيلين", "أوغمنتين"],
-            freq: "2 إلى 3 مرات يومياً (كل 8 ساعات أو كل 12 ساعة)",
-            bestTime: "بداية الوجبة (الأوغمنتين يُفضل مع الطعام لتقليل الإسهال)",
-            note: "يجب إكمال كامل مدة الكورس العلاجي حتى لو تحسنت الأعراض."
-        },
-        {
-            name: "Azithromycin (أزيثرومايسين)",
-            keywords: ["azithromycin", "zithromax", "أزيثرومايسين"],
-            freq: "مرة واحدة يومياً (كل 24 ساعة) لمدة 3 إلى 5 أيام",
-            bestTime: "في أي وقت ثابت يومياً (مع أو بدون طعام للشراب والأقراص)",
-            note: "يُفصل عن مضادات الحموضة المحتوية على الألمنيوم أو المغنيسيوم بساعتين."
-        },
-        {
-            name: "Ibuprofen / Diclofenac / Mefenamic Acid (مسكنات ومضادات التهاب)",
-            keywords: ["ibuprofen", "diclofenac", "mefenamic", "بروفين", "مسكن", "التهاب"],
-            freq: "2 إلى 3 مرات يومياً (كل 8 إلى 12 ساعة عند اللزوم أو حسب الوصفة)",
-            bestTime: "بعد الأكل مباشرة مع كمية كافية من الماء",
-            note: "تجنب أخذه على معدة فارغة لتقليل خطر تهيج المعدة."
-        },
-        {
-            name: "Montelukast (مونتيلوكاست - سينغولير للحساسية والربو)",
-            keywords: ["montelukast", "singulair", "مونتيلوكاست", "ربو", "حساسية"],
-            freq: "مرة واحدة يومياً (كل 24 ساعة)",
-            bestTime: "مساءً (في حالات الربو وحساسية الأنف الموسمية)",
-            note: "يمكن أخذه مع الطعام أو بدونه."
-        },
-        {
-            name: "Cetirizine / Loratadine / Desloratadine (مضادات الهيستامين)",
-            keywords: ["cetirizine", "loratadine", "desloratadine", "حساسية", "سيتريزين", "لوراتادين"],
-            freq: "مرة واحدة يومياً (كل 24 ساعة)",
-            bestTime: "مساءً (خصوصاً Cetirizine لأنه قد يسبب نعاساً خفيفاً)",
-            note: "يمكن تناوله قبل أو بعد الطعام."
-        },
-        {
-            name: "Furosemide (فيوروسيميد - لازيكس مدر للبول)",
-            keywords: ["furosemide", "lasix", "لازيكس", "مدر", "بول", "ضغط"],
-            freq: "مرة إلى مرتين يومياً (صباحاً أو صباحاً وظهراً)",
-            bestTime: "صباحاً باكراً أو قبل الساعة 4 عصراً",
-            note: "يُتجنب إعطاؤه ليلاً حتى لا يضطر المريض للاستيقاظ المتكرر."
-        },
-        {
-            name: "Captopril / Enalapril / Lisinopril / Ramipril (أدوية الضغط مثبطات ACE)",
-            keywords: ["captopril", "enalapril", "lisinopril", "ramipril", "ضغط", "كابتوبريل", "راميبريل"],
-            freq: "مرة واحدة يومياً (أو مرتين في Captopril)",
-            bestTime: "في وقت ثابت يومياً (Captopril يُفضل قبل الأكل بساعة)",
-            note: "قد تسبب سعالاً جافاً مزمناً لدى بعض المرضى."
+            name: "Atorvastatin / Metformin",
+            keywords: ["atorvastatin", "metformin", "أتورفاستاتين", "ميتفورمين", "دهون", "سكري"],
+            freq: "مرة يومياً (Atorvastatin) أو مرتين يومياً (Metformin)",
+            bestTime: "مساءً/ثابت (Atorvastatin) • مع أو بعد الأكل (Metformin)",
+            note: "تناول Metformin مع الطعام يقلل اضطراب المعدة."
         }
     ];
 
@@ -1685,7 +1866,7 @@
                         <strong style="color:#34d399;">${item.bestTime}</strong>
                     </div>
                 </div>
-                <p style="font-size:0.86rem; color:#e2e8f0;">💡 <strong>ملاحظة صيدلانية:</strong> ${item.note}</p>
+                <p style="font-size:0.86rem; color:#e2e8f0;">💡 <strong>ملاحظة وطريقة الحساب:</strong> ${item.note}</p>
             </div>
         `;
     }
@@ -1701,17 +1882,9 @@
             d.name.toLowerCase().includes(q) ||
             d.keywords.some(k => k.toLowerCase().includes(q) || q.includes(k.toLowerCase()))
         );
-        if (matches.length > 0) {
-            box.innerHTML = matches.map(renderScheduleCard).join('');
-        } else {
-            box.innerHTML = `
-                <div class="timing-card" style="border-color:rgba(244,63,94,0.45);">
-                    <p style="color:#fda4af; font-size:0.9rem;">
-                        لم يتم العثور على "<strong>${document.getElementById('drugScheduleInput').value}</strong>" في قاعدة المواعيد السريعة. جرّب الاسم العلمي بالإنجليزية أو اختر من الأزرار السريعة بالأعلى.
-                    </p>
-                </div>
-            `;
-        }
+        box.innerHTML = matches.length > 0
+            ? matches.map(renderScheduleCard).join('')
+            : `<div class="timing-card" style="border-color:rgba(244,63,94,0.45);"><p style="color:#fda4af; font-size:0.9rem;">لم يتم العثور على "<strong>${document.getElementById('drugScheduleInput').value}</strong>".</p></div>`;
     }
 
     function selectScheduleChip(val) {
@@ -1724,16 +1897,16 @@
         if (!tbody) return;
         tbody.innerHTML = drugSchedulesDB.map(d => `
             <tr>
-                <td style="text-align:right;"><strong>${d.name.split('(')[0]}</strong></td>
+                <td style="text-align:right;"><strong>${d.name}</strong></td>
                 <td>${d.freq}</td>
                 <td style="color:#34d399; font-weight:700;">${d.bestTime}</td>
-                <td style="text-align:right; font-size:0.76rem;">${d.note}</td>
+                <td style="text-align:right; font-size:0.75rem;">${d.note}</td>
             </tr>
         `).join('');
     }
     populateScheduleTable();
 
-    // البحث الفوري الذكي (يدعم البحث بكلمة "مل" أو "سي سي" أو "ml" أو "cc" أو أي دواء)
+    // البحث الفوري الذكي على أصل طريقتك بالسي سي (1 مل = 1 سي سي)
     const searchInput = document.getElementById('aiSearchInput');
     const clearBtn = document.getElementById('clearSearchBtn');
     const instantBox = document.getElementById('aiInstantResults');
@@ -1753,20 +1926,34 @@
         let hitsHTML = '';
         let count = 0;
 
-        // إجابة فورية عند البحث عن وحدة القياس (مل / سي سي / ml / cc)
-        if (term.includes('مل') || term.includes('سي سي') || term.includes('ml') || term.includes('cc')) {
-            hitsHTML += `
-                <div class="instant-hit" style="border-right-color:#f59e0b; cursor:pointer;" onclick="jumpToSyrup('cefix_100')">
-                    <strong>📏 نظام الحساب بالمل والسي سي (mL / cc):</strong>
-                    <span>• <strong>1 مل = 1 سي سي</strong> في قياس الشرابات والقطرات والمحاليل.<br>• مثال Cefixime 100mg/5ml لطفل وزنه 15 كغم (8mg/kg/day): الناتج <strong>6 مل (6 سي سي)</strong> مرة واحدة باليوم.<br>• اضغط هنا لفتح حاسبة الشرابات بالمل والسي سي ←</span>
-                </div>
-            `;
-            count++;
-        }
+        // مطابقة طرق حسابك المعتمدة بالسي سي (شرابات ومغذيات)
+        userDoseRules.forEach(rule => {
+            const isMatch = rule.name.toLowerCase().includes(term) ||
+                            rule.conc.toLowerCase().includes(term) ||
+                            rule.keywords.some(k => k.toLowerCase().includes(term) || term.includes(k.toLowerCase()));
+            if (isMatch && count < 6) {
+                const ex10 = rule.calc(10);
+                const ex15 = rule.calc(15);
+                const f10 = Number.isInteger(ex10) ? ex10 : ex10.toFixed(2);
+                const f15 = Number.isInteger(ex15) ? ex15 : ex15.toFixed(2);
 
+                hitsHTML += `
+                    <div class="instant-hit" style="border-right-color:#10b981; cursor:pointer;" onclick="jumpToRule('${rule.id}')">
+                        <strong>🧮 ${rule.name} (${rule.conc}) — 1 مل = 1 سي سي</strong>
+                        <span>
+                            <strong>القاعدة:</strong> ${rule.ruleText} • <strong>التكرار:</strong> ${rule.freq}<br>
+                            <span style="color:#34d399;">مثال وزن 10 كغم = <strong>${f10} سي سي</strong> | مثال وزن 15 كغم = <strong>${f15} سي سي</strong></span>
+                        </span>
+                    </div>
+                `;
+                count++;
+            }
+        });
+
+        // مطابقة مواعيد وتكرار الأدوية
         drugSchedulesDB.forEach(d => {
             const match = d.name.toLowerCase().includes(term) || d.keywords.some(k => k.toLowerCase().includes(term));
-            if (match && count < 4) {
+            if (match && count < 8) {
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToSchedule('${d.keywords[0]}')">
                         <strong>🕒 موعد وتكرار: ${d.name}</strong>
@@ -1777,49 +1964,12 @@
             }
         });
 
-        const selectOpts = document.querySelectorAll('#presetDrug option');
-        selectOpts.forEach(opt => {
-            if (opt.value !== 'custom' && opt.text.toLowerCase().includes(term) && count < 7) {
-                hitsHTML += `
-                    <div class="instant-hit" style="border-right-color:#10b981; cursor:pointer;" onclick="jumpToSyrup('${opt.value}')">
-                        <strong>🥄 شراب في الحاسبة (مل / سي سي): ${opt.text}</strong>
-                        <span style="color:#34d399;">اضغط هنا لفتح الحاسبة وتعبئة جرعة هذا الشراب فوراً ←</span>
-                    </div>
-                `;
-                count++;
-            }
-        });
-
-        document.querySelectorAll('.searchable-item').forEach(item => {
-            const text = item.innerText.toLowerCase();
-            if (text.includes(term)) {
-                item.style.display = '';
-                if (item.classList.contains('accordion-item')) {
-                    item.classList.add('open');
-                }
-                if (count < 8) {
-                    const title = item.getAttribute('data-title') || 'نتيجة مطابقة';
-                    const lines = item.innerText.split('\n').filter(l => l.toLowerCase().includes(term));
-                    const snippet = lines.slice(0, 2).join(' • ');
-                    hitsHTML += `
-                        <div class="instant-hit">
-                            <strong>📌 ${title}</strong>
-                            <span>${snippet}</span>
-                        </div>
-                    `;
-                    count++;
-                }
-            } else {
-                item.style.display = 'none';
-            }
-        });
-
         if (count > 0) {
-            document.getElementById('aiHitsCount').innerText = `⚡ إجابات فورية سريعة (${count} نتائج):`;
+            document.getElementById('aiHitsCount').innerText = `⚡ نتائج فورية على أصل طريقتك (${count} نتائج):`;
             hitsList.innerHTML = hitsHTML;
             instantBox.style.display = 'block';
         } else {
-            hitsList.innerHTML = `<div class="instant-hit">لم يتم العثور على تطابق مباشر لـ "${rawTerm}". جرّب البحث بكلمة "مل" أو "سي سي" أو اسم الدواء بالإنجليزية.</div>`;
+            hitsList.innerHTML = `<div class="instant-hit">لم يتم العثور على تطابق مباشر لـ "${rawTerm}". جرّب البحث باسم الدواء أو "مغذيات" أو "سي سي".</div>`;
             instantBox.style.display = 'block';
         }
     });
@@ -1831,13 +1981,20 @@
         document.querySelectorAll('.searchable-item').forEach(el => el.style.display = '');
     }
 
-    function jumpToSyrup(presetVal) {
+    function jumpToRule(ruleId) {
         const tabBtns = document.querySelectorAll('.tab-btn');
         switchTab('sec3', tabBtns[2]);
         const subBtns = document.querySelectorAll('.calc-subbtn');
-        switchCalc('calc-syrup', subBtns[0]);
-        document.getElementById('presetDrug').value = presetVal;
-        fillPresetDrug();
+        if (ruleId.startsWith('iv_')) {
+            switchCalc('calc-iv', subBtns[1]);
+        } else {
+            switchCalc('calc-syrup', subBtns[0]);
+            const sel = document.getElementById('presetDrug');
+            if ([...sel.options].some(o => o.value === ruleId)) {
+                sel.value = ruleId;
+                updateSyrupPreview();
+            }
+        }
         instantBox.style.display = 'none';
     }
 
@@ -1861,7 +2018,7 @@
             <div style="border-bottom:2px solid #0284c7; padding-bottom:10px; margin-bottom:15px; display:flex; justify-content:space-between;">
                 <div>
                     <h2 style="font-size:1.2rem;">💊 أكاديمية الصيدلة والجرعات الذكية</h2>
-                    <p style="font-size:0.8rem;">وثيقة تعليمية وسريرية معتمدة (مل / سي سي)</p>
+                    <p style="font-size:0.8rem;">نظام الحساب بالسي سي (1 مل = 1 سي سي)</p>
                 </div>
                 <div style="font-size:0.78rem; text-align:left;">
                     <strong>ملف PDF</strong><br>${new Date().toLocaleDateString('ar-IQ')}
@@ -1895,137 +2052,6 @@
             jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         html2pdf().set(opt).from(element).save();
-    }
-
-    function estimateWeightFromAge() {
-        const age = parseFloat(document.getElementById('childAge').value);
-        if (!isNaN(age) && age > 0) {
-            const estWeight = (age <= 10) ? (age * 2 + 8) : (age * 3);
-            document.getElementById('childWeight').value = estWeight;
-        }
-    }
-
-    function fillPresetDrug() {
-        const val = document.getElementById('presetDrug').value;
-        const db = {
-            'cefix_100': { mg: 8, str: 100, freq: '1' },
-            'cefix_200': { mg: 8, str: 200, freq: '1' },
-            'amox_125': { mg: 45, str: 125, freq: '3' },
-            'amox_250': { mg: 45, str: 250, freq: '3' },
-            'amox_high_250': { mg: 80, str: 250, freq: '2' },
-            'aug_156': { mg: 30, str: 156.25, freq: '3' },
-            'aug_312': { mg: 30, str: 312.5, freq: '3' },
-            'aug_457': { mg: 45, str: 457, freq: '2' },
-            'aug_600': { mg: 90, str: 600, freq: '2' },
-            'azith_200': { mg: 10, str: 200, freq: '1' },
-            'clarith_125': { mg: 15, str: 125, freq: '2' },
-            'clarith_250': { mg: 15, str: 250, freq: '2' },
-            'cephalex_125': { mg: 50, str: 125, freq: '3' },
-            'cephalex_250': { mg: 50, str: 250, freq: '3' },
-            'cefurox_125': { mg: 25, str: 125, freq: '2' },
-            'cefurox_250': { mg: 25, str: 250, freq: '2' },
-            'metro_125': { mg: 30, str: 125, freq: '3' },
-            'metro_200': { mg: 30, str: 200, freq: '3' },
-            'para_120': { mg: 60, str: 120, freq: '4' },
-            'para_250': { mg: 60, str: 250, freq: '4' },
-            'ibu_100': { mg: 30, str: 100, freq: '3' },
-            'ibu_200': { mg: 30, str: 200, freq: '3' },
-            'mefen_50': { mg: 19.5, str: 50, freq: '3' },
-            'lorat_5': { mg: 0.3, str: 5, freq: '1' },
-            'cetir_5': { mg: 0.25, str: 5, freq: '1' },
-            'deslorat_2_5': { mg: 0.15, str: 2.5, freq: '1' },
-            'salbut_2': { mg: 0.3, str: 2, freq: '3' },
-            'pred_5': { mg: 1.5, str: 5, freq: '2' },
-            'pred_15': { mg: 1.5, str: 15, freq: '2' },
-            'domper_5': { mg: 0.75, str: 5, freq: '3' },
-            'ondans_4': { mg: 0.3, str: 4, freq: '2' },
-            'albend_200': { mg: 15, str: 200, freq: '1' },
-            'mebend_100': { mg: 10, str: 100, freq: '2' }
-        };
-        if (db[val]) {
-            document.getElementById('mgPerKg').value = db[val].mg;
-            document.getElementById('syrupStrength').value = db[val].str;
-            document.getElementById('dosesPerDay').value = db[val].freq;
-        }
-    }
-
-    function calculateSyrup() {
-        const weight = parseFloat(document.getElementById('childWeight').value);
-        const mgPerKg = parseFloat(document.getElementById('mgPerKg').value);
-        const strength = parseFloat(document.getElementById('syrupStrength').value);
-        const freq = parseInt(document.getElementById('dosesPerDay').value);
-
-        if (isNaN(weight) || isNaN(mgPerKg) || weight <= 0 || strength <= 0) {
-            alert("يرجى إدخال وزن الطفل بالكغم والجرعة المطلوبة بشكل صحيح.");
-            return;
-        }
-
-        const totalDailyMg = weight * mgPerKg;
-        const singleDoseMg = totalDailyMg / freq;
-        const singleDoseMl = (singleDoseMg / strength) * 5;
-        const dropsCount = Math.round(singleDoseMl * 20);
-
-        const resBox = document.getElementById('syrupResult');
-        resBox.style.display = 'block';
-        resBox.innerHTML = `
-            <h4>✅ الجرعة المدققة بالمل / سي سي:</h4>
-            <p style="font-size:1.15rem;">• الجرعة الواحدة: <strong style="color:#22d3ee; font-size:1.35rem;">${singleDoseMl.toFixed(1)} مل (${singleDoseMl.toFixed(1)} سي سي)</strong></p>
-            <p>• <strong>عدد المرات باليوم:</strong> <strong>${freq} ${freq === 1 ? 'مرة واحدة يومياً (كل 24 ساعة)' : 'مرات يومياً (كل ' + (24/freq) + ' ساعات)'}</strong></p>
-            <p>• <strong>ما يعادلها بالقطرات / الملاعق:</strong> حوالي <strong>${dropsCount} قطرة</strong> أو <strong>${(singleDoseMl/5).toFixed(2)} ملعقة صغيرة (5 مل)</strong>.</p>
-            <p style="font-size:0.82rem; color:#94a3b8; margin-top:6px;">شرح الحساب: ${weight} كغم × ${mgPerKg} ملغم/كغم = ${totalDailyMg.toFixed(1)} ملغم باليوم ← ${singleDoseMg.toFixed(1)} ملغم للجرعة الواحدة ← ${singleDoseMl.toFixed(1)} مل (سي سي).</p>
-        `;
-    }
-
-    function calculateIV() {
-        const vol = parseFloat(document.getElementById('ivVolume').value);
-        const hrs = parseFloat(document.getElementById('ivHours').value);
-        const factor = parseFloat(document.getElementById('dropFactor').value);
-
-        if (isNaN(vol) || isNaN(hrs) || hrs <= 0) {
-            alert("يرجى إدخال الحجم والوقت بشكل صحيح.");
-            return;
-        }
-
-        const mlPerHr = vol / hrs;
-        const dropsPerMin = (vol * factor) / (hrs * 60);
-
-        const resBox = document.getElementById('ivResult');
-        resBox.style.display = 'block';
-        resBox.innerHTML = `
-            <h4>💧 نتيجة حساب المغذي:</h4>
-            <p>• <strong>سرعة التقطير اليدوي:</strong> <strong style="color:#22d3ee; font-size:1.3rem;">${Math.round(dropsPerMin)} قطرة / دقيقة</strong></p>
-            <p>• <strong>المعدل بالساعة:</strong> <strong>${mlPerHr.toFixed(1)} مل / ساعة (${mlPerHr.toFixed(1)} سي سي/ساعة)</strong></p>
-        `;
-    }
-
-    function calculateTabs() {
-        const desired = parseFloat(document.getElementById('tabDesired').value);
-        const have = parseFloat(document.getElementById('tabHave').value);
-        if (isNaN(desired) || isNaN(have) || have <= 0) {
-            alert("يرجى إدخال الجرعة المطلوبة والمتوفرة.");
-            return;
-        }
-        const count = desired / have;
-        const resBox = document.getElementById('tabResult');
-        resBox.style.display = 'block';
-        resBox.innerHTML = `
-            <h4>💊 الكمية المطلوبة:</h4>
-            <p>• يُعطى المريض: <strong style="color:#22d3ee; font-size:1.3rem;">${count} حبة / كبسولة</strong> في الجرعة الواحدة.</p>
-        `;
-    }
-
-    function convertMl() {
-        const ml = parseFloat(document.getElementById('mlConvert').value);
-        const box = document.getElementById('convertResult');
-        if (isNaN(ml) || ml <= 0) {
-            box.innerHTML = `<p>اكتب أي رقم بالمل (السي سي) بالأعلى للتحويل الفوري...</p>`;
-            return;
-        }
-        box.innerHTML = `
-            <p>• <strong>${ml} مل (${ml} سي سي)</strong> = <strong style="color:#22d3ee;">${Math.round(ml * 20)} قطرة</strong></p>
-            <p>• تعادل <strong>${(ml / 5).toFixed(2)} ملعقة صغيرة (5 مل / سي سي)</strong></p>
-            <p>• تعادل <strong>${(ml / 15).toFixed(2)} ملعقة طعام كبيرة (15 مل / سي سي)</strong></p>
-        `;
     }
 </script>
 
