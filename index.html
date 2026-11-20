@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+د<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -166,21 +166,21 @@
         /* Navigation Tabs */
         .tabs {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            max-width: 880px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+            max-width: 920px;
             margin: 0 auto 20px;
             padding: 0 15px;
         }
 
         .tab-btn {
-            padding: 12px 6px;
+            padding: 11px 5px;
             border: 1px solid var(--border);
             border-radius: 14px;
             background: var(--bg-card);
             color: var(--text-muted);
             font-weight: 700;
-            font-size: 0.84rem;
+            font-size: 0.78rem;
             cursor: pointer;
             transition: all 0.25s ease;
             text-align: center;
@@ -195,7 +195,7 @@
 
         /* Container */
         .container {
-            max-width: 880px;
+            max-width: 920px;
             margin: 0 auto;
             padding: 0 15px;
         }
@@ -418,7 +418,7 @@
             border: 1px solid rgba(6, 182, 212, 0.25);
         }
 
-        /* Calculators UI */
+        /* Calculators & Schedule UI */
         .calc-subtabs {
             display: flex;
             gap: 6px;
@@ -530,6 +530,59 @@
             margin: 10px 0;
             font-size: 0.84rem;
             color: #bfdbfe;
+        }
+
+        /* Timing Cards Grid */
+        .timing-card {
+            background: linear-gradient(145deg, #162238, #1c2842);
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 14px;
+        }
+
+        .timing-pills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        .timing-pill-box {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .timing-pill-box span {
+            display: block;
+            font-size: 0.76rem;
+            color: #94a3b8;
+            margin-bottom: 3px;
+        }
+
+        .timing-pill-box strong {
+            font-size: 0.95rem;
+            color: #22d3ee;
+        }
+
+        .quick-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .quick-chip {
+            background: rgba(139, 92, 246, 0.18);
+            color: #ddd6fe;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.76rem;
+            cursor: pointer;
+            font-weight: 700;
         }
 
         table.dose-table {
@@ -660,14 +713,14 @@
 <header>
     <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الذكاء الصيدلاني</div>
     <h1>أكاديمية الصيدلة والجرعات الذكية</h1>
-    <p>تعليم الصيدلة • الـ 18 كلاس العالمي المعتمد • حاسبة الشرابات والجرعات الشاملة</p>
+    <p>تعليم الصيدلة • الـ 18 كلاس العالمي • حساب الشرابات والجرعات • مواعيد الأدوية</p>
 </header>
 
 <!-- شريط البحث الذكي الفوري -->
 <div class="ai-search-wrapper">
     <div class="ai-search-box">
         <span style="font-size:1.2rem; margin-left:6px;">🤖</span>
-        <input type="text" id="aiSearchInput" placeholder="اسأل أو ابحث فوراً (مثلاً: Amoxicillin، شراب، Class 3، ضغط، قطرة، BID)...">
+        <input type="text" id="aiSearchInput" placeholder="ابحث فوراً عن أي دواء أو عائلة أو موعد إعطاء (مثلاً: Omeprazole، Atorvastatin، Amoxicillin)...">
         <button id="clearSearchBtn" class="clear-search" onclick="clearAiSearch()">✕</button>
     </div>
 </div>
@@ -683,11 +736,12 @@
     </div>
 </div>
 
-<!-- التبويبات الرئيسية -->
+<!-- التبويبات الرئيسية الأربعة -->
 <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('sec1', this)">📚 1. تعلم الصيدلة</button>
-    <button class="tab-btn" onclick="switchTab('sec2', this)">🧬 2. الـ 18 Class العالمي</button>
-    <button class="tab-btn" onclick="switchTab('sec3', this)">🧮 3. الشرابات والجرعات</button>
+    <button class="tab-btn active" onclick="switchTab('sec1', this)">📚 تعلم الصيدلة</button>
+    <button class="tab-btn" onclick="switchTab('sec2', this)">🧬 الـ 18 Class</button>
+    <button class="tab-btn" onclick="switchTab('sec3', this)">🧮 حساب الجرعات</button>
+    <button class="tab-btn" onclick="switchTab('sec4', this)">🕒 مواعيد الأدوية</button>
 </div>
 
 <div class="container">
@@ -765,7 +819,6 @@
         </div>
 
         <div id="familiesContainer">
-
             <!-- Class 1 -->
             <div class="accordion-item open searchable-item" data-title="Class 1: Antimicrobial drugs المضادات الميكروبية">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -1501,7 +1554,7 @@
                 </div>
             </div>
 
-            <!-- Prescriptions & Useful Info (من أسفل الصورة) -->
+            <!-- Prescriptions & Useful Info -->
             <div class="accordion-item searchable-item" data-title="Prescriptions & some useful information اختصارات الوصفات الطبية">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
                     <div>
@@ -1521,7 +1574,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -1801,6 +1853,64 @@
         </div>
     </div>
 
+    <!-- ========================================================= -->
+    <!-- القسم الرابع الجديد: مواعيد وتكرار إعطاء الأدوية (Timing)  -->
+    <!-- ========================================================= -->
+    <div id="sec4" class="section-content">
+        <div class="card" id="sec4-card">
+            <div class="card-header">
+                <span class="card-title">🕒 باحث مواعيد وتكرار إعطاء الأدوية الذكي</span>
+                <span class="badge">توقيت سريري</span>
+            </div>
+
+            <div class="formula-box">
+                اكتب اسم أي دواء (عربي أو إنجليزي) في حقل البحث بالأسفل أو اضغط على أي اسم جاهز؛ وسيظهر لك فوراً <strong>كم مرة يُعطى باليوم</strong> و<strong>أفضل وقت لإعطائه</strong>.
+            </div>
+
+            <div class="form-group">
+                <label>🔍 اكتب اسم الدواء هنا (مثلاً: Omeprazole، Levothyroxine، Atorvastatin، Metformin، Amoxicillin):</label>
+                <input type="text" id="drugScheduleInput" class="form-control" placeholder="اكتب اسم الدواء للبحث الفوري عن تكراره وأفضل وقت..." oninput="lookupDrugSchedule()">
+            </div>
+
+            <div class="form-group">
+                <label style="font-size:0.78rem; color:#94a3b8;">اختصارات سريعة لأشهر الأدوية:</label>
+                <div class="quick-chips">
+                    <span class="quick-chip" onclick="selectScheduleChip('Omeprazole')">Omeprazole</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Levothyroxine')">Levothyroxine</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Atorvastatin')">Atorvastatin</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Metformin')">Metformin</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Amoxicillin')">Amoxicillin</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Azithromycin')">Azithromycin</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Ibuprofen')">Ibuprofen</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Montelukast')">Montelukast</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Cetirizine')">Cetirizine</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Furosemide')">Furosemide</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Captopril')">Captopril</span>
+                    <span class="quick-chip" onclick="selectScheduleChip('Alendronate')">Alendronate</span>
+                </div>
+            </div>
+
+            <!-- نتيجة البحث الفورية لمواعيد وتكرار الدواء -->
+            <div id="scheduleResultBox"></div>
+
+            <!-- جدول مرجعي سريع لأشهر الأدوية وتوقيتها -->
+            <h4 style="color:#38bdf8; margin-top:20px; margin-bottom:8px; font-size:0.95rem;">📋 جدول مرجعي لأشهر الأدوية وتوقيتها المثالي:</h4>
+            <table class="dose-table">
+                <thead>
+                    <tr>
+                        <th>الدواء</th>
+                        <th>التكرار اليومي</th>
+                        <th>أفضل وقت للإعطاء</th>
+                        <th>ملاحظة مهمة</th>
+                    </tr>
+                </thead>
+                <tbody id="scheduleReferenceBody"></tbody>
+            </table>
+
+            <button class="mini-pdf-btn" onclick="openPdfViewer('sec4-card', 'دليل_مواعيد_وتكرار_الأدوية')">📄 فتح ملف PDF لجدول المواعيد</button>
+        </div>
+    </div>
+
 </div>
 
 <!-- نافذة عارض ملفات PDF المباشر داخل التطبيق -->
@@ -1843,6 +1953,179 @@
     }
 
     // =========================================================
+    // قاعدة بيانات مواعيد وتكرار الأدوية (Frequency & Best Time)
+    // =========================================================
+    const drugSchedulesDB = [
+        {
+            name: "Omeprazole / Esomeprazole / Pantoprazole / Lansoprazole (أوميبرازول / إيزوميبرازول / بانتوبرازول)",
+            keywords: ["omeprazole", "esomeprazole", "pantoprazole", "lansoprazole", "rabeprazole", "أوميبرازول", "بانتوبرازول", "معدة", "حموضة"],
+            freq: "مرة واحدة يومياً (وقد يُعطى مرتين كل 12 ساعة في الحالات الشديدة)",
+            bestTime: "قبل الفطور بـ 30 إلى 60 دقيقة على معدة فارغة",
+            note: "يُبلع الكبسول أو القرص المغلف كاملاً دون فتح أو مضغ."
+        },
+        {
+            name: "Levothyroxine (ليفوثيروكسين - خمول الغدة الدرقية)",
+            keywords: ["levothyroxine", "eltroxin", "euthyrox", "ليفوثيروكسين", "غدة", "خمول"],
+            freq: "مرة واحدة يومياً (كل 24 ساعة)",
+            bestTime: "صباحاً على معدة فارغة قبل الفطور بـ 30 إلى 60 دقيقة مع كوب ماء",
+            note: "يُفصل عن الكالسيوم والحديد ومضادات الحموضة بـ 4 ساعات على الأقل."
+        },
+        {
+            name: "Atorvastatin / Rosuvastatin / Simvastatin (أتورفاستاتين / روزوفاستاتين - الدهون)",
+            keywords: ["atorvastatin", "rosuvastatin", "simvastatin", "lipitor", "crestor", "دهون", "كوليسترول", "أتورفاستاتين"],
+            freq: "مرة واحدة يومياً (كل 24 ساعة)",
+            bestTime: "مساءً أو قبل النوم (خصوصاً Simvastatin؛ بينما Atorvastatin و Rosuvastatin مرنان بأي وقت ثابت يومياً)",
+            note: "الالتزام بموعد ثابت يومياً يزيد من كفاءة خفض الكوليسترول."
+        },
+        {
+            name: "Metformin (ميتفورمين - جلوكوفاج للسكري)",
+            keywords: ["metformin", "glucophage", "ميتفورمين", "سكري", "جلوكوفاج"],
+            freq: "مرتين يومياً (كل 12 ساعة) أو مرة واحدة للنسخة الممتدة (XR)",
+            bestTime: "أثناء الأكل أو مباشرة بعد الوجبة (الفطور والعشاء)",
+            note: "تناوله مع الطعام يقلل بشكل كبير من اضطرابات المعدة والغثيان."
+        },
+        {
+            name: "Amoxicillin / Co-Amoxiclav (أموكسيسيلين / أوغمنتين)",
+            keywords: ["amoxicillin", "augmentin", "amoxiclav", "أموكسيسيلين", "أوغمنتين", "مضاد"],
+            freq: "2 إلى 3 مرات يومياً (كل 8 ساعات أو كل 12 ساعة حسب التركيز والبروتوكول)",
+            bestTime: "بداية الوجبة (الأوغمنتين يُفضل مع الطعام لتقليل الإسهال وتهييج المعدة)",
+            note: "يجب إكمال كامل مدة الكورس العلاجي حتى لو تحسنت الأعراض."
+        },
+        {
+            name: "Azithromycin (أزيثرومايسين)",
+            keywords: ["azithromycin", "zithromax", "أزيثرومايسين"],
+            freq: "مرة واحدة يومياً (كل 24 ساعة) لمدة 3 إلى 5 أيام",
+            bestTime: "في أي وقت ثابت يومياً (قبل الأكل بساعة أو بعده بساعتين لامتصاص أفضل للكبسول؛ والشراب أو الأقراص يمكن أخذها مع أو بدون أكل)",
+            note: "يُفصل عن مضادات الحموضة المحتوية على الألمنيوم أو المغنيسيوم بساعتين."
+        },
+        {
+            name: "Ibuprofen / Diclofenac / Mefenamic Acid (بروفين / ديكلوفيناك / ميفيناميك)",
+            keywords: ["ibuprofen", "diclofenac", "mefenamic", "brufen", "voltaren", "ponstan", "بروفين", "مسكن", "التهاب"],
+            freq: "2 إلى 3 مرات يومياً (كل 8 إلى 12 ساعة عند اللزوم أو حسب الوصفة)",
+            bestTime: "بعد الأكل مباشرة مع كمية كافية من الماء",
+            note: "تجنب أخذه على معدة فارغة لتقليل خطر تهيج وقرحة المعدة."
+        },
+        {
+            name: "Paracetamol (باراسيتامول - خافض حرارة ومسكن)",
+            keywords: ["paracetamol", "acetaminophen", "panadol", "باراسيتامول", "حرارة", "سخونة", "بنادول"],
+            freq: "كل 6 إلى 8 ساعات عند اللزوم (بحد أقصى 4 جرعات باليوم / 4000mg للبالغ)",
+            bestTime: "قبل أو بعد الأكل (آمن على المعدة في أي وقت)",
+            note: "انتبه لعدم جمع أكثر من دواء يحتوي على Paracetamol في نفس الوقت."
+        },
+        {
+            name: "Montelukast (مونتيلوكاست - سينغولير للحساسية والربو)",
+            keywords: ["montelukast", "singulair", "مونتيلوكاست", "ربو", "حساسية"],
+            freq: "مرة واحدة يومياً (كل 24 ساعة)",
+            bestTime: "مساءً (في حالات الربو وحساسية الأنف الموسمية)",
+            note: "يمكن أخذه مع الطعام أو بدونه."
+        },
+        {
+            name: "Cetirizine / Loratadine / Desloratadine (مضادات الهيستامين للحساسية)",
+            keywords: ["cetirizine", "loratadine", "desloratadine", "levocetirizine", "zrytec", "claritine", "حساسية", "سيتريزين", "لوراتادين"],
+            freq: "مرة واحدة يومياً (كل 24 ساعة)",
+            bestTime: "مساءً (خصوصاً Cetirizine لأنه قد يسبب نعاساً خفيفاً؛ بينما Loratadine و Desloratadine يناسبان الصباح أو المساء)",
+            note: "يمكن تناوله قبل أو بعد الطعام."
+        },
+        {
+            name: "Furosemide (فيوروسيميد - لازيكس مدر للبول)",
+            keywords: ["furosemide", "lasix", "لازيكس", "مدر", "بول", "ضغط"],
+            freq: "مرة إلى مرتين يومياً (صباحاً أو صباحاً وظهراً)",
+            bestTime: "صباحاً باكراً أو قبل الساعة 4 عصراً",
+            note: "يُتجنب إعطاؤه ليلاً حتى لا يضطر المريض للاستيقاظ المتكرر للتبول."
+        },
+        {
+            name: "Captopril / Enalapril / Lisinopril / Ramipril (أدوية الضغط مثبطات ACE)",
+            keywords: ["captopril", "enalapril", "lisinopril", "ramipril", "ضغط", "كابتوبريل", "راميبريل"],
+            freq: "مرة واحدة يومياً (أو مرتين في Captopril)",
+            bestTime: "في وقت ثابت يومياً (Captopril يُفضل قبل الأكل بساعة؛ بينما Enalapril و Lisinopril و Ramipril يمكن أخذها مع أو بدون أكل)",
+            note: "قد تسبب سعالاً جافاً مزمناً لدى بعض المرضى."
+        },
+        {
+            name: "Alendronate (ألندرونات - لهشاشة العظام)",
+            keywords: ["alendronate", "fosamax", "هشاشة", "عظام", "ألندرونات"],
+            freq: "مرة واحدة أسبوعياً (يوم ثابت كل أسبوع)",
+            bestTime: "صباحاً على معدة فارغة قبل أي طعام أو شراب بـ 30 دقيقة على الأقل مع كوب ماء كامل",
+            note: "يجب البقاء جالساً أو واقفاً لمدة 30 دقيقة على الأقل بعد بلع الحبة وعدم الاستلقاء."
+        },
+        {
+            name: "Iron / Ferrous Sulfate (حبوب أو شراب الحديد لفقر الدم)",
+            keywords: ["iron", "ferrous", "حديد", "فقر دم", "دم"],
+            freq: "مرة إلى مرتين يومياً (حسب توجيه الطبيب)",
+            bestTime: "على معدة فارغة قبل الأكل بساعة أو بعده بساعتين (وإذا سبب غثياناً يُؤخذ بعد وجبة خفيفة)",
+            note: "يُفضل أخذه مع عصير فيتامين C لزيادة الامتصاص، ويُفصل عن الشاي والقهوة والحليب والكالسيوم بساعتين."
+        },
+        {
+            name: "Ciprofloxacin / Levofloxacin (سيبروفلوكساسين / ليفوفلوكساسين)",
+            keywords: ["ciprofloxacin", "levofloxacin", "moxifloxacin", "سيبروفلوكساسين", "ليفوفلوكساسين"],
+            freq: "مرتين يومياً (كل 12 ساعة) لـ Ciprofloxacin، أو مرة واحدة يومياً لـ Levofloxacin",
+            bestTime: "يمكن أخذه مع أو بدون طعام، ويفضل شرب كمية كافية من الماء",
+            note: "يُفصل عن منتجات الألبان والكالسيوم والحديد والزنك بساعتين قبل أو 4 ساعات بعد الدواء."
+        }
+    ];
+
+    function renderScheduleCard(item) {
+        return `
+            <div class="timing-card">
+                <h4 style="color:#38bdf8; font-size:1.05rem; margin-bottom:4px;">💊 ${item.name}</h4>
+                <div class="timing-pills">
+                    <div class="timing-pill-box">
+                        <span>🔁 كم مرة يُعطى باليوم؟</span>
+                        <strong>${item.freq}</strong>
+                    </div>
+                    <div class="timing-pill-box">
+                        <span>⏰ متى أفضل وقت لإعطائه؟</span>
+                        <strong style="color:#34d399;">${item.bestTime}</strong>
+                    </div>
+                </div>
+                <p style="font-size:0.86rem; color:#e2e8f0;">💡 <strong>ملاحظة صيدلانية:</strong> ${item.note}</p>
+            </div>
+        `;
+    }
+
+    function lookupDrugSchedule() {
+        const q = document.getElementById('drugScheduleInput').value.toLowerCase().trim();
+        const box = document.getElementById('scheduleResultBox');
+        if (!q) {
+            box.innerHTML = '';
+            return;
+        }
+        const matches = drugSchedulesDB.filter(d =>
+            d.name.toLowerCase().includes(q) ||
+            d.keywords.some(k => k.toLowerCase().includes(q) || q.includes(k.toLowerCase()))
+        );
+        if (matches.length > 0) {
+            box.innerHTML = matches.map(renderScheduleCard).join('');
+        } else {
+            box.innerHTML = `
+                <div class="timing-card" style="border-color:rgba(244,63,94,0.45);">
+                    <p style="color:#fda4af; font-size:0.9rem;">
+                        لم يتم العثور على اسم الدواء "<strong>${document.getElementById('drugScheduleInput').value}</strong>" في قاعدة المواعيد السريعة. جرّب البحث بالاسم العلمي بالإنجليزية أو اختر من الأزرار السريعة بالأعلى.
+                    </p>
+                </div>
+            `;
+        }
+    }
+
+    function selectScheduleChip(val) {
+        document.getElementById('drugScheduleInput').value = val;
+        lookupDrugSchedule();
+    }
+
+    function populateScheduleTable() {
+        const tbody = document.getElementById('scheduleReferenceBody');
+        if (!tbody) return;
+        tbody.innerHTML = drugSchedulesDB.map(d => `
+            <tr>
+                <td style="text-align:right;"><strong>${d.name.split('(')[0]}</strong></td>
+                <td>${d.freq}</td>
+                <td style="color:#34d399; font-weight:700;">${d.bestTime}</td>
+                <td style="text-align:right; font-size:0.76rem;">${d.note}</td>
+            </tr>
+        `).join('');
+    }
+    populateScheduleTable();
+
+    // =========================================================
     // محرك البحث الفوري بنمط الذكاء الاصطناعي (AI Instant Search)
     // =========================================================
     const searchInput = document.getElementById('aiSearchInput');
@@ -1863,6 +2146,20 @@
         let hitsHTML = '';
         let count = 0;
 
+        // البحث في مواعيد الأدوية وتكرارها
+        drugSchedulesDB.forEach(d => {
+            const match = d.name.toLowerCase().includes(term) || d.keywords.some(k => k.toLowerCase().includes(term));
+            if (match && count < 3) {
+                hitsHTML += `
+                    <div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToSchedule('${d.name.split(' ')[0]}')">
+                        <strong>🕒 موعد وتكرار: ${d.name}</strong>
+                        <span><strong>التكرار:</strong> ${d.freq} • <strong>أفضل وقت:</strong> ${d.bestTime}</span>
+                    </div>
+                `;
+                count++;
+            }
+        });
+
         // البحث في الـ 18 Class والأقسام
         document.querySelectorAll('.searchable-item').forEach(item => {
             const text = item.innerText.toLowerCase();
@@ -1871,9 +2168,8 @@
                 if (item.classList.contains('accordion-item')) {
                     item.classList.add('open');
                 }
-                if (count < 5) {
+                if (count < 6) {
                     const title = item.getAttribute('data-title') || 'نتيجة مطابقة';
-                    // استخراج سطر سياقي يحتوي على الكلمة
                     const lines = item.innerText.split('\n').filter(l => l.toLowerCase().includes(term));
                     const snippet = lines.slice(0, 2).join(' • ');
                     hitsHTML += `
@@ -1892,7 +2188,7 @@
         // البحث في قائمة الشرابات الـ 45+
         const selectOpts = document.querySelectorAll('#presetDrug option');
         selectOpts.forEach(opt => {
-            if (opt.value !== 'custom' && opt.text.toLowerCase().includes(term) && count < 7) {
+            if (opt.value !== 'custom' && opt.text.toLowerCase().includes(term) && count < 8) {
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#10b981; cursor:pointer;" onclick="jumpToSyrup('${opt.value}')">
                         <strong>🥄 شراب متوفر بالحاسبة: ${opt.text}</strong>
@@ -1930,6 +2226,14 @@
         instantBox.style.display = 'none';
     }
 
+    function jumpToSchedule(keyword) {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        switchTab('sec4', tabBtns[3]);
+        document.getElementById('drugScheduleInput').value = keyword;
+        lookupDrugSchedule();
+        instantBox.style.display = 'none';
+    }
+
     // =========================================================
     // عارض ملفات PDF المباشر داخل التطبيق (بدون نافذة طباعة)
     // =========================================================
@@ -1937,7 +2241,7 @@
         currentPdfFilename = fileName;
         const sourceEl = document.getElementById(sourceId);
         const clone = sourceEl.cloneNode(true);
-        clone.querySelectorAll('button, .action-bar').forEach(btn => btn.remove());
+        clone.querySelectorAll('button, .action-bar, .quick-chips').forEach(btn => btn.remove());
         clone.style.display = 'block';
 
         const renderArea = document.getElementById('pdfRenderArea');
@@ -1995,7 +2299,6 @@
     function fillPresetDrug() {
         const val = document.getElementById('presetDrug').value;
         const db = {
-            // Antibiotics
             'amox_125': { mg: 45, str: 125, freq: '3' },
             'amox_250': { mg: 45, str: 250, freq: '3' },
             'amox_high_250': { mg: 80, str: 250, freq: '2' },
@@ -2022,14 +2325,12 @@
             'metro_200': { mg: 30, str: 200, freq: '3' },
             'cotrim_240': { mg: 48, str: 240, freq: '2' },
             'nitazox_100': { mg: 15, str: 100, freq: '2' },
-            // Antipyretics & NSAIDs
             'para_120': { mg: 60, str: 120, freq: '4' },
             'para_250': { mg: 60, str: 250, freq: '4' },
             'ibu_100': { mg: 30, str: 100, freq: '3' },
             'ibu_200': { mg: 30, str: 200, freq: '3' },
             'mefen_50': { mg: 20, str: 50, freq: '3' },
             'diclo_15': { mg: 2, str: 7.5, freq: '3' },
-            // Allergy & Respiratory
             'lorat_5': { mg: 0.3, str: 5, freq: '1' },
             'deslorat_2_5': { mg: 0.15, str: 2.5, freq: '1' },
             'cetir_5': { mg: 0.25, str: 5, freq: '1' },
@@ -2042,13 +2343,11 @@
             'ambrox_15': { mg: 1.5, str: 15, freq: '3' },
             'bromhex_4': { mg: 0.5, str: 4, freq: '3' },
             'dextro_15': { mg: 1, str: 15, freq: '3' },
-            // GIT
             'domper_5': { mg: 0.75, str: 5, freq: '3' },
             'ondans_4': { mg: 0.3, str: 4, freq: '2' },
             'hyoscine_5': { mg: 1.2, str: 5, freq: '3' },
             'lactul_3_3': { mg: 500, str: 3350, freq: '2' },
             'simeth_40': { mg: 8, str: 333, freq: '4' },
-            // Anthelmintics & Iron
             'albend_200': { mg: 15, str: 200, freq: '1' },
             'mebend_100': { mg: 10, str: 100, freq: '2' },
             'nystat_100k': { mg: 20, str: 100, freq: '4' },
