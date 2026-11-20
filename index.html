@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>أكاديمية الصيدلة والحسابات السريرية | إبراهيم إسماعيل</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- مكتبة توليد وتنزيل PDF مباشرة بدون نافذة طباعة -->
+    <title>AI Pharmacy Academy | أكاديمية الصيدلة الذكية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
-            --primary: #0f766e;
-            --primary-dark: #115e59;
-            --secondary: #0284c7;
-            --purple: #7c3aed;
-            --bg: #f1f5f9;
-            --card: #ffffff;
-            --text: #1e293b;
-            --muted: #64748b;
-            --border: #e2e8f0;
-            --accent: #f0fdfa;
+            --bg-main: #0b1120;
+            --bg-card: #131c31;
+            --bg-glass: rgba(30, 41, 59, 0.75);
+            --primary: #06b6d4;
+            --primary-glow: rgba(6, 182, 212, 0.25);
+            --secondary: #8b5cf6;
+            --accent: #10b981;
+            --danger: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(148, 163, 184, 0.18);
         }
 
         * {
@@ -29,55 +29,138 @@
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.12), transparent 35%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.12), transparent 35%);
+            color: var(--text-main);
             line-height: 1.7;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
+            min-height: 100vh;
         }
 
-        /* Header */
+        /* AI Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 24px 15px 28px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.92));
+            border-bottom: 1px solid var(--border);
+            padding: 24px 16px 34px;
             text-align: center;
-            border-bottom-left-radius: 26px;
-            border-bottom-right-radius: 26px;
-            box-shadow: 0 4px 15px rgba(15, 118, 110, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            color: #22d3ee;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         header h1 {
-            font-size: 1.45rem;
-            font-weight: 800;
+            font-size: 1.55rem;
+            font-weight: 900;
+            background: linear-gradient(to left, #22d3ee, #a78bfa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 4px;
         }
 
         header p {
             font-size: 0.88rem;
-            opacity: 0.92;
+            color: var(--text-muted);
         }
 
-        /* Search Bar */
-        .search-container {
-            max-width: 850px;
-            margin: -20px auto 15px;
+        /* AI Instant Search Bar */
+        .ai-search-wrapper {
+            max-width: 880px;
+            margin: -22px auto 18px;
             padding: 0 15px;
+            position: relative;
+            z-index: 20;
         }
 
-        .search-box {
-            width: 100%;
-            padding: 12px 18px;
-            border-radius: 50px;
-            border: 2px solid var(--border);
-            background: white;
-            font-size: 0.92rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        .ai-search-box {
+            display: flex;
+            align-items: center;
+            background: #1e293b;
+            border: 1.5px solid rgba(6, 182, 212, 0.5);
+            border-radius: 18px;
+            padding: 6px 14px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 15px var(--primary-glow);
+        }
+
+        .ai-search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 0.95rem;
+            padding: 10px 8px;
             outline: none;
-            transition: 0.3s;
         }
 
-        .search-box:focus {
-            border-color: var(--primary);
+        .ai-search-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        .clear-search {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #cbd5e1;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            font-weight: bold;
+        }
+
+        /* AI Instant Answer Box */
+        .ai-instant-results {
+            max-width: 880px;
+            margin: 0 auto 20px;
+            padding: 0 15px;
+            display: none;
+        }
+
+        .ai-instant-card {
+            background: linear-gradient(145deg, #162238, #1e1b4b);
+            border: 1px solid rgba(139, 92, 246, 0.45);
+            border-radius: 18px;
+            padding: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+        }
+
+        .ai-instant-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #c4b5fd;
+            font-size: 0.88rem;
+            font-weight: 800;
+        }
+
+        .instant-hit {
+            background: rgba(15, 23, 42, 0.7);
+            border-right: 3px solid #22d3ee;
+            padding: 10px 12px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+        }
+
+        .instant-hit strong {
+            color: #38bdf8;
+            display: block;
+            margin-bottom: 2px;
         }
 
         /* Navigation Tabs */
@@ -85,49 +168,49 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
-            max-width: 850px;
+            max-width: 880px;
             margin: 0 auto 20px;
             padding: 0 15px;
         }
 
         .tab-btn {
-            padding: 11px 6px;
-            border: none;
+            padding: 12px 6px;
+            border: 1px solid var(--border);
             border-radius: 14px;
-            background: white;
-            color: var(--text);
+            background: var(--bg-card);
+            color: var(--text-muted);
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             cursor: pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
             transition: all 0.25s ease;
             text-align: center;
         }
 
         .tab-btn.active {
-            background: var(--primary);
+            background: linear-gradient(135deg, #0891b2, #6366f1);
             color: white;
-            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35);
         }
 
         /* Container */
         .container {
-            max-width: 850px;
+            max-width: 880px;
             margin: 0 auto;
             padding: 0 15px;
         }
 
         .section-content {
             display: none;
-            animation: fadeIn 0.3s ease;
+            animation: fadeUp 0.3s ease;
         }
 
         .section-content.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -136,23 +219,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--accent);
-            border: 1px solid #99f6e4;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
             padding: 12px 15px;
             border-radius: 14px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
             gap: 10px;
         }
 
         .action-bar span {
             font-weight: 700;
-            color: var(--primary-dark);
-            font-size: 0.88rem;
+            color: #67e8f9;
+            font-size: 0.86rem;
         }
 
         .pdf-btn {
-            background: #dc2626;
+            background: linear-gradient(135deg, #e11d48, #be123c);
             color: white;
             border: none;
             padding: 8px 14px;
@@ -163,24 +246,23 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
         }
 
         /* Cards */
         .card {
-            background: var(--card);
+            background: var(--bg-card);
             border-radius: 16px;
             padding: 18px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            margin-bottom: 15px;
             border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 8px;
             gap: 8px;
@@ -189,22 +271,22 @@
         .card-title {
             font-size: 1.05rem;
             font-weight: 800;
-            color: var(--primary);
+            color: #38bdf8;
         }
 
         .badge {
-            background: #e0f2fe;
-            color: #0369a1;
+            background: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.35);
             padding: 3px 10px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             font-weight: 700;
             white-space: nowrap;
         }
 
         .step-list {
             list-style: none;
-            padding-right: 4px;
         }
 
         .step-list li {
@@ -212,50 +294,46 @@
             padding-right: 22px;
             margin-bottom: 8px;
             font-size: 0.9rem;
+            color: #e2e8f0;
         }
 
         .step-list li::before {
-            content: "✔";
+            content: "✦";
             position: absolute;
             right: 0;
-            color: var(--primary);
-            font-weight: bold;
+            color: #22d3ee;
         }
 
         .mini-pdf-btn {
-            background: #fef2f2;
-            color: #dc2626;
-            border: 1px solid #fecaca;
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+            border: 1px solid rgba(244, 63, 94, 0.35);
             padding: 7px 14px;
             border-radius: 8px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
             cursor: pointer;
             margin-top: 10px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
         }
 
-        /* Accordion for 18 Drug Classes */
+        /* Accordion for 18 Classes */
         .accordion-item {
-            background: white;
+            background: var(--bg-card);
             border-radius: 14px;
-            margin-bottom: 11px;
+            margin-bottom: 10px;
             border: 1px solid var(--border);
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
 
         .accordion-header {
             width: 100%;
-            background: white;
+            background: transparent;
             border: none;
             padding: 14px 16px;
             text-align: right;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             font-weight: 800;
-            color: var(--text);
+            color: var(--text-main);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -263,22 +341,29 @@
             gap: 10px;
         }
 
-        .accordion-header .num-badge {
-            background: var(--primary);
-            color: white;
-            min-width: 28px;
-            height: 28px;
+        .class-pill {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: #0f172a;
+            padding: 2px 9px;
             border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
+            font-weight: 900;
             margin-left: 8px;
+            display: inline-block;
+            font-family: sans-serif;
+        }
+
+        .en-sub {
+            display: block;
+            font-size: 0.78rem;
+            color: #38bdf8;
+            font-family: sans-serif;
+            font-weight: 600;
+            margin-top: 2px;
         }
 
         .accordion-header .icon {
-            font-size: 1rem;
-            color: var(--primary);
+            color: #22d3ee;
             transition: transform 0.3s;
         }
 
@@ -290,7 +375,7 @@
             display: none;
             padding: 0 16px 16px;
             border-top: 1px solid var(--border);
-            background: #f8fafc;
+            background: rgba(11, 17, 32, 0.55);
         }
 
         .accordion-item.open .accordion-body {
@@ -298,23 +383,22 @@
         }
 
         .sub-family {
-            background: white;
-            border-right: 4px solid var(--secondary);
+            background: #1e293b;
+            border-right: 3px solid #8b5cf6;
             padding: 10px 14px;
-            margin-top: 11px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            margin-top: 10px;
+            border-radius: 10px;
         }
 
         .sub-family h4 {
-            color: var(--secondary);
-            font-size: 0.93rem;
+            color: #a78bfa;
+            font-size: 0.92rem;
             margin-bottom: 3px;
         }
 
         .sub-family p {
-            font-size: 0.85rem;
-            color: #475569;
+            font-size: 0.83rem;
+            color: #cbd5e1;
             margin-bottom: 6px;
         }
 
@@ -325,13 +409,13 @@
         }
 
         .drug-tag {
-            background: #f1f5f9;
-            color: #0f172a;
-            padding: 3px 8px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #67e8f9;
+            padding: 3px 9px;
             border-radius: 6px;
             font-size: 0.78rem;
             font-family: sans-serif;
-            border: 1px solid #cbd5e1;
+            border: 1px solid rgba(6, 182, 212, 0.25);
         }
 
         /* Calculators UI */
@@ -340,25 +424,26 @@
             gap: 6px;
             overflow-x: auto;
             padding-bottom: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .calc-subbtn {
-            background: white;
+            background: var(--bg-card);
             border: 1px solid var(--border);
             padding: 8px 14px;
             border-radius: 20px;
-            font-size: 0.83rem;
+            font-size: 0.82rem;
             font-weight: 700;
             white-space: nowrap;
             cursor: pointer;
-            color: var(--text);
+            color: var(--text-muted);
         }
 
         .calc-subbtn.active {
-            background: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
+            background: #10b981;
+            color: #064e3b;
+            border-color: #10b981;
+            font-weight: 800;
         }
 
         .calc-panel {
@@ -375,24 +460,36 @@
 
         .form-group label {
             display: block;
-            font-size: 0.86rem;
+            font-size: 0.85rem;
             font-weight: 700;
             margin-bottom: 4px;
-            color: #334155;
+            color: #cbd5e1;
         }
 
         .form-control {
             width: 100%;
-            padding: 10px 12px;
+            padding: 11px 12px;
             border-radius: 10px;
-            border: 1.5px solid #cbd5e1;
-            font-size: 0.92rem;
-            background: #fff;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            font-size: 0.9rem;
+            background: #0f172a;
+            color: white;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #22d3ee;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
 
         .calc-btn {
             width: 100%;
-            background: var(--primary);
+            background: linear-gradient(135deg, #10b981, #059669);
             color: white;
             border: none;
             padding: 12px;
@@ -401,69 +498,67 @@
             font-size: 0.95rem;
             cursor: pointer;
             margin-top: 6px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
 
         .result-box {
             margin-top: 14px;
-            background: #ecfdf5;
-            border: 1.5px solid #6ee7b7;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1.5px solid #10b981;
             padding: 14px;
             border-radius: 12px;
             display: none;
         }
 
         .result-box h4 {
-            color: #065f46;
+            color: #34d399;
             font-size: 1rem;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .result-box p {
             font-size: 0.9rem;
-            color: #047857;
+            color: #ecfdf5;
             margin-bottom: 4px;
         }
 
         .formula-box {
-            background: #eff6ff;
-            border-right: 4px solid #2563eb;
+            background: rgba(59, 130, 246, 0.12);
+            border-right: 3px solid #3b82f6;
             padding: 10px 14px;
             border-radius: 8px;
             margin: 10px 0;
-            font-size: 0.86rem;
+            font-size: 0.84rem;
+            color: #bfdbfe;
         }
 
         table.dose-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
         }
 
         table.dose-table th, table.dose-table td {
-            border: 1px solid #cbd5e1;
-            padding: 8px 6px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            padding: 8px 5px;
             text-align: center;
         }
 
         table.dose-table th {
-            background: var(--primary);
-            color: white;
+            background: #1e293b;
+            color: #38bdf8;
         }
 
-        table.dose-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-
-        /* In-App PDF Document Viewer Modal (No Print Dialog!) */
+        /* In-App PDF Document Viewer Modal */
         .pdf-modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(2, 6, 23, 0.92);
             z-index: 9999;
             flex-direction: column;
-            padding: 12px;
+            padding: 10px;
         }
 
         .pdf-modal.open {
@@ -473,7 +568,7 @@
         .pdf-modal-toolbar {
             background: #1e293b;
             color: white;
-            padding: 12px 16px;
+            padding: 12px 15px;
             border-radius: 12px 12px 0 0;
             display: flex;
             justify-content: space-between;
@@ -483,8 +578,8 @@
         }
 
         .pdf-modal-toolbar h3 {
-            font-size: 0.95rem;
-            font-weight: 700;
+            font-size: 0.9rem;
+            color: #38bdf8;
         }
 
         .modal-actions {
@@ -499,87 +594,100 @@
             padding: 7px 14px;
             border-radius: 8px;
             font-weight: 700;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             cursor: pointer;
         }
 
         .btn-close-modal {
-            background: #ef4444;
+            background: #f43f5e;
             color: white;
             border: none;
             padding: 7px 14px;
             border-radius: 8px;
             font-weight: 700;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             cursor: pointer;
         }
 
         .pdf-viewer-sheet {
-            background: #e2e8f0;
+            background: #334155;
             flex: 1;
             overflow-y: auto;
-            padding: 18px 10px;
+            padding: 16px 8px;
             border-radius: 0 0 12px 12px;
         }
 
         .pdf-a4-page {
-            background: white;
-            max-width: 750px;
+            background: #ffffff !important;
+            color: #0f172a !important;
+            max-width: 780px;
             margin: 0 auto;
-            padding: 28px 22px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border-radius: 4px;
-            min-height: 85vh;
-            color: #0f172a;
+            padding: 24px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border-radius: 6px;
         }
 
-        .pdf-doc-header {
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 12px;
-            margin-bottom: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .pdf-a4-page * {
+            color: #0f172a !important;
+            background: transparent !important;
+            border-color: #cbd5e1 !important;
         }
 
-        .pdf-doc-footer {
-            margin-top: 25px;
-            padding-top: 10px;
-            border-top: 1px solid #cbd5e1;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #64748b;
+        .pdf-a4-page .drug-tag {
+            background: #f1f5f9 !important;
+            border: 1px solid #94a3b8 !important;
+            padding: 2px 6px !important;
+            margin: 2px !important;
+            display: inline-block !important;
         }
 
         footer {
             text-align: center;
             margin-top: 35px;
             padding: 15px;
-            color: var(--muted);
-            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-size: 0.84rem;
             border-top: 1px solid var(--border);
         }
 
         footer strong {
-            color: var(--primary);
+            color: #22d3ee;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>💊 الأكاديمية الصيدلانية الشاملة</h1>
-    <p>تعليم الصيدلة • الـ 18 قسماً دوائياً عالمياً • حاسبة الجرعات السريرية</p>
+    <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الذكاء الصيدلاني</div>
+    <h1>أكاديمية الصيدلة والجرعات الذكية</h1>
+    <p>تعليم الصيدلة • الـ 18 كلاس العالمي المعتمد • حاسبة الشرابات والجرعات الشاملة</p>
 </header>
 
-<div class="search-container">
-    <input type="text" id="searchInput" class="search-box" placeholder="🔍 ابحث عن قسم صيدلاني، عائلة دوائية من الـ 18، أو اسم دواء...">
+<!-- شريط البحث الذكي الفوري -->
+<div class="ai-search-wrapper">
+    <div class="ai-search-box">
+        <span style="font-size:1.2rem; margin-left:6px;">🤖</span>
+        <input type="text" id="aiSearchInput" placeholder="اسأل أو ابحث فوراً (مثلاً: Amoxicillin، شراب، Class 3، ضغط، قطرة، BID)...">
+        <button id="clearSearchBtn" class="clear-search" onclick="clearAiSearch()">✕</button>
+    </div>
 </div>
 
+<!-- بطاقة الإجابة الفورية بالذكاء الاصطناعي -->
+<div id="aiInstantResults" class="ai-instant-results">
+    <div class="ai-instant-card">
+        <div class="ai-instant-header">
+            <span id="aiHitsCount">⚡ نتائج البحث الفورية الذكية:</span>
+            <span style="font-size:0.75rem; color:#94a3b8;">تحديث لحظي</span>
+        </div>
+        <div id="aiHitsList"></div>
+    </div>
+</div>
+
+<!-- التبويبات الرئيسية -->
 <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('sec1', this)">📚 1. تعلم الصيدلة</button>
-    <button class="tab-btn" onclick="switchTab('sec2', this)">🧬 2. العوائل الـ 18</button>
-    <button class="tab-btn" onclick="switchTab('sec3', this)">🧮 3. حساب الجرعات</button>
+    <button class="tab-btn" onclick="switchTab('sec2', this)">🧬 2. الـ 18 Class العالمي</button>
+    <button class="tab-btn" onclick="switchTab('sec3', this)">🧮 3. الشرابات والجرعات</button>
 </div>
 
 <div class="container">
@@ -589,11 +697,11 @@
     <!-- ========================================================= -->
     <div id="sec1" class="section-content active">
         <div class="action-bar">
-            <span>📄 فتح منهج تعلم الصيدلة كملف PDF للقراءة والتحميل:</span>
+            <span>📄 عرض وتحميل منهج تعلم الصيدلة كملف PDF مباشر:</span>
             <button class="pdf-btn" onclick="openPdfViewer('sec1', 'منهج_تعلم_الصيدلة_الشامل')">👁️ فتح ملف PDF الشامل</button>
         </div>
 
-        <div class="card searchable" id="card-roadmap">
+        <div class="card searchable-item" data-title="خارطة الطريق لتعلم الصيدلة من الصفر" id="card-roadmap">
             <div class="card-header">
                 <span class="card-title">المرحلة 1: خارطة الطريق لتعلم الصيدلة من الصفر</span>
                 <span class="badge">أساسيات</span>
@@ -602,13 +710,13 @@
                 <li><strong>المصطلحات الطبية (Medical Terminology):</strong> فهم البادئات واللواحق اللاتينية (Hyper ارتفاع، Hypo انخفاض، -itis التهاب).</li>
                 <li><strong>الأسماء العلمية (Generic Names):</strong> حفظ الاسم العلمي أولاً لأنه يكشف العائلة الدوائية (مثلاً: -olol حاصرات بيتا، -prazole مثبطات الحموضة).</li>
                 <li><strong>آلية العمل (Mechanism of Action):</strong> كيف يعمل الدواء داخل الجسم وعلى أي مستقبل يرتبط.</li>
-                <li><strong>الأشكال الصيدلانية (Dosage Forms):</strong> الفرق بين الأقراص، الكبسولات، الشرابات، المعلقات، التحاميل، الفوارات، والحقن.</li>
+                <li><strong>الأشكال الصيدلانية (Dosage Forms):</strong> الفرق بين الأقراص، الكبسولات، الشرابات، المعلقات، التحاميل، الفوارات، والقطرات.</li>
                 <li><strong>قراءة الوصفات (Prescription Reading):</strong> التدرب على خطوط الأطباء والاختصارات العالمية (BID, TID, QID, PRN, OD).</li>
             </ul>
             <button class="mini-pdf-btn" onclick="openPdfViewer('card-roadmap', 'خارطة_تعلم_الصيدلة')">📄 فتح ملف PDF الخاص بالمرحلة</button>
         </div>
 
-        <div class="card searchable" id="card-pharmacology">
+        <div class="card searchable-item" data-title="علم الأدوية Pharmacology" id="card-pharmacology">
             <div class="card-header">
                 <span class="card-title">القسم 1: علم الأدوية (Pharmacology)</span>
                 <span class="badge">العمود الفقري</span>
@@ -617,10 +725,10 @@
                 <li><strong>حركية الدواء (Pharmacokinetics - ADME):</strong> الامتصاص (Absorption)، التوزيع (Distribution)، الأيض في الكبد (Metabolism)، والإطراح عبر الكلى (Excretion).</li>
                 <li><strong>ديناميكية الدواء (Pharmacodynamics):</strong> تأثير الدواء على مستقبلات الخلايا، العلاقة بين الجرعة والاستجابة، والآثار الجانبية.</li>
             </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmacology', 'ملخص_علم_الأدوية')">📄 فتح ملف PDF الخاص بالقسم</button>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmacology', 'علم_الأدوية')">📄 فتح ملف PDF الخاص بالقسم</button>
         </div>
 
-        <div class="card searchable" id="card-clinical">
+        <div class="card searchable-item" data-title="الصيدلة السريرية والعلاجيات Clinical Pharmacy" id="card-clinical">
             <div class="card-header">
                 <span class="card-title">القسم 2: الصيدلة السريرية والعلاجيات (Clinical Pharmacy)</span>
                 <span class="badge">تطبيقي</span>
@@ -633,68 +741,63 @@
             <button class="mini-pdf-btn" onclick="openPdfViewer('card-clinical', 'الصيدلة_السريرية')">📄 فتح ملف PDF الخاص بالقسم</button>
         </div>
 
-        <div class="card searchable" id="card-pharmaceutics">
+        <div class="card searchable-item" data-title="الصيدلانيات والتصنيع وصيدلة المجتمع" id="card-pharmaceutics">
             <div class="card-header">
-                <span class="card-title">القسم 3: الصيدلانيات والتصنيع (Pharmaceutics)</span>
-                <span class="badge">تقني</span>
+                <span class="card-title">القسم 3: الصيدلانيات وصيدلة المجتمع والتخصصات</span>
+                <span class="badge">شامل</span>
             </div>
             <ul class="step-list">
                 <li><strong>الأقراص الخاصة:</strong> المغلفة معوياً (Enteric Coated) التي لا تُكسر، وممتدة المفعول (SR / XR) التي تعمل 12-24 ساعة.</li>
                 <li><strong>المعلقات الجافة (Dry Suspensions):</strong> مثل شرابات المضادات الحيوية التي تُحل بالماء المقطر وتُحفظ في الثلاجة لمدة 7-14 يوماً.</li>
-            </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmaceutics', 'الصيدلانيات_والأشكال_الدوائية')">📄 فتح ملف PDF الخاص بالقسم</button>
-        </div>
-
-        <div class="card searchable" id="card-community">
-            <div class="card-header">
-                <span class="card-title">القسم 4: صيدلة المجتمع والتخصصات المساندة</span>
-                <span class="badge">شامل</span>
-            </div>
-            <ul class="step-list">
-                <li><strong>أدوية الـ OTC:</strong> معالجة الأعراض البسيطة كالزكام، الحموضة، الإمساك، والإسهال بأمان.</li>
                 <li><strong>الكيمياء الصيدلانية والعقاقير والسموم:</strong> دراسة التركيب الكيميائي، النباتات الطبية، والترياق المضاد للسموم (Antidotes).</li>
             </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-community', 'صيدلة_المجتمع_والتخصصات')">📄 فتح ملف PDF الخاص بالقسم</button>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmaceutics', 'الصيدلانيات_وصيدلة_المجتمع')">📄 فتح ملف PDF الخاص بالقسم</button>
         </div>
     </div>
 
     <!-- ========================================================= -->
-    <!-- القسم الثاني: الأقسام الـ 18 العالمية للعوائل الدوائية    -->
+    <!-- القسم الثاني: الـ 18 Class العالمي المطابق للصورة          -->
     <!-- ========================================================= -->
     <div id="sec2" class="section-content">
         <div class="action-bar">
-            <span>🧬 فتح موسوعة الـ 18 قسماً دوائياً كملف PDF متكامل:</span>
-            <button class="pdf-btn" onclick="openAllFamiliesPdf()">👁️ فتح PDF الموسوعة الـ 18 كاملة</button>
+            <span>🧬 فتح موسوعة الـ 18 Class العالمي كملف PDF متكامل:</span>
+            <button class="pdf-btn" onclick="openAllFamiliesPdf()">👁️ فتح PDF الـ 18 Class كاملة</button>
         </div>
 
         <div id="familiesContainer">
-            <!-- 1 -->
-            <div class="accordion-item open searchable">
+
+            <!-- Class 1 -->
+            <div class="accordion-item open searchable-item" data-title="Class 1: Antimicrobial drugs المضادات الميكروبية">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">1</span>المضادات البكتيرية (Antibacterials / Antibiotics)</span>
+                    <div>
+                        <span class="class-pill">Class 1</span> المضادات الميكروبية والحيوية
+                        <span class="en-sub">Antimicrobial drugs (Antibiotics, Antivirals, Antifungals, Antiparasitics)</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
                         <h4>1. البنسلينات (Penicillins)</h4>
-                        <p>تثبط بناء الجدار الخلوي للبكتيريا.</p>
                         <div class="drugs-tags">
                             <span class="drug-tag">Amoxicillin</span>
                             <span class="drug-tag">Co-Amoxiclav (Augmentin)</span>
                             <span class="drug-tag">Ampicillin</span>
-                            <span class="drug-tag">Piperacillin</span>
+                            <span class="drug-tag">Benzathine Penicillin</span>
+                            <span class="drug-tag">Piperacillin + Tazobactam</span>
                         </div>
                     </div>
                     <div class="sub-family">
                         <h4>2. السيفالوسبورينات (Cephalosporins - الأجيال الخمسة)</h4>
-                        <p>الجيل 1: Cephalexin, Cefadroxil | الجيل 2: Cefuroxime, Cefaclor | الجيل 3: Ceftriaxone, Cefixime, Cefotaxime | الجيل 4: Cefepime | الجيل 5: Ceftaroline.</p>
+                        <p>الجيل 1: Cephalexin, Cefadroxil | الجيل 2: Cefuroxime, Cefaclor | الجيل 3: Ceftriaxone, Cefixime, Cefotaxime, Cefpodoxime | الجيل 4: Cefepime | الجيل 5: Ceftaroline.</p>
                     </div>
                     <div class="sub-family">
-                        <h4>3. الماكروليدات (Macrolides)</h4>
+                        <h4>3. الماكروليدات (Macrolides) & اللينكوزاميدات</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Azithromycin</span>
                             <span class="drug-tag">Clarithromycin</span>
                             <span class="drug-tag">Erythromycin</span>
+                            <span class="drug-tag">Clindamycin</span>
+                            <span class="drug-tag">Lincomycin</span>
                         </div>
                     </div>
                     <div class="sub-family">
@@ -704,10 +807,11 @@
                             <span class="drug-tag">Levofloxacin</span>
                             <span class="drug-tag">Moxifloxacin</span>
                             <span class="drug-tag">Ofloxacin</span>
+                            <span class="drug-tag">Norfloxacin</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>5. التتراسيكلينات والأمينوغليكوزيدات والكاربابينيمات</h4>
+                        <h4>5. التتراسيكلينات، الأمينوغليكوزيدات، والكاربابينيمات</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Doxycycline</span>
                             <span class="drug-tag">Minocycline</span>
@@ -715,103 +819,31 @@
                             <span class="drug-tag">Amikacin</span>
                             <span class="drug-tag">Meropenem</span>
                             <span class="drug-tag">Vancomycin</span>
-                            <span class="drug-tag">Clindamycin</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2 -->
-            <div class="accordion-item searchable">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">2</span>مضادات الفيروسات والفطريات والطفيليات (Antivirals, Antifungals & Antiparasitics)</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>1. مضادات الفيروسات (Antivirals)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Acyclovir</span>
-                            <span class="drug-tag">Valacyclovir</span>
-                            <span class="drug-tag">Oseltamivir (Tamiflu)</span>
-                            <span class="drug-tag">Remdesivir</span>
-                            <span class="drug-tag">Tenofovir</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. مضادات الفطريات (Antifungals - Azoles & Polyenes)</h4>
+                        <h4>6. مضادات الفطريات والفيروسات والطفيليات والديدان</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Fluconazole</span>
                             <span class="drug-tag">Itraconazole</span>
-                            <span class="drug-tag">Ketoconazole</span>
-                            <span class="drug-tag">Clotrimazole</span>
                             <span class="drug-tag">Nystatin</span>
-                            <span class="drug-tag">Terbinafine</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>3. مضادات الطفيليات والديدان (Antiprotozoals & Anthelmintics)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Metronidazole (Flagyl)</span>
-                            <span class="drug-tag">Tinidazole</span>
+                            <span class="drug-tag">Acyclovir</span>
+                            <span class="drug-tag">Oseltamivir</span>
+                            <span class="drug-tag">Metronidazole</span>
                             <span class="drug-tag">Albendazole</span>
                             <span class="drug-tag">Mebendazole</span>
-                            <span class="drug-tag">Permethrin</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 3 -->
-            <div class="accordion-item searchable">
+            <!-- Class 2 -->
+            <div class="accordion-item searchable-item" data-title="Class 2: Cardiovascular diseases drugs أدوية القلب والأوعية الدموية">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">3</span>المسكنات ومضادات الالتهاب وخافضات الحرارة (Analgesics & Anti-inflammatories)</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>1. مسكنات غير أفيونية (Non-Opioid Analgesics)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Paracetamol (Acetaminophen)</span>
-                        </div>
+                    <div>
+                        <span class="class-pill">Class 2</span> أدوية أمراض القلب والأوعية الدموية
+                        <span class="en-sub">Cardiovascular diseases drugs</span>
                     </div>
-                    <div class="sub-family">
-                        <h4>2. مضادات الالتهاب غير الستيرويدية (Non-selective NSAIDs)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Ibuprofen</span>
-                            <span class="drug-tag">Diclofenac</span>
-                            <span class="drug-tag">Naproxen</span>
-                            <span class="drug-tag">Mefenamic Acid</span>
-                            <span class="drug-tag">Ketoprofen</span>
-                            <span class="drug-tag">Indomethacin</span>
-                            <span class="drug-tag">Piroxicam</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>3. مثبطات COX-2 الانتقائية (Selective COX-2 Inhibitors)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Celecoxib</span>
-                            <span class="drug-tag">Etoricoxib</span>
-                            <span class="drug-tag">Meloxicam</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>4. المسكنات الأفيونية (Opioid Analgesics)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Tramadol</span>
-                            <span class="drug-tag">Codeine</span>
-                            <span class="drug-tag">Morphine</span>
-                            <span class="drug-tag">Fentanyl</span>
-                            <span class="drug-tag">Oxycodone</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4 -->
-            <div class="accordion-item searchable">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">4</span>أدوية ارتفاع ضغط الدم والقلب (Cardiovascular & Antihypertensives)</span>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
@@ -847,381 +879,211 @@
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>4. حاصرات قنوات الكالسيوم (Calcium Channel Blockers)</h4>
+                        <h4>4. حاصرات قنوات الكالسيوم ومدرات البول (CCBs & Diuretics)</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Amlodipine</span>
                             <span class="drug-tag">Nifedipine</span>
                             <span class="drug-tag">Verapamil</span>
                             <span class="drug-tag">Diltiazem</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>5. مدرات البول ومقويات القلب وموسعات الأوعية (Diuretics & Antianginals)</h4>
-                        <div class="drugs-tags">
                             <span class="drug-tag">Furosemide</span>
                             <span class="drug-tag">Hydrochlorothiazide</span>
                             <span class="drug-tag">Spironolactone</span>
-                            <span class="drug-tag">Digoxin</span>
-                            <span class="drug-tag">Nitroglycerin</span>
-                            <span class="drug-tag">Amiodarone</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5 -->
-            <div class="accordion-item searchable">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">5</span>أدوية الدم ومضادات التخثر وخافضات الدهون (Hematology & Lipid-Lowering)</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>1. مضادات الصفائح الدموية (Antiplatelets)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Aspirin</span>
-                            <span class="drug-tag">Clopidogrel</span>
-                            <span class="drug-tag">Ticagrelor</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. مضادات التخثر ومذيبات الجلطات (Anticoagulants & Thrombolytics)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Warfarin</span>
-                            <span class="drug-tag">Heparin</span>
-                            <span class="drug-tag">Enoxaparin</span>
-                            <span class="drug-tag">Rivaroxaban</span>
-                            <span class="drug-tag">Apixaban</span>
-                            <span class="drug-tag">Alteplase</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>3. خافضات الكوليسترول والدهون الثلاثية (Statins & Fibrates)</h4>
+                        <h4>5. خافضات الدهون ومميعات الدم وأدوية الذبحة الصدرية</h4>
                         <div class="drugs-tags">
                             <span class="drug-tag">Atorvastatin</span>
                             <span class="drug-tag">Rosuvastatin</span>
-                            <span class="drug-tag">Simvastatin</span>
-                            <span class="drug-tag">Fenofibrate</span>
-                            <span class="drug-tag">Ezetimibe</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>4. أدوية فقر الدم (Antianemics)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Ferrous Sulfate / Fumarate</span>
-                            <span class="drug-tag">Folic Acid</span>
-                            <span class="drug-tag">Vitamin B12 (Cyanocobalamin)</span>
-                            <span class="drug-tag">Erythropoietin</span>
+                            <span class="drug-tag">Aspirin</span>
+                            <span class="drug-tag">Clopidogrel</span>
+                            <span class="drug-tag">Warfarin</span>
+                            <span class="drug-tag">Rivaroxaban</span>
+                            <span class="drug-tag">Nitroglycerin</span>
+                            <span class="drug-tag">Digoxin</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 6 -->
-            <div class="accordion-item searchable">
+            <!-- Class 3 -->
+            <div class="accordion-item searchable-item" data-title="Class 3: Ophthalmic drugs أدوية العيون">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">6</span>أدوية الجهاز الهضمي (Gastrointestinal Medications)</span>
+                    <div>
+                        <span class="class-pill">Class 3</span> أدوية العيون والقطرات العينية
+                        <span class="en-sub">Ophthalmic drugs</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. مثبطات مضخة البروتون ومضادات الحموضة (PPIs, H2 Blockers & Antacids)</h4>
+                        <h4>1. قطرات ومراهم المضادات الحيوية للعين (Ophthalmic Antibiotics)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Omeprazole</span>
-                            <span class="drug-tag">Esomeprazole</span>
-                            <span class="drug-tag">Pantoprazole</span>
-                            <span class="drug-tag">Lansoprazole</span>
-                            <span class="drug-tag">Famotidine</span>
-                            <span class="drug-tag">Gaviscon / Maalox</span>
+                            <span class="drug-tag">Tobramycin</span>
+                            <span class="drug-tag">Moxifloxacin</span>
+                            <span class="drug-tag">Ciprofloxacin</span>
+                            <span class="drug-tag">Ofloxacin</span>
+                            <span class="drug-tag">Fusidic Acid Eye Gel</span>
+                            <span class="drug-tag">Chloramphenicol</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. مضادات التقلص والمغص والقولون (Antispasmodics)</h4>
+                        <h4>2. قطرات الكورتيزون والمركبات المزدوجة (Steroids & Combinations)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Hyoscine Butylbromide</span>
-                            <span class="drug-tag">Mebeverine</span>
-                            <span class="drug-tag">Tiemonium</span>
-                            <span class="drug-tag">Simethicone</span>
+                            <span class="drug-tag">Fluorometholone (FML)</span>
+                            <span class="drug-tag">Prednisolone Acetate</span>
+                            <span class="drug-tag">Tobramycin + Dexamethasone (Tobradex)</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>3. مضادات التقيؤ والملينات ومضادات الإسهال</h4>
+                        <h4>3. قطرات الحساسية والجلوكوما (ضغط العين) والترطيب</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Ondansetron</span>
-                            <span class="drug-tag">Domperidone</span>
-                            <span class="drug-tag">Metoclopramide</span>
-                            <span class="drug-tag">Lactulose</span>
-                            <span class="drug-tag">Bisacodyl</span>
-                            <span class="drug-tag">Loperamide</span>
+                            <span class="drug-tag">Olopatadine</span>
+                            <span class="drug-tag">Ketotifen</span>
+                            <span class="drug-tag">Timolol</span>
+                            <span class="drug-tag">Latanoprost</span>
+                            <span class="drug-tag">Dorzolamide</span>
+                            <span class="drug-tag">Sodium Hyaluronate (مرطب)</span>
+                            <span class="drug-tag">Carboxymethylcellulose</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 7 -->
-            <div class="accordion-item searchable">
+            <!-- Class 4 -->
+            <div class="accordion-item searchable-item" data-title="Class 4: Auditory drugs أدوية الأذن">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">7</span>أدوية الجهاز التنفسي (Respiratory System Drugs)</span>
+                    <div>
+                        <span class="class-pill">Class 4</span> أدوية الأذن والسمع والتوازن
+                        <span class="en-sub">Auditory drugs (Otic preparations & Vertigo)</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. موسعات الشعب الهوائية (Bronchodilators - Beta2 Agonists & Anticholinergics)</h4>
+                        <h4>1. قطرات الأذن المضادة للبكتيريا والالتهاب (Otic Antibiotics & Steroids)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Salbutamol</span>
-                            <span class="drug-tag">Formoterol</span>
-                            <span class="drug-tag">Salmeterol</span>
-                            <span class="drug-tag">Ipratropium</span>
-                            <span class="drug-tag">Tiotropium</span>
-                            <span class="drug-tag">Theophylline</span>
+                            <span class="drug-tag">Ciprofloxacin Ear Drops</span>
+                            <span class="drug-tag">Ciprofloxacin + Dexamethasone</span>
+                            <span class="drug-tag">Ofloxacin Otic</span>
+                            <span class="drug-tag">Polymyxin B + Neomycin + Hydrocortisone</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. مضادات الالتهاب التنفسية ومثبتات الليكوترين</h4>
+                        <h4>2. قطرات فطريات الأذن ومذيبات الشمع (Antifungals & Cerumenolytics)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Budesonide</span>
-                            <span class="drug-tag">Fluticasone</span>
-                            <span class="drug-tag">Beclomethasone</span>
-                            <span class="drug-tag">Montelukast</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>3. أدوية السعال ومذيبات البلغم ومزيلات الاحتقان</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Dextromethorphan</span>
-                            <span class="drug-tag">Butamirate</span>
-                            <span class="drug-tag">Bromhexine</span>
-                            <span class="drug-tag">Ambroxol</span>
-                            <span class="drug-tag">Acetylcysteine</span>
-                            <span class="drug-tag">Xylometazoline</span>
+                            <span class="drug-tag">Clotrimazole Ear Drops</span>
+                            <span class="drug-tag">Docusate Sodium (Waxsol)</span>
+                            <span class="drug-tag">Sodium Bicarbonate Ear Drops</span>
+                            <span class="drug-tag">Betahistine (لدوار الأذن الوسطى)</span>
+                            <span class="drug-tag">Cinnarizine</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 8 -->
-            <div class="accordion-item searchable">
+            <!-- Class 5 -->
+            <div class="accordion-item searchable-item" data-title="Class 5: Diabetes drugs أدوية السكري">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">8</span>مضادات الحساسية والهيستامين (Antihistamines & Anti-allergics)</span>
+                    <div>
+                        <span class="class-pill">Class 5</span> أدوية السكري
+                        <span class="en-sub">Diabetes drugs (Oral Antidiabetics & Insulins)</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. مضادات الهيستامين الجيل الأول (Sedating)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Chlorpheniramine</span>
-                            <span class="drug-tag">Diphenhydramine</span>
-                            <span class="drug-tag">Promethazine</span>
-                            <span class="drug-tag">Hydroxyzine</span>
-                        </div>
+                        <h4>1. مجموعات خافضات السكر الفموية (Oral Antidiabetics)</h4>
+                        <p><strong>Biguanides:</strong> Metformin | <strong>Sulfonylureas:</strong> Glimepiride, Gliclazide, Glibenclamide | <strong>DPP-4 Inhibitors:</strong> Sitagliptin, Vildagliptin, Linagliptin | <strong>SGLT2 Inhibitors:</strong> Empagliflozin, Dapagliflozin | <strong>TZDs:</strong> Pioglitazone.</p>
                     </div>
                     <div class="sub-family">
-                        <h4>2. مضادات الهيستامين الجيل الثاني والثالث (Non-Sedating)</h4>
+                        <h4>2. أنواع الإنسولين ونظائر GLP-1 القابلة للحقن</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Loratadine</span>
-                            <span class="drug-tag">Desloratadine</span>
-                            <span class="drug-tag">Cetirizine</span>
-                            <span class="drug-tag">Levocetirizine</span>
-                            <span class="drug-tag">Fexofenadine</span>
-                            <span class="drug-tag">Bilastine</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 9 -->
-            <div class="accordion-item searchable">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">9</span>أدوية السكري والغدد الصماء (Endocrine & Antidiabetics)</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>1. خافضات السكر الفموية (Oral Hypoglycemics)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Metformin</span>
-                            <span class="drug-tag">Glimepiride</span>
-                            <span class="drug-tag">Gliclazide</span>
-                            <span class="drug-tag">Sitagliptin</span>
-                            <span class="drug-tag">Vildagliptin</span>
-                            <span class="drug-tag">Empagliflozin</span>
-                            <span class="drug-tag">Dapagliflozin</span>
-                            <span class="drug-tag">Pioglitazone</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>2. الإنسولين ونظائر GLP-1 (Insulins & Incretin Mimetics)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Insulin Regular</span>
-                            <span class="drug-tag">Insulin NPH</span>
-                            <span class="drug-tag">Insulin Glargine</span>
-                            <span class="drug-tag">Insulin Aspart</span>
+                            <span class="drug-tag">Insulin Regular (صافي)</span>
+                            <span class="drug-tag">Insulin NPH (عكر)</span>
+                            <span class="drug-tag">Insulin Mixtard (مخلوط)</span>
+                            <span class="drug-tag">Insulin Glargine (Lantus)</span>
+                            <span class="drug-tag">Insulin Aspart (NovoRapid)</span>
                             <span class="drug-tag">Liraglutide</span>
                             <span class="drug-tag">Semaglutide</span>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Class 6 -->
+            <div class="accordion-item searchable-item" data-title="Class 6: Thyroid gland drugs أدوية الغدة الدرقية">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <div>
+                        <span class="class-pill">Class 6</span> أدوية الغدة الدرقية
+                        <span class="en-sub">Thyroid gland drugs</span>
+                    </div>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>3. أدوية الغدة الدرقية (Thyroid Drugs)</h4>
+                        <h4>1. أدوية خمول الغدة الدرقية (Hypothyroidism)</h4>
+                        <p>تُؤخذ صباحاً على معدة فارغة قبل الفطور بنصف ساعة إلى ساعة.</p>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Levothyroxine</span>
-                            <span class="drug-tag">Carbimazole</span>
-                            <span class="drug-tag">Propylthiouracil</span>
+                            <span class="drug-tag">Levothyroxine (Eltroxin / Euthyrox)</span>
+                            <span class="drug-tag">Liothyronine (T3)</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>2. أدوية فرط نشاط الغدة الدرقية (Hyperthyroidism / Antithyroid)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Carbimazole (Neomercazole)</span>
+                            <span class="drug-tag">Methimazole</span>
+                            <span class="drug-tag">Propylthiouracil (PTU - آمن بالثلث الأول للحمل)</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 10 -->
-            <div class="accordion-item searchable">
+            <!-- Class 7 -->
+            <div class="accordion-item searchable-item" data-title="Class 7: Fertility drugs أدوية الخصوبة وتنشيط التبويض">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">10</span>الستيرويدات القشرية والهرمونات الجنسية (Corticosteroids & Sex Hormones)</span>
+                    <div>
+                        <span class="class-pill">Class 7</span> أدوية الخصوبة وتنشيط التبويض
+                        <span class="en-sub">Fertility drugs</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. الكورتيكوستيرويدات الجهازية (Systemic Corticosteroids)</h4>
+                        <h4>1. محفزات التبويض الفموية (Oral Ovulation Inducers)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Prednisolone</span>
-                            <span class="drug-tag">Methylprednisolone</span>
-                            <span class="drug-tag">Dexamethasone</span>
-                            <span class="drug-tag">Hydrocortisone</span>
-                            <span class="drug-tag">Betamethasone</span>
+                            <span class="drug-tag">Clomiphene Citrate (Clomid)</span>
+                            <span class="drug-tag">Letrozole (Femara)</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. الهرمونات الأنثوية وموانع الحمل ومنشطات التبويض</h4>
+                        <h4>2. الهرمونات المحفزة للمناسل وإبر التفجير (Gonadotropins & hCG)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Ethinylestradiol + Drospirenone</span>
-                            <span class="drug-tag">Progesterone / Dydrogesterone</span>
-                            <span class="drug-tag">Norethisterone</span>
-                            <span class="drug-tag">Clomiphene</span>
-                            <span class="drug-tag">Letrozole</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>3. الهرمونات الذكرية (Androgens)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Testosterone</span>
-                            <span class="drug-tag">Mesterolone</span>
+                            <span class="drug-tag">Menotropins (HMG / Menogon)</span>
+                            <span class="drug-tag">Follitropin Alfa (Gonal-F)</span>
+                            <span class="drug-tag">Human Chorionic Gonadotropin (hCG / Pregnyl)</span>
+                            <span class="drug-tag">Cabergoline (Dostinex - لخفض هرمون الحليب)</span>
+                            <span class="drug-tag">Bromocriptine</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 11 -->
-            <div class="accordion-item searchable">
+            <!-- Class 8 -->
+            <div class="accordion-item searchable-item" data-title="Class 8: Drugs of Genito-urinary disorder أدوية الجهاز البولي والتناسلي">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">11</span>أدوية الجهاز العصبي المركزي (CNS: Anticonvulsants & Antiparkinson)</span>
+                    <div>
+                        <span class="class-pill">Class 8</span> أدوية الجهاز البولي والتناسلي
+                        <span class="en-sub">Drugs of Genito-urinary disorder</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. مضادات الصرع والتشنجات وآلام الأعصاب (Antiepileptics)</h4>
+                        <h4>1. أدوية تضخم البروستاتا الحميد (BPH Drugs)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Valproic Acid</span>
-                            <span class="drug-tag">Carbamazepine</span>
-                            <span class="drug-tag">Levetiracetam</span>
-                            <span class="drug-tag">Phenytoin</span>
-                            <span class="drug-tag">Lamotrigine</span>
-                            <span class="drug-tag">Pregabalin</span>
-                            <span class="drug-tag">Gabapentin</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>2. أدوية مرض باركنسون والصداع النصفي (Antiparkinson & Antimigraine)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Levodopa + Carbidopa</span>
-                            <span class="drug-tag">Procyclidine</span>
-                            <span class="drug-tag">Sumatriptan</span>
-                            <span class="drug-tag">Zolmitriptan</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 12 -->
-            <div class="accordion-item searchable">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">12</span>الأدوية النفسية والمهدئات والمنومات (Psychiatric, Antidepressants & Sedatives)</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>1. مضادات الاكتئاب (SSRIs, SNRIs & TCAs)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Sertraline</span>
-                            <span class="drug-tag">Fluoxetine</span>
-                            <span class="drug-tag">Escitalopram</span>
-                            <span class="drug-tag">Paroxetine</span>
-                            <span class="drug-tag">Venlafaxine</span>
-                            <span class="drug-tag">Duloxetine</span>
-                            <span class="drug-tag">Amitriptyline</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>2. مضادات القلق والمنومات (Benzodiazepines & Z-Drugs)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Diazepam</span>
-                            <span class="drug-tag">Alprazolam</span>
-                            <span class="drug-tag">Lorazepam</span>
-                            <span class="drug-tag">Zolpidem</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>3. مضادات الذهان ومثبتات المزاج (Antipsychotics & Mood Stabilizers)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Risperidone</span>
-                            <span class="drug-tag">Olanzapine</span>
-                            <span class="drug-tag">Quetiapine</span>
-                            <span class="drug-tag">Haloperidol</span>
-                            <span class="drug-tag">Lithium</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 13 -->
-            <div class="accordion-item searchable">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">13</span>أدوية الجهاز العضلي الهيكلي والنقرس (Musculoskeletal & Anti-Gout)</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>1. مرخيات العضلات الهيكلية (Skeletal Muscle Relaxants)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Chlorzoxazone</span>
-                            <span class="drug-tag">Orphenadrine</span>
-                            <span class="drug-tag">Baclofen</span>
-                            <span class="drug-tag">Tizanidine</span>
-                            <span class="drug-tag">Thiocolchicoside</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>2. أدوية النقرس وهشاشة العظام والروماتيزم (Anti-Gout, Bisphosphonates & DMARDs)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Allopurinol</span>
-                            <span class="drug-tag">Febuxostat</span>
-                            <span class="drug-tag">Colchicine</span>
-                            <span class="drug-tag">Alendronate</span>
-                            <span class="drug-tag">Methotrexate</span>
-                            <span class="drug-tag">Hydroxychloroquine</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 14 -->
-            <div class="accordion-item searchable">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">14</span>أدوية المسالك البولية والبروستاتا (Urology & Genitourinary Drugs)</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>1. أدوية تضخم البروستاتا الحميد (Alpha-Blockers & 5-ARIs)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Tamsulosin</span>
+                            <span class="drug-tag">Tamsulosin (Omnic)</span>
                             <span class="drug-tag">Alfuzosin</span>
                             <span class="drug-tag">Doxazosin</span>
                             <span class="drug-tag">Finasteride</span>
@@ -1229,141 +1091,433 @@
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. أدوية فرط نشاط المثانة ومضادات التهاب المسالك</h4>
+                        <h4>2. مطهرات المسالك البولية وفوارات الأملاح والحصى</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Oxybutynin</span>
-                            <span class="drug-tag">Solifenacin</span>
-                            <span class="drug-tag">Tolterodine</span>
                             <span class="drug-tag">Nitrofurantoin</span>
                             <span class="drug-tag">Fosfomycin</span>
-                            <span class="drug-tag">Sildenafil / Tadalafil</span>
+                            <span class="drug-tag">Phenazopyridine (مسكن حرقة البول)</span>
+                            <span class="drug-tag">Potassium Citrate / Uralyt-U</span>
+                            <span class="drug-tag">Rowatinex</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>3. أدوية فرط نشاط المثانة والضعف الجنسي</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Solifenacin</span>
+                            <span class="drug-tag">Oxybutynin</span>
+                            <span class="drug-tag">Tolterodine</span>
+                            <span class="drug-tag">Sildenafil</span>
+                            <span class="drug-tag">Tadalafil</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 15 -->
-            <div class="accordion-item searchable">
+            <!-- Class 9 -->
+            <div class="accordion-item searchable-item" data-title="Class 9: Drugs of respiratory disease & Allergy أدوية الجهاز التنفسي والحساسية">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">15</span>الأدوية الجلدية والموضعية (Dermatologicals)</span>
+                    <div>
+                        <span class="class-pill">Class 9</span> أدوية الجهاز التنفسي والحساسية
+                        <span class="en-sub">Drugs of respiratory disease & Allergy</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. الستيرويدات الموضعية (Topical Corticosteroids)</h4>
+                        <h4>1. مضادات الهيستامين والحساسية (Antihistamines - الجيل 1 و 2)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Hydrocortisone Cream</span>
-                            <span class="drug-tag">Mometasone</span>
-                            <span class="drug-tag">Betamethasone</span>
-                            <span class="drug-tag">Clobetasol</span>
+                            <span class="drug-tag">Loratadine</span>
+                            <span class="drug-tag">Desloratadine</span>
+                            <span class="drug-tag">Cetirizine</span>
+                            <span class="drug-tag">Levocetirizine</span>
+                            <span class="drug-tag">Fexofenadine</span>
+                            <span class="drug-tag">Chlorpheniramine</span>
+                            <span class="drug-tag">Ketotifen</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. أدوية حب الشباب والمضادات الجلدية (Retinoids & Topical Antimicrobials)</h4>
+                        <h4>2. موسعات الشعب الهوائية وبخاخات الربو (Bronchodilators & Inhalers)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Isotretinoin</span>
+                            <span class="drug-tag">Salbutamol (Ventolin)</span>
+                            <span class="drug-tag">Budesonide + Formoterol (Symbicort)</span>
+                            <span class="drug-tag">Fluticasone + Salmeterol (Seretide)</span>
+                            <span class="drug-tag">Ipratropium</span>
+                            <span class="drug-tag">Montelukast (Singulair)</span>
+                            <span class="drug-tag">Theophylline</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>3. أدوية السعال وطاردات ومذيبات البلغم وبخاخات الأنف</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Dextromethorphan</span>
+                            <span class="drug-tag">Butamirate</span>
+                            <span class="drug-tag">Bromhexine</span>
+                            <span class="drug-tag">Ambroxol</span>
+                            <span class="drug-tag">Acetylcysteine</span>
+                            <span class="drug-tag">Guaifenesin</span>
+                            <span class="drug-tag">Mometasone Nasal Spray</span>
+                            <span class="drug-tag">Xylometazoline</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class 10 -->
+            <div class="accordion-item searchable-item" data-title="Class 10: Drugs for GIT disease أدوية الجهاز الهضمي">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <div>
+                        <span class="class-pill">Class 10</span> أدوية الجهاز الهضمي
+                        <span class="en-sub">Drugs for GIT disease</span>
+                    </div>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="sub-family">
+                        <h4>1. أدوية الحموضة والقرحة والارتجاع (PPIs, H2 Blockers & Antacids)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Omeprazole</span>
+                            <span class="drug-tag">Esomeprazole</span>
+                            <span class="drug-tag">Pantoprazole</span>
+                            <span class="drug-tag">Lansoprazole</span>
+                            <span class="drug-tag">Rabeprazole</span>
+                            <span class="drug-tag">Famotidine</span>
+                            <span class="drug-tag">Gaviscon / Maalox</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>2. مضادات التقلص والمغص والقولون العصبي (Antispasmodics)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Hyoscine Butylbromide (Buscopan)</span>
+                            <span class="drug-tag">Mebeverine (Duspatalin)</span>
+                            <span class="drug-tag">Tiemonium (Visceralgine)</span>
+                            <span class="drug-tag">Chlordiazepoxide + Clidinium (Librax)</span>
+                            <span class="drug-tag">Simethicone (لغازات البطن)</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>3. مضادات الغثيان والتقيؤ والملينات ومضادات الإسهال</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Ondansetron</span>
+                            <span class="drug-tag">Domperidone</span>
+                            <span class="drug-tag">Metoclopramide</span>
+                            <span class="drug-tag">Lactulose</span>
+                            <span class="drug-tag">Bisacodyl</span>
+                            <span class="drug-tag">Polyethylene Glycol</span>
+                            <span class="drug-tag">Loperamide</span>
+                            <span class="drug-tag">ORS (محلول الإرواء)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class 11 -->
+            <div class="accordion-item searchable-item" data-title="Class 11: Central nervous system drugs أدوية الجهاز العصبي المركزي">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <div>
+                        <span class="class-pill">Class 11</span> أدوية الجهاز العصبي المركزي
+                        <span class="en-sub">Central nervous system drugs (CNS)</span>
+                    </div>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="sub-family">
+                        <h4>1. مضادات الاكتئاب والقلق (Antidepressants & Anxiolytics)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Sertraline</span>
+                            <span class="drug-tag">Fluoxetine</span>
+                            <span class="drug-tag">Escitalopram</span>
+                            <span class="drug-tag">Paroxetine</span>
+                            <span class="drug-tag">Duloxetine</span>
+                            <span class="drug-tag">Amitriptyline</span>
+                            <span class="drug-tag">Diazepam</span>
+                            <span class="drug-tag">Alprazolam</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>2. مضادات الصرع وآلام الأعصاب (Anticonvulsants)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Pregabalin</span>
+                            <span class="drug-tag">Gabapentin</span>
+                            <span class="drug-tag">Carbamazepine</span>
+                            <span class="drug-tag">Valproic Acid</span>
+                            <span class="drug-tag">Levetiracetam</span>
+                            <span class="drug-tag">Lamotrigine</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>3. مضادات الذهان وأدوية باركنسون والصداع النصفي</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Risperidone</span>
+                            <span class="drug-tag">Olanzapine</span>
+                            <span class="drug-tag">Quetiapine</span>
+                            <span class="drug-tag">Haloperidol</span>
+                            <span class="drug-tag">Levodopa + Carbidopa</span>
+                            <span class="drug-tag">Sumatriptan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class 12 -->
+            <div class="accordion-item searchable-item" data-title="Class 12: Dermatology drugs أدوية الجلدية">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <div>
+                        <span class="class-pill">Class 12</span> أدوية الأمراض الجلدية
+                        <span class="en-sub">Dermatology drugs</span>
+                    </div>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="sub-family">
+                        <h4>1. الكورتيزونات الموضعية (Topical Corticosteroids - حسب القوة)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Hydrocortisone (خفيف)</span>
+                            <span class="drug-tag">Mometasone (متوسط-قوي)</span>
+                            <span class="drug-tag">Betamethasone (قوي)</span>
+                            <span class="drug-tag">Clobetasol (فائق القوة)</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>2. أدوية حب الشباب، المضادات الجلدية، الفطريات، والحروق</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Isotretinoin (Roaccutane)</span>
                             <span class="drug-tag">Adapalene</span>
-                            <span class="drug-tag">Tretinoin</span>
-                            <span class="drug-tag">Fusidic Acid</span>
-                            <span class="drug-tag">Mupirocin</span>
-                            <span class="drug-tag">Silver Sulfadiazine</span>
+                            <span class="drug-tag">Benzoyl Peroxide</span>
+                            <span class="drug-tag">Fusidic Acid (Fucidin)</span>
+                            <span class="drug-tag">Mupirocin (Bactroban)</span>
+                            <span class="drug-tag">Terbinafine Cream</span>
+                            <span class="drug-tag">Silver Sulfadiazine / MEBO</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 16 -->
-            <div class="accordion-item searchable">
+            <!-- Class 13 -->
+            <div class="accordion-item searchable-item" data-title="Class 13: Anti-haemorrhoidal drugs أدوية البواسير والشرج">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">16</span>أدوية العيون والأذن والأنف والحنجرة (Ophthalmic & Otic Drugs)</span>
+                    <div>
+                        <span class="class-pill">Class 13</span> أدوية البواسير والتشققات الشرجية
+                        <span class="en-sub">Anti-haemorrhoidal drugs</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. قطرات ومراهم العيون (مضادات، حساسية، ضغط العين، ترطيب)</h4>
+                        <h4>1. المراهم والتحاميل الموضعية للبواسير (Topical Ointments & Suppositories)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Tobramycin</span>
-                            <span class="drug-tag">Moxifloxacin</span>
-                            <span class="drug-tag">Olopatadine</span>
-                            <span class="drug-tag">Timolol</span>
-                            <span class="drug-tag">Latanoprost</span>
-                            <span class="drug-tag">Sodium Hyaluronate</span>
+                            <span class="drug-tag">Tribenoside + Lidocaine (Procto-Glyvenol)</span>
+                            <span class="drug-tag">Fluocortolone + Lidocaine (Ultraproct)</span>
+                            <span class="drug-tag">Cinchocaine + Hydrocortisone (Proctosedyl)</span>
+                            <span class="drug-tag">Diltiazem / GTN Ointment (للفطر الشرجي)</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. قطرات الأذن (Otic Preparations)</h4>
+                        <h4>2. المقويات الوريدية الفموية (Venotonics)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Ciprofloxacin Ear Drops</span>
-                            <span class="drug-tag">Clotrimazole Otic</span>
-                            <span class="drug-tag">Docusate Sodium (Cerumenolytic)</span>
+                            <span class="drug-tag">Diosmin + Hesperidin (Daflon 500mg)</span>
+                            <span class="drug-tag">Calcium Dobesilate (Doxium)</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 17 -->
-            <div class="accordion-item searchable">
+            <!-- Class 14 -->
+            <div class="accordion-item searchable-item" data-title="Class 14: Gynecology drugs أدوية النسائية والتوليد">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">17</span>أدوية الأورام والمناعة واللقاحات (Antineoplastics & Immunomodulators)</span>
+                    <div>
+                        <span class="class-pill">Class 14</span> أدوية النسائية والتوليد
+                        <span class="en-sub">Gynecology drugs</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. مثبطات المناعة والأدوية البيولوجية (Immunosuppressants & Biologics)</h4>
+                        <h4>1. مثبتات الحمل ومنظمات الدورة وموانع الحمل</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Azathioprine</span>
+                            <span class="drug-tag">Dydrogesterone (Duphaston)</span>
+                            <span class="drug-tag">Progesterone (Cyclogest / Utrogestan)</span>
+                            <span class="drug-tag">Norethisterone (Primolut-N)</span>
+                            <span class="drug-tag">Ethinylestradiol + Drospirenone (Yasmin)</span>
+                            <span class="drug-tag">Levonorgestrel (حبة الطوارئ)</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>2. التحاميل المهبلية وأدوية النزيف وانقباضات الرحم</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Clotrimazole Vaginal Supp</span>
+                            <span class="drug-tag">Miconazole Vaginal</span>
+                            <span class="drug-tag">Metronidazole + Miconazole (Neo-Penotran)</span>
+                            <span class="drug-tag">Tranexamic Acid (لوقف النزيف)</span>
+                            <span class="drug-tag">Isoxsuprine / Ritodrine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class 15 -->
+            <div class="accordion-item searchable-item" data-title="Class 15: Analgesic, musculoskeletal & joint disorder المسكنات والعظام والمفاصل">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <div>
+                        <span class="class-pill">Class 15</span> المسكنات وأدوية العظام والمفاصل والعضلات
+                        <span class="en-sub">Analgesic, musculoskeletal & joint disorder</span>
+                    </div>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="sub-family">
+                        <h4>1. المسكنات ومضادات الالتهاب (NSAIDs, Paracetamol & Opioids)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Paracetamol</span>
+                            <span class="drug-tag">Ibuprofen</span>
+                            <span class="drug-tag">Diclofenac</span>
+                            <span class="drug-tag">Naproxen</span>
+                            <span class="drug-tag">Celecoxib</span>
+                            <span class="drug-tag">Etoricoxib</span>
+                            <span class="drug-tag">Meloxicam</span>
+                            <span class="drug-tag">Tramadol</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>2. مرخيات العضلات الهيكلية (Muscle Relaxants)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Chlorzoxazone</span>
+                            <span class="drug-tag">Orphenadrine (Norgesic)</span>
+                            <span class="drug-tag">Baclofen</span>
+                            <span class="drug-tag">Tizanidine</span>
+                            <span class="drug-tag">Thiocolchicoside</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>3. أدوية النقرس وهشاشة العظام وخشونة المفاصل</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Allopurinol</span>
+                            <span class="drug-tag">Febuxostat</span>
+                            <span class="drug-tag">Colchicine</span>
+                            <span class="drug-tag">Alendronate</span>
+                            <span class="drug-tag">Glucosamine + Chondroitin</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class 16 -->
+            <div class="accordion-item searchable-item" data-title="Class 16: Nutrition & Vitamins التغذية والفيتامينات">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <div>
+                        <span class="class-pill">Class 16</span> التغذية والفيتامينات والمعادن
+                        <span class="en-sub">Nutrition & Vitamins</span>
+                    </div>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="sub-family">
+                        <h4>1. الفيتامينات الذائبة في الدهون والماء (Vitamins A, D, E, K, B, C)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Vitamin D3 (Cholecalciferol)</span>
+                            <span class="drug-tag">Vitamin B-Complex (B1, B6, B12)</span>
+                            <span class="drug-tag">Methylcobalamin (B12)</span>
+                            <span class="drug-tag">Folic Acid (B9)</span>
+                            <span class="drug-tag">Vitamin C</span>
+                            <span class="drug-tag">Vitamin E</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>2. المعادن والمكملات الغذائية وفواتح الشهية</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Ferrous Sulfate / Iron Bisglycinate</span>
+                            <span class="drug-tag">Calcium + Vitamin D</span>
+                            <span class="drug-tag">Zinc Sulfate</span>
+                            <span class="drug-tag">Magnesium</span>
+                            <span class="drug-tag">Omega-3 Fish Oil</span>
+                            <span class="drug-tag">Cyproheptadine (فاتح شهية)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class 17 -->
+            <div class="accordion-item searchable-item" data-title="Class 17: Chemotherapy drugs أدوية العلاج الكيميائي والأورام">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <div>
+                        <span class="class-pill">Class 17</span> أدوية العلاج الكيميائي والأورام
+                        <span class="en-sub">Chemotherapy drugs (Antineoplastics)</span>
+                    </div>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="sub-family">
+                        <h4>1. العلاج الكيميائي الخلوي (Cytotoxic Agents)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Cyclophosphamide</span>
+                            <span class="drug-tag">Cisplatin / Carboplatin</span>
+                            <span class="drug-tag">Doxorubicin</span>
+                            <span class="drug-tag">Paclitaxel / Docetaxel</span>
+                            <span class="drug-tag">5-Fluorouracil (5-FU)</span>
+                            <span class="drug-tag">Capecitabine</span>
+                        </div>
+                    </div>
+                    <div class="sub-family">
+                        <h4>2. العلاج الهرموني والموجه للأورام (Hormonal & Targeted Therapy)</h4>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Tamoxifen</span>
+                            <span class="drug-tag">Anastrozole</span>
+                            <span class="drug-tag">Imatinib</span>
+                            <span class="drug-tag">Trastuzumab</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class 18 -->
+            <div class="accordion-item searchable-item" data-title="Class 18: Immunosuppressant drugs الأدوية المثبطة للمناعة">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <div>
+                        <span class="class-pill">Class 18</span> الأدوية المثبطة للمناعة
+                        <span class="en-sub">Immunosuppressant drugs</span>
+                    </div>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="sub-family">
+                        <h4>1. مثبطات المناعة لزراعة الأعضاء وأمراض المناعة الذاتية</h4>
+                        <div class="drugs-tags">
                             <span class="drug-tag">Cyclosporine</span>
                             <span class="drug-tag">Tacrolimus</span>
-                            <span class="drug-tag">Adalimumab</span>
-                            <span class="drug-tag">Infliximab</span>
+                            <span class="drug-tag">Azathioprine (Imuran)</span>
+                            <span class="drug-tag">Mycophenolate Mofetil (CellCept)</span>
+                            <span class="drug-tag">Methotrexate</span>
+                            <span class="drug-tag">Prednisolone</span>
                         </div>
                     </div>
                     <div class="sub-family">
-                        <h4>2. العلاج الكيميائي والهرموني للأورام (Antineoplastics)</h4>
+                        <h4>2. الأدوية البيولوجية المعدلة للمناعة (Biologics)</h4>
                         <div class="drugs-tags">
-                            <span class="drug-tag">Cisplatin</span>
-                            <span class="drug-tag">Paclitaxel</span>
-                            <span class="drug-tag">Tamoxifen</span>
-                            <span class="drug-tag">Imatinib</span>
+                            <span class="drug-tag">Adalimumab (Humira)</span>
+                            <span class="drug-tag">Infliximab</span>
+                            <span class="drug-tag">Etanercept</span>
+                            <span class="drug-tag">Rituximab</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 18 -->
-            <div class="accordion-item searchable">
+            <!-- Prescriptions & Useful Info (من أسفل الصورة) -->
+            <div class="accordion-item searchable-item" data-title="Prescriptions & some useful information اختصارات الوصفات الطبية">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="num-badge">18</span>المحاليل الوريدية، الفيتامينات، المخدرات والترياق (IV Fluids, Vitamins, Anesthetics & Antidotes)</span>
+                    <div>
+                        <span class="class-pill" style="background:linear-gradient(135deg,#10b981,#059669);">Rx Info</span> الوصفات الطبية ومعلومات صيدلانية هامة
+                        <span class="en-sub">Prescriptions & some useful information</span>
+                    </div>
                     <span class="icon">▼</span>
                 </button>
                 <div class="accordion-body">
                     <div class="sub-family">
-                        <h4>1. المحاليل الوريدية (IV Fluids & Electrolytes)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Normal Saline 0.9%</span>
-                            <span class="drug-tag">Ringer's Lactate</span>
-                            <span class="drug-tag">Dextrose 5% / 10%</span>
-                            <span class="drug-tag">Glucose Saline</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>2. المخدرات الموضعية والعامة (Anesthetics)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Lidocaine</span>
-                            <span class="drug-tag">Bupivacaine</span>
-                            <span class="drug-tag">Propofol</span>
-                            <span class="drug-tag">Ketamine</span>
-                        </div>
-                    </div>
-                    <div class="sub-family">
-                        <h4>3. الفيتامينات والترياق المضاد للسموم (Vitamins & Antidotes)</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Vitamin D3 / C / B-Complex</span>
-                            <span class="drug-tag">N-Acetylcysteine (ترياق الباراسيتامول)</span>
-                            <span class="drug-tag">Naloxone (ترياق الأفيونات)</span>
-                            <span class="drug-tag">Atropine (ترياق المبيدات)</span>
-                            <span class="drug-tag">Vitamin K (ترياق الوارفارين)</span>
-                        </div>
+                        <h4>أشهر اختصارات الوصفات الطبية العالمية (Prescription Abbreviations)</h4>
+                        <p>
+                            • <strong>OD (Once Daily):</strong> مرة واحدة يومياً | <strong>BID:</strong> مرتين يومياً (كل 12 ساعة) | <strong>TID:</strong> 3 مرات يومياً (كل 8 ساعات) | <strong>QID:</strong> 4 مرات يومياً (كل 6 ساعات).<br>
+                            • <strong>PRN:</strong> عند الحاجة | <strong>AC:</strong> قبل الأكل | <strong>PC:</strong> بعد الأكل | <strong>HS:</strong> عند النوم | <strong>STAT:</strong> فوراً.<br>
+                            • <strong>Tab:</strong> قرص | <strong>Cap:</strong> كبسولة | <strong>Syr:</strong> شراب | <strong>Susp:</strong> معلق | <strong>Supp:</strong> تحميلة | <strong>Amp / Vial:</strong> أمبولة / فيال | <strong>Gtt:</strong> قطرة.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1372,85 +1526,130 @@
     </div>
 
     <!-- ========================================================= -->
-    <!-- القسم الثالث: الحسابات الدوائية والجرعات السريرية         -->
+    <!-- القسم الثالث: الشرابات الشاملة وحساب الجرعات المبسط       -->
     <!-- ========================================================= -->
     <div id="sec3" class="section-content">
         <div class="action-bar">
-            <span>🧮 فتح دليل القوانين والجرعات الدوائية كملف PDF:</span>
-            <button class="pdf-btn" onclick="openPdfViewer('sec3-guide', 'دليل_الحسابات_والجرعات_الدوائية')">👁️ فتح ملف PDF القوانين والجرعات</button>
+            <span>🧮 فتح دليل الشرابات وحساب الجرعات كملف PDF مباشر:</span>
+            <button class="pdf-btn" onclick="openPdfViewer('sec3-guide', 'موسوعة_جرعات_الشرابات_والحسابات')">👁️ فتح PDF دليل الجرعات</button>
         </div>
 
-        <!-- أزرار التنقل بين الحاسبات -->
         <div class="calc-subtabs">
-            <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. حاسبة الشرابات</button>
+            <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. حاسبة كل الشرابات (45+ دواء)</button>
             <button class="calc-subbtn" onclick="switchCalc('calc-iv', this)">💧 2. حاسبة المغذيات (IV)</button>
             <button class="calc-subbtn" onclick="switchCalc('calc-tabs', this)">💊 3. الحبوب والقطرات والفوارات</button>
-            <button class="calc-subbtn" onclick="switchCalc('calc-guide', this)">📖 4. دليل الجرعات المعتمدة</button>
+            <button class="calc-subbtn" onclick="switchCalc('calc-guide', this)">📖 4. جداول الجرعات المعتمدة</button>
         </div>
 
-        <!-- 1. حاسبة الشرابات والمعلقات -->
+        <!-- 1. حاسبة كل الشرابات المبسطة -->
         <div id="calc-syrup" class="calc-panel active">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">🥄 حاسبة جرعات الشرابات للأطفال (بالوزن أو العمر)</span>
-                    <span class="badge">معادلة عالمية</span>
+                    <span class="card-title">🥄 الحاسبة الذكية لجميع الشرابات والمعلقات</span>
+                    <span class="badge">سهل وسريع</span>
                 </div>
+
                 <div class="formula-box">
-                    <strong>القانون العالمي المعتمد:</strong><br>
-                    1. الجرعة اليومية الكلية (mg/day) = الوزن (kg) × الجرعة الموصى بها (mg/kg/day)<br>
-                    2. حجم الجرعة الواحدة (mL) = (الجرعة المطلوبة للوجبة ÷ تركيز الدواء) × حجم السائل (عادة 5 mL)
+                    <strong>طريقة الحساب المبسطة في 3 خطوات:</strong><br>
+                    1️⃣ اختر اسم الشراب من القائمة بالأسفل (تتعبأ الجرعة والتركيز تلقائياً).<br>
+                    2️⃣ اكتب <strong>وزن الطفل (kg)</strong> أو <strong>عمره بالسنوات</strong>.<br>
+                    3️⃣ اضغط <strong>"احسب الجرعة الآن"</strong> وسيعطيك النتيجة بالمليلتر (mL) والقطرات.
                 </div>
 
                 <div class="form-group">
-                    <label>اختر الدواء الشائع (أو أدخل القيم يدوياً):</label>
+                    <label>🔍 اختر الشراب أو المعلق (مرتب حسب العائلة الدوائية):</label>
                     <select id="presetDrug" class="form-control" onchange="fillPresetDrug()">
-                        <option value="custom">-- إدخال يدوي حر --</option>
-                        <option value="amox_125">Amoxicillin 125mg/5ml (جرعة قياسية 45 mg/kg/day - 3 مرات)</option>
-                        <option value="amox_250">Amoxicillin 250mg/5ml (جرعة قياسية 45 mg/kg/day - 3 مرات)</option>
-                        <option value="amox_high_250">Amoxicillin 250mg/5ml (جرعة التهاب أذن وسطى 80 mg/kg/day - مرتين)</option>
-                        <option value="aug_156">Augmentin 156mg/5ml (جرعة 30 mg/kg/day - 3 مرات)</option>
-                        <option value="aug_312">Augmentin 312.5mg/5ml (جرعة 30 mg/kg/day - 3 مرات)</option>
-                        <option value="aug_457">Augmentin 457mg/5ml (جرعة 45 mg/kg/day - مرتين)</option>
-                        <option value="azith_200">Azithromycin 200mg/5ml (10 mg/kg مرة واحدة يومياً)</option>
-                        <option value="cefix_100">Cefixime 100mg/5ml (8 mg/kg/day مرة أو مرتين)</option>
-                        <option value="para_120">Paracetamol 120mg/5ml (15 mg/kg للجرعة الواحدة كل 6 ساعات)</option>
-                        <option value="para_250">Paracetamol 250mg/5ml (15 mg/kg للجرعة الواحدة كل 6 ساعات)</option>
-                        <option value="ibu_100">Ibuprofen 100mg/5ml (10 mg/kg للجرعة الواحدة كل 8 ساعات)</option>
+                        <option value="custom">-- إدخال يدوي حر لأي شراب --</option>
+                        <optgroup label="🦠 1. شرابات المضادات الحيوية (Antibiotics)">
+                            <option value="amox_125">Amoxicillin 125mg/5ml (أموكسيسيلين 125)</option>
+                            <option value="amox_250">Amoxicillin 250mg/5ml (أموكسيسيلين 250)</option>
+                            <option value="amox_high_250">Amoxicillin 250mg/5ml - جرعة عالية للأذن الوسطى (80mg/kg)</option>
+                            <option value="aug_156">Augmentin / Co-Amoxiclav 156.25mg/5ml</option>
+                            <option value="aug_312">Augmentin / Co-Amoxiclav 312.5mg/5ml</option>
+                            <option value="aug_457">Augmentin / Co-Amoxiclav 457mg/5ml (مرتين يومياً)</option>
+                            <option value="aug_600">Augmentin ES 600mg/5ml (مرتين يومياً)</option>
+                            <option value="azith_200">Azithromycin 200mg/5ml (أزيثرومايسين - مرة يومياً)</option>
+                            <option value="clarith_125">Clarithromycin 125mg/5ml (كلاريثرومايسين)</option>
+                            <option value="clarith_250">Clarithromycin 250mg/5ml (كلاريثرومايسين)</option>
+                            <option value="eryth_200">Erythromycin 200mg/5ml (إريثرومايسين)</option>
+                            <option value="cephalex_125">Cephalexin 125mg/5ml (سيفاليكسين - كفلكس)</option>
+                            <option value="cephalex_250">Cephalexin 250mg/5ml (سيفاليكسين - كفلكس)</option>
+                            <option value="cefadrox_125">Cefadroxil 125mg/5ml (سيفادروكسيل - ديوريسيف)</option>
+                            <option value="cefadrox_250">Cefadroxil 250mg/5ml (سيفادروكسيل - ديوريسيف)</option>
+                            <option value="cefurox_125">Cefuroxime 125mg/5ml (سيفوروكسيم - زينات)</option>
+                            <option value="cefurox_250">Cefuroxime 250mg/5ml (سيفوروكسيم - زينات)</option>
+                            <option value="cefix_100">Cefixime 100mg/5ml (سيفيكسيم - سوبراكس)</option>
+                            <option value="cefpod_40">Cefpodoxime 40mg/5ml (سيفبودوكسيم)</option>
+                            <option value="cefpod_100">Cefpodoxime 100mg/5ml (سيفبودوكسيم)</option>
+                            <option value="cefdin_125">Cefdinir 125mg/5ml (سيفدينير)</option>
+                            <option value="cefdin_250">Cefdinir 250mg/5ml (سيفدينير)</option>
+                            <option value="metro_125">Metronidazole 125mg/5ml (فلاجيل 125)</option>
+                            <option value="metro_200">Metronidazole 200mg/5ml (فلاجيل 200)</option>
+                            <option value="cotrim_240">Co-trimoxazole (Septrin) 240mg/5ml (سبترين)</option>
+                            <option value="nitazox_100">Nitazoxanide 100mg/5ml (مضاد طفيليات وإسهال)</option>
+                        </optgroup>
+                        <optgroup label="🌡️ 2. شرابات خافضات الحرارة والمسكنات (Antipyretics & NSAIDs)">
+                            <option value="para_120">Paracetamol 120mg/5ml (باراسيتامول 120)</option>
+                            <option value="para_250">Paracetamol 250mg/5ml (باراسيتامول 250)</option>
+                            <option value="ibu_100">Ibuprofen 100mg/5ml (بروفين 100)</option>
+                            <option value="ibu_200">Ibuprofen 200mg/5ml (بروفين فورت 200)</option>
+                            <option value="mefen_50">Mefenamic Acid 50mg/5ml (بونستان شراب)</option>
+                            <option value="diclo_15">Diclofenac 1.5mg/ml (7.5mg/5ml) قطرات/شراب</option>
+                        </optgroup>
+                        <optgroup label="🤧 3. شرابات الحساسية والسعال والربو (Allergy & Respiratory)">
+                            <option value="lorat_5">Loratadine 5mg/5ml (لوراتادين - مرة يومياً)</option>
+                            <option value="deslorat_2_5">Desloratadine 2.5mg/5ml (ديسلوراتادين - إيريوس)</option>
+                            <option value="cetir_5">Cetirizine 5mg/5ml (سيتريزين - زيرتك)</option>
+                            <option value="levocet_2_5">Levocetirizine 2.5mg/5ml (ليفوسيتريزين)</option>
+                            <option value="chlorphen_2">Chlorpheniramine 2mg/5ml (أليرمين)</option>
+                            <option value="ketotif_1">Ketotifen 1mg/5ml (كيتوتيفين - زاديتين)</option>
+                            <option value="salbut_2">Salbutamol 2mg/5ml (فنتولين شراب)</option>
+                            <option value="pred_5">Prednisolone 5mg/5ml (بريدنيزولون 5)</option>
+                            <option value="pred_15">Prednisolone 15mg/5ml (بريدنيزولون 15 فورت)</option>
+                            <option value="ambrox_15">Ambroxol 15mg/5ml (مذيب بلغم)</option>
+                            <option value="bromhex_4">Bromhexine 4mg/5ml (مذيب بلغم)</option>
+                            <option value="dextro_15">Dextromethorphan 15mg/5ml (مهدئ سعال جاف)</option>
+                        </optgroup>
+                        <optgroup label="🤢 4. شرابات الجهاز الهضمي والمغص والقيء (GIT Syrups)">
+                            <option value="domper_5">Domperidone 5mg/5ml (موتيليوم شراب)</option>
+                            <option value="ondans_4">Ondansetron 4mg/5ml (زوفران شراب للقيء)</option>
+                            <option value="hyoscine_5">Hyoscine Butylbromide 5mg/5ml (بسكوبان شراب)</option>
+                            <option value="lactul_3_3">Lactulose 3.35g/5ml (ملين لاكتولوز)</option>
+                            <option value="simeth_40">Simethicone 40mg/0.6ml (قطرات غازات الرضع)</option>
+                        </optgroup>
+                        <optgroup label="🪱 5. شرابات الديدان والفطريات والحديد (Anthelmintics & Iron)">
+                            <option value="albend_200">Albendazole 200mg/5ml (ألبيندازول للديدان)</option>
+                            <option value="mebend_100">Mebendazole 100mg/5ml (ميبيندازول للديدان)</option>
+                            <option value="nystat_100k">Nystatin 100,000 IU/ml (معلق فطريات الفم)</option>
+                            <option value="iron_50">Elemental Iron 50mg/5ml (شراب الحديد لعلاج فقر الدم)</option>
+                        </optgroup>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label>عمر الطفل بالسنوات (اختياري لتقدير الوزن تلقائياً إذا لم يُعرف الوزن):</label>
-                    <input type="number" id="childAge" class="form-control" placeholder="مثلاً: 4 أو 10" oninput="estimateWeightFromAge()">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>🎂 العمر بالسنوات (تقدير تلقائي):</label>
+                        <input type="number" id="childAge" class="form-control" placeholder="مثلاً: 4 أو 10" oninput="estimateWeightFromAge()">
+                    </div>
+                    <div class="form-group">
+                        <label>⚖️ الوزن بالكغم (kg) - الأدق:</label>
+                        <input type="number" id="childWeight" class="form-control" placeholder="مثلاً: 16">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>💉 الجرعة اليومية (mg/kg/day):</label>
+                        <input type="number" id="mgPerKg" class="form-control" placeholder="تُعبأ تلقائياً">
+                    </div>
+                    <div class="form-group">
+                        <label>🧪 تركيز الشراب (mg في 5ml):</label>
+                        <input type="number" id="syrupStrength" class="form-control" value="125" placeholder="مثلاً: 125 أو 250">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label>وزن الطفل بالكيلوغرام (kg):</label>
-                    <input type="number" id="childWeight" class="form-control" placeholder="أدخل الوزن بالكيلوغرام (مثلاً: 16)">
-                </div>
-
-                <div class="form-group">
-                    <label>الجرعة اليومية المعتمدة (mg/kg/day):</label>
-                    <input type="number" id="mgPerKg" class="form-control" placeholder="مثلاً: 45 للأموكسيسيلين">
-                </div>
-
-                <div class="form-group">
-                    <label>تركيز الشراب (كم ملغم mg في كل 5 مل؟):</label>
-                    <select id="syrupStrength" class="form-control">
-                        <option value="100">100 mg / 5 mL</option>
-                        <option value="120">120 mg / 5 mL</option>
-                        <option value="125" selected>125 mg / 5 mL</option>
-                        <option value="156">156 mg / 5 mL</option>
-                        <option value="200">200 mg / 5 mL</option>
-                        <option value="250">250 mg / 5 mL</option>
-                        <option value="312.5">312.5 mg / 5 mL</option>
-                        <option value="400">400 mg / 5 mL</option>
-                        <option value="457">457 mg / 5 mL</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>عدد مرات الإعطاء في اليوم:</label>
+                    <label>⏰ عدد مرات الإعطاء في اليوم:</label>
                     <select id="dosesPerDay" class="form-control">
                         <option value="1">مرة واحدة يومياً (كل 24 ساعة - OD)</option>
                         <option value="2">مرتين يومياً (كل 12 ساعة - BID)</option>
@@ -1459,45 +1658,42 @@
                     </select>
                 </div>
 
-                <button class="calc-btn" onclick="calculateSyrup()">احسب الجرعة الدقيقة بالمليلتر (mL)</button>
+                <button class="calc-btn" onclick="calculateSyrup()">⚡ احسب الجرعة الآن بضغطة زر</button>
 
                 <div id="syrupResult" class="result-box"></div>
             </div>
         </div>
 
-        <!-- 2. حاسبة المغذيات والمحاليل الوريدية -->
+        <!-- 2. حاسبة المغذيات -->
         <div id="calc-iv" class="calc-panel">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">💧 حاسبة سرعة المغذيات والمحاليل الوريدية (IV Drip Rate)</span>
-                    <span class="badge">عناية وطوارئ</span>
+                    <span class="card-title">💧 حاسبة سرعة المغذيات والمحاليل الوريدية (IV Drip)</span>
+                    <span class="badge">مبسط</span>
                 </div>
                 <div class="formula-box">
-                    <strong>قانون حساب قطرات المغذي (Drops/min):</strong><br>
-                    عدد القطرات بالدقيقة = [ الحجم الكلي (mL) × معامل جهاز الإعطاء (Drop Factor) ] ÷ [ الوقت بالساعات × 60 ]
+                    <strong>المعادلة:</strong> عدد القطرات بالدقيقة = [ حجم المغذي (mL) × معامل الجهاز ] ÷ [ الساعات × 60 ]
                 </div>
-
-                <div class="form-group">
-                    <label>حجم المغذي الكلي (mL):</label>
-                    <input type="number" id="ivVolume" class="form-control" value="500" placeholder="مثلاً: 500 أو 1000">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>حجم المغذي (mL):</label>
+                        <input type="number" id="ivVolume" class="form-control" value="500">
+                    </div>
+                    <div class="form-group">
+                        <label>الوقت المطلوب (ساعة):</label>
+                        <input type="number" id="ivHours" class="form-control" value="4">
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label>المدة الزمنية المطلوبة لإعطاء المغذي (بالساعات):</label>
-                    <input type="number" id="ivHours" class="form-control" value="4" placeholder="مثلاً: 4 ساعات">
-                </div>
-
                 <div class="form-group">
                     <label>نوع جهاز الإعطاء (Drop Factor):</label>
                     <select id="dropFactor" class="form-control">
-                        <option value="20" selected>جهاز إعطاء قياسي للكبار (Macrodrip - 20 قطرة/مل)</option>
-                        <option value="15">جهاز إعطاء قياسي (Macrodrip - 15 قطرة/مل)</option>
-                        <option value="10">جهاز نقل دم / سريع (Blood/Macro - 10 قطرات/مل)</option>
-                        <option value="60">جهاز إعطاء دقيق للأطفال (Microdrip - 60 قطرة/مل)</option>
+                        <option value="20" selected>جهاز عادي للكبار (20 قطرة/مل)</option>
+                        <option value="15">جهاز عادي (15 قطرة/مل)</option>
+                        <option value="10">جهاز نقل دم (10 قطرات/مل)</option>
+                        <option value="60">جهاز أطفال دقيق Microdrip (60 قطرة/مل)</option>
                     </select>
                 </div>
-
-                <button class="calc-btn" onclick="calculateIV()">احسب سرعة تقطير المغذي</button>
+                <button class="calc-btn" onclick="calculateIV()">احسب سرعة التقطير</button>
                 <div id="ivResult" class="result-box"></div>
             </div>
         </div>
@@ -1506,158 +1702,108 @@
         <div id="calc-tabs" class="calc-panel">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">💊 حاسبة الحبوب والكبسولات (Desired / Have)</span>
-                    <span class="badge">أقراص</span>
+                    <span class="card-title">💊 حاسبة الحبوب والكبسولات والقطرات والفوارات</span>
+                    <span class="badge">تحويلات سريعة</span>
                 </div>
-                <div class="form-group">
-                    <label>الجرعة المطلوبة للمريض (mg):</label>
-                    <input type="number" id="tabDesired" class="form-control" placeholder="مثلاً: 500">
-                </div>
-                <div class="form-group">
-                    <label>تركيز الحبة المتوفرة بالصيدلية (mg):</label>
-                    <input type="number" id="tabHave" class="form-control" placeholder="مثلاً: 250">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>الجرعة المطلوبة (mg):</label>
+                        <input type="number" id="tabDesired" class="form-control" placeholder="مثلاً: 500">
+                    </div>
+                    <div class="form-group">
+                        <label>تركيز الحبة المتوفرة (mg):</label>
+                        <input type="number" id="tabHave" class="form-control" placeholder="مثلاً: 250">
+                    </div>
                 </div>
                 <button class="calc-btn" onclick="calculateTabs()">احسب عدد الحبوب</button>
                 <div id="tabResult" class="result-box"></div>
-            </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">💦 حاسبة القطرات الفموية والفوارات (Drops & Effervescent)</span>
-                    <span class="badge">تحويلات دقيقة</span>
-                </div>
-                <div class="formula-box">
-                    <strong>قواعد التحويل العالمية الثابتة:</strong><br>
-                    • كل <strong>1 مليلتر (1 mL)</strong> من القطرات الفموية يساوي تقريباً <strong>20 قطرة (20 Drops)</strong>.<br>
-                    • كل <strong>ملعقة شاي صغيرة (1 Teaspoon)</strong> = <strong>5 mL</strong>.<br>
-                    • كل <strong>ملعقة طعام كبيرة (1 Tablespoon)</strong> = <strong>15 mL</strong>.<br>
-                    • <strong>الفوارات والأكياس (Effervescent Tablets/Sachets):</strong> يُذاب الكيس أو القرص الفوار في نصف كوب إلى كوب ماء كامل (100-200 mL) ويُنتظر حتى يكتمل الفوران تماماً قبل الشرب، ولا يُبلع أبداً بشكل مباشر.
+                <div class="formula-box" style="margin-top:16px;">
+                    <strong>ثوابت التحويل اليومية في الصيدلية:</strong><br>
+                    • <strong>1 mL</strong> = <strong>20 قطرة (Drops)</strong>.<br>
+                    • <strong>ملعقة شاي صغيرة</strong> = <strong>5 mL</strong> | <strong>ملعقة طعام كبيرة</strong> = <strong>15 mL</strong>.<br>
+                    • <strong>الفوارات والأكياس (Effervescent):</strong> تُذاب في نصف كوب إلى كوب ماء (150 mL) ويُنتظر انتهاء الفوران تماماً قبل الشرب.
                 </div>
                 <div class="form-group">
-                    <label>أدخل الحجم بالمليلتر (mL) لتحويله إلى قطرات وملاعق:</label>
-                    <input type="number" id="mlConvert" class="form-control" placeholder="مثلاً: 2.5" oninput="convertMl()">
+                    <label>تحويل فوري من مليلتر (mL) إلى قطرات وملاعق:</label>
+                    <input type="number" id="mlConvert" class="form-control" placeholder="اكتب الرقم بالمليلتر (مثلاً: 2.5)" oninput="convertMl()">
                 </div>
-                <div id="convertResult" class="result-box" style="display:block; background:#f8fafc; border-color:#cbd5e1;">
-                    <p style="color:#334155;">أدخل رقماً بالمليلتر بالأعلى لرؤية التحويل الفوري...</p>
+                <div id="convertResult" class="result-box" style="display:block;">
+                    <p>اكتب أي رقم بالمليلتر بالأعلى للتحويل الفوري...</p>
                 </div>
             </div>
         </div>
 
-        <!-- 4. دليل الحسابات والجرعات العالمية المعتمدة -->
+        <!-- 4. جداول الجرعات العالمية المعتمدة -->
         <div id="calc-guide" class="calc-panel">
             <div id="sec3-guide" class="card">
                 <div class="card-header">
-                    <span class="card-title">📖 المرجع السريري لحساب الجرعات العالمية المعتمدة</span>
-                    <span class="badge">بروتوكول عالمي</span>
+                    <span class="card-title">📖 الدليل المرجعي السريع لجرعات الأطفال (Amoxicillin & More)</span>
+                    <span class="badge">مرجع عالمي</span>
                 </div>
 
-                <h4 style="color:var(--primary); margin:10px 0 6px;">1. مثال تطبيقي: حساب جرعة شراب الأموكسيسيلين (Amoxicillin) للأطفال:</h4>
-                <p style="font-size:0.88rem; margin-bottom:8px;">
-                    القاعدة الذهبية في طب الأطفال تعتمد على <strong>الوزن (kg)</strong> وليس العمر وحده. الجرعة القياسية للأموكسيسيلين هي <strong>40 إلى 50 mg/kg/day</strong> تُقسم كل 8 ساعات (3 مرات يومياً)، وفي التهاب الأذن الوسطى الشديد تصل إلى <strong>80-90 mg/kg/day</strong> تُقسم كل 12 ساعة.
-                </p>
-
-                <table class="dose-table">
-                    <thead>
-                        <tr>
-                            <th>العمر التقريبي</th>
-                            <th>الوزن التقديري</th>
-                            <th>الجرعة اليومية (45 mg/kg)</th>
-                            <th>تركيز 125mg/5ml</th>
-                            <th>تركيز 250mg/5ml</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>سنة واحدة</strong></td>
-                            <td>10 kg</td>
-                            <td>450 mg/day<br>(150mg × 3)</td>
-                            <td><strong>6 mL</strong><br>كل 8 ساعات</td>
-                            <td><strong>3 mL</strong><br>كل 8 ساعات</td>
-                        </tr>
-                        <tr>
-                            <td><strong>4 سنوات</strong></td>
-                            <td>16 kg</td>
-                            <td>720 mg/day<br>(240mg × 3)</td>
-                            <td><strong>9.5 إلى 10 mL</strong><br>كل 8 ساعات</td>
-                            <td><strong>4.8 إلى 5 mL</strong><br>كل 8 ساعات (الأفضل)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>7 سنوات</strong></td>
-                            <td>22 kg</td>
-                            <td>990 mg/day<br>(330mg × 3)</td>
-                            <td>غير عملي<br>(كمية كبيرة)</td>
-                            <td><strong>6.5 mL</strong><br>كل 8 ساعات</td>
-                        </tr>
-                        <tr>
-                            <td><strong>10 سنوات</strong></td>
-                            <td>30 - 32 kg</td>
-                            <td>1350 - 1500 mg/day<br>(500mg × 3)</td>
-                            <td>غير مناسب</td>
-                            <td><strong>10 mL</strong> كل 8 ساعات<br>(أو كبسولة 500mg × 3)</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h4 style="color:var(--primary); margin:16px 0 6px;">2. القوانين التاريخية والعالمية لحساب جرعات الأطفال (عند عدم توفر جرعة mg/kg):</h4>
-                <ul class="step-list">
-                    <li><strong>قانون كلارك (Clark's Rule - حسب الوزن):</strong><br>جرعة الطفل = [ وزن الطفل (بالباوند lb) ÷ 150 ] × جرعة البالغين. (ملاحظة: الوزن بالباوند = الوزن بالكغم × 2.2).</li>
-                    <li><strong>قانون يونغ (Young's Rule - للأطفال من 1 إلى 12 سنة):</strong><br>جرعة الطفل = [ العمر بالسنوات ÷ (العمر بالسنوات + 12) ] × جرعة البالغين.</li>
-                    <li><strong>قانون فريد (Fried's Rule - للرضع أقل من سنتين):</strong><br>جرعة الرضيع = [ العمر بالأشهر ÷ 150 ] × جرعة البالغين.</li>
-                </ul>
-
-                <h4 style="color:var(--primary); margin:16px 0 6px;">3. دليل جرعات أشهر الأدوية اليومية في الصيدلية (mg/kg):</h4>
                 <table class="dose-table">
                     <thead>
                         <tr>
                             <th>الدواء العلمي</th>
-                            <th>الجرعة العالمية</th>
+                            <th>الجرعة العالمية (mg/kg)</th>
                             <th>التكرار اليومي</th>
-                            <th>ملاحظة صيدلانية</th>
+                            <th>مثال: طفل 4 سنوات (16kg)</th>
+                            <th>مثال: طفل 10 سنوات (30kg)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Paracetamol</strong></td>
-                            <td>10 - 15 mg/kg/dose</td>
-                            <td>كل 6 ساعات (4 مرات)</td>
-                            <td>الحد الأقصى 60 mg/kg/day</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ibuprofen</strong></td>
-                            <td>5 - 10 mg/kg/dose</td>
+                            <td><strong>Amoxicillin</strong><br>(125 / 250 mg)</td>
+                            <td>45 mg/kg/day</td>
                             <td>كل 8 ساعات (3 مرات)</td>
-                            <td>يُعطى بعد الأكل وعمر فوق 6 أشهر</td>
+                            <td><strong>9.5 ml</strong> من 125mg<br>أو <strong>5 ml</strong> من 250mg</td>
+                            <td><strong>10 ml</strong> من 250mg<br>(أو كبسولة 500mg)</td>
                         </tr>
                         <tr>
-                            <td><strong>Azithromycin</strong></td>
+                            <td><strong>Augmentin</strong><br>(156 / 312 / 457)</td>
+                            <td>30 - 45 mg/kg/day</td>
+                            <td>كل 8 أو 12 ساعة</td>
+                            <td><strong>4 ml</strong> من 312mg × 3<br>أو <strong>4 ml</strong> من 457mg × 2</td>
+                            <td><strong>7.5 ml</strong> من 457mg × 2<br>(أو قرص 625mg × 2)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Azithromycin</strong><br>(200 mg/5ml)</td>
                             <td>10 mg/kg/day</td>
                             <td>مرة واحدة يومياً</td>
-                            <td>لمدة 3 إلى 5 أيام فقط</td>
+                            <td><strong>4 ml</strong> مرة يومياً</td>
+                            <td><strong>7.5 ml</strong> مرة يومياً</td>
                         </tr>
                         <tr>
-                            <td><strong>Cefixime</strong></td>
+                            <td><strong>Cefixime</strong><br>(100 mg/5ml)</td>
                             <td>8 mg/kg/day</td>
-                            <td>مرة واحدة أو مرتين</td>
-                            <td>ممتاز لالتهابات المجاري البولية</td>
+                            <td>مرة أو مرتين يومياً</td>
+                            <td><strong>6.5 ml</strong> مرة يومياً<br>(أو 3.2ml × 2)</td>
+                            <td><strong>12 ml</strong> مرة يومياً<br>(أو 6ml × 2)</td>
                         </tr>
                         <tr>
-                            <td><strong>Prednisolone</strong></td>
-                            <td>1 - 2 mg/kg/day</td>
-                            <td>مرة صباحاً أو مرتين</td>
-                            <td>يُفضل صباحاً بعد الفطور</td>
+                            <td><strong>Paracetamol</strong><br>(120 / 250 mg)</td>
+                            <td>15 mg/kg/dose</td>
+                            <td>كل 6 ساعات عند اللزوم</td>
+                            <td><strong>10 ml</strong> من 120mg<br>أو <strong>5 ml</strong> من 250mg</td>
+                            <td><strong>9 ml</strong> من 250mg<br>(أو قرص 500mg)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ibuprofen</strong><br>(100 / 200 mg)</td>
+                            <td>10 mg/kg/dose</td>
+                            <td>كل 8 ساعات بعد الأكل</td>
+                            <td><strong>8 ml</strong> من 100mg<br>أو <strong>4 ml</strong> من 200mg</td>
+                            <td><strong>7.5 ml</strong> من 200mg<br>(أو قرص 400mg)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
 
 </div>
 
-<!-- ========================================================= -->
-<!-- نافذة عارض ملفات PDF المباشر داخل التطبيق (بدون طباعة)     -->
-<!-- ========================================================= -->
+<!-- نافذة عارض ملفات PDF المباشر داخل التطبيق -->
 <div id="pdfModal" class="pdf-modal">
     <div class="pdf-modal-toolbar">
         <h3 id="pdfModalTitle">📄 معاينة مستند PDF</h3>
@@ -1667,9 +1813,7 @@
         </div>
     </div>
     <div class="pdf-viewer-sheet">
-        <div id="pdfRenderArea" class="pdf-a4-page">
-            <!-- يتم حقن محتوى المستند هنا تلقائياً -->
-        </div>
+        <div id="pdfRenderArea" class="pdf-a4-page"></div>
     </div>
 </div>
 
@@ -1680,111 +1824,169 @@
 <script>
     let currentPdfFilename = "Pharmacy_Document";
 
-    // التبديل بين الأقسام الرئيسية الثلاثة
     function switchTab(sectionId, btn) {
         document.querySelectorAll('.section-content').forEach(sec => sec.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        
         document.getElementById(sectionId).classList.add('active');
         btn.classList.add('active');
     }
 
-    // التبديل بين الحاسبات داخل القسم الثالث
     function switchCalc(panelId, btn) {
         document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.calc-subbtn').forEach(b => b.classList.remove('active'));
-        
         document.getElementById(panelId).classList.add('active');
         btn.classList.add('active');
     }
 
-    // فتح وإغلاق العوائل الدوائية
     function toggleAccordion(header) {
         header.parentElement.classList.toggle('open');
     }
 
-    // البحث الفوري في جميع الأقسام
-    document.getElementById('searchInput').addEventListener('input', function(e) {
-        const term = e.target.value.toLowerCase().trim();
-        const items = document.querySelectorAll('.searchable');
+    // =========================================================
+    // محرك البحث الفوري بنمط الذكاء الاصطناعي (AI Instant Search)
+    // =========================================================
+    const searchInput = document.getElementById('aiSearchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const instantBox = document.getElementById('aiInstantResults');
+    const hitsList = document.getElementById('aiHitsList');
 
-        items.forEach(item => {
+    searchInput.addEventListener('input', function(e) {
+        const term = e.target.value.toLowerCase().trim();
+        clearBtn.style.display = term.length > 0 ? 'block' : 'none';
+
+        if (term.length < 2) {
+            instantBox.style.display = 'none';
+            document.querySelectorAll('.searchable-item').forEach(el => el.style.display = '');
+            return;
+        }
+
+        let hitsHTML = '';
+        let count = 0;
+
+        // البحث في الـ 18 Class والأقسام
+        document.querySelectorAll('.searchable-item').forEach(item => {
             const text = item.innerText.toLowerCase();
             if (text.includes(term)) {
                 item.style.display = '';
-                if (term.length > 1 && item.classList.contains('accordion-item')) {
+                if (item.classList.contains('accordion-item')) {
                     item.classList.add('open');
+                }
+                if (count < 5) {
+                    const title = item.getAttribute('data-title') || 'نتيجة مطابقة';
+                    // استخراج سطر سياقي يحتوي على الكلمة
+                    const lines = item.innerText.split('\n').filter(l => l.toLowerCase().includes(term));
+                    const snippet = lines.slice(0, 2).join(' • ');
+                    hitsHTML += `
+                        <div class="instant-hit">
+                            <strong>📌 ${title}</strong>
+                            <span>${snippet}</span>
+                        </div>
+                    `;
+                    count++;
                 }
             } else {
                 item.style.display = 'none';
             }
         });
+
+        // البحث في قائمة الشرابات الـ 45+
+        const selectOpts = document.querySelectorAll('#presetDrug option');
+        selectOpts.forEach(opt => {
+            if (opt.value !== 'custom' && opt.text.toLowerCase().includes(term) && count < 7) {
+                hitsHTML += `
+                    <div class="instant-hit" style="border-right-color:#10b981; cursor:pointer;" onclick="jumpToSyrup('${opt.value}')">
+                        <strong>🥄 شراب متوفر بالحاسبة: ${opt.text}</strong>
+                        <span style="color:#34d399;">اضغط هنا لفتح الحاسبة وتعبئة جرعة هذا الشراب فوراً ←</span>
+                    </div>
+                `;
+                count++;
+            }
+        });
+
+        if (count > 0) {
+            document.getElementById('aiHitsCount').innerText = `⚡ إجابات فورية سريعة (${count} نتائج مطابقة):`;
+            hitsList.innerHTML = hitsHTML;
+            instantBox.style.display = 'block';
+        } else {
+            hitsList.innerHTML = `<div class="instant-hit">لم يتم العثور على تطابق مباشر لـ "${e.target.value}". جرب البحث بالاسم العلمي بالإنجليزية.</div>`;
+            instantBox.style.display = 'block';
+        }
     });
 
+    function clearAiSearch() {
+        searchInput.value = '';
+        clearBtn.style.display = 'none';
+        instantBox.style.display = 'none';
+        document.querySelectorAll('.searchable-item').forEach(el => el.style.display = '');
+    }
+
+    function jumpToSyrup(presetVal) {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        switchTab('sec3', tabBtns[2]);
+        const subBtns = document.querySelectorAll('.calc-subbtn');
+        switchCalc('calc-syrup', subBtns[0]);
+        document.getElementById('presetDrug').value = presetVal;
+        fillPresetDrug();
+        instantBox.style.display = 'none';
+    }
+
     // =========================================================
-    // نظام عارض ملفات PDF المباشر (بدون فتح شاشة الطباعة نهائياً)
+    // عارض ملفات PDF المباشر داخل التطبيق (بدون نافذة طباعة)
     // =========================================================
     function openPdfViewer(sourceId, fileName) {
         currentPdfFilename = fileName;
         const sourceEl = document.getElementById(sourceId);
         const clone = sourceEl.cloneNode(true);
-        
-        // إزالة الأزرار من نسخة الـ PDF لتبدو كوثيقة رسمية نظيفة
         clone.querySelectorAll('button, .action-bar').forEach(btn => btn.remove());
         clone.style.display = 'block';
 
         const renderArea = document.getElementById('pdfRenderArea');
         renderArea.innerHTML = `
-            <div class="pdf-doc-header">
+            <div style="border-bottom:2px solid #0284c7; padding-bottom:10px; margin-bottom:15px; display:flex; justify-content:space-between;">
                 <div>
-                    <h2 style="color:#0f766e; font-size:1.25rem;">💊 الأكاديمية الصيدلانية الشاملة</h2>
-                    <p style="font-size:0.82rem; color:#475569;">مرجع تعليمي وسريري معتمد</p>
+                    <h2 style="font-size:1.2rem;">💊 أكاديمية الصيدلة والجرعات الذكية</h2>
+                    <p style="font-size:0.8rem;">وثيقة تعليمية وسريرية معتمدة</p>
                 </div>
-                <div style="text-align:left; font-size:0.78rem; color:#64748b;">
-                    <strong>وثيقة PDF</strong><br>
-                    ${new Date().toLocaleDateString('ar-IQ')}
+                <div style="font-size:0.78rem; text-align:left;">
+                    <strong>ملف PDF</strong><br>${new Date().toLocaleDateString('ar-IQ')}
                 </div>
             </div>
             <div>${clone.innerHTML}</div>
-            <div class="pdf-doc-footer">
+            <div style="margin-top:20px; padding-top:8px; border-top:1px solid #cbd5e1; text-align:center; font-size:0.78rem;">
                 إعداد وتطوير: إبراهيم إسماعيل | Made by Ibrahim Ismail
             </div>
         `;
-
         document.getElementById('pdfModalTitle').innerText = "📄 " + fileName.replace(/_/g, ' ');
         document.getElementById('pdfModal').classList.add('open');
     }
 
     function openAllFamiliesPdf() {
-        // فتح كل العوائل مؤقتاً لنسخها في ملف PDF
         document.querySelectorAll('#familiesContainer .accordion-item').forEach(item => item.classList.add('open'));
-        openPdfViewer('familiesContainer', 'موسوعة_العوائل_الدوائية_الـ18_كاملة');
+        openPdfViewer('familiesContainer', 'موسوعة_الـ18_Class_الدوائي_العالمي');
     }
 
     function closePdfViewer() {
         document.getElementById('pdfModal').classList.remove('open');
     }
 
-    // تنزيل ملف PDF حقيقي مباشرة إلى الهاتف بدون نافذة طباعة
     function downloadRealPdfFile() {
         const element = document.getElementById('pdfRenderArea');
         const opt = {
-            margin:       10,
-            filename:     currentPdfFilename + '.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            margin: 8,
+            filename: currentPdfFilename + '.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         html2pdf().set(opt).from(element).save();
     }
 
     // =========================================================
-    // منطق الحاسبات الدوائية السريرية
+    // قاعدة بيانات الشرابات الشاملة (45+ شراب ومعلق)
     // =========================================================
     function estimateWeightFromAge() {
         const age = parseFloat(document.getElementById('childAge').value);
         if (!isNaN(age) && age > 0) {
-            // معادلة تقدير الوزن العالمية: (العمر × 2) + 8
             const estWeight = (age <= 10) ? (age * 2 + 8) : (age * 3);
             document.getElementById('childWeight').value = estWeight;
         }
@@ -1792,23 +1994,70 @@
 
     function fillPresetDrug() {
         const val = document.getElementById('presetDrug').value;
-        const presets = {
-            'amox_125': { mg: 45, str: '125', freq: '3' },
-            'amox_250': { mg: 45, str: '250', freq: '3' },
-            'amox_high_250': { mg: 80, str: '250', freq: '2' },
-            'aug_156': { mg: 30, str: '156', freq: '3' },
-            'aug_312': { mg: 30, str: '312.5', freq: '3' },
-            'aug_457': { mg: 45, str: '457', freq: '2' },
-            'azith_200': { mg: 10, str: '200', freq: '1' },
-            'cefix_100': { mg: 8, str: '100', freq: '2' },
-            'para_120': { mg: 60, str: '120', freq: '4' },
-            'para_250': { mg: 60, str: '250', freq: '4' },
-            'ibu_100': { mg: 30, str: '100', freq: '3' }
+        const db = {
+            // Antibiotics
+            'amox_125': { mg: 45, str: 125, freq: '3' },
+            'amox_250': { mg: 45, str: 250, freq: '3' },
+            'amox_high_250': { mg: 80, str: 250, freq: '2' },
+            'aug_156': { mg: 30, str: 156.25, freq: '3' },
+            'aug_312': { mg: 30, str: 312.5, freq: '3' },
+            'aug_457': { mg: 45, str: 457, freq: '2' },
+            'aug_600': { mg: 90, str: 600, freq: '2' },
+            'azith_200': { mg: 10, str: 200, freq: '1' },
+            'clarith_125': { mg: 15, str: 125, freq: '2' },
+            'clarith_250': { mg: 15, str: 250, freq: '2' },
+            'eryth_200': { mg: 40, str: 200, freq: '4' },
+            'cephalex_125': { mg: 50, str: 125, freq: '3' },
+            'cephalex_250': { mg: 50, str: 250, freq: '3' },
+            'cefadrox_125': { mg: 30, str: 125, freq: '2' },
+            'cefadrox_250': { mg: 30, str: 250, freq: '2' },
+            'cefurox_125': { mg: 25, str: 125, freq: '2' },
+            'cefurox_250': { mg: 25, str: 250, freq: '2' },
+            'cefix_100': { mg: 8, str: 100, freq: '2' },
+            'cefpod_40': { mg: 10, str: 40, freq: '2' },
+            'cefpod_100': { mg: 10, str: 100, freq: '2' },
+            'cefdin_125': { mg: 14, str: 125, freq: '2' },
+            'cefdin_250': { mg: 14, str: 250, freq: '2' },
+            'metro_125': { mg: 30, str: 125, freq: '3' },
+            'metro_200': { mg: 30, str: 200, freq: '3' },
+            'cotrim_240': { mg: 48, str: 240, freq: '2' },
+            'nitazox_100': { mg: 15, str: 100, freq: '2' },
+            // Antipyretics & NSAIDs
+            'para_120': { mg: 60, str: 120, freq: '4' },
+            'para_250': { mg: 60, str: 250, freq: '4' },
+            'ibu_100': { mg: 30, str: 100, freq: '3' },
+            'ibu_200': { mg: 30, str: 200, freq: '3' },
+            'mefen_50': { mg: 20, str: 50, freq: '3' },
+            'diclo_15': { mg: 2, str: 7.5, freq: '3' },
+            // Allergy & Respiratory
+            'lorat_5': { mg: 0.3, str: 5, freq: '1' },
+            'deslorat_2_5': { mg: 0.15, str: 2.5, freq: '1' },
+            'cetir_5': { mg: 0.25, str: 5, freq: '1' },
+            'levocet_2_5': { mg: 0.125, str: 2.5, freq: '1' },
+            'chlorphen_2': { mg: 0.35, str: 2, freq: '3' },
+            'ketotif_1': { mg: 0.05, str: 1, freq: '2' },
+            'salbut_2': { mg: 0.4, str: 2, freq: '3' },
+            'pred_5': { mg: 1.5, str: 5, freq: '2' },
+            'pred_15': { mg: 1.5, str: 15, freq: '2' },
+            'ambrox_15': { mg: 1.5, str: 15, freq: '3' },
+            'bromhex_4': { mg: 0.5, str: 4, freq: '3' },
+            'dextro_15': { mg: 1, str: 15, freq: '3' },
+            // GIT
+            'domper_5': { mg: 0.75, str: 5, freq: '3' },
+            'ondans_4': { mg: 0.3, str: 4, freq: '2' },
+            'hyoscine_5': { mg: 1.2, str: 5, freq: '3' },
+            'lactul_3_3': { mg: 500, str: 3350, freq: '2' },
+            'simeth_40': { mg: 8, str: 333, freq: '4' },
+            // Anthelmintics & Iron
+            'albend_200': { mg: 15, str: 200, freq: '1' },
+            'mebend_100': { mg: 10, str: 100, freq: '2' },
+            'nystat_100k': { mg: 20, str: 100, freq: '4' },
+            'iron_50': { mg: 3, str: 50, freq: '1' }
         };
-        if (presets[val]) {
-            document.getElementById('mgPerKg').value = presets[val].mg;
-            document.getElementById('syrupStrength').value = presets[val].str;
-            document.getElementById('dosesPerDay').value = presets[val].freq;
+        if (db[val]) {
+            document.getElementById('mgPerKg').value = db[val].mg;
+            document.getElementById('syrupStrength').value = db[val].str;
+            document.getElementById('dosesPerDay').value = db[val].freq;
         }
     }
 
@@ -1818,8 +2067,8 @@
         const strength = parseFloat(document.getElementById('syrupStrength').value);
         const freq = parseInt(document.getElementById('dosesPerDay').value);
 
-        if (isNaN(weight) || isNaN(mgPerKg) || weight <= 0) {
-            alert("يرجى إدخال وزن الطفل والجرعة المطلوبة بشكل صحيح.");
+        if (isNaN(weight) || isNaN(mgPerKg) || weight <= 0 || strength <= 0) {
+            alert("يرجى إدخال وزن الطفل أو عمره واختيار الشراب بشكل صحيح.");
             return;
         }
 
@@ -1831,10 +2080,11 @@
         const resBox = document.getElementById('syrupResult');
         resBox.style.display = 'block';
         resBox.innerHTML = `
-            <h4>✅ النتيجة السريرية الدقيقة:</h4>
-            <p>• <strong>الجرعة الواحدة بالمليلتر:</strong> <span style="font-size:1.2rem; font-weight:800; color:#dc2626;">${singleDoseMl.toFixed(1)} mL</span> تُعطى <strong>${freq} مرات يومياً</strong> (كل ${24/freq} ساعة).</p>
-            <p>• <strong>ما يعادلها بالقطرات:</strong> حوالي ${dropsCount} قطرة (أو ${(singleDoseMl/5).toFixed(2)} ملعقة صغيرة).</p>
-            <p>• <strong>تفاصيل الحساب:</strong> الجرعة اليومية الكلية = ${totalDailyMg.toFixed(0)} mg/day ← الجرعة الواحدة = ${singleDoseMg.toFixed(0)} mg.</p>
+            <h4>✅ الجرعة المحسوبة بدقة:</h4>
+            <p style="font-size:1.15rem;">• يُعطى الطفل: <strong style="color:#22d3ee; font-size:1.35rem;">${singleDoseMl.toFixed(1)} mL</strong> في الجرعة الواحدة.</p>
+            <p>• <strong>عدد المرات:</strong> <strong>${freq} مرات يومياً</strong> (كل ${24/freq} ساعة).</p>
+            <p>• <strong>بالقطرات / الملاعق:</strong> تعادل تقريباً <strong>${dropsCount} قطرة</strong> أو <strong>${(singleDoseMl/5).toFixed(2)} ملعقة صغيرة</strong>.</p>
+            <p style="font-size:0.82rem; color:#94a3b8; margin-top:6px;">تفاصيل المعادلة: الوزن (${weight}kg) × (${mgPerKg}mg/kg) = ${totalDailyMg.toFixed(1)}mg باليوم ← ${singleDoseMg.toFixed(1)}mg للجرعة الواحدة.</p>
         `;
     }
 
@@ -1854,27 +2104,25 @@
         const resBox = document.getElementById('ivResult');
         resBox.style.display = 'block';
         resBox.innerHTML = `
-            <h4>💧 نتيجة حساب تقطير المغذي:</h4>
-            <p>• <strong>سرعة التقطير اليدوي:</strong> <span style="font-size:1.2rem; font-weight:800; color:#dc2626;">${Math.round(dropsPerMin)} قطرة / دقيقة</span> (gtt/min).</p>
-            <p>• <strong>سرعة مضخة التسريب (Infusion Pump):</strong> ${mlPerHr.toFixed(1)} mL / ساعة.</p>
+            <h4>💧 سرعة تقطير المغذي المطلوبة:</h4>
+            <p>• <strong>التقطير اليدوي:</strong> <strong style="color:#22d3ee; font-size:1.3rem;">${Math.round(dropsPerMin)} قطرة / دقيقة</strong> (gtt/min).</p>
+            <p>• <strong>مضخة التسريب (Pump):</strong> ${mlPerHr.toFixed(1)} mL / ساعة.</p>
         `;
     }
 
     function calculateTabs() {
         const desired = parseFloat(document.getElementById('tabDesired').value);
         const have = parseFloat(document.getElementById('tabHave').value);
-
         if (isNaN(desired) || isNaN(have) || have <= 0) {
-            alert("يرجى إدخال التركيز المطلوب والمتوفر.");
+            alert("يرجى إدخال الجرعة المطلوبة والمتوفرة.");
             return;
         }
-
         const count = desired / have;
         const resBox = document.getElementById('tabResult');
         resBox.style.display = 'block';
         resBox.innerHTML = `
             <h4>💊 الكمية المطلوبة للمريض:</h4>
-            <p>• يُعطى المريض: <span style="font-size:1.2rem; font-weight:800; color:#dc2626;">${count} حبة / كبسولة</span> في الجرعة الواحدة.</p>
+            <p>• يُعطى المريض: <strong style="color:#22d3ee; font-size:1.3rem;">${count} حبة / كبسولة</strong> في الجرعة الواحدة.</p>
         `;
     }
 
@@ -1882,13 +2130,13 @@
         const ml = parseFloat(document.getElementById('mlConvert').value);
         const box = document.getElementById('convertResult');
         if (isNaN(ml) || ml <= 0) {
-            box.innerHTML = `<p style="color:#334155;">أدخل رقماً بالمليلتر بالأعلى لرؤية التحويل الفوري...</p>`;
+            box.innerHTML = `<p>اكتب أي رقم بالمليلتر بالأعلى للتحويل الفوري...</p>`;
             return;
         }
         box.innerHTML = `
-            <p style="color:#065f46; font-weight:700;">• ${ml} mL = <strong>${Math.round(ml * 20)} قطرة (Drops)</strong></p>
-            <p style="color:#065f46;">• يعادل <strong>${(ml / 5).toFixed(2)} ملعقة صغيرة (Teaspoon)</strong></p>
-            <p style="color:#065f46;">• يعادل <strong>${(ml / 15).toFixed(2)} ملعقة طعام كبيرة (Tablespoon)</strong></p>
+            <p>• <strong>${ml} mL</strong> = <strong style="color:#22d3ee;">${Math.round(ml * 20)} قطرة (Drops)</strong></p>
+            <p>• تعادل <strong>${(ml / 5).toFixed(2)} ملعقة صغيرة (Teaspoon)</strong></p>
+            <p>• تعادل <strong>${(ml / 15).toFixed(2)} ملعقة طعام كبيرة (Tablespoon)</strong></p>
         `;
     }
 </script>
