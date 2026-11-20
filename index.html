@@ -14,6 +14,7 @@
             --primary-glow: rgba(6, 182, 212, 0.25);
             --secondary: #8b5cf6;
             --accent: #10b981;
+            --warning: #f59e0b;
             --danger: #f43f5e;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
@@ -25,6 +26,13 @@
             margin: 0;
             padding: 0;
             font-family: 'Cairo', sans-serif;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        input, select, textarea {
+            -webkit-user-select: text !important;
+            user-select: text !important;
         }
 
         body {
@@ -33,15 +41,152 @@
                 radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.12), transparent 35%),
                 radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.12), transparent 35%);
             color: var(--text-main);
-            line-height: 1.7;
+            line-height: 1.75;
             padding-bottom: 60px;
             min-height: 100vh;
+        }
+
+        /* شريط حالة الحساب والاشتراك العلوي */
+        .account-top-bar {
+            background: rgba(15, 23, 42, 0.96);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+            padding: 8px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.78rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+        }
+
+        .account-info-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .status-chip {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.74rem;
+        }
+
+        .status-trial {
+            background: rgba(16, 185, 129, 0.18);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.45);
+        }
+
+        .status-active {
+            background: rgba(6, 182, 212, 0.18);
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.45);
+        }
+
+        .status-expired {
+            background: rgba(244, 63, 94, 0.2);
+            color: #fda4af;
+            border: 1px solid rgba(244, 63, 94, 0.5);
+        }
+
+        .top-bar-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mini-top-btn {
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .mini-top-btn.pay-now {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #0f172a;
+            border: none;
+            font-weight: 900;
+        }
+
+        /* بوابات الدخول والاشتراك */
+        .gate-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.96);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .gate-overlay.open {
+            display: flex;
+        }
+
+        .gate-box {
+            background: linear-gradient(155deg, #131c31, #1e1b4b);
+            border: 1.5px solid rgba(6, 182, 212, 0.5);
+            border-radius: 22px;
+            max-width: 480px;
+            width: 100%;
+            padding: 24px 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.2);
+            text-align: center;
+        }
+
+        .gate-box h2 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #38bdf8;
+            margin-bottom: 6px;
+        }
+
+        .gate-box p {
+            font-size: 0.86rem;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .qicard-banner {
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+            color: #0f172a;
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 14px;
+            text-align: right;
+            font-weight: 800;
+            font-size: 0.84rem;
+        }
+
+        .qicard-banner .card-num {
+            display: block;
+            background: rgba(15, 23, 42, 0.9);
+            color: #fbbf24;
+            padding: 6px 10px;
+            border-radius: 8px;
+            margin-top: 6px;
+            font-family: monospace;
+            font-size: 0.98rem;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         header {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.92));
             border-bottom: 1px solid var(--border);
-            padding: 24px 16px 34px;
+            padding: 22px 16px 34px;
             text-align: center;
         }
 
@@ -282,7 +427,7 @@
         .step-list li {
             position: relative;
             padding-right: 22px;
-            margin-bottom: 8px;
+            margin-bottom: 9px;
             font-size: 0.9rem;
             color: #e2e8f0;
         }
@@ -292,6 +437,38 @@
             position: absolute;
             right: 0;
             color: #22d3ee;
+        }
+
+        .learn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .learn-mini-card {
+            background: rgba(15, 23, 42, 0.78);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-right: 3px solid #22d3ee;
+            border-radius: 12px;
+            padding: 11px 13px;
+            font-size: 0.85rem;
+        }
+
+        .learn-mini-card h5 {
+            color: #38bdf8;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            font-family: sans-serif;
+        }
+
+        .preg-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.78rem;
+            margin-left: 6px;
         }
 
         .mini-pdf-btn {
@@ -374,7 +551,7 @@
         .sub-family {
             background: #1e293b;
             border-right: 3px solid #8b5cf6;
-            padding: 10px 14px;
+            padding: 11px 14px;
             margin-top: 10px;
             border-radius: 10px;
         }
@@ -445,6 +622,7 @@
 
         .form-group {
             margin-bottom: 12px;
+            text-align: right;
         }
 
         .form-group label {
@@ -521,6 +699,7 @@
             color: #bfdbfe;
         }
 
+        /* تنسيق قسم مواعيد الأدوية المحسّن */
         .sched-part-panel {
             display: none;
         }
@@ -530,10 +709,10 @@
         }
 
         .sched-local-search {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1.5px solid rgba(56, 189, 248, 0.45);
-            border-radius: 14px;
-            padding: 12px;
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(30, 27, 75, 0.6));
+            border: 1.5px solid rgba(56, 189, 248, 0.5);
+            border-radius: 16px;
+            padding: 14px;
             margin-bottom: 14px;
         }
 
@@ -546,7 +725,7 @@
         .sched-local-search-row input {
             flex: 1;
             background: #0b1120;
-            border: 1px solid rgba(148, 163, 184, 0.3);
+            border: 1px solid rgba(148, 163, 184, 0.35);
             color: #fff;
             padding: 10px 12px;
             border-radius: 10px;
@@ -556,6 +735,31 @@
 
         .sched-local-search-row input:focus {
             border-color: #22d3ee;
+        }
+
+        .sched-filter-chips {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-top: 10px;
+        }
+
+        .chip-btn {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            color: #cbd5e1;
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .chip-btn.active, .chip-btn:hover {
+            background: #0284c7;
+            color: #fff;
+            border-color: #38bdf8;
         }
 
         .sched-search-results {
@@ -601,6 +805,37 @@
         .sched-detail-row.timing {
             border-right: 3px solid #10b981;
             color: #a7f3d0;
+        }
+
+        .time-slot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .time-slot-card {
+            background: rgba(15, 23, 42, 0.82);
+            border-radius: 14px;
+            padding: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .time-slot-card.morning { border-top: 4px solid #f59e0b; }
+        .time-slot-card.meals { border-top: 4px solid #10b981; }
+        .time-slot-card.night { border-top: 4px solid #8b5cf6; }
+        .time-slot-card.avoid { border-top: 4px solid #f43f5e; }
+
+        .time-slot-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            color: #f8fafc;
+        }
+
+        .time-slot-card p {
+            font-size: 0.84rem;
+            color: #cbd5e1;
+            margin-bottom: 6px;
         }
 
         table.dose-table {
@@ -725,12 +960,103 @@
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
+
+<!-- شريط حالة الحساب والاشتراك -->
+<div class="account-top-bar">
+    <div class="account-info-pill">
+        <span>📧 <strong id="displayUserEmail">غير مسجل</strong></span>
+        <span id="subscriptionBadge" class="status-chip status-trial">جاري التحقق...</span>
+    </div>
+    <div class="top-bar-actions">
+        <button class="mini-top-btn pay-now" onclick="openPaymentModal()">💳 اشتراك كي كارد ($1 / 30 يوم)</button>
+        <button class="mini-top-btn" onclick="openOwnerDashboard()">🔐 حساب الإدارة</button>
+        <button class="mini-top-btn" onclick="logoutUserEmail()">تغيير الإيميل</button>
+    </div>
+</div>
+
+<!-- 1. بوابة ربط البريد الإلكتروني وبدء التجربة المجانية 7 أيام -->
+<div id="emailGateModal" class="gate-overlay">
+    <div class="gate-box">
+        <div class="ai-badge">🔐 نظام حماية الحساب والاشتراك</div>
+        <h2>ربط البريد الإلكتروني لدخول البرنامج</h2>
+        <p>أدخل بريدك الإلكتروني لتفعيل حسابك والحصول على <strong>7 أيام استخدام مجاني بالكامل</strong>، وبعدها يتفعّل الاشتراك الشهري بقيمة <strong>1$ كل 30 يوم</strong> عبر الكي كارد (Qi Card).</p>
+        <div class="form-group">
+            <label>📧 البريد الإلكتروني (Gmail / Email):</label>
+            <input type="email" id="loginEmailInput" class="form-control" placeholder="example@gmail.com" dir="ltr">
+        </div>
+        <button class="calc-btn" onclick="registerUserEmail()">🚀 ربط الإيميل وبدء الـ 7 أيام المجانية</button>
+    </div>
+</div>
+
+<!-- 2. بوابة الدفع بالكي كارد (1 دولار شهرياً كل 30 يوم) -->
+<div id="paymentGateModal" class="gate-overlay">
+    <div class="gate-box">
+        <div class="ai-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:#f59e0b;">💳 تفعيل الاشتراك الشهري — Qi Card</div>
+        <h2>تجديد الاشتراك ($1 لمدة 30 يوماً)</h2>
+        <p id="paymentGateReason">انتهت فترة الـ 7 أيام المجانية أو مدة الاشتراك السابقة. لتفعيل البرنامج لمدة 30 يوماً إضافية، حوّل مبلغ <strong>1$ دولار أمريكي</strong> عبر الكي كارد إلى الحساب الرئيسي:</p>
+        
+        <div class="qicard-banner">
+            <span>🏦 رقم بطاقة الكي كارد الرئيسية المستلمة ($1 / 30 يوم):</span>
+            <span class="card-num" id="merchantQiCardDisplay">7110-4829-9301-2026</span>
+            <span style="display:block; font-size:0.75rem; margin-top:4px;">المستفيد: إبراهيم إسماعيل — AI Pharmacy Academy</span>
+        </div>
+
+        <div class="form-group">
+            <label>💳 رقم بطاقة الكي كارد المرسِلة أو رقم وصل التحويل:</label>
+            <input type="text" id="payerCardInput" class="form-control" placeholder="أدخل آخر 8 أرقام من بطاقتك أو رقم العملية" dir="ltr">
+        </div>
+
+        <div class="form-group">
+            <label>🔑 رمز التفعيل (أو تأكيد الدفع المباشر):</label>
+            <input type="text" id="activationCodeInput" class="form-control" placeholder="اختياري: أدخل رمز التفعيل أو اتركه للتأكيد الفوري" dir="ltr">
+        </div>
+
+        <button class="calc-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a;" onclick="processQiCardPayment()">✅ تأكيد دفع $1 وتفعيل 30 يوماً</button>
+        <button id="closePayModalBtn" class="mini-pdf-btn" style="width:100%; margin-top:8px;" onclick="closePaymentModal()">إغلاق (إذا كانت الفترة المجانية ما زالت سارية)</button>
+    </div>
+</div>
+
+<!-- 3. لوحة تحكم الحساب الرئيسي الخاص بك (إدارة المدفوعات ورقم الكي كارد) -->
+<div id="ownerDashboardModal" class="gate-overlay">
+    <div class="gate-box" style="max-width:540px; text-align:right;">
+        <h2 style="text-align:center;">🔐 لوحة الحساب الرئيسي (إبراهيم إسماعيل)</h2>
+        <p style="text-align:center;">متابعة اشتراكات الـ 1$ الواردة لحسابك وتحديث رقم بطاقة الكي كارد الرئيسية.</p>
+
+        <div id="ownerAuthArea">
+            <div class="form-group">
+                <label>🔑 رمز دخول الإدارة (الافتراضي: 2026):</label>
+                <input type="password" id="ownerPinInput" class="form-control" placeholder="أدخل رمز الإدارة" dir="ltr">
+            </div>
+            <button class="calc-btn" onclick="unlockOwnerDashboard()">دخول لوحة الحساب الرئيسي</button>
+            <button class="mini-pdf-btn" style="width:100%;" onclick="closeOwnerDashboard()">إغلاق</button>
+        </div>
+
+        <div id="ownerContentArea" style="display:none;">
+            <div class="formula-box" style="border-right-color:#10b981; color:#a7f3d0;">
+                <strong>💰 إجمالي المدفوعات المسجلة لحسابك:</strong> <span id="ownerTotalRevenue" style="font-size:1.1rem; font-weight:900;">0 $</span>
+            </div>
+
+            <div class="form-group">
+                <label>💳 رقم بطاقة الكي كارد الرئيسية لاستلام الدولار:</label>
+                <input type="text" id="merchantCardEditInput" class="form-control" dir="ltr">
+            </div>
+            <button class="calc-btn" onclick="saveMerchantQiCard()">💾 حفظ رقم الكي كارد الرئيسي</button>
+
+            <div style="margin-top:12px;">
+                <strong style="font-size:0.85rem; color:#38bdf8;">📋 سجل المشتركين والدفعات ($1 / 30 يوم):</strong>
+                <div id="paymentsLogList" style="max-height:170px; overflow-y:auto; margin-top:6px; background:#0f172a; padding:8px; border-radius:10px; font-size:0.8rem;"></div>
+            </div>
+
+            <button class="mini-pdf-btn" style="width:100%;" onclick="closeOwnerDashboard()">إغلاق اللوحة</button>
+        </div>
+    </div>
+</div>
 
 <header>
     <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الحساب الميداني بالسي سي (1 مل = 1 سي سي)</div>
     <h1>أكاديمية الصيدلة والجرعات الذكية</h1>
-    <p>تعليم الصيدلة • الـ 18 كلاس • حساب الشرابات والمحاليل الوريدية • مواعيد الأدوية</p>
+    <p>تعليم الصيدلة الموسّع • الـ 18 كلاس • حساب الشرابات والمحاليل الوريدية • مواعيد الأدوية</p>
 </header>
 
 <!-- شريط البحث الذكي الفوري العام -->
@@ -763,64 +1089,137 @@
 
 <div class="container">
 
-    <!-- القسم الأول -->
+    <!-- القسم الأول: تعلم الصيدلة الموسّع والشامل -->
     <div id="sec1" class="section-content active">
         <div class="action-bar">
-            <span>📄 عرض وتحميل منهج تعلم الصيدلة كملف PDF مباشر:</span>
-            <button class="pdf-btn" onclick="openPdfViewer('sec1', 'منهج_تعلم_الصيدلة_الشامل')">👁️ فتح ملف PDF الشامل</button>
+            <span>📄 عرض وتحميل موسوعة تعلم الصيدلة الشاملة كملف PDF مباشر:</span>
+            <button class="pdf-btn" onclick="openPdfViewer('sec1', 'موسوعة_تعلم_الصيدلة_الشاملة')">👁️ فتح ملف PDF الشامل</button>
         </div>
 
-        <div class="card searchable-item" data-title="خارطة الطريق لتعلم الصيدلة من الصفر" id="card-roadmap">
+        <div class="card searchable-item" data-title="خارطة الطريق لتعلم الصيدلة والمصطلحات الطبية" id="card-roadmap">
             <div class="card-header">
-                <span class="card-title">المرحلة 1: خارطة الطريق لتعلم الصيدلة من الصفر</span>
-                <span class="badge">أساسيات</span>
+                <span class="card-title">المرحلة 1: خارطة الطريق والمصطلحات الطبية والجذور الدوائية</span>
+                <span class="badge">أساسيات ذهبية</span>
             </div>
             <ul class="step-list">
-                <li><strong>المصطلحات الطبية (Medical Terminology):</strong> فهم البادئات واللواحق اللاتينية (Hyper ارتفاع، Hypo انخفاض، -itis التهاب).</li>
-                <li><strong>الأسماء العلمية (Generic Names):</strong> حفظ الاسم العلمي أولاً لأنه يكشف العائلة الدوائية (مثلاً: -olol حاصرات بيتا، -prazole مثبطات الحموضة).</li>
-                <li><strong>آلية العمل (Mechanism of Action):</strong> كيف يعمل الدواء داخل الجسم وعلى أي مستقبل يرتبط.</li>
-                <li><strong>الأشكال الصيدلانية (Dosage Forms):</strong> الفرق بين الأقراص، الكبسولات، الشرابات (بالمل / سي سي)، المعلقات، التحاميل، الفوارات، والمحاليل الوريدية.</li>
-                <li><strong>قراءة الوصفات (Prescription Reading):</strong> التدرب على خطوط الأطباء والاختصارات العالمية (BID, TID, QID, PRN, OD).</li>
+                <li><strong>البادئات اللاتينية الطبية (Medical Prefixes):</strong> <code>Hyper-</code> ارتفاع (Hypertension ارتفاع ضغط)، <code>Hypo-</code> انخفاض (Hypoglycemia هبوط سكر)، <code>Tachy-</code> تسارع (Tachycardia)، <code>Brady-</code> تباطؤ (Bradycardia)، <code>Anti-</code> مضاد، <code>Dys-</code> صعوبة أو خلل، <code>Poly-</code> متعدد.</li>
+                <li><strong>اللواحق اللاتينية الطبية (Medical Suffixes):</strong> <code>-itis</code> التهاب (Gastritis التهاب معدة)، <code>-algia</code> ألم (Myalgia ألم عضلات)، <code>-emia</code> في الدم (Anemia فقر دم)، <code>-uria</code> في البول، <code>-pathy</code> اعتلال مرضي، <code>-megaly</code> تضخم.</li>
+                <li><strong>سر الاسم العلمي (Generic Name):</strong> حفظ الاسم العلمي يكشف لك العائلة الدوائية وآلية العمل والموانع في ثوانٍ بدون الحاجة لحفظ آلاف الأسماء التجارية.</li>
             </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-roadmap', 'خارطة_تعلم_الصيدلة')">📄 فتح ملف PDF الخاص بالمرحلة</button>
+
+            <div class="learn-grid">
+                <div class="learn-mini-card">
+                    <h5>-olol (Beta Blockers)</h5>
+                    <p>حاصرات بيتا للقلب والضغط مثل: Bisoprolol, Metoprolol, Atenolol, Propranolol (تُحذر في الربو).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-pril (ACE Inhibitors)</h5>
+                    <p>مثبطات الإنزيم المحول للضغط والقلب مثل: Captopril, Enalapril, Lisinopril, Ramipril (تسبب سعال جاف وممنوعة بالحمل).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-sartan (ARBs)</h5>
+                    <p>حاصرات مستقبلات الأنجيوتنسين للضغط مثل: Losartan, Valsartan, Candesartan, Telmisartan (بديل لا يسبب سعال وممنوع بالحمل).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-prazole (PPIs)</h5>
+                    <p>مثبطات مضخة البروتون لحموضة وقرحة المعدة مثل: Omeprazole, Pantoprazole, Esomeprazole (تُؤخذ قبل الفطور بـ 30-60 دقيقة).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-statin (Lipid Lowering)</h5>
+                    <p>خافضات الكوليسترول والدهون مثل: Atorvastatin, Rosuvastatin, Simvastatin (تُراقب إنزيمات الكبد وآلام العضلات).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-dipine (Calcium Channel Blockers)</h5>
+                    <p>حاصرات قنوات الكالسيوم للضغط مثل: Amlodipine, Nifedipine, Felodipine (قد تسبب تورم الكاحلين).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-gliptin & -flozin (Diabetes)</h5>
+                    <p>أدوية السكري الحديثة: Sitagliptin, Vildagliptin و Empagliflozin, Dapagliflozin (تحمي القلب والكلى).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-mycin / -floxacin / -cillin</h5>
+                    <p>مضادات حيوية: Azithromycin (ماكروليد)، Ciprofloxacin (كينولون)، Amoxicillin (بنسلين).</p>
+                </div>
+            </div>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-roadmap', 'المصطلحات_والجذور_الدوائية')">📄 فتح PDF المرحلة 1</button>
         </div>
 
-        <div class="card searchable-item" data-title="علم الأدوية Pharmacology" id="card-pharmacology">
+        <div class="card searchable-item" data-title="علم الأدوية Pharmacology ADME" id="card-pharmacology">
             <div class="card-header">
-                <span class="card-title">القسم 1: علم الأدوية (Pharmacology)</span>
+                <span class="card-title">المرحلة 2: علم الأدوية المتعمق (Pharmacology - ADME)</span>
                 <span class="badge">العمود الفقري</span>
             </div>
             <ul class="step-list">
-                <li><strong>حركية الدواء (Pharmacokinetics - ADME):</strong> الامتصاص (Absorption)، التوزيع (Distribution)، الأيض في الكبد (Metabolism)، والإطراح عبر الكلى (Excretion).</li>
-                <li><strong>ديناميكية الدواء (Pharmacodynamics):</strong> تأثير الدواء على مستقبلات الخلايا، العلاقة بين الجرعة والاستجابة، والآثار الجانبية.</li>
+                <li><strong>1. الامتصاص (Absorption & Bioavailability):</strong> انتقال الدواء من مكان إعطائه إلى مجرى الدم. الإعطاء الوريدي (IV) توافره الحيوي 100%، بينما الفموي يتأثر بالطعام وحموضة المعدة والمرور الكبدي الأول (First-Pass Metabolism).</li>
+                <li><strong>2. التوزيع (Distribution):</strong> انتشار الدواء في أنسجة الجسم وارتباطه ببروتينات البلازما (Albumin). الأدوية القابلة للذوبان في الدهون تعبر الحاجز الدموي الدماغي (BBB) والمشيمة.</li>
+                <li><strong>3. الأيض أو الاستقلاب (Metabolism):</strong> تحويل الدواء في الكبد غالباً عبر إنزيمات <strong>Cytochrome P450 (CYP450)</strong> إلى مادة سهلة الطرح، أو تنشيط دواء أولي (Prodrug مثل Clopidogrel).</li>
+                <li><strong>4. الإطراح (Excretion & Half-Life $t_{1/2}$):</strong> خروج الدواء عبر الكلى (البول) أو الصفراء (البراز). معرفة فترة نصف العمر ($t_{1/2}$) تحدد عدد مرات الجرعة باليوم (كل 6، 8، 12، أو 24 ساعة).</li>
+                <li><strong>5. ديناميكية الدواء (Pharmacodynamics):</strong> الفرق بين المحفز للمستقبل (<strong>Agonist</strong> مثل Salbutamol) والحاصر للمستقبل (<strong>Antagonist</strong> مثل Propranolol)، والهامش العلاجي الضيق (<strong>Narrow Therapeutic Index</strong> مثل Digoxin, Warfarin, Levothyroxine).</li>
             </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmacology', 'علم_الأدوية')">📄 فتح ملف PDF الخاص بالقسم</button>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmacology', 'علم_الأدوية_ADME')">📄 فتح PDF المرحلة 2</button>
         </div>
 
-        <div class="card searchable-item" data-title="الصيدلة السريرية والعلاجيات Clinical Pharmacy" id="card-clinical">
+        <div class="card searchable-item" data-title="الصيدلة السريرية وموانع الاستعمال وتصنيف الحمل" id="card-clinical">
             <div class="card-header">
-                <span class="card-title">القسم 2: الصيدلة السريرية والعلاجيات (Clinical Pharmacy)</span>
-                <span class="badge">تطبيقي</span>
+                <span class="card-title">المرحلة 3: الصيدلة السريرية، تصنيف الحمل، وأخطر التداخلات</span>
+                <span class="badge">سلامة المريض</span>
             </div>
             <ul class="step-list">
-                <li><strong>التداخلات الدوائية (Drug Interactions):</strong> منع إعطاء أدوية تتعارض مع بعضها (مثل الكالسيوم أو الحديد مع المضاد الحيوي Ciprofloxacin).</li>
-                <li><strong>موانع الاستعمال (Contraindications):</strong> الأدوية الممنوعة للحوامل (تصنيف X و D)، المرضعات، مرضى الربو، وقرحة المعدة.</li>
-                <li><strong>حساب الجرعات للأطفال وكبار السن:</strong> ضبط الجرعة حسب الوزن ووظائف الكلى.</li>
+                <li><span class="preg-badge" style="background:#10b981; color:#064e3b;">Category A & B</span> <strong>آمنة نسبياً بالحمل:</strong> مثل حمض الفوليك (Folic Acid)، باراسيتامول (Paracetamol)، أموكسيسيلين (Amoxicillin)، سيفالوسبورينات، وميثيل دوبا للضغط.</li>
+                <li><span class="preg-badge" style="background:#f59e0b; color:#0f172a;">Category C</span> <strong>تُستخدم فقط إذا فاقت الفائدة المخاطر:</strong> مثل Ciprofloxacin أو Omeprazole (يُفضل تجنب الكينولونات بالحمل).</li>
+                <li><span class="preg-badge" style="background:#f43f5e; color:#fff;">Category D & X</span> <strong>ممنوعة بالحمل (تسبب تشوهات جنينية):</strong> أدوية الضغط (ACEi مثل Ramipril و ARBs مثل Valsartan)، خافضات الدهون (Statins)، المضادات (Tetracyclines / Doxycycline)، ومشتقات فيتامين A (Isotretinoin).</li>
+                <li><strong>أشهر 5 تداخلات دوائية يومية في الصيدلية:</strong>
+                    <br>① <strong>Ciprofloxacin / Doxycycline + حليب أو كالسيوم أو حديد:</strong> تكوّن معقدات تمنع امتصاص المضاد (افصل 2-4 ساعات).
+                    <br>② <strong>Levothyroxine + حديد أو كالسيوم أو قهوة:</strong> يبطل مفعول دواء الغدة (افصل 4 ساعات).
+                    <br>③ <strong>Omeprazole + Clopidogrel:</strong> يقلل تفعيل مميع الدم في الكبد (استبدله بـ Pantoprazole).
+                    <br>④ <strong>NSAIDs (بروفين/ديكلوفيناك) + أدوية الضغط والمدرات:</strong> ترفع الضغط وتجهد الكلى.
+                    <br>⑤ <strong>Metronidazole + الكحول:</strong> يسبب قيئاً وخفقاناً شديداً.
+                </li>
             </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-clinical', 'الصيدلة_السريرية')">📄 فتح ملف PDF الخاص بالقسم</button>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-clinical', 'الصيدلة_السريرية_وتصنيف_الحمل')">📄 فتح PDF المرحلة 3</button>
         </div>
 
-        <div class="card searchable-item" data-title="الصيدلانيات والتصنيع وصيدلة المجتمع" id="card-pharmaceutics">
+        <div class="card searchable-item" data-title="فك رموز الوصفات الطبية والاختصارات الصيدلانية" id="card-rx-codes">
             <div class="card-header">
-                <span class="card-title">القسم 3: الصيدلانيات وصيدلة المجتمع والتخصصات</span>
-                <span class="badge">شامل</span>
+                <span class="card-title">المرحلة 4: فك رموز الوصفات الطبية والأشكال الصيدلانية</span>
+                <span class="badge">قراءة الوصفات</span>
+            </div>
+            <table class="dose-table">
+                <thead>
+                    <tr>
+                        <th>الاختصار في الوصفة</th>
+                        <th>المعنى اللاتيني / الإنجليزي</th>
+                        <th>الترجمة العملية للمريض</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>OD / q24h</strong></td><td>Once Daily</td><td>مرة واحدة باليوم (كل 24 ساعة)</td></tr>
+                    <tr><td><strong>BID / BD / q12h</strong></td><td>Bis in Die (Twice daily)</td><td>مرتين باليوم (كل 12 ساعة)</td></tr>
+                    <tr><td><strong>TID / TDS / q8h</strong></td><td>Ter in Die (Three times)</td><td>3 مرات باليوم (كل 8 ساعات)</td></tr>
+                    <tr><td><strong>QID / QDS / q6h</strong></td><td>Quater in Die (Four times)</td><td>4 مرات باليوم (كل 6 ساعات)</td></tr>
+                    <tr><td><strong>PRN / SOS</strong></td><td>Pro Re Nata</td><td>عند اللزوم / عند الحاجة فقط</td></tr>
+                    <tr><td><strong>AC / PC</strong></td><td>Ante Cibum / Post Cibum</td><td>AC قبل الأكل • PC بعد الأكل</td></tr>
+                    <tr><td><strong>HS / Nocte</strong></td><td>Hora Somni</td><td>مساءً عند النوم</td></tr>
+                    <tr><td><strong>Stat</strong></td><td>Statim</td><td>فوراً / جرعة إسعافية حالاً</td></tr>
+                    <tr><td><strong>PO / IM / IV / SC</strong></td><td>Per Os / Intramuscular / Intravenous</td><td>PO بالفم • IM عضلي • IV وريدي • SC تحت الجلد</td></tr>
+                    <tr><td><strong>Tab / Cap / Syr / Susp / Amp / Vial</strong></td><td>Dosage Forms</td><td>Tab حبوب • Cap كبسول • Syr شراب • Susp معلق • Amp أمبول • Vial فيال</td></tr>
+                </tbody>
+            </table>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-rx-codes', 'اختصارات_الوصفات_الطبية')">📄 فتح PDF المرحلة 4</button>
+        </div>
+
+        <div class="card searchable-item" data-title="بروتوكولات الصيدلية السريعة OTC والحالات اليومية" id="card-otc">
+            <div class="card-header">
+                <span class="card-title">المرحلة 5: بروتوكولات الصرف اليومي السريع في الصيدلية (OTC)</span>
+                <span class="badge">خبرة ميدانية</span>
             </div>
             <ul class="step-list">
-                <li><strong>الأقراص الخاصة:</strong> المغلفة معوياً (Enteric Coated) التي لا تُكسر، وممتدة المفعول (SR / XR) التي تعمل 12-24 ساعة.</li>
-                <li><strong>المعلقات الجافة (Dry Suspensions):</strong> مثل شرابات المضادات الحيوية التي تُحل بالماء المقطر وتُحفظ في الثلاجة لمدة 7-14 يوماً.</li>
-                <li><strong>الكيمياء الصيدلانية والعقاقير والسموم:</strong> دراسة التركيب الكيميائي، النباتات الطبية، والترياق المضاد للسموم (Antidotes).</li>
+                <li><strong>الحموضة وحرقة المعدة:</strong> للحامل يُفضل مضادات الحموضة الموضعية (Alginate / Gaviscon) أو Famotidine؛ للحالات العادية Omeprazole/Pantoprazole قبل الفطور بـ 30 دقيقة.</li>
+                <li><strong>الإسهال الحاد عند الأطفال:</strong> الأساس الأول هو <strong>محلول الإرواء الفموي (ORS)</strong> لمنع الجفاف + <strong>الزنك (Zinc)</strong> لمدة 10-14 يوماً لتقليل مدة الإسهال وتكراره، ولا يُعطى مضاد حيوي إلا بعلامات عدوى بكتيرية.</li>
+                <li><strong>الرشح واحتقان الأنف:</strong> لمرضى الضغط والقلب يُمنع إعطاء مضادات الاحتقان الفموية (Pseudoephedrine) لأنها ترفع الضغط؛ البديل الآمن بخاخ ماء البحر (Sea Water / Normal Saline) ومضادات الهستامين الجيل الثاني (Loratadine / Cetirizine).</li>
+                <li><strong>الصداع والألم مع قرحة المعدة أو الربو:</strong> يُمنع Ibuprofen و Diclofenac؛ البديل الآمن هو <strong>Paracetamol</strong>.</li>
             </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmaceutics', 'الصيدلانيات_وصيدلة_المجتمع')">📄 فتح ملف PDF الخاص بالقسم</button>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-otc', 'بروتوكولات_الصيدلية_اليومية')">📄 فتح PDF المرحلة 5</button>
         </div>
     </div>
 
@@ -1381,126 +1780,84 @@
         </div>
     </div>
 
-    <!-- القسم الرابع: مواعيد الأدوية مع بحث فوري متكامل لجميع الأدوية -->
+    <!-- القسم الرابع: مواعيد الأدوية بترتيب عصري وبطاقات زمنية + بحث شامل -->
     <div id="sec4" class="section-content">
         <div class="card" id="sec4-card">
             <div class="card-header">
-                <span class="card-title">🕒 مواعيد الأدوية وكيفية أخذها ومواعيدها بالمضبوط</span>
-                <span class="badge">بحث شامل كل الأدوية</span>
+                <span class="card-title">🕒 الدليل الذكي لمواعيد الأدوية وتداخلاتها وأضرارها</span>
+                <span class="badge">تصميم مرتب + بحث فوري</span>
             </div>
 
-            <!-- مربع البحث المخصص داخل قسم مواعيد الأدوية -->
+            <!-- مربع البحث المخصص مع أزرار الفلترة السريعة -->
             <div class="sched-local-search">
                 <div class="sched-local-search-row">
                     <span>🔎</span>
-                    <input type="text" id="scheduleDrugSearch" placeholder="ابحث عن أي دواء أو مرض (Amoxicillin، Augmentin، Azithromycin، Ciprofloxacin، Aspirin، Furosemide، Ibuprofen، Levothyroxine، Metformin، Allopurinol، Omeprazole، Pregabalin، Iron)..." oninput="searchScheduleMedication()">
+                    <input type="text" id="scheduleDrugSearch" placeholder="ابحث عن أي دواء أو حالة (Levothyroxine، Atorvastatin، Metformin، ضغط، سكر، غدة، نقرس، مضاد، معدة)..." oninput="searchScheduleMedication()">
                     <button id="clearSchedSearchBtn" class="clear-search" onclick="clearScheduleSearch()" style="display:none;">✕</button>
+                </div>
+                <div class="sched-filter-chips">
+                    <button class="chip-btn" onclick="quickFilterSchedule('الغدة')">🦋 الغدة الدرقية</button>
+                    <button class="chip-btn" onclick="quickFilterSchedule('الضغط')">❤️ القلب والضغط</button>
+                    <button class="chip-btn" onclick="quickFilterSchedule('الدهون')">🩸 الدهون والكوليسترول</button>
+                    <button class="chip-btn" onclick="quickFilterSchedule('السكري')">💉 السكري</button>
+                    <button class="chip-btn" onclick="quickFilterSchedule('داء الملوك')">🦶 داء الملوك (النقرس)</button>
+                    <button class="chip-btn" onclick="quickFilterSchedule('المضادات')">💊 المضادات الحيوية</button>
+                    <button class="chip-btn" onclick="quickFilterSchedule('المعدة')">🩺 المعدة والقولون</button>
+                    <button class="chip-btn" onclick="quickFilterSchedule('المسكنات')">🦴 المسكنات والمفاصل</button>
                 </div>
                 <div id="scheduleSearchResults" class="sched-search-results"></div>
             </div>
 
             <div class="calc-subtabs">
-                <button class="calc-subbtn active" onclick="switchSchedulePart('sched-part1', this)">📖 القسم 1: كيف يأخذونه ومتى يأخذونه + متى ما تأخذ الأدوية</button>
-                <button class="calc-subbtn" onclick="switchSchedulePart('sched-part2', this)">🩺 القسم 2: الأمراض والحالات بالمضبوط</button>
+                <button class="calc-subbtn active" onclick="switchSchedulePart('sched-part1', this)">⏰ 1. خريطة الأوقات اليومية + متى ما تأخذ الدواء</button>
+                <button class="calc-subbtn" onclick="switchSchedulePart('sched-part2', this)">🩺 2. جدول الأمراض والأدوية بالمضبوط</button>
             </div>
 
-            <!-- القسم الأول داخل مواعيد الأدوية -->
+            <!-- القسم الأول: خريطة الأوقات اليومية المرتبة -->
             <div id="sched-part1" class="sched-part-panel active">
-                <div class="accordion-item open searchable-item" data-title="كيف يأخذونه ومتى يأخذونه">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <div>
-                            <span class="class-pill">الجزء 1</span> كيف يأخذونه ومتى يأخذونه (أوقات وتوقيت الأدوية)
-                            <span class="en-sub">How & When to Take Medications</span>
-                        </div>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div class="accordion-body">
-                        <div class="sub-family">
-                            <h4>قبل الأكل على معدة فارغة (30 - 60 دقيقة قبل الطعام)</h4>
-                            <p><strong>متى يؤخذ:</strong> صباحاً قبل الفطور بـ 30-60 دقيقة أو قبل الوجبة بمدة كافية.</p>
-                            <p><strong>كيف يؤخذ:</strong> يُبلع مع كوب ماء كامل دون كسر أو مضغ للأقراص المغلفة.</p>
-                            <div class="drugs-tags">
-                                <span class="drug-tag">Levothyroxine (الغدة الدرقية)</span>
-                                <span class="drug-tag">Omeprazole / Pantoprazole / Esomeprazole</span>
-                                <span class="drug-tag">Captopril (قبل الأكل بساعة)</span>
-                            </div>
-                        </div>
-                        <div class="sub-family">
-                            <h4>بعد الأكل أو مع الطعام</h4>
-                            <p><strong>متى يؤخذ:</strong> أثناء الوجبة أو مباشرة بعدها لتقليل تهيج المعدة وزيادة الامتصاص.</p>
-                            <p><strong>كيف يؤخذ:</strong> مع وجبة مناسبة وكمية كافية من الماء.</p>
-                            <div class="drugs-tags">
-                                <span class="drug-tag">Ibuprofen / Diclofenac / Mefenamic Acid</span>
-                                <span class="drug-tag">Metformin</span>
-                                <span class="drug-tag">Metronidazole</span>
-                                <span class="drug-tag">Fenofibrate / Omega-3</span>
-                            </div>
-                        </div>
-                        <div class="sub-family">
-                            <h4>مساءً أو قبل النوم</h4>
-                            <p><strong>متى يؤخذ:</strong> في المساء أو قبل النوم حسب طبيعة عمل الدواء أو أثره المنوم الخفيف.</p>
-                            <p><strong>كيف يؤخذ:</strong> في وقت ثابت يومياً.</p>
-                            <div class="drugs-tags">
-                                <span class="drug-tag">Simvastatin / Atorvastatin</span>
-                                <span class="drug-tag">Montelukast</span>
-                                <span class="drug-tag">Cetirizine / Loratadine</span>
-                            </div>
+                <div class="time-slot-grid">
+                    <div class="time-slot-card morning">
+                        <h4>🌅 أولاً: صباحاً على معدة فارغة (قبل الأكل بـ 30-60 دقيقة)</h4>
+                        <p><strong>كيف يُؤخذ:</strong> مع كوب ماء كامل، ويُنتظر 30-60 دقيقة قبل الفطور أو القهوة.</p>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Levothyroxine (الغدة)</span>
+                            <span class="drug-tag">Omeprazole / Pantoprazole</span>
+                            <span class="drug-tag">Captopril (قبل الأكل بساعة)</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="accordion-item open searchable-item" data-title="متى ما تأخذ الأدوية">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <div>
-                            <span class="class-pill" style="background:linear-gradient(135deg,#f43f5e,#fb7185); color:#fff;">تنبيه مهم</span> متى ما تأخذ الأدوية؟ (حالات المنع، التأجيل، والتعارض)
-                            <span class="en-sub">When NOT to Take Medications</span>
+                    <div class="time-slot-card meals">
+                        <h4>🍽️ ثانياً: مع الطعام أو بعد الأكل مباشرة</h4>
+                        <p><strong>كيف يُؤخذ:</strong> أثناء الوجبة أو بعدها لحماية جدار المعدة وزيادة الامتصاص.</p>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Ibuprofen / Diclofenac</span>
+                            <span class="drug-tag">Metformin / Aspirin</span>
+                            <span class="drug-tag">Augmentin / Metronidazole</span>
+                            <span class="drug-tag">Fenofibrate / Vitamin D3</span>
                         </div>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div class="accordion-body">
-                        <div class="sub-family">
-                            <h4>1. متى لا تأخذ المسكنات ومضادات الالتهاب (NSAIDs مثل بروفين وديكلوفيناك)؟</h4>
-                            <p><strong>متى لا يُؤخذ:</strong> على معدة فارغة، أو عند وجود قرحة/نزف هضمي، أو في حالات الجفاف الشديد وقصور الكلى الحاد، أو في الثلث الثالث من الحمل إلا بأمر الطبيب.</p>
-                            <div class="drugs-tags">
-                                <span class="drug-tag">Ibuprofen</span>
-                                <span class="drug-tag">Diclofenac</span>
-                                <span class="drug-tag">Mefenamic Acid</span>
-                            </div>
+                    </div>
+
+                    <div class="time-slot-card night">
+                        <h4>🌙 ثالثاً: مساءً أو قبل النوم</h4>
+                        <p><strong>كيف يُؤخذ:</strong> في موعد مسائي ثابت لفعالية أعلى أو لتجنب النعاس نهاراً.</p>
+                        <div class="drugs-tags">
+                            <span class="drug-tag">Simvastatin / Atorvastatin</span>
+                            <span class="drug-tag">Montelukast (الربو)</span>
+                            <span class="drug-tag">Cetirizine (الحساسية)</span>
                         </div>
-                        <div class="sub-family">
-                            <h4>2. متى لا تدمج الحديد والكالسيوم ومضادات الحموضة مع أدوية أخرى؟</h4>
-                            <p><strong>متى لا يُؤخذ معاً:</strong> لا تُؤخذ في نفس الوقت مع <strong>ليفوثيروكسين (Levothyroxine)</strong> أو مضادات <strong>الفلوروكينولون / التتراسيكلين</strong> لأنها تقلل امتصاصها؛ افصل بينهما بـ 2 إلى 4 ساعات.</p>
-                            <div class="drugs-tags">
-                                <span class="drug-tag">Iron</span>
-                                <span class="drug-tag">Calcium</span>
-                                <span class="drug-tag">Antacids</span>
-                                <span class="drug-tag">Levothyroxine</span>
-                            </div>
-                        </div>
-                        <div class="sub-family">
-                            <h4>3. متى لا يُؤخذ المدرات أو خافضات السكر في أوقات معينة؟</h4>
-                            <p><strong>المدرات (مثل Furosemide):</strong> لا تُعطى في وقت متأخر من الليل حتى لا تقطع النوم بكثرة التبول.</p>
-                            <p><strong>خافضات السكر (مثل Glimepiride / Insulin):</strong> لا تُؤخذ وتُترك الوجبة بدون أكل لتجنب هبوط السكر.</p>
-                            <div class="drugs-tags">
-                                <span class="drug-tag">Furosemide</span>
-                                <span class="drug-tag">Glimepiride</span>
-                                <span class="drug-tag">Insulin</span>
-                            </div>
-                        </div>
-                        <div class="sub-family">
-                            <h4>4. متى لا يُكسر أو يُطحن أو يُفتح القرص؟</h4>
-                            <p><strong>لا يُكسر أو يُمضغ:</strong> الأقراص المغلفة معوياً (Enteric Coated) وممتدة المفعول (SR / XR / XL) وكبسولات مثبطات الحموضة، لأن كسرها يفسد المفعول أو يهيّج المعدة.</p>
-                            <div class="drugs-tags">
-                                <span class="drug-tag">Enteric Coated</span>
-                                <span class="drug-tag">SR / XR / XL</span>
-                                <span class="drug-tag">Omeprazole / Pantoprazole</span>
-                            </div>
-                        </div>
+                    </div>
+
+                    <div class="time-slot-card avoid">
+                        <h4>🚫 رابعاً: متى ما تأخذ الدواء؟ (تنبيهات ذهبية)</h4>
+                        <p>• <strong>الحديد والكالسيوم:</strong> لا تُؤخذ مع Levothyroxine أو Ciprofloxacin (افصل 4 ساعات).</p>
+                        <p>• <strong>المدرات (Furosemide):</strong> لا تُؤخذ ليلاً حتى لا تقطع النوم.</p>
+                        <p>• <strong>أقراص SR / XR / EC:</strong> لا تُكسر أو تُطحن أبداً.</p>
+                        <p>• <strong>NSAIDs:</strong> ممنوعة على معدة فارغة أو مع القرحة النشطة.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- القسم الثاني داخل مواعيد الأدوية: الأمراض والحالات بالمضبوط -->
+            <!-- القسم الثاني: الأمراض والحالات بالمضبوط -->
             <div id="sched-part2" class="sched-part-panel">
                 <div class="accordion-item open searchable-item" data-title="الدهون الثلاثية والكوليسترول">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -1514,7 +1871,7 @@
                         <div class="sub-family">
                             <h4>Atorvastatin / Rosuvastatin / Simvastatin (الكوليسترول والدهون)</h4>
                             <p><strong>طريقة الأخذ:</strong> حبة واحدة يومياً مع الماء؛ لا يُكسر أو يُوقف دون مراجعة الطبيب.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة كل 24 ساعة في وقت ثابت (Simvastatin يُفضل مساءً أو قبل النوم؛ Atorvastatin و Rosuvastatin مساءً أو في أي وقت ثابت يومياً).</p>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة كل 24 ساعة في وقت ثابت (Simvastatin مساءً؛ Atorvastatin و Rosuvastatin مساءً أو في أي وقت ثابت).</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Atorvastatin</span>
                                 <span class="drug-tag">Rosuvastatin</span>
@@ -1524,7 +1881,7 @@
                         <div class="sub-family">
                             <h4>Fenofibrate / Omega-3 (الدهون الثلاثية)</h4>
                             <p><strong>طريقة الأخذ:</strong> يُؤخذ مع الوجبة الرئيسية لتحسين امتصاصه وتقليل اضطراب المعدة.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة واحدة يومياً (أو حسب الجرعة) مع الغداء أو العشاء في موعد ثابت.</p>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة واحدة يومياً مع الغداء أو العشاء في موعد ثابت.</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Fenofibrate</span>
                                 <span class="drug-tag">Omega-3</span>
@@ -1553,7 +1910,7 @@
                         <div class="sub-family">
                             <h4>Carbimazole / Propylthiouracil (فرط نشاط الغدة الدرقية)</h4>
                             <p><strong>طريقة الأخذ:</strong> حسب الجرعة المقررة يومياً مع الالتزام التام بالتحاليل الدورية.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة إلى 3 مرات يومياً بمواعيد متقاربة وثابتة (مع أو بدون طعام حسب الوصفة).</p>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة إلى 3 مرات يومياً بمواعيد متقاربة وثابتة.</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Carbimazole</span>
                                 <span class="drug-tag">Propylthiouracil</span>
@@ -1574,7 +1931,7 @@
                         <div class="sub-family">
                             <h4>حاصرات بيتا والقلب (Bisoprolol / Metoprolol / Atenolol / Propranolol)</h4>
                             <p><strong>طريقة الأخذ:</strong> حبة كاملة مع الماء؛ يُمنع التوقف المفاجئ عنها.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة إلى مرتين يومياً في موعد ثابت (صباحاً أو مع الوجبة حسب النوع).</p>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة إلى مرتين يومياً في موعد ثابت.</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Bisoprolol</span>
                                 <span class="drug-tag">Metoprolol</span>
@@ -1592,13 +1949,11 @@
                                 <span class="drug-tag">Losartan</span>
                                 <span class="drug-tag">Telmisartan</span>
                                 <span class="drug-tag">Ramipril</span>
-                                <span class="drug-tag">Captopril</span>
                             </div>
                         </div>
                         <div class="sub-family">
                             <h4>المدرات ومميعات الدم (Furosemide / Aspirin)</h4>
-                            <p><strong>طريقة الأخذ:</strong> Furosemide صباحاً لتجنب التبول الليلي • Aspirin بعد الأكل مع كوب ماء.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة واحدة يومياً صباحاً أو حسب إرشاد الطبيب.</p>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> Furosemide صباحاً لتجنب التبول الليلي • Aspirin بعد الأكل مع كوب ماء.</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Furosemide</span>
                                 <span class="drug-tag">Aspirin</span>
@@ -1617,21 +1972,11 @@
                     </button>
                     <div class="accordion-body">
                         <div class="sub-family">
-                            <h4>Metformin (ميتفورمين)</h4>
-                            <p><strong>طريقة الأخذ:</strong> يُؤخذ مع الطعام أو بعده لتقليل اضطرابات المعدة.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرتين يومياً (كل 12 ساعة) مع الفطور والعشاء، أو مرة واحدة لنسخة XR.</p>
+                            <h4>Metformin / Glimepiride / Gliclazide / Sitagliptin / Empagliflozin / Insulin</h4>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> Metformin مرتين يومياً مع الفطور والعشاء • Glimepiride قبل أو مع الفطور • Sitagliptin و Empagliflozin صباحاً مرة يومياً • Insulin حسب الطبيب.</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Metformin</span>
-                                <span class="drug-tag">Metformin XR</span>
-                            </div>
-                        </div>
-                        <div class="sub-family">
-                            <h4>Glimepiride / Gliclazide / Sitagliptin / Empagliflozin / Insulin</h4>
-                            <p><strong>طريقة الأخذ:</strong> حسب نوع الدواء؛ يلتزم المريض بالوجبة بعد خافضات السكر المفرزة للإنسولين.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> Glimepiride قبل أو مع الفطور مرة يومياً • Sitagliptin / Empagliflozin مرة يومياً صباحاً • Insulin حسب النوع والطبيب.</p>
-                            <div class="drugs-tags">
                                 <span class="drug-tag">Glimepiride</span>
-                                <span class="drug-tag">Gliclazide</span>
                                 <span class="drug-tag">Sitagliptin</span>
                                 <span class="drug-tag">Empagliflozin</span>
                                 <span class="drug-tag">Insulin</span>
@@ -1650,79 +1995,36 @@
                     </button>
                     <div class="accordion-body">
                         <div class="sub-family">
-                            <h4>Allopurinol / Febuxostat (خفض حمض اليوريك المزمن)</h4>
-                            <p><strong>طريقة الأخذ:</strong> يُؤخذ بعد الأكل مع شرب كمية جيدة من الماء طوال اليوم.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة واحدة يومياً بعد الوجبة في وقت ثابت يومياً (لا يُبدأ أو يُرفع فجأة أثناء نوبة حادة دون توجيه الطبيب).</p>
+                            <h4>Allopurinol / Febuxostat / Colchicine</h4>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> Allopurinol و Febuxostat مرة واحدة يومياً بعد الوجبة مع شرب الماء • Colchicine حسب جدول الطبيب للنوبة أو الوقاية.</p>
                             <div class="drugs-tags">
                                 <span class="drug-tag">Allopurinol</span>
                                 <span class="drug-tag">Febuxostat</span>
-                            </div>
-                        </div>
-                        <div class="sub-family">
-                            <h4>Colchicine (كولشيسين - النوبات والوقاية)</h4>
-                            <p><strong>طريقة الأخذ:</strong> حسب جدول الطبيب للنوبة الحادة أو الوقاية اليومية.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> مرة إلى مرتين يومياً للوقاية أو حسب إرشاد الطبيب عند بداية النوبة.</p>
-                            <div class="drugs-tags">
                                 <span class="drug-tag">Colchicine</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="accordion-item searchable-item" data-title="المضادات الحيوية والالتهابات والميكروبات">
+                <div class="accordion-item searchable-item" data-title="المضادات الحيوية والمعده والمسكنات وباقي الأمراض">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
                         <div>
-                            <span class="class-pill">المضادات الحيوية</span> المضادات الحيوية ومواعيدها بالمضبوط
-                            <span class="en-sub">Antimicrobials & Antibiotics</span>
+                            <span class="class-pill">باقي الأدوية</span> المضادات الحيوية، المعدة، المسكنات، الأعصاب، والفيتامينات
+                            <span class="en-sub">Antibiotics, GIT, Analgesics, CNS & Vitamins</span>
                         </div>
                         <span class="icon">▼</span>
                     </button>
                     <div class="accordion-body">
                         <div class="sub-family">
-                            <h4>Amoxicillin / Augmentin / Cephalexin / Cefixime / Azithromycin / Ciprofloxacin / Metronidazole</h4>
-                            <p><strong>طريقة الأخذ:</strong> إكمال الكورس كاملاً; Augmentin و Metronidazole بعد الأكل; Ciprofloxacin يُفصل عن الحليب والكالسيوم والحديد بـ 2-4 ساعات.</p>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> كل 8 ساعات (Amoxicillin / Cephalexin / Metronidazole) • كل 12 ساعة (Augmentin 1g/625 / Ciprofloxacin / Cefuroxime) • مرة يومياً (Azithromycin / Cefixime).</p>
+                            <h4>المضادات الحيوية والمعدة والمسكنات والأعصاب والفيتامينات</h4>
+                            <p><strong>متى يؤخذ ومواعيده:</strong> Amoxicillin كل 8 ساعات • Augmentin و Ciprofloxacin كل 12 ساعة • Azithromycin و Cefixime مرة يومياً • Omeprazole قبل الفطور • Ibuprofen بعد الأكل • Pregabalin كل 12 ساعة • Tamsulosin بعد الفطور بـ 30 دقيقة.</p>
                             <div class="drugs-tags">
-                                <span class="drug-tag">Amoxicillin</span>
                                 <span class="drug-tag">Augmentin</span>
-                                <span class="drug-tag">Cefixime</span>
-                                <span class="drug-tag">Azithromycin</span>
                                 <span class="drug-tag">Ciprofloxacin</span>
-                                <span class="drug-tag">Metronidazole</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item searchable-item" data-title="المعدة والمغص والقيء والمسكنات والمفاصل والتنفس والأعصاب والمسالك والفيتامينات">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <div>
-                            <span class="class-pill">أمراض أخرى</span> باقي الأمراض (المعدة، المسكنات، التنفس، الأعصاب، المسالك، الفيتامينات)
-                            <span class="en-sub">GIT, Analgesics, Respiratory, CNS, Urology & Vitamins</span>
-                        </div>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div class="accordion-body">
-                        <div class="sub-family">
-                            <h4>المعدة والقيء والمغص (Omeprazole / Pantoprazole / Domperidone / Ondansetron / Hyoscine / Mebeverine)</h4>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> Omeprazole/Pantoprazole قبل الفطور بـ 30-60 دقيقة • Domperidone و Mebeverine قبل الأكل بـ 15-30 دقيقة • Hyoscine عند المغص حتى 3 مرات.</p>
-                            <div class="drugs-tags">
                                 <span class="drug-tag">Omeprazole</span>
-                                <span class="drug-tag">Domperidone</span>
-                                <span class="drug-tag">Mebeverine</span>
-                                <span class="drug-tag">Hyoscine</span>
-                            </div>
-                        </div>
-                        <div class="sub-family">
-                            <h4>المسكنات، التنفس، الأعصاب، المسالك، والفيتامينات</h4>
-                            <p><strong>متى يؤخذ ومواعيده:</strong> Ibuprofen/Diclofenac بعد الأكل • Montelukast/Cetirizine مساءً • Pregabalin كل 12 ساعة • Tamsulosin بعد الفطور بـ 30 دقيقة • Vitamin D3 و Iron و Calcium.</p>
-                            <div class="drugs-tags">
                                 <span class="drug-tag">Ibuprofen</span>
-                                <span class="drug-tag">Diclofenac</span>
-                                <span class="drug-tag">Montelukast</span>
                                 <span class="drug-tag">Pregabalin</span>
                                 <span class="drug-tag">Tamsulosin</span>
-                                <span class="drug-tag">Vitamin D3 / Iron / Calcium</span>
                             </div>
                         </div>
                     </div>
@@ -1754,6 +2056,195 @@
 </footer>
 
 <script>
+    /* ================= 1. طبقة الحماية من القرصنة وفحص الكود ================= */
+    document.addEventListener('keydown', function(e) {
+        if (
+            e.key === 'F12' ||
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+            (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S'))
+        ) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    /* ================= 2. نظام ربط الإيميل + التجربة المجانية 7 أيام + اشتراك الكي كارد ($1 / 30 يوم) ================= */
+    const STORAGE_KEY_USER = "ai_pharmacy_user_account_v1";
+    const STORAGE_KEY_MERCHANT_CARD = "ai_pharmacy_merchant_qicard_v1";
+    const STORAGE_KEY_PAYMENTS = "ai_pharmacy_payments_log_v1";
+    const OWNER_PIN = "2026";
+    const DAY_MS = 24 * 60 * 60 * 1000;
+
+    function getMerchantCard() {
+        return localStorage.getItem(STORAGE_KEY_MERCHANT_CARD) || "7110-4829-9301-2026";
+    }
+
+    function initSubscriptionSystem() {
+        document.getElementById('merchantQiCardDisplay').innerText = getMerchantCard();
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        if (!saved) {
+            document.getElementById('emailGateModal').classList.add('open');
+            return;
+        }
+
+        const user = JSON.parse(saved);
+        document.getElementById('displayUserEmail').innerText = user.email;
+        const now = Date.now();
+        const badge = document.getElementById('subscriptionBadge');
+
+        if (user.paidUntil && now < user.paidUntil) {
+            const daysLeft = Math.ceil((user.paidUntil - now) / DAY_MS);
+            badge.className = "status-chip status-active";
+            badge.innerText = `✅ اشتراك فعّال ($1) • متبقي ${daysLeft} يوم`;
+            document.getElementById('paymentGateModal').classList.remove('open');
+        } else if (now < user.trialEndsAt) {
+            const daysLeft = Math.ceil((user.trialEndsAt - now) / DAY_MS);
+            badge.className = "status-chip status-trial";
+            badge.innerText = `🎁 فترة مجانية • متبقي ${daysLeft} يوم من 7`;
+            document.getElementById('paymentGateModal').classList.remove('open');
+        } else {
+            badge.className = "status-chip status-expired";
+            badge.innerText = "⛔ انتهت المجانية • مطلوب $1 كي كارد";
+            document.getElementById('closePayModalBtn').style.display = 'none';
+            document.getElementById('paymentGateModal').classList.add('open');
+        }
+    }
+
+    function registerUserEmail() {
+        const email = document.getElementById('loginEmailInput').value.trim().toLowerCase();
+        if (!email || !email.includes('@') || !email.includes('.')) {
+            alert("يرجى إدخال بريد إلكتروني صحيح لربط حسابك.");
+            return;
+        }
+
+        const existingRaw = localStorage.getItem(STORAGE_KEY_USER);
+        let userObj;
+        if (existingRaw) {
+            const prev = JSON.parse(existingRaw);
+            if (prev.email === email) {
+                userObj = prev;
+            }
+        }
+
+        if (!userObj) {
+            const now = Date.now();
+            userObj = {
+                email: email,
+                createdAt: now,
+                trialEndsAt: now + (7 * DAY_MS),
+                paidUntil: null
+            };
+        }
+
+        localStorage.setItem(STORAGE_KEY_USER, JSON.stringify(userObj));
+        document.getElementById('emailGateModal').classList.remove('open');
+        initSubscriptionSystem();
+    }
+
+    function logoutUserEmail() {
+        document.getElementById('loginEmailInput').value = "";
+        document.getElementById('emailGateModal').classList.add('open');
+    }
+
+    function openPaymentModal() {
+        document.getElementById('merchantQiCardDisplay').innerText = getMerchantCard();
+        document.getElementById('closePayModalBtn').style.display = 'inline-block';
+        document.getElementById('paymentGateModal').classList.add('open');
+    }
+
+    function closePaymentModal() {
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        if (!saved) return;
+        const user = JSON.parse(saved);
+        const now = Date.now();
+        if ((user.paidUntil && now < user.paidUntil) || now < user.trialEndsAt) {
+            document.getElementById('paymentGateModal').classList.remove('open');
+        } else {
+            alert("انتهت فترة الـ 7 أيام المجانية، يرجى تفعيل اشتراك الـ 1$ عبر الكي كارد للاستمرار.");
+        }
+    }
+
+    function processQiCardPayment() {
+        const payerCard = document.getElementById('payerCardInput').value.trim();
+        if (payerCard.length < 4) {
+            alert("يرجى إدخال رقم بطاقة الكي كارد المرسِلة أو رقم وصل التحويل (4 أرقام على الأقل).");
+            return;
+        }
+
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        if (!saved) return;
+        const user = JSON.parse(saved);
+        const now = Date.now();
+        const baseTime = (user.paidUntil && user.paidUntil > now) ? user.paidUntil : now;
+        user.paidUntil = baseTime + (30 * DAY_MS);
+        localStorage.setItem(STORAGE_KEY_USER, JSON.stringify(user));
+
+        const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_PAYMENTS) || "[]");
+        logs.unshift({
+            email: user.email,
+            payerCard: payerCard,
+            amount: 1,
+            toMainCard: getMerchantCard(),
+            date: new Date().toLocaleString('ar-IQ')
+        });
+        localStorage.setItem(STORAGE_KEY_PAYMENTS, JSON.stringify(logs));
+
+        document.getElementById('payerCardInput').value = "";
+        document.getElementById('paymentGateModal').classList.remove('open');
+        alert("✅ تم تفعيل اشتراكك بنجاح لمدة 30 يوماً ($1 Qi Card)!");
+        initSubscriptionSystem();
+    }
+
+    function openOwnerDashboard() {
+        document.getElementById('ownerAuthArea').style.display = 'block';
+        document.getElementById('ownerContentArea').style.display = 'none';
+        document.getElementById('ownerPinInput').value = "";
+        document.getElementById('ownerDashboardModal').classList.add('open');
+    }
+
+    function closeOwnerDashboard() {
+        document.getElementById('ownerDashboardModal').classList.remove('open');
+    }
+
+    function unlockOwnerDashboard() {
+        const pin = document.getElementById('ownerPinInput').value.trim();
+        if (pin !== OWNER_PIN) {
+            alert("رمز الإدارة غير صحيح.");
+            return;
+        }
+        document.getElementById('ownerAuthArea').style.display = 'none';
+        document.getElementById('ownerContentArea').style.display = 'block';
+        document.getElementById('merchantCardEditInput').value = getMerchantCard();
+
+        const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_PAYMENTS) || "[]");
+        document.getElementById('ownerTotalRevenue').innerText = `${logs.length} $ (${logs.length} اشتراك شهري)`;
+        const listEl = document.getElementById('paymentsLogList');
+        if (logs.length === 0) {
+            listEl.innerHTML = `<p style="color:#94a3b8;">لا توجد دفعات مسجلة بعد.</p>`;
+        } else {
+            listEl.innerHTML = logs.map(l => `
+                <div style="border-bottom:1px solid rgba(148,163,184,0.2); padding:6px 0;">
+                    <strong style="color:#34d399;">+1$</strong> من <strong>${l.email}</strong><br>
+                    <span style="color:#cbd5e1;">بطاقة/وصل: ${l.payerCard} • ${l.date}</span>
+                </div>
+            `).join('');
+        }
+    }
+
+    function saveMerchantQiCard() {
+        const newCard = document.getElementById('merchantCardEditInput').value.trim();
+        if (newCard.length < 6) {
+            alert("يرجى إدخال رقم بطاقة صحيح.");
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY_MERCHANT_CARD, newCard);
+        document.getElementById('merchantQiCardDisplay').innerText = newCard;
+        alert("✅ تم تحديث رقم بطاقة الكي كارد الرئيسية الخاصة بك.");
+    }
+
+    initSubscriptionSystem();
+
+    /* ================= 3. حاسبة الجرعات والمحاليل والبحث ================= */
     let currentPdfFilename = "Pharmacy_Document";
 
     function estimateWeightFromAge() {
@@ -1766,339 +2257,43 @@
     }
 
     const userDoseRules = [
-        {
-            id: "metro_125",
-            name: "ميترونيدازول (Metronidazole)",
-            conc: "125",
-            ruleText: "وزن الطفل × 0.4",
-            freq: "كل 8 ساعات (3 مرات باليوم)",
-            keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "flagyl", "125"],
-            calc: (w) => w * 0.4
-        },
-        {
-            id: "metro_250",
-            name: "ميترونيدازول (Metronidazole)",
-            conc: "250",
-            ruleText: "وزن الطفل × 0.25",
-            freq: "كل 8 ساعات (3 مرات باليوم)",
-            keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "flagyl", "250"],
-            calc: (w) => w * 0.25
-        },
-        {
-            id: "para_120",
-            name: "باراسيتامول شراب (Paracetamol)",
-            conc: "120",
-            ruleText: "5 × 10 × وزن الطفل ÷ 120",
-            freq: "حسب الحاجة",
-            keywords: ["باراسيتامول", "بنادول", "paracetamol", "panadol", "120"],
-            calc: (w) => (5 * 10 * w) / 120
-        },
-        {
-            id: "para_250",
-            name: "باراسيتامول شراب (Paracetamol)",
-            conc: "250",
-            ruleText: "5 × 10 × وزن الطفل ÷ 250",
-            freq: "حسب الحاجة",
-            keywords: ["باراسيتامول", "بنادول", "paracetamol", "panadol", "250"],
-            calc: (w) => (5 * 10 * w) / 250
-        },
-        {
-            id: "cefixime",
-            name: "سيفيكسيم (Cefixime)",
-            conc: "شراب / معلق",
-            ruleText: "وزن الطفل × 0.4",
-            freq: "مرة واحدة باليوم",
-            keywords: ["سيفيكسيم", "سيفاكسيم", "cefixime", "suprax"],
-            calc: (w) => w * 0.4
-        },
-        {
-            id: "ibu_100_div2",
-            name: "بروفين (Ibuprofen)",
-            conc: "100/5",
-            ruleText: "وزن الطفل ÷ 2",
-            freq: "كل 8 ساعات",
-            keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "100/5", "100"],
-            calc: (w) => w / 2
-        },
-        {
-            id: "ibu_100_mul025",
-            name: "بروفين (Ibuprofen)",
-            conc: "100/5",
-            ruleText: "وزن الطفل × 0.25",
-            freq: "كل 8 ساعات",
-            keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "100/5", "0.25"],
-            calc: (w) => w * 0.25
-        },
-        {
-            id: "ibu_200_div4",
-            name: "بروفين (Ibuprofen)",
-            conc: "200/5",
-            ruleText: "وزن الطفل ÷ 4",
-            freq: "كل 8 ساعات",
-            keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "200/5", "200"],
-            calc: (w) => w / 4
-        },
-        {
-            id: "azith_200",
-            name: "أزيثرومايسين (Azithromycin)",
-            conc: "200/5",
-            ruleText: "وزن الطفل × 0.25",
-            freq: "مرة واحدة باليوم",
-            keywords: ["ازيثرومايسين", "أزيثرومايسين", "azithromycin", "zithromax", "200/5"],
-            calc: (w) => w * 0.25
-        },
-        {
-            id: "azith_300",
-            name: "أزيثرومايسين (Azithromycin)",
-            conc: "300",
-            ruleText: "وزن الطفل × 0.167",
-            freq: "مرة واحدة باليوم",
-            keywords: ["ازيثرومايسين", "أزيثرومايسين", "azithromycin", "300"],
-            calc: (w) => w * 0.167
-        },
-        {
-            id: "aug_156_312",
-            name: "أوگمنتين (Augmentin)",
-            conc: "156/312",
-            ruleText: "وزن الطفل × 0.533",
-            freq: "كل 8 ساعات",
-            keywords: ["اوگمنتين", "اوجمنتين", "أوغمنتين", "augmentin", "156", "312"],
-            calc: (w) => w * 0.533
-        },
-        {
-            id: "aug_200_400",
-            name: "أوگمنتين (Augmentin)",
-            conc: "200/400",
-            ruleText: "وزن الطفل × 62.5 (حسب طريقتك)",
-            freq: "كل 12 ساعة",
-            keywords: ["اوگمنتين", "اوجمنتين", "أوغمنتين", "augmentin", "200", "400"],
-            calc: (w) => w * 62.5
-        },
-        {
-            id: "amox_250",
-            name: "أموكسيسيلين (Amoxicillin)",
-            conc: "250",
-            ruleText: "وزن الطفل × 0.2",
-            freq: "كل 8 ساعات",
-            keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin", "250"],
-            calc: (w) => w * 0.2
-        },
-        {
-            id: "amox_125",
-            name: "أموكسيسيلين (Amoxicillin)",
-            conc: "125",
-            ruleText: "وزن الطفل × 0.4",
-            freq: "كل 8 ساعات",
-            keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin", "125"],
-            calc: (w) => w * 0.4
-        },
-        {
-            id: "cefdin_125",
-            name: "سيفدينير (Cefdinir)",
-            conc: "125",
-            ruleText: "وزن الطفل × 0.28",
-            freq: "كل 12 ساعة",
-            keywords: ["سيفدينير", "cefdinir", "125"],
-            calc: (w) => w * 0.28
-        },
-        {
-            id: "ceph_125",
-            name: "سفلاكسين (Cephalexin)",
-            conc: "125",
-            ruleText: "وزن الطفل × 0.33",
-            freq: "كل 8 ساعات",
-            keywords: ["سفلاكسين", "سيفاليكسين", "cephalexin", "125"],
-            calc: (w) => w * 0.33
-        },
-        {
-            id: "ceph_250",
-            name: "سفلاكسين (Cephalexin)",
-            conc: "250",
-            ruleText: "وزن الطفل × 0.66",
-            freq: "كل 8 ساعات",
-            keywords: ["سفلاكسين", "سيفاليكسين", "cephalexin", "250"],
-            calc: (w) => w * 0.66
-        },
-        {
-            id: "cefad",
-            name: "سيفادروكسيل (Cefadroxil)",
-            conc: "شراب",
-            ruleText: "وزن الطفل × 0.6",
-            freq: "كل 12 ساعة",
-            keywords: ["سيفادروكسيل", "cefadroxil"],
-            calc: (w) => w * 0.6
-        },
-        {
-            id: "novomit",
-            name: "No-Vomit",
-            conc: "شراب / قطرات",
-            ruleText: "وزن الطفل × 0.2",
-            freq: "كل 8 ساعات",
-            keywords: ["no-vomit", "novomit", "نوفوميت", "قيء"],
-            calc: (w) => w * 0.2
-        },
-        {
-            id: "cefac_125_eq",
-            name: "سيفاكلور (Cefaclor)",
-            conc: "125mg/5ml",
-            ruleText: "(20 × الوزن ÷ 3) × 5 ÷ 125 سي سي/جرعة",
-            freq: "كل 8 ساعات (3 مرات باليوم)",
-            keywords: ["سيفاكلور", "cefaclor", "ceclor"],
-            calc: (w) => ((20 * w) / 3) * 5 / 125
-        },
-        {
-            id: "cefac_250_eq",
-            name: "سيفاكلور (Cefaclor)",
-            conc: "250mg/5ml",
-            ruleText: "(20 × الوزن ÷ 3) × 5 ÷ 250 سي سي/جرعة",
-            freq: "كل 8 ساعات (3 مرات باليوم)",
-            keywords: ["سيفاكلور", "cefaclor", "ceclor"],
-            calc: (w) => ((20 * w) / 3) * 5 / 250
-        },
-        {
-            id: "cefurox_125_eq",
-            name: "سيفيوروكزيم (Cefuroxime)",
-            conc: "125mg/5ml",
-            ruleText: "(30 × الوزن ÷ 2) × 5 ÷ 125 سي سي/جرعة",
-            freq: "كل 12 ساعة (مرتين باليوم)",
-            keywords: ["سيفيوروكزيم", "سيفوروكسيم", "cefuroxime", "zinnat"],
-            calc: (w) => ((30 * w) / 2) * 5 / 125
-        },
-        {
-            id: "cefurox_250_eq",
-            name: "سيفيوروكزيم (Cefuroxime)",
-            conc: "250mg/5ml",
-            ruleText: "(30 × الوزن ÷ 2) × 5 ÷ 250 سي سي/جرعة",
-            freq: "كل 12 ساعة (مرتين باليوم)",
-            keywords: ["سيفيوروكزيم", "سيفوروكسيم", "cefuroxime", "zinnat"],
-            calc: (w) => ((30 * w) / 2) * 5 / 250
-        },
-        {
-            id: "cefpod_100_eq",
-            name: "سيفبودوكسيم (Cefpodoxime)",
-            conc: "100mg/5ml",
-            ruleText: "(10 × الوزن ÷ 2) × 5 ÷ 100 سي سي/جرعة",
-            freq: "كل 12 ساعة (مرتين باليوم)",
-            keywords: ["سيفبودوكسيم", "cefpodoxime"],
-            calc: (w) => ((10 * w) / 2) * 5 / 100
-        },
-        {
-            id: "clarith_125_eq",
-            name: "كلاريثروميسين (Clarithromycin)",
-            conc: "125mg/5ml",
-            ruleText: "(15 × الوزن ÷ 2) × 5 ÷ 125 سي سي/جرعة",
-            freq: "كل 12 ساعة (مرتين باليوم)",
-            keywords: ["كلاريثروميسين", "clarithromycin", "klacid"],
-            calc: (w) => ((15 * w) / 2) * 5 / 125
-        },
-        {
-            id: "clarith_250_eq",
-            name: "كلاريثروميسين (Clarithromycin)",
-            conc: "250mg/5ml",
-            ruleText: "(15 × الوزن ÷ 2) × 5 ÷ 250 سي سي/جرعة",
-            freq: "كل 12 ساعة (مرتين باليوم)",
-            keywords: ["كلاريثروميسين", "clarithromycin", "klacid"],
-            calc: (w) => ((15 * w) / 2) * 5 / 250
-        },
-        {
-            id: "eryth_200_eq",
-            name: "إريثرومايسين (Erythromycin)",
-            conc: "200mg/5ml",
-            ruleText: "(40 × الوزن ÷ 4) × 5 ÷ 200 سي سي/جرعة",
-            freq: "كل 6 ساعات (4 مرات باليوم)",
-            keywords: ["إريثرومايسين", "اريثرومايسين", "erythromycin"],
-            calc: (w) => ((40 * w) / 4) * 5 / 200
-        },
-        {
-            id: "pred_15_eq",
-            name: "بريدنيزولون (Prednisolone)",
-            conc: "15mg/5ml",
-            ruleText: "(1 × الوزن) × 5 ÷ 15 سي سي/يوم",
-            freq: "مرة يومياً أو مقسمة كل 12 ساعة",
-            keywords: ["بريدنيزولون", "prednisolone", "كورتيزون"],
-            calc: (w) => (1 * w) * 5 / 15
-        },
-        {
-            id: "pred_5_eq",
-            name: "بريدنيزولون (Prednisolone)",
-            conc: "5mg/5ml",
-            ruleText: "(1 × الوزن) × 5 ÷ 5 سي سي/يوم",
-            freq: "مرة يومياً أو مقسمة كل 12 ساعة",
-            keywords: ["بريدنيزولون", "prednisolone", "كورتيزون"],
-            calc: (w) => (1 * w) * 5 / 5
-        },
-        {
-            id: "salbut_2_eq",
-            name: "سالبوتامول / فنتولين (Salbutamol)",
-            conc: "2mg/5ml",
-            ruleText: "(0.1 × الوزن) × 5 ÷ 2 سي سي/جرعة",
-            freq: "كل 8 ساعات (3 مرات باليوم)",
-            keywords: ["سالبوتامول", "فنتولين", "salbutamol", "ventolin", "ربو"],
-            calc: (w) => (0.1 * w) * 5 / 2
-        },
-        {
-            id: "domper_5_eq",
-            name: "دومبيريدون / موتيليوم (Domperidone)",
-            conc: "5mg/5ml",
-            ruleText: "(0.25 × الوزن) × 5 ÷ 5 سي سي/جرعة",
-            freq: "حتى 3 مرات باليوم قبل الأكل",
-            keywords: ["دومبيريدون", "موتيليوم", "domperidone", "قيء"],
-            calc: (w) => (0.25 * w) * 5 / 5
-        },
-        {
-            id: "ondans_4_eq",
-            name: "أوندانسيترون / زوفران (Ondansetron)",
-            conc: "4mg/5ml",
-            ruleText: "(0.15 × الوزن) × 5 ÷ 4 سي سي/جرعة",
-            freq: "عند اللزوم / حسب الوصفة",
-            keywords: ["أوندانسيترون", "زوفران", "ondansetron", "استفراغ"],
-            calc: (w) => (0.15 * w) * 5 / 4
-        },
-        {
-            id: "cetir_5_eq",
-            name: "سيتريزين (Cetirizine)",
-            conc: "5mg/5ml",
-            ruleText: "(0.25 × الوزن) × 5 ÷ 5 سي سي/يوم",
-            freq: "مرة واحدة يومياً",
-            keywords: ["سيتريزين", "cetirizine", "زيرتك", "حساسية"],
-            calc: (w) => (0.25 * w) * 5 / 5
-        },
-        {
-            id: "lorat_5_eq",
-            name: "لوراتادين (Loratadine)",
-            conc: "5mg/5ml",
-            ruleText: "(0.2 × الوزن) × 5 ÷ 5 سي سي/يوم",
-            freq: "مرة واحدة يومياً",
-            keywords: ["لوراتادين", "loratadine", "حساسية"],
-            calc: (w) => (0.2 * w) * 5 / 5
-        },
-        {
-            id: "albend_200_eq",
-            name: "ألبيندازول (Albendazole)",
-            conc: "200mg/5ml",
-            ruleText: "10 سي سي (400mg) فوق سنتين أو 5 سي سي (200mg) 1-2 سنة",
-            freq: "جرعة واحدة أو حسب الحالة",
-            keywords: ["ألبيندازول", "albendazole", "ديدان"],
-            calc: (w) => (w >= 12 ? 10 : 5)
-        },
-        {
-            id: "mebend_100_eq",
-            name: "ميبيندازول (Mebendazole)",
-            conc: "100mg/5ml",
-            ruleText: "5 سي سي (100mg) للجرعة",
-            freq: "جرعة واحدة أو كل 12 ساعة لـ 3 أيام",
-            keywords: ["ميبيندازول", "mebendazole", "ديدان"],
-            calc: (w) => 5
-        },
-        {
-            id: "iron_50_eq",
-            name: "شراب الحديد (Iron)",
-            conc: "50mg/5ml",
-            ruleText: "(3 × الوزن) × 5 ÷ 50 سي سي/يوم",
-            freq: "مرة واحدة يومياً",
-            keywords: ["حديد", "iron", "فقر دم"],
-            calc: (w) => (3 * w) * 5 / 50
-        }
+        { id: "metro_125", name: "ميترونيدازول (Metronidazole)", conc: "125", ruleText: "وزن الطفل × 0.4", freq: "كل 8 ساعات (3 مرات باليوم)", keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "flagyl", "125"], calc: (w) => w * 0.4 },
+        { id: "metro_250", name: "ميترونيدازول (Metronidazole)", conc: "250", ruleText: "وزن الطفل × 0.25", freq: "كل 8 ساعات (3 مرات باليوم)", keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "flagyl", "250"], calc: (w) => w * 0.25 },
+        { id: "para_120", name: "باراسيتامول شراب (Paracetamol)", conc: "120", ruleText: "5 × 10 × وزن الطفل ÷ 120", freq: "حسب الحاجة", keywords: ["باراسيتامول", "بنادول", "paracetamol", "panadol", "120"], calc: (w) => (5 * 10 * w) / 120 },
+        { id: "para_250", name: "باراسيتامول شراب (Paracetamol)", conc: "250", ruleText: "5 × 10 × وزن الطفل ÷ 250", freq: "حسب الحاجة", keywords: ["باراسيتامول", "بنادول", "paracetamol", "panadol", "250"], calc: (w) => (5 * 10 * w) / 250 },
+        { id: "cefixime", name: "سيفيكسيم (Cefixime)", conc: "شراب / معلق", ruleText: "وزن الطفل × 0.4", freq: "مرة واحدة باليوم", keywords: ["سيفيكسيم", "سيفاكسيم", "cefixime", "suprax"], calc: (w) => w * 0.4 },
+        { id: "ibu_100_div2", name: "بروفين (Ibuprofen)", conc: "100/5", ruleText: "وزن الطفل ÷ 2", freq: "كل 8 ساعات", keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "100/5", "100"], calc: (w) => w / 2 },
+        { id: "ibu_100_mul025", name: "بروفين (Ibuprofen)", conc: "100/5", ruleText: "وزن الطفل × 0.25", freq: "كل 8 ساعات", keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "100/5", "0.25"], calc: (w) => w * 0.25 },
+        { id: "ibu_200_div4", name: "بروفين (Ibuprofen)", conc: "200/5", ruleText: "وزن الطفل ÷ 4", freq: "كل 8 ساعات", keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen", "200/5", "200"], calc: (w) => w / 4 },
+        { id: "azith_200", name: "أزيثرومايسين (Azithromycin)", conc: "200/5", ruleText: "وزن الطفل × 0.25", freq: "مرة واحدة باليوم", keywords: ["ازيثرومايسين", "أزيثرومايسين", "azithromycin", "zithromax", "200/5"], calc: (w) => w * 0.25 },
+        { id: "azith_300", name: "أزيثرومايسين (Azithromycin)", conc: "300", ruleText: "وزن الطفل × 0.167", freq: "مرة واحدة باليوم", keywords: ["ازيثرومايسين", "أزيثرومايسين", "azithromycin", "300"], calc: (w) => w * 0.167 },
+        { id: "aug_156_312", name: "أوگمنتين (Augmentin)", conc: "156/312", ruleText: "وزن الطفل × 0.533", freq: "كل 8 ساعات", keywords: ["اوگمنتين", "اوجمنتين", "أوغمنتين", "augmentin", "156", "312"], calc: (w) => w * 0.533 },
+        { id: "aug_200_400", name: "أوگمنتين (Augmentin)", conc: "200/400", ruleText: "وزن الطفل × 62.5 (حسب طريقتك)", freq: "كل 12 ساعة", keywords: ["اوگمنتين", "اوجمنتين", "أوغمنتين", "augmentin", "200", "400"], calc: (w) => w * 62.5 },
+        { id: "amox_250", name: "أموكسيسيلين (Amoxicillin)", conc: "250", ruleText: "وزن الطفل × 0.2", freq: "كل 8 ساعات", keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin", "250"], calc: (w) => w * 0.2 },
+        { id: "amox_125", name: "أموكسيسيلين (Amoxicillin)", conc: "125", ruleText: "وزن الطفل × 0.4", freq: "كل 8 ساعات", keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin", "125"], calc: (w) => w * 0.4 },
+        { id: "cefdin_125", name: "سيفدينير (Cefdinir)", conc: "125", ruleText: "وزن الطفل × 0.28", freq: "كل 12 ساعة", keywords: ["سيفدينير", "cefdinir", "125"], calc: (w) => w * 0.28 },
+        { id: "ceph_125", name: "سفلاكسين (Cephalexin)", conc: "125", ruleText: "وزن الطفل × 0.33", freq: "كل 8 ساعات", keywords: ["سفلاكسين", "سيفاليكسين", "cephalexin", "125"], calc: (w) => w * 0.33 },
+        { id: "ceph_250", name: "سفلاكسين (Cephalexin)", conc: "250", ruleText: "وزن الطفل × 0.66", freq: "كل 8 ساعات", keywords: ["سفلاكسين", "سيفاليكسين", "cephalexin", "250"], calc: (w) => w * 0.66 },
+        { id: "cefad", name: "سيفادروكسيل (Cefadroxil)", conc: "شراب", ruleText: "وزن الطفل × 0.6", freq: "كل 12 ساعة", keywords: ["سيفادروكسيل", "cefadroxil"], calc: (w) => w * 0.6 },
+        { id: "novomit", name: "No-Vomit", conc: "شراب / قطرات", ruleText: "وزن الطفل × 0.2", freq: "كل 8 ساعات", keywords: ["no-vomit", "novomit", "نوفوميت", "قيء"], calc: (w) => w * 0.2 },
+        { id: "cefac_125_eq", name: "سيفاكلور (Cefaclor)", conc: "125mg/5ml", ruleText: "(20 × الوزن ÷ 3) × 5 ÷ 125 سي سي/جرعة", freq: "كل 8 ساعات (3 مرات باليوم)", keywords: ["سيفاكلور", "cefaclor", "ceclor"], calc: (w) => ((20 * w) / 3) * 5 / 125 },
+        { id: "cefac_250_eq", name: "سيفاكلور (Cefaclor)", conc: "250mg/5ml", ruleText: "(20 × الوزن ÷ 3) × 5 ÷ 250 سي سي/جرعة", freq: "كل 8 ساعات (3 مرات باليوم)", keywords: ["سيفاكلور", "cefaclor", "ceclor"], calc: (w) => ((20 * w) / 3) * 5 / 250 },
+        { id: "cefurox_125_eq", name: "سيفيوروكزيم (Cefuroxime)", conc: "125mg/5ml", ruleText: "(30 × الوزن ÷ 2) × 5 ÷ 125 سي سي/جرعة", freq: "كل 12 ساعة (مرتين باليوم)", keywords: ["سيفيوروكزيم", "سيفوروكسيم", "cefuroxime", "zinnat"], calc: (w) => ((30 * w) / 2) * 5 / 125 },
+        { id: "cefurox_250_eq", name: "سيفيوروكزيم (Cefuroxime)", conc: "250mg/5ml", ruleText: "(30 × الوزن ÷ 2) × 5 ÷ 250 سي سي/جرعة", freq: "كل 12 ساعة (مرتين باليوم)", keywords: ["سيفيوروكزيم", "سيفوروكسيم", "cefuroxime", "zinnat"], calc: (w) => ((30 * w) / 2) * 5 / 250 },
+        { id: "cefpod_100_eq", name: "سيفبودوكسيم (Cefpodoxime)", conc: "100mg/5ml", ruleText: "(10 × الوزن ÷ 2) × 5 ÷ 100 سي سي/جرعة", freq: "كل 12 ساعة (مرتين باليوم)", keywords: ["سيفبودوكسيم", "cefpodoxime"], calc: (w) => ((10 * w) / 2) * 5 / 100 },
+        { id: "clarith_125_eq", name: "كلاريثروميسين (Clarithromycin)", conc: "125mg/5ml", ruleText: "(15 × الوزن ÷ 2) × 5 ÷ 125 سي سي/جرعة", freq: "كل 12 ساعة (مرتين باليوم)", keywords: ["كلاريثروميسين", "clarithromycin", "klacid"], calc: (w) => ((15 * w) / 2) * 5 / 125 },
+        { id: "clarith_250_eq", name: "كلاريثروميسين (Clarithromycin)", conc: "250mg/5ml", ruleText: "(15 × الوزن ÷ 2) × 5 ÷ 250 سي سي/جرعة", freq: "كل 12 ساعة (مرتين باليوم)", keywords: ["كلاريثروميسين", "clarithromycin", "klacid"], calc: (w) => ((15 * w) / 2) * 5 / 250 },
+        { id: "eryth_200_eq", name: "إريثرومايسين (Erythromycin)", conc: "200mg/5ml", ruleText: "(40 × الوزن ÷ 4) × 5 ÷ 200 سي سي/جرعة", freq: "كل 6 ساعات (4 مرات باليوم)", keywords: ["إريثرومايسين", "اريثرومايسين", "erythromycin"], calc: (w) => ((40 * w) / 4) * 5 / 200 },
+        { id: "pred_15_eq", name: "بريدنيزولون (Prednisolone)", conc: "15mg/5ml", ruleText: "(1 × الوزن) × 5 ÷ 15 سي سي/يوم", freq: "مرة يومياً أو مقسمة كل 12 ساعة", keywords: ["بريدنيزولون", "prednisolone", "كورتيزون"], calc: (w) => (1 * w) * 5 / 15 },
+        { id: "pred_5_eq", name: "بريدنيزولون (Prednisolone)", conc: "5mg/5ml", ruleText: "(1 × الوزن) × 5 ÷ 5 سي سي/يوم", freq: "مرة يومياً أو مقسمة كل 12 ساعة", keywords: ["بريدنيزولون", "prednisolone", "كورتيزون"], calc: (w) => (1 * w) * 5 / 5 },
+        { id: "salbut_2_eq", name: "سالبوتامول / فنتولين (Salbutamol)", conc: "2mg/5ml", ruleText: "(0.1 × الوزن) × 5 ÷ 2 سي سي/جرعة", freq: "كل 8 ساعات (3 مرات باليوم)", keywords: ["سالبوتامول", "فنتولين", "salbutamol", "ventolin", "ربو"], calc: (w) => (0.1 * w) * 5 / 2 },
+        { id: "domper_5_eq", name: "دومبيريدون / موتيليوم (Domperidone)", conc: "5mg/5ml", ruleText: "(0.25 × الوزن) × 5 ÷ 5 سي سي/جرعة", freq: "حتى 3 مرات باليوم قبل الأكل", keywords: ["دومبيريدون", "موتيليوم", "domperidone", "قيء"], calc: (w) => (0.25 * w) * 5 / 5 },
+        { id: "ondans_4_eq", name: "أوندانسيترون / زوفران (Ondansetron)", conc: "4mg/5ml", ruleText: "(0.15 × الوزن) × 5 ÷ 4 سي سي/جرعة", freq: "عند اللزوم / حسب الوصفة", keywords: ["أوندانسيترون", "زوفران", "ondansetron", "استفراغ"], calc: (w) => (0.15 * w) * 5 / 4 },
+        { id: "cetir_5_eq", name: "سيتريزين (Cetirizine)", conc: "5mg/5ml", ruleText: "(0.25 × الوزن) × 5 ÷ 5 سي سي/يوم", freq: "مرة واحدة يومياً", keywords: ["سيتريزين", "cetirizine", "زيرتك", "حساسية"], calc: (w) => (0.25 * w) * 5 / 5 },
+        { id: "lorat_5_eq", name: "لوراتادين (Loratadine)", conc: "5mg/5ml", ruleText: "(0.2 × الوزن) × 5 ÷ 5 سي سي/يوم", freq: "مرة واحدة يومياً", keywords: ["لوراتادين", "loratadine", "حساسية"], calc: (w) => (0.2 * w) * 5 / 5 },
+        { id: "albend_200_eq", name: "ألبيندازول (Albendazole)", conc: "200mg/5ml", ruleText: "10 سي سي (400mg) فوق سنتين أو 5 سي سي (200mg) 1-2 سنة", freq: "جرعة واحدة أو حسب الحالة", keywords: ["ألبيندازول", "albendazole", "ديدان"], calc: (w) => (w >= 12 ? 10 : 5) },
+        { id: "mebend_100_eq", name: "ميبيندازول (Mebendazole)", conc: "100mg/5ml", ruleText: "5 سي سي (100mg) للجرعة", freq: "جرعة واحدة أو كل 12 ساعة لـ 3 أيام", keywords: ["ميبيندازول", "mebendazole", "ديدان"], calc: (w) => 5 },
+        { id: "iron_50_eq", name: "شراب الحديد (Iron)", conc: "50mg/5ml", ruleText: "(3 × الوزن) × 5 ÷ 50 سي سي/يوم", freq: "مرة واحدة يومياً", keywords: ["حديد", "iron", "فقر دم"], calc: (w) => (3 * w) * 5 / 50 }
     ];
 
     function populateCustomMethodTable() {
@@ -2310,16 +2505,16 @@
             timing: "مرة كل 24 ساعة في وقت ثابت (Simvastatin يُفضل مساءً أو قبل النوم؛ Atorvastatin و Rosuvastatin مساءً أو في أي وقت ثابت يومياً).",
             howToTake: "حبة واحدة يومياً مع الماء؛ لا يُكسر أو يُوقف دون مراجعة الطبيب.",
             importantNote: "يُمنع أثناء الحمل والرضاعة؛ يُنصح بمراجعة الطبيب عند ظهور ألم عضلي غير مبرر أو ضعف شديد.",
-            interactions: "يتداخل مع بعض المضادات الحيوية والفطريات (مثل Clarithromycin و Itraconazole)، ومثبطات البروتياز، وعصير الجريب فروت بكميات كبيرة، وبعض أدوية القلب/الدهون الأخرى (مثل Gemfibrozil أو Cyclosporine) التي ترفع خطر ألم العضلات.",
+            interactions: "يتداخل مع بعض المضادات الحيوية والفطريات (مثل Clarithromycin و Itraconazole)، ومثبطات البروتياز، وعصير الجريب فروت بكميات كبيرة، وبعض أدوية القلب/الدهون الأخرى (مثل Gemfibrozil أو Cyclosporine).",
             sideEffects: "آلام أو تشنجات عضلية، صداع، إمساك أو غازات، غثيان خفيف، وارتفاع طفيف في إنزيمات الكبد."
         },
         {
             title: "Fenofibrate / Omega-3 (الدهون الثلاثية)",
             category: "الدهون الثلاثية والكوليسترول",
-            timing: "مرة واحدة يومياً (أو حسب الجرعة) مع الغداء أو العشاء في موعد ثابت.",
+            timing: "مرة واحدة يومياً مع الغداء أو العشاء في موعد ثابت.",
             howToTake: "يُؤخذ مع الوجبة الرئيسية لتحسين امتصاصه وتقليل اضطراب المعدة.",
             importantNote: "يُراقب في أمراض الكلى والمرارة والحصوات الصفراوية.",
-            interactions: "يتداخل مع مميعات الدم (مثل Warfarin ويزيد تأثيرها)، ومع Statins (يرفع خطر تأثر العضلات)، ومع مثبطات المناعة أو الأدوية السامة للكبد.",
+            interactions: "يتداخل مع مميعات الدم (Warfarin ويزيد تأثيرها)، ومع Statins (يرفع خطر تأثر العضلات).",
             sideEffects: "اضطراب المعدة، إسهال أو إمساك، انتفاخ، صداع، وطعم سمكي خفيف مع Omega-3."
         },
         {
@@ -2327,200 +2522,98 @@
             category: "أدوية الغدة الدرقية",
             timing: "مرة واحدة يومياً صباحاً على معدة فارغة قبل الفطور بـ 30 إلى 60 دقيقة.",
             howToTake: "حبة واحدة مع ماء؛ يُفصل عن الحديد والكالسيوم والقهوة ومضادات الحموضة بـ 4 ساعات.",
-            importantNote: "الالتزام بموعد ثابت يومياً ضروري لضبط الهرمون؛ لا تُغيّر الجرعة أو الشركة المصنعة دون متابعة التحليل.",
-            interactions: "يتداخل بوضوح ويقل امتصاصه مع: أملاح الحديد، الكالسيوم، مضادات الحموضة (الألمنيوم/المغنيسيوم)، Sucralfate، Orlistat، Cholestyramine، وبعض أدوية الصرع أو القهوة/الحليب إذا أُخذت معه مباشرة.",
-            sideEffects: "في حال زيادة الجرعة قد تظهر أعراض فرط الهرمون: خفقان القلب، عصبية أو أرق، تعرق، رجفة خفيفة، أو نقص وزن غير مقصود."
+            importantNote: "الالتزام بموعد ثابت يومياً ضروري لضبط الهرمون؛ لا تُغيّر الجرعة دون متابعة التحليل.",
+            interactions: "يتداخل بوضوح ويقل امتصاصه مع: أملاح الحديد، الكالسيوم، مضادات الحموضة، Sucralfate، Orlistat، Cholestyramine، والقهوة/الحليب.",
+            sideEffects: "في حال زيادة الجرعة قد تظهر أعراض فرط الهرمون: خفقان القلب، عصبية أو أرق، تعرق، رجفة خفيفة."
         },
         {
             title: "Carbimazole / Propylthiouracil (فرط نشاط الغدة الدرقية)",
             category: "أدوية الغدة الدرقية",
-            timing: "مرة إلى 3 مرات يومياً بمواعيد متقاربة وثابتة (مع أو بدون طعام حسب الوصفة).",
+            timing: "مرة إلى 3 مرات يومياً بمواعيد متقاربة وثابتة.",
             howToTake: "حسب الجرعة المقررة يومياً مع الالتزام التام بالتحاليل الدورية.",
-            importantNote: "يجب مراجعة الطبيب فوراً إذا ظهرت حمى أو التهاب حلق شديد أو تقرحات فموية أو يرقان.",
-            interactions: "يتداخل مع مميعات الدم (Warfarin)، وبعض أدوية القلب (مثل Digoxin و Beta-blockers) مع تحسن مستوى الغدة الدرقية.",
-            sideEffects: "طفح جلدي أو حكة، آلام مفاصل، غثيان، صداع، ونادراً انخفاض كريات الدم البيضاء أو تأثر الكبد."
+            importantNote: "مراجعة الطبيب فوراً عند ظهور حمى أو التهاب حلق شديد أو تقرحات فموية.",
+            interactions: "يتداخل مع مميعات الدم (Warfarin)، وبعض أدوية القلب (Digoxin و Beta-blockers).",
+            sideEffects: "طفح جلدي أو حكة، آلام مفاصل، غثيان، صداع، ونادراً انخفاض كريات الدم البيضاء."
         },
         {
             title: "Bisoprolol / Metoprolol / Atenolol / Propranolol (حاصرات بيتا والقلب)",
             category: "أدوية القلب وأدوية الضغط",
-            timing: "مرة إلى مرتين يومياً في موعد ثابت (صباحاً أو مع الوجبة حسب النوع).",
+            timing: "مرة إلى مرتين يومياً في موعد ثابت.",
             howToTake: "حبة كاملة مع الماء؛ يُمنع التوقف المفاجئ عنها.",
-            importantNote: "إيقافها فجأة قد يسبب ارتفاعاً مفاجئاً في الضغط أو ألماً في الصدر أو تسارع نبض القلب؛ يُحذر في الربو الشديد أو بطء النبض الشديد.",
-            interactions: "تتداخل مع حاصرات قنوات الكالسيوم الخافضة للنبض (مثل Verapamil و Diltiazem)، وأدوية الضغط الأخرى، ومضادات الالتهاب (NSAIDs) التي قد تقلل خفض الضغط، وتخفي أعراض هبوط السكر لدى مرضى السكري.",
-            sideEffects: "تعب أو خمول، دوخة خفيفة، برودة الأطراف، بطء نبض القلب، أو اضطرابات نوم."
+            importantNote: "إيقافها فجأة يسبب ارتفاعاً مفاجئاً بالضغط أو تسارع نبض القلب؛ يُحذر في الربو.",
+            interactions: "تتداخل مع Verapamil و Diltiazem، ومضادات الالتهاب (NSAIDs)، وتخفي أعراض هبوط السكر لدى مرضى السكري.",
+            sideEffects: "تعب أو خمول، دوخة خفيفة، برودة الأطراف، بطء نبض القلب."
         },
         {
-            title: "Amlodipine / Valsartan / Losartan / Telmisartan / Ramipril / Enalapril / Captopril (أدوية الضغط)",
+            title: "Amlodipine / Valsartan / Losartan / Telmisartan / Ramipril / Captopril (أدوية الضغط)",
             category: "أدوية القلب وأدوية الضغط",
-            timing: "مرة واحدة يومياً كل 24 ساعة في وقت ثابت يومياً (Captopril قبل الأكل بساعة).",
+            timing: "مرة واحدة يومياً كل 24 ساعة في وقت ثابت (Captopril قبل الأكل بساعة).",
             howToTake: "جرعة منتظمة يومياً لضبط الضغط وحماية القلب والكلى.",
-            importantNote: "مجموعات ACEi و ARB (مثل Ramipril و Valsartan و Losartan و Captopril) ممنوعة أثناء الحمل؛ يُراقب الضغط والكلى والبوتاسيوم.",
-            interactions: "تتداخل مع مكملات البوتاسيوم ومدرات البوتاسيوم (ترفع البوتاسيوم)، ومع NSAIDs (تضعف خفض الضغط وتؤثر على الكلى)، ومع Lithium، والجمع بين أكثر من دواء من نفس المسار (ACEi + ARB).",
-            sideEffects: "تورم الكاحلين أو القدمين وصداع أو احمرار وجه مع Amlodipine؛ سعال جاف أحياناً مع Ramipril/Enalapril؛ دوخة عند الوقوف."
+            importantNote: "مجموعات ACEi و ARB ممنوعة أثناء الحمل؛ يُراقب الضغط والكلى والبوتاسيوم.",
+            interactions: "تتداخل مع مكملات البوتاسيوم، ومع NSAIDs، ومع Lithium.",
+            sideEffects: "تورم الكاحلين مع Amlodipine؛ سعال جاف أحياناً مع Ramipril؛ دوخة عند الوقوف."
         },
         {
-            title: "Furosemide (المدرات / لازيكس)",
+            title: "Furosemide / Aspirin (المدرات ومميعات الدم)",
             category: "أدوية القلب والضغط والمدرات",
-            timing: "صباحاً (أو صباحاً وظهراً إذا كانت مرتين) وتُتجنب الجرعات المسائية المتأخرة.",
-            howToTake: "مع كوب ماء صباحاً حتى لا يقطع التبول النوم ليلاً.",
-            importantNote: "يُراقب مستوى البوتاسيوم والصوديوم والسوائل وضغط الدم.",
-            interactions: "يتداخل مع Digoxin (نقص البوتاسيوم يزيد سمية الديجوكسين)، ومع Lithium (يرفع سميته)، ومع Aminoglycosides (يرفع سمية الأذن/الكلى)، ومع NSAIDs (تقلل مفعول المدر).",
-            sideEffects: "كثرة التبول، جفاف أو عطش، دوخة عند الوقوف، نقص البوتاسيوم وتشنج عضلات."
+            timing: "Furosemide صباحاً لتجنب التبول الليلي • Aspirin مرة يومياً بعد الأكل.",
+            howToTake: "مع كوب ماء كامل.",
+            importantNote: "Aspirin ممنوع في القرحة النشطة والنزيف.",
+            interactions: "Furosemide يتداخل مع Digoxin و Lithium و NSAIDs؛ Aspirin يتداخل مع المميعات الأخرى و Ibuprofen.",
+            sideEffects: "كثرة التبول ونقص البوتاسيوم مع Furosemide؛ حرقة معدة أو كدمات مع Aspirin."
         },
         {
-            title: "Aspirin (أسبرين 81 / 100 مميع الدم)",
-            category: "أدوية القلب ومميعات الدم",
-            timing: "مرة واحدة يومياً بعد الوجبة (الغداء أو الفطور) في موعد ثابت.",
-            howToTake: "يُبلع بعد الأكل مع كوب ماء كامل لحماية المعدة.",
-            importantNote: "يُمنع في القرحة الهضمية النشطة أو النزيف أو الحساسية للأسبرين أو الربو المحرض بالأسبرين.",
-            interactions: "يتداخل مع المميعات الأخرى (Clopidogrel, Warfarin, Apixaban) بزيادة خطر النزيف، ومع Ibuprofen (قد يقلل حماية الأسبرين للقلب إذا أُخذ قبله مباشرة)، ومع الكورتيزون.",
-            sideEffects: "حرقة أو تهيج بالمعدة، غثيان، زيادة القابلية للكدمات أو النزيف."
-        },
-        {
-            title: "Metformin / Metformin XR (أدوية السكري)",
+            title: "Metformin / Glimepiride / Sitagliptin / Empagliflozin / Insulin (أدوية السكري)",
             category: "أدوية السكري",
-            timing: "مرتين يومياً (كل 12 ساعة) مع الفطور والعشاء، أو مرة واحدة لنسخة XR.",
-            howToTake: "يُؤخذ مع الطعام أو بعده لتقليل اضطرابات المعدة.",
-            importantNote: "يُؤجل أو يُراجع مع الطبيب قبل الفحوصات الصبغية الوريدية (Contrast) أو في حالات الجفاف الشديد أو قصور الكلى/الكبد.",
-            interactions: "يتداخل مع الكحول (يرفع خطر الحماض اللبني)، ومع بعض مدرات البول أو الكورتيزون أو الصبغات الوريدية، وقد يقلل مع الاستخدام الطويل مستوى فيتامين B12.",
-            sideEffects: "غثيان، انتفاخ، إسهال أو اضطراب معدة (يخف بأخذه مع الأكل)، ونقص فيتامين B12 على المدى الطويل."
+            timing: "Metformin مع الفطور والعشاء • Glimepiride قبل/مع الفطور • Sitagliptin و Empagliflozin صباحاً.",
+            howToTake: "الالتزام بالوجبة بعد Glimepiride أو Insulin لتجنب هبوط السكر.",
+            importantNote: "Metformin يُؤجل قبل الفحوصات الصبغية الوريدية.",
+            interactions: "تتداخل مع الكحول، الكورتيزون، ومدرات البول.",
+            sideEffects: "اضطراب معدة مع Metformin؛ هبوط سكر مع Glimepiride/Insulin؛ التهابات بولية مع Empagliflozin."
         },
         {
-            title: "Glimepiride / Gliclazide / Sitagliptin / Empagliflozin / Insulin (أدوية السكري)",
-            category: "أدوية السكري",
-            timing: "Glimepiride قبل أو مع الفطور مرة يومياً • Sitagliptin / Empagliflozin مرة يومياً صباحاً • Insulin حسب النوع والطبيب.",
-            howToTake: "حسب نوع الدواء؛ يلتزم المريض بالوجبة بعد خافضات السكر المفرزة للإنسولين.",
-            importantNote: "عدم تناول الطعام بعد Glimepiride أو Insulin قد يسبب هبوطاً حاداً في السكر؛ ومع Empagliflozin يُحافظ على شرب الماء والنظافة الشخصية.",
-            interactions: "تتداخل مع الكحول، وبعض المضادات الحيوية أو المسكنات أو حاصرات بيتا (قد تزيد خطر هبوط السكر أو تخفي أعراضه)، ومع الكورتيزون أو مدرات البول التي قد ترفع السكر.",
-            sideEffects: "هبوط السكر (تعرق، رجفة، دوخة مع Glimepiride/Insulin)، التهابات بولية أو تناسلية فطرية مع Empagliflozin، أو صداع واحتقان أنف خفيف مع Sitagliptin."
-        },
-        {
-            title: "Allopurinol / Febuxostat (أدوية داء الملوك - النقرس)",
+            title: "Allopurinol / Febuxostat / Colchicine (أدوية داء الملوك - النقرس)",
             category: "أدوية داء الملوك (النقرس)",
-            timing: "مرة واحدة يومياً بعد الوجبة في وقت ثابت يومياً (لا يُبدأ أو يُرفع فجأة أثناء نوبة حادة دون توجيه الطبيب).",
-            howToTake: "يُؤخذ بعد الأكل مع شرب كمية جيدة من الماء طوال اليوم.",
-            importantNote: "الالتزام المستمر يمنع ترسب حمض اليوريك؛ يُراجع الطبيب عند ظهور طفح جلدي.",
-            interactions: "يتداخل Allopurinol مع Azathioprine و Mercaptopurine (يزيد سميتها بشدة)، ومع Ampicillin/Amoxicillin (يرفع احتمال الطفح الجلدي)، ومع Warfarin أو مدرات البول الثيازيدية.",
-            sideEffects: "غثيان أو إسهال خفيف، طفح جلدي، صداع، أو تحفيز مؤقت لنوبة نقرس في بداية العلاج."
+            timing: "Allopurinol و Febuxostat مرة يومياً بعد الأكل • Colchicine حسب جدول الطبيب للنوبة أو الوقاية.",
+            howToTake: "بعد الأكل مع شرب كمية وفيرة من الماء.",
+            importantNote: "يُراجع الطبيب عند ظهور طفح جلدي مع Allopurinol.",
+            interactions: "Allopurinol يتداخل مع Azathioprine و Ampicillin؛ Colchicine يتداخل بشدة مع Clarithromycin.",
+            sideEffects: "غثيان خفيف أو طفح جلدي مع Allopurinol؛ إسهال وتقلصات بطن مع Colchicine."
         },
         {
-            title: "Colchicine (كولشيسين - نوبات ووقاية النقرس)",
-            category: "أدوية داء الملوك (النقرس)",
-            timing: "مرة إلى مرتين يومياً للوقاية أو حسب إرشاد الطبيب عند بداية النوبة.",
-            howToTake: "حسب جدول الطبيب للنوبة الحادة أو الوقاية اليومية.",
-            importantNote: "يُلتزم بالجرعة بدقة دون تجاوزها، ويُضبط في قصور الكلى أو الكبد.",
-            interactions: "يتداخل بشدة مع Clarithromycin و Erythromycin و Ketoconazole/Itraconazole وبعض حاصرات الكالسيوم أو Statins مما قد يرفع سمية الكولشيسين.",
-            sideEffects: "إسهال، غثيان، قيء، أو تقلصات بطنية (غالباً علامة مبكرة لزيادة الجرعة)."
+            title: "Amoxicillin / Augmentin / Cefixime / Azithromycin / Ciprofloxacin / Metronidazole (المضادات الحيوية)",
+            category: "المضادات الحيوية",
+            timing: "Amoxicillin و Metronidazole كل 8 ساعات • Augmentin و Ciprofloxacin كل 12 ساعة • Azithromycin و Cefixime مرة يومياً.",
+            howToTake: "Augmentin و Metronidazole بعد الأكل • Ciprofloxacin يُفصل عن الحليب والحديد والكالسيوم بـ 2-4 ساعات.",
+            importantNote: "إكمال الكورس كاملاً؛ Metronidazole يُمنع معه الكحول.",
+            interactions: "Ciprofloxacin يتداخل مع الحديد والكالسيوم والزنك ومضادات الحموضة؛ Clarithromycin يتداخل مع Statins.",
+            sideEffects: "إسهال خفيف، غثيان، طعم معدني مع Metronidazole."
         },
         {
-            title: "Amoxicillin / Co-Amoxiclav (Augmentin) (المضادات الحيوية - البنسلينات)",
-            category: "المضادات الميكروبية (Class 1)",
-            timing: "كل 8 ساعات (Amoxicillin / Augmentin 625) أو كل 12 ساعة (Augmentin 1g / شراب 457/228) حسب الجرعة.",
-            howToTake: "Augmentin يُفضل في بداية الوجبة أو بعدها لتقليل اضطراب المعدة؛ يجب إكمال الكورس كاملاً.",
-            importantNote: "ممنوع لمن لديهم حساسية من البنسلين.",
-            interactions: "يتداخل مع Methotrexate (يقلل إطراحه)، ومع Allopurinol (يرفع الطفح الجلدي)، وقد يؤثر على توازن مميعات الدم Warfarin.",
-            sideEffects: "إسهال، غثيان، آلام بطن خفيفة، فطريات فموية أو مهبلية، أو طفح تحسسي."
+            title: "Omeprazole / Pantoprazole / Domperidone / Hyoscine / Mebeverine (المعدة والقولون)",
+            category: "أدوية المعدة والقولون",
+            timing: "Omeprazole و Pantoprazole قبل الفطور بـ 30-60 دقيقة • Domperidone و Mebeverine قبل الأكل بـ 15-30 دقيقة.",
+            howToTake: "كبسولات المعدة تُبلع كاملة دون كسر أو مضغ.",
+            importantNote: "Hyoscine يُحذر في الجلوكوما وتضخم البروستاتا.",
+            interactions: "Omeprazole يتداخل مع Clopidogrel؛ Domperidone يتداخل مع Clarithromycin.",
+            sideEffects: "صداع أو غازات مع Omeprazole؛ جفاف فم خفيف مع Hyoscine."
         },
         {
-            title: "Cefixime / Cephalexin / Cefdinir / Cefuroxime / Cefaclor (السيفالوسبورينات)",
-            category: "المضادات الميكروبية (Class 1)",
-            timing: "Cefixime مرة يومياً (أو كل 12 ساعة) • Cefuroxime و Cefdinir كل 12 ساعة • Cephalexin و Cefaclor كل 8 ساعات.",
-            howToTake: "Cefuroxime يُفضل بعد الطعام لزيادة امتصاصه؛ يُكمل الكورس كاملاً.",
-            importantNote: "الحذر عند وجود حساسية شديدة سابقة من السيفالوسبورينات أو البنسلينات.",
-            interactions: "يتداخل Cefuroxime مع مضادات الحموضة ومثبطات الحموضة (قد تقلل امتصاصه)، ومع Probenecid أو مميعات الدم.",
-            sideEffects: "إسهال خفيف، غثيان، ألم معدة، أو طفح جلدي تحسسي."
-        },
-        {
-            title: "Azithromycin / Clarithromycin / Erythromycin (الماكروليدات)",
-            category: "المضادات الميكروبية (Class 1)",
-            timing: "Azithromycin مرة واحدة يومياً لمدة 3-5 أيام • Clarithromycin كل 12 ساعة • Erythromycin كل 6-8 ساعات.",
-            howToTake: "كبسولات Azithromycin قبل الأكل بساعة أو بعده بساعتين (الأقراص/الشراب مع أو بدون أكل).",
-            importantNote: "يُحذر لدى مرضى اضطرابات نظم القلب (إطالة QT).",
-            interactions: "Clarithromycin و Erythromycin يتداخلان بشدة مع Statins (Simvastatin/Atorvastatin)، Colchicine، Warfarin، Carbamazepine، وأدوية نظم القلب.",
-            sideEffects: "غثيان، تقلصات بطن، إسهال، طعم معدني/مر بالفم مع Clarithromycin."
-        },
-        {
-            title: "Ciprofloxacin (سيبروفلوكساسين - الفلوروكينولونات)",
-            category: "المضادات الميكروبية (Class 1)",
-            timing: "كل 12 ساعة (مرتين يومياً) مع شرب كمية وفيرة من الماء.",
-            howToTake: "يُفصل عن الحليب والألبان والحديد والكالسيوم والزنك ومضادات الحموضة بـ 2 إلى 4 ساعات.",
-            importantNote: "ممنوع أثناء الحمل والرضاعة وللأطفال في معظم الحالات؛ يُوقف فوراً عند ألم أو التهاب الأوتار.",
-            interactions: "يتداخل بقوة مع الحديد، الكالسيوم، المغنيسيوم، الزنك، مضادات الحموضة (تمنع امتصاصه)، ومع Theophylline، Tizanidine، Warfarin، وأدوية السكري.",
-            sideEffects: "غثيان، إسهال، دوخة أو صداع، حساسية للشمس، ونادراً التهاب أو تمزق الأوتار."
-        },
-        {
-            title: "Metronidazole (ميترونيدازول / فلاجيل)",
-            category: "المضادات الميكروبية (Class 1)",
-            timing: "كل 8 ساعات (3 مرات يومياً) لمدة 5-7 أيام حسب الحالة.",
-            howToTake: "يُؤخذ مع الطعام أو بعده لتقليل الغثيان وتهيج المعدة.",
-            importantNote: "يُمنع تناول الكحول تماماً أثناء العلاج ولمدة 48 ساعة بعده لتجنب تفاعل شديد (قيء وخفقان).",
-            interactions: "يتداخل مع الكحول (تفاعل شبيه بالديسلفيرام)، ومع Warfarin (يزيد سيولة الدم)، ومع Lithium، وبعض أدوية الصرع.",
-            sideEffects: "طعم معدني في الفم، غثيان، فقدان شهية، صداع، أو تغير لون البول للداكن."
-        },
-        {
-            title: "Omeprazole / Pantoprazole / Esomeprazole (المعدة والحموضة)",
-            category: "أدوية الجهاز الهضمي (Class 10)",
-            timing: "قبل الفطور بـ 30-60 دقيقة مرة واحدة يومياً (أو كل 12 ساعة في الحالات الشديدة).",
-            howToTake: "تُبلع كاملة مع الماء دون كسر أو مضغ.",
-            importantNote: "الاستخدام الطويل لعدة أشهر قد يقلل امتصاص المغنيسيوم أو B12 أو يؤثر على كثافة العظام.",
-            interactions: "يتداخل مع Clopidogrel (خصوصاً Omeprazole الذي قد يقلل فاعليته)، ومع الأدوية المعتمدة على حموضة المعدة للامتصاص (مثل Ketoconazole أو الحديد)، ومع Methotrexate.",
-            sideEffects: "صداع، إسهال أو إمساك، غازات، أو ألم بطني خفيف."
-        },
-        {
-            title: "Domperidone / Ondansetron / Hyoscine / Mebeverine (القيء والمغص والقولون)",
-            category: "أدوية الجهاز الهضمي (Class 10)",
-            timing: "Domperidone و Mebeverine قبل الأكل بـ 15-30 دقيقة • Hyoscine عند المغص حتى 3 مرات • Ondansetron عند القيء.",
-            howToTake: "مع الماء؛ يُلتزم بالجرعة اليومية القصوى لـ Domperidone.",
-            importantNote: "Domperidone يُحذر في أمراض القلب واضطرابات النظم؛ Hyoscine يُحذر في الجلوكوما وتضخم البروستاتا.",
-            interactions: "Domperidone يتداخل مع الأدوية المطيلة لـ QT (مثل Clarithromycin, Erythromycin, Ketoconazole) ومضادات الكولين التي تضعف مفعوله.",
-            sideEffects: "جفاف الفم وتشوش الرؤية الخفيف مع Hyoscine؛ صداع أو إمساك مع Ondansetron؛ جفاف فم خفيف مع Domperidone."
-        },
-        {
-            title: "Ibuprofen / Diclofenac / Mefenamic Acid / Paracetamol (المسكنات ومضادات الالتهاب)",
-            category: "المسكنات والعظام والمفاصل (Class 15)",
-            timing: "Ibuprofen و Diclofenac و Mefenamic Acid بعد الأكل كل 8-12 ساعة • Paracetamol كل 6-8 ساعات.",
-            howToTake: "المسكنات المضادة للالتهاب (NSAIDs) تُؤخذ بعد الطعام مع كوب ماء كامل.",
-            importantNote: "NSAIDs ممنوعة في قرحة المعدة النشطة، قصور الكلى الشديد، والثلث الثالث من الحمل؛ Paracetamol يُلتزم بالحد الأقصى لحماية الكبد.",
-            interactions: "NSAIDs تتداخل مع أدوية الضغط والمدرات (تقلل مفعولها وتؤذي الكلى)، ومع مميعات الدم والأسبرين (ترفع خطر النزف الهضمي)، ومع الكورتيزون والليثيوم.",
-            sideEffects: "حرقة أو ألم بالمعدة، غثيان، احتباس سوائل أو ارتفاع ضغط مع NSAIDs."
-        },
-        {
-            title: "Montelukast / Cetirizine / Loratadine / Salbutamol (الحساسية والربو)",
-            category: "الجهاز التنفسي والحساسية (Class 9)",
-            timing: "Montelukast و Cetirizine مساءً مرة يومياً • Loratadine مرة يومياً • Salbutamol حسب الحاجة أو كل 8 ساعات.",
-            howToTake: "أقراص/شراب مع الماء أو بخاخ Salbutamol بالاستنشاق الصحيح.",
-            importantNote: "Montelukast دواء وقائي يومي للربو والحساسية وليس لإسعاف نوبة الربو الحادة.",
-            interactions: "Cetirizine يتداخل مع المهدئات والمنومات بزيادة النعاس؛ Salbutamol يتداخل مع حاصرات بيتا غير الانتقائية (مثل Propranolol) التي تعاكس مفعوله.",
-            sideEffects: "نعاس خفيف مع Cetirizine؛ صداع أو أرق مع Montelukast؛ رجفة يدين خفيفة أو تسارع نبض مع Salbutamol."
-        },
-        {
-            title: "Pregabalin / Gabapentin / Sertraline / Escitalopram (الأعصاب)",
-            category: "الجهاز العصبي المركزي (Class 11)",
-            timing: "Pregabalin كل 12 ساعة • Sertraline و Escitalopram مرة واحدة صباحاً أو مساءً في وقت ثابت.",
-            howToTake: "تُؤخذ بانتظام ويُمنع التوقف المفاجئ عنها دون تدرج بإشراف الطبيب.",
-            importantNote: "أدوية الاكتئاب والقلق تحتاج 2-4 أسابيع لظهور كامل التحسن؛ التوقف المفاجئ يسبب دوخة وأعراض انسحاب.",
-            interactions: "Pregabalin يتداخل مع المسكنات الأفيونية والمنومات بزيادة النعاس؛ Sertraline/Escitalopram تتداخل مع NSAIDs والأسبرين (زيادة النزيف) ومع Tramadol ومثبطات MAO (خطر متلازمة السيروتونين).",
-            sideEffects: "نعاس، دوخة، جفاف فم، زيادة وزن مع Pregabalin؛ غثيان خفيف أو أرق أو نعاس في أول أسبوعين مع Sertraline/Escitalopram."
-        },
-        {
-            title: "Tamsulosin / Nitrofurantoin (المسالك البولية والبروستاتا)",
-            category: "الجهاز البولي والتناسلي (Class 8)",
-            timing: "Tamsulosin مرة واحدة يومياً بعد الفطور بـ 30 دقيقة • Nitrofurantoin كل 6-12 ساعة مع الطعام.",
-            howToTake: "كبسولة Tamsulosin تُبلع كاملة دون فتحها أو سحقها؛ Nitrofurantoin يُؤخذ مع الأكل لتحسين الامتصاص وتقليل الغثيان.",
-            importantNote: "Tamsulosin قد يسبب هبوط ضغط عند الوقوف المفاجئ في الأيام الأولى.",
-            interactions: "Tamsulosin يتداخل مع أدوية الضغط وأدوية الضعف الجنسي (Sildenafil/Tadalafil) بزيادة هبوط الضغط؛ Nitrofurantoin يقل امتصاصه مع مضادات الحموضة المحتوية على المغنيسيوم.",
-            sideEffects: "دوخة عند الوقوف واحتقان أنف مع Tamsulosin؛ غثيان وتغير لون البول للأصفر الغامق/البني مع Nitrofurantoin."
-        },
-        {
-            title: "Vitamin D3 / Iron / Calcium / Folic Acid (الفيتامينات والمعادن)",
-            category: "التغذية والفيتامينات (Class 16)",
-            timing: "Vitamin D3 و Calcium مع الوجبة الدسمة • Iron على معدة فارغة أو بعد وجبة خفيفة ويفصل عن الشاي/القهوة والكالسيوم بـ 2-4 ساعات.",
-            howToTake: "تُفصل أملاح الحديد والكالسيوم عن Levothyroxine والمضادات الحيوية (Ciprofloxacin) بـ 4 ساعات.",
-            importantNote: "الحديد يغير لون البراز للأسود وهذا طبيعي وغير مقلق.",
-            interactions: "الحديد والكالسيوم يقللان امتصاص Levothyroxine و Ciprofloxacin و Tetracyclines؛ الكالسيوم يقلل امتصاص الحديد إذا أُخذا معاً.",
-            sideEffects: "إمساك أو غثيان وتلون البراز بالأسود مع الحديد؛ إمساك خفيف مع الكالسيوم."
+            title: "Ibuprofen / Diclofenac / Paracetamol / Pregabalin / Tamsulosin / Iron (المسكنات والأعصاب والمسالك)",
+            category: "المسكنات والأعصاب والمسالك",
+            timing: "Ibuprofen و Diclofenac بعد الأكل • Pregabalin كل 12 ساعة • Tamsulosin بعد الفطور بـ 30 دقيقة.",
+            howToTake: "NSAIDs بعد الطعام لحماية المعدة؛ Tamsulosin تُبلع كاملة.",
+            importantNote: "NSAIDs ممنوعة في قرحة المعدة والثلث الثالث من الحمل.",
+            interactions: "NSAIDs تضعف أدوية الضغط وتزيد النزف مع المميعات؛ الحديد يقلل امتصاص Levothyroxine.",
+            sideEffects: "حرقة معدة مع NSAIDs؛ نعاس ودوخة مع Pregabalin؛ إمساك وتلون البراز للأسود مع الحديد."
         }
     ];
+
+    function quickFilterSchedule(keyword) {
+        const input = document.getElementById('scheduleDrugSearch');
+        input.value = keyword;
+        searchScheduleMedication();
+    }
 
     function searchScheduleMedication() {
         const inputEl = document.getElementById('scheduleDrugSearch');
