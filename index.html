@@ -118,7 +118,7 @@
             font-weight: 900;
         }
 
-        /* بوابات الدخول والاشتراك بنمط التطبيقات الاحترافية */
+        /* بوابات الدخول والاشتراك */
         .gate-overlay {
             position: fixed;
             inset: 0;
@@ -550,12 +550,44 @@
             margin-top: 10px;
         }
 
+        /* نظام الشجرة المتداخلة للـ 18 Class */
+        .class-filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .class-filter-bar input {
+            flex: 1;
+            min-width: 220px;
+            background: #0f172a;
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .tree-ctrl-btn {
+            background: #1e293b;
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
         .accordion-item {
             background: var(--bg-card);
-            border-radius: 14px;
-            margin-bottom: 10px;
+            border-radius: 15px;
+            margin-bottom: 11px;
             border: 1px solid var(--border);
             overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         }
 
         .accordion-header {
@@ -564,7 +596,7 @@
             border: none;
             padding: 14px 16px;
             text-align: right;
-            font-size: 0.95rem;
+            font-size: 0.96rem;
             font-weight: 800;
             color: var(--text-main);
             display: flex;
@@ -577,13 +609,24 @@
         .class-pill {
             background: linear-gradient(135deg, #06b6d4, #3b82f6);
             color: #0f172a;
-            padding: 2px 9px;
+            padding: 2px 10px;
             border-radius: 8px;
             font-size: 0.78rem;
             font-weight: 900;
             margin-left: 8px;
             display: inline-block;
             font-family: sans-serif;
+        }
+
+        .family-count-pill {
+            background: rgba(16, 185, 129, 0.16);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            margin-right: 6px;
+            font-weight: 700;
         }
 
         .en-sub {
@@ -598,21 +641,95 @@
         .accordion-header .icon {
             color: #22d3ee;
             transition: transform 0.3s;
+            font-size: 0.85rem;
         }
 
-        .accordion-item.open .accordion-header .icon {
+        .accordion-item.open > .accordion-header .icon {
             transform: rotate(180deg);
         }
 
         .accordion-body {
             display: none;
-            padding: 0 16px 16px;
+            padding: 8px 14px 16px;
             border-top: 1px solid var(--border);
-            background: rgba(11, 17, 32, 0.55);
+            background: rgba(11, 17, 32, 0.65);
         }
 
-        .accordion-item.open .accordion-body {
+        .accordion-item.open > .accordion-body {
             display: block;
+        }
+
+        /* المستوى الثاني: العائلة الدوائية القابلة للفتح والإغلاق داخل الكلاس */
+        .sub-accordion {
+            background: #182236;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-right: 3.5px solid #8b5cf6;
+            border-radius: 12px;
+            margin-top: 9px;
+            overflow: hidden;
+        }
+
+        .sub-accordion-header {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 11px 14px;
+            text-align: right;
+            color: #e2e8f0;
+            font-weight: 800;
+            font-size: 0.88rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            gap: 8px;
+        }
+
+        .sub-accordion-header:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .sub-accordion-title {
+            color: #c4b5fd;
+        }
+
+        .sub-accordion-en {
+            font-family: sans-serif;
+            font-size: 0.78rem;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .sub-accordion-icon {
+            color: #a78bfa;
+            font-size: 0.78rem;
+            transition: transform 0.25s;
+        }
+
+        .sub-accordion.open > .sub-accordion-header .sub-accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .sub-accordion-body {
+            display: none;
+            padding: 10px 14px 14px;
+            border-top: 1px solid rgba(148, 163, 184, 0.15);
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        .sub-accordion.open > .sub-accordion-body {
+            display: block;
+        }
+
+        .sub-mech-note {
+            font-size: 0.81rem;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            padding: 6px 10px;
+            background: rgba(6, 182, 212, 0.08);
+            border-radius: 8px;
+            border-right: 2.5px solid #06b6d4;
         }
 
         .sub-family {
@@ -638,18 +755,25 @@
         .drugs-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
+            gap: 6px;
             margin-top: 6px;
         }
 
         .drug-tag {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.95);
             color: #67e8f9;
-            padding: 3px 9px;
-            border-radius: 6px;
-            font-size: 0.78rem;
+            padding: 4px 10px;
+            border-radius: 7px;
+            font-size: 0.79rem;
             font-family: sans-serif;
-            border: 1px solid rgba(6, 182, 212, 0.25);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            font-weight: 600;
+        }
+
+        .drug-tag small {
+            color: #fbbf24;
+            font-size: 0.7rem;
+            margin-right: 4px;
         }
 
         .calc-subtabs {
@@ -766,7 +890,7 @@
             color: #bfdbfe;
         }
 
-        /* تنسيق قسم مواعيد الأدوية المحسّن */
+        /* تنسيق قسم مواعيد الأدوية */
         .sched-part-panel {
             display: none;
         }
@@ -1056,7 +1180,7 @@
     </div>
 </div>
 
-<!-- 2. بوابة الاشتراك وتفعيل التطبيق (نمط التطبيقات الاحترافية + كود تفعيل مرتبط بالجهاز) -->
+<!-- 2. بوابة الاشتراك وتفعيل التطبيق -->
 <div id="paymentGateModal" class="gate-overlay">
     <div class="gate-box">
         <div class="ai-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:#f59e0b;">💎 اشتراك التطبيق — Pro License</div>
@@ -1097,7 +1221,7 @@
     </div>
 </div>
 
-<!-- 3. لوحة تحكم الحساب الرئيسي الخاص بك (بدون إظهار الرمز في الصفحة) -->
+<!-- 3. لوحة تحكم الحساب الرئيسي -->
 <div id="ownerDashboardModal" class="gate-overlay">
     <div class="gate-box" style="max-width:540px; text-align:right;">
         <h2 style="text-align:center;">🔐 لوحة تحكم الحساب الرئيسي</h2>
@@ -1117,7 +1241,6 @@
                 <strong>💰 إجمالي الاشتراكات المفعّلة:</strong> <span id="ownerTotalRevenue" style="font-size:1.1rem; font-weight:900;">0 $</span>
             </div>
 
-            <!-- مولد كود التفعيل للمشتركين -->
             <div style="background:#0f172a; border:1px solid rgba(56,189,248,0.4); border-radius:12px; padding:12px; margin-bottom:12px;">
                 <strong style="color:#38bdf8; font-size:0.88rem; display:block; margin-bottom:6px;">⚡ توليد كود تفعيل 30 يوم لمشترك دفع $1:</strong>
                 <div class="form-group" style="margin-bottom:8px;">
@@ -1156,14 +1279,14 @@
 <header>
     <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الحساب الميداني بالسي سي (1 مل = 1 سي سي)</div>
     <h1>أكاديمية الصيدلة والجرعات الذكية</h1>
-    <p>حساب الشرابات والمحاليل الوريدية • الـ 18 كلاس • تعلم الصيدلة • مواعيد الأدوية</p>
+    <p>حساب الشرابات والمحاليل الوريدية • الـ 18 كلاس (شجرة العوائل القياسية) • تعلم الصيدلة • مواعيد الأدوية</p>
 </header>
 
 <!-- شريط البحث الذكي الفوري العام -->
 <div class="ai-search-wrapper">
     <div class="ai-search-box">
         <span style="font-size:1.2rem; margin-left:6px;">🤖</span>
-        <input type="text" id="aiSearchInput" placeholder="ابحث فوراً (رينجر، سالاين، ديكستروز، جلوكوز سلاين، مانيتول، حديد، دهون ثلاثية، غدة، قلب، ضغط، سكر، داء الملوك)...">
+        <input type="text" id="aiSearchInput" placeholder="ابحث فوراً (رينجر، سالاين، ديكستروز، بنسلين، سيفالوسبورين، أموكسيسيلين، غدة، قلب، ضغط، سكر)...">
         <button id="clearSearchBtn" class="clear-search" onclick="clearAiSearch()">✕</button>
     </div>
 </div>
@@ -1179,7 +1302,7 @@
     </div>
 </div>
 
-<!-- التبويبات الرئيسية الأربعة بالترتيب الجديد: 1. حساب الجرعات | 2. الـ 18 Class | 3. تعلم الصيدلة | 4. مواعيد الأدوية -->
+<!-- التبويبات الرئيسية الأربعة -->
 <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('sec3', this)">🧮 حساب الجرعات</button>
     <button class="tab-btn" onclick="switchTab('sec2', this)">🧬 الـ 18 Class</button>
@@ -1369,384 +1492,23 @@
         </div>
     </div>
 
-    <!-- القسم الثاني: الـ 18 Class العالمي -->
+    <!-- القسم الثاني: الـ 18 Class العالمي بنظام الشجرة المتداخلة (الكلاس -> العائلة الدوائية -> الأدوية القياسية) -->
     <div id="sec2" class="section-content">
         <div class="action-bar">
-            <span>🧬 فتح موسوعة الـ 18 Class العالمي كملف PDF متكامل:</span>
+            <span>🧬 موسوعة الـ 18 Class القياسية — اضغط على الكلاس لتظهر العوائل الدوائية، واضغط على أي عائلة لتظهر أدويتها:</span>
             <button class="pdf-btn" onclick="openAllFamiliesPdf()">👁️ فتح PDF الـ 18 Class كاملة</button>
         </div>
 
-        <div id="familiesContainer">
-            <div class="accordion-item open searchable-item" data-title="Class 1: Antimicrobial drugs المضادات الميكروبية">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 1</span> المضادات الميكروبية والحيوية
-                        <span class="en-sub">Antimicrobial drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>البنسلينات، السيفالوسبورينات، الماكروليدات، والمضادات الأخرى</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Amoxicillin</span>
-                            <span class="drug-tag">Co-Amoxiclav (Augmentin)</span>
-                            <span class="drug-tag">Cefixime</span>
-                            <span class="drug-tag">Cefdinir</span>
-                            <span class="drug-tag">Cephalexin</span>
-                            <span class="drug-tag">Cefadroxil</span>
-                            <span class="drug-tag">Cefaclor</span>
-                            <span class="drug-tag">Cefuroxime</span>
-                            <span class="drug-tag">Cefpodoxime</span>
-                            <span class="drug-tag">Azithromycin</span>
-                            <span class="drug-tag">Clarithromycin</span>
-                            <span class="drug-tag">Erythromycin</span>
-                            <span class="drug-tag">Metronidazole</span>
-                            <span class="drug-tag">Ciprofloxacin</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 2: Cardiovascular diseases drugs أدوية القلب والأوعية الدموية">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 2</span> أدوية أمراض القلب والأوعية الدموية
-                        <span class="en-sub">Cardiovascular diseases drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>أدوية الضغط، القلب، الدهون، ومميعات الدم</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Captopril / Enalapril / Lisinopril / Ramipril</span>
-                            <span class="drug-tag">Losartan / Valsartan / Candesartan / Telmisartan</span>
-                            <span class="drug-tag">Bisoprolol / Metoprolol / Atenolol / Propranolol</span>
-                            <span class="drug-tag">Amlodipine / Furosemide / Atorvastatin / Aspirin</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 3: Ophthalmic drugs أدوية العيون">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 3</span> أدوية العيون والقطرات العينية
-                        <span class="en-sub">Ophthalmic drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>قطرات ومراهم العيون</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Tobramycin</span>
-                            <span class="drug-tag">Moxifloxacin</span>
-                            <span class="drug-tag">Tobradex</span>
-                            <span class="drug-tag">Olopatadine</span>
-                            <span class="drug-tag">Sodium Hyaluronate</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 4: Auditory drugs أدوية الأذن">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 4</span> أدوية الأذن والسمع والتوازن
-                        <span class="en-sub">Auditory drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>قطرات الأذن وأدوية الدوار</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Ciprofloxacin Ear Drops</span>
-                            <span class="drug-tag">Clotrimazole Otic</span>
-                            <span class="drug-tag">Betahistine</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 5: Diabetes drugs أدوية السكري">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 5</span> أدوية السكري
-                        <span class="en-sub">Diabetes drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>خافضات السكر الفموية والإنسولين</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Metformin</span>
-                            <span class="drug-tag">Glimepiride</span>
-                            <span class="drug-tag">Sitagliptin</span>
-                            <span class="drug-tag">Empagliflozin</span>
-                            <span class="drug-tag">Insulin</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 6: Thyroid gland drugs أدوية الغدة الدرقية">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 6</span> أدوية الغدة الدرقية
-                        <span class="en-sub">Thyroid gland drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>أدوية الغدة الدرقية</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Levothyroxine</span>
-                            <span class="drug-tag">Carbimazole</span>
-                            <span class="drug-tag">Propylthiouracil</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 7: Fertility drugs أدوية الخصوبة وتنشيط التبويض">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 7</span> أدوية الخصوبة وتنشيط التبويض
-                        <span class="en-sub">Fertility drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>منشطات التبويض والهرمونات</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Clomiphene Citrate</span>
-                            <span class="drug-tag">Letrozole</span>
-                            <span class="drug-tag">hCG</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 8: Drugs of Genito-urinary disorder أدوية الجهاز البولي والتناسلي">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 8</span> أدوية الجهاز البولي والتناسلي
-                        <span class="en-sub">Drugs of Genito-urinary disorder</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>أدوية المسالك والبروستاتا</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Tamsulosin</span>
-                            <span class="drug-tag">Nitrofurantoin</span>
-                            <span class="drug-tag">Potassium Citrate</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 9: Drugs of respiratory disease & Allergy أدوية الجهاز التنفسي والحساسية">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 9</span> أدوية الجهاز التنفسي والحساسية
-                        <span class="en-sub">Drugs of respiratory disease & Allergy</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>الحساسية، الربو، والسعال</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Loratadine</span>
-                            <span class="drug-tag">Cetirizine</span>
-                            <span class="drug-tag">Salbutamol</span>
-                            <span class="drug-tag">Montelukast</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 10: Drugs for GIT disease أدوية الجهاز الهضمي">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 10</span> أدوية الجهاز الهضمي
-                        <span class="en-sub">Drugs for GIT disease</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>المعدة، القيء، المغص، والإسهال</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Omeprazole / Pantoprazole</span>
-                            <span class="drug-tag">No-Vomit / Domperidone / Ondansetron</span>
-                            <span class="drug-tag">Hyoscine / Mebeverine / ORS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 11: Central nervous system drugs أدوية الجهاز العصبي المركزي">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 11</span> أدوية الجهاز العصبي المركزي
-                        <span class="en-sub">Central nervous system drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>أدوية الجهاز العصبي</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Sertraline / Escitalopram</span>
-                            <span class="drug-tag">Pregabalin / Gabapentin / Levetiracetam</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 12: Dermatology drugs أدوية الجلدية">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 12</span> أدوية الأمراض الجلدية
-                        <span class="en-sub">Dermatology drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>أدوية الجلدية</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Hydrocortisone / Betamethasone / Mometasone</span>
-                            <span class="drug-tag">Fusidic Acid / Terbinafine</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 13: Anti-haemorrhoidal drugs أدوية البواسير والشرج">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 13</span> أدوية البواسير والتشققات الشرجية
-                        <span class="en-sub">Anti-haemorrhoidal drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>مراهم وتحاميل ومقويات الأوردة</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Tribenoside + Lidocaine</span>
-                            <span class="drug-tag">Diosmin + Hesperidin</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 14: Gynecology drugs أدوية النسائية والتوليد">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 14</span> أدوية النسائية والتوليد
-                        <span class="en-sub">Gynecology drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>أدوية النسائية</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Dydrogesterone / Progesterone</span>
-                            <span class="drug-tag">Clotrimazole / Tranexamic Acid</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 15: Analgesic, musculoskeletal & joint disorder المسكنات والعظام والمفاصل">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 15</span> المسكنات وأدوية العظام والمفاصل والعضلات
-                        <span class="en-sub">Analgesic, musculoskeletal & joint disorder</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>المسكنات ومضادات الالتهاب</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Paracetamol / Ibuprofen / Diclofenac / Mefenamic Acid</span>
-                            <span class="drug-tag">Allopurinol / Colchicine</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 16: Nutrition & Vitamins التغذية والفيتامينات">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 16</span> التغذية والفيتامينات والمعادن
-                        <span class="en-sub">Nutrition & Vitamins</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>الفيتامينات والمعادن</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Vitamin D3 / B-Complex / Folic Acid</span>
-                            <span class="drug-tag">Iron / Calcium / Zinc</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 17: Chemotherapy drugs أدوية العلاج الكيميائي والأورام">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 17</span> أدوية العلاج الكيميائي والأورام
-                        <span class="en-sub">Chemotherapy drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>أدوية الأورام</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Cyclophosphamide / Cisplatin / Doxorubicin / Tamoxifen</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item searchable-item" data-title="Class 18: Immunosuppressant drugs الأدوية المثبطة للمناعة">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <div>
-                        <span class="class-pill">Class 18</span> الأدوية المثبطة للمناعة
-                        <span class="en-sub">Immunosuppressant drugs</span>
-                    </div>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="sub-family">
-                        <h4>مثبطات المناعة</h4>
-                        <div class="drugs-tags">
-                            <span class="drug-tag">Cyclosporine / Tacrolimus / Azathioprine / Methotrexate</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="class-filter-bar">
+            <input type="text" id="classTreeSearchInput" placeholder="🔎 ابحث داخل الكلاسات والعوائل والأدوية (بنسلين، سيفالوسبورين، أموكسيسيلين، ضغط، سكر)..." oninput="filterClassesTree()">
+            <button class="tree-ctrl-btn" onclick="expandCollapseAllClasses(true)">📂 فتح الكل</button>
+            <button class="tree-ctrl-btn" onclick="expandCollapseAllClasses(false)">📁 طي الكل</button>
         </div>
+
+        <div id="familiesContainer"></div>
     </div>
 
-    <!-- القسم الثالث: تعلم الصيدلة (تم نقله إلى الترتيب الثالث كما طلبت) -->
+    <!-- القسم الثالث: تعلم الصيدلة -->
     <div id="sec1" class="section-content">
         <div class="action-bar">
             <span>📄 عرض وتحميل موسوعة تعلم الصيدلة الشاملة كملف PDF مباشر:</span>
@@ -1880,7 +1642,7 @@
         </div>
     </div>
 
-    <!-- القسم الرابع: مواعيد الأدوية بترتيب عصري وبطاقات زمنية + بحث شامل -->
+    <!-- القسم الرابع: مواعيد الأدوية -->
     <div id="sec4" class="section-content">
         <div class="card" id="sec4-card">
             <div class="card-header">
@@ -1888,7 +1650,6 @@
                 <span class="badge">تصميم مرتب + بحث فوري</span>
             </div>
 
-            <!-- مربع البحث المخصص مع أزرار الفلترة السريعة -->
             <div class="sched-local-search">
                 <div class="sched-local-search-row">
                     <span>🔎</span>
@@ -1913,7 +1674,6 @@
                 <button class="calc-subbtn" onclick="switchSchedulePart('sched-part2', this)">🩺 2. جدول الأمراض والأدوية بالمضبوط</button>
             </div>
 
-            <!-- القسم الأول: خريطة الأوقات اليومية المرتبة -->
             <div id="sched-part1" class="sched-part-panel active">
                 <div class="time-slot-grid">
                     <div class="time-slot-card morning">
@@ -1957,7 +1717,6 @@
                 </div>
             </div>
 
-            <!-- القسم الثاني: الأمراض والحالات بالمضبوط -->
             <div id="sched-part2" class="sched-part-panel">
                 <div class="accordion-item open searchable-item" data-title="الدهون الثلاثية والكوليسترول">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -2168,7 +1927,7 @@
         }
     });
 
-    /* ================= 2. نظام ربط الإيميل + التجربة المجانية 7 أيام + تفعيل التطبيق الاحترافي ================= */
+    /* ================= 2. نظام ربط الإيميل + التجربة المجانية 7 أيام + تفعيل التطبيق ================= */
     const STORAGE_KEY_USER = "ai_pharmacy_user_account_v2";
     const STORAGE_KEY_DEVICE = "ai_pharmacy_device_id_v2";
     const STORAGE_KEY_MERCHANT_CARD = "ai_pharmacy_merchant_qicard_v2";
@@ -2438,7 +2197,523 @@
 
     initSubscriptionSystem();
 
-    /* ================= 3. حاسبة الجرعات والمحاليل والبحث ================= */
+    /* ================= 3. موسوعة الـ 18 Class القياسية بنظام الشجرة المتداخلة ================= */
+    const standard18ClassesData = [
+        {
+            num: 1,
+            arTitle: "المضادات الميكروبية والالتهابات",
+            enTitle: "Antimicrobials & Anti-infective Drugs",
+            families: [
+                {
+                    ar: "البنسلينات (Penicillins)",
+                    en: "Beta-Lactam • Penicillins",
+                    mech: "تثبيط بناء الجدار الخلوي للبكتيريا (Bactericidal). تُفحص حساسية البنسلين قبل الإعطاء الحقني.",
+                    drugs: ["Amoxicillin", "Co-Amoxiclav (Amoxicillin + Clavulanic Acid)", "Ampicillin", "Ampicillin + Sulbactam (Unasyn)", "Benzathine Penicillin G", "Procaine Penicillin", "Phenoxymethylpenicillin (Penicillin V)", "Flucloxacillin", "Cloxacillin", "Piperacillin + Tazobactam (Tazocin)"]
+                },
+                {
+                    ar: "السيفالوسبورينات (Cephalosporins — الأجيال الخمسة)",
+                    en: "Beta-Lactam • 1st to 5th Generation Cephalosporins",
+                    mech: "تثبيط بناء الجدار الخلوي للبكتيريا بطيف واسع مقسّم إلى 5 أجيال سريرية قياسية:",
+                    drugs: [
+                        "Cephalexin (الجيل 1)", "Cefadroxil (الجيل 1)", "Cefazolin (الجيل 1)",
+                        "Cefuroxime (الجيل 2)", "Cefaclor (الجيل 2)", "Cefprozil (الجيل 2)",
+                        "Cefixime (الجيل 3)", "Cefdinir (الجيل 3)", "Cefpodoxime (الجيل 3)", "Ceftriaxone (الجيل 3)", "Cefotaxime (الجيل 3)", "Ceftazidime (الجيل 3)",
+                        "Cefepime (الجيل 4)", "Ceftaroline (الجيل 5)"
+                    ]
+                },
+                {
+                    ar: "الماكروليدات واللينكوساميدات (Macrolides & Lincosamides)",
+                    en: "Protein Synthesis Inhibitors (50S)",
+                    mech: "تثبيط تصنيع البروتين البكتيري (50S)؛ بديل مثالي لمن لديهم حساسية من البنسلين.",
+                    drugs: ["Azithromycin", "Clarithromycin", "Erythromycin", "Roxithromycin", "Spiramycin", "Clindamycin", "Lincomycin"]
+                },
+                {
+                    ar: "الفلوروكينولونات (Fluoroquinolones)",
+                    en: "DNA Gyrase / Topoisomerase Inhibitors",
+                    mech: "فعالة لالتهابات المسالك البولية والتنفسية؛ تُفصل عن الحليب والكالسيوم والحديد بـ 2-4 ساعات وتُمنع بالحمل والأطفال.",
+                    drugs: ["Ciprofloxacin", "Levofloxacin", "Moxifloxacin", "Ofloxacin", "Norfloxacin", "Gemifloxacin"]
+                },
+                {
+                    ar: "التتراسايكلينات (Tetracyclines)",
+                    en: "Protein Synthesis Inhibitors (30S)",
+                    mech: "تُستخدم لحب الشباب، البروسيلا، والكلاميديا؛ تُمنع في الحمل والأطفال تحت 8 سنوات (تصبغ الأسنان).",
+                    drugs: ["Doxycycline", "Tetracycline", "Minocycline", "Tigecycline"]
+                },
+                {
+                    ar: "الأمينوغليكوزيدات والكاربابينيمات والجليكوببتيدات",
+                    en: "Aminoglycosides, Carbapenems & Glycopeptides",
+                    mech: "مضادات قوية للعدوى الشديدة والمستشفيات؛ تتطلب مراقبة وظائف الكلى والسمع للأمينوغليكوزيدات.",
+                    drugs: ["Gentamicin", "Amikacin", "Tobramycin", "Neomycin", "Meropenem", "Imipenem + Cilastatin", "Ertapenem", "Vancomycin", "Teicoplanin", "Linezolid"]
+                },
+                {
+                    ar: "السلفوناميدات ومضادات اللاهوائيات والطفيليات",
+                    en: "Sulfonamides, Nitroimidazoles & Antiprotozoals",
+                    mech: "علاج التهابات المسالك والأميبا والجيارديا والبكتيريا اللاهوائية.",
+                    drugs: ["Co-Trimoxazole (Trimethoprim + Sulfamethoxazole)", "Metronidazole", "Tinidazole", "Secnidazole", "Ornidazole", "Nitazoxanide", "Albendazole", "Mebendazole"]
+                },
+                {
+                    ar: "مضادات الفطريات والفيروسات (Antifungals & Antivirals)",
+                    en: "Azoles, Polyenes & Antiviral Agents",
+                    mech: "علاج الفطريات السطحية والجهازية والعدوى الفيروسية.",
+                    drugs: ["Fluconazole", "Itraconazole", "Ketoconazole", "Voriconazole", "Nystatin", "Terbinafine", "Griseofulvin", "Acyclovir", "Valacyclovir", "Oseltamivir"]
+                }
+            ]
+        },
+        {
+            num: 2,
+            arTitle: "أدوية القلب والأوعية الدموية والضغط والدهون",
+            enTitle: "Cardiovascular System Drugs (CVS)",
+            families: [
+                {
+                    ar: "مثبطات الإنزيم المحول للأنجيوتنسين (ACE Inhibitors)",
+                    en: "Suffix: -pril",
+                    mech: "تخفض الضغط وتحمي القلب والكلى؛ قد تسبب سعالاً جافاً وتُمنع بالحمل.",
+                    drugs: ["Captopril", "Enalapril", "Lisinopril", "Ramipril", "Perindopril", "Fosinopril"]
+                },
+                {
+                    ar: "حاصرات مستقبلات الأنجيوتنسين (ARBs)",
+                    en: "Suffix: -sartan",
+                    mech: "نفس فعالية ACEi بدون سعال جاف؛ ممنوعة بالحمل.",
+                    drugs: ["Losartan", "Valsartan", "Candesartan", "Telmisartan", "Irbesartan", "Olmesartan"]
+                },
+                {
+                    ar: "حاصرات بيتا (Beta Blockers)",
+                    en: "Suffix: -olol",
+                    mech: "تبطئ نبض القلب وتخفض الضغط؛ تُحذر في مرضى الربو (خاصة غير الانتقائية).",
+                    drugs: ["Bisoprolol", "Metoprolol", "Atenolol", "Carvedilol", "Nebivolol", "Propranolol"]
+                },
+                {
+                    ar: "حاصرات قنوات الكالسيوم (Calcium Channel Blockers)",
+                    en: "Dihydropyridines (-dipine) & Non-DHP",
+                    mech: "توسيع الأوعية الدموية؛ قد تسبب تورم الكاحلين.",
+                    drugs: ["Amlodipine", "Nifedipine", "Felodipine", "Lercanidipine", "Verapamil", "Diltiazem"]
+                },
+                {
+                    ar: "مدرات البول (Diuretics)",
+                    en: "Loop, Thiazide & Potassium-Sparing Diuretics",
+                    mech: "طرح السوائل والأملاح الزائدة لخفض الضغط وعلاج الوذمات وفشل القلب.",
+                    drugs: ["Furosemide (Lasix)", "Torsemide", "Bumetanide", "Hydrochlorothiazide", "Indapamide", "Chlorthalidone", "Spironolactone", "Eplerenone"]
+                },
+                {
+                    ar: "خافضات الدهون والكوليسترول (Lipid-Lowering Agents)",
+                    en: "Statins, Fibrates & Ezetimibe",
+                    mech: "تقليل تصنيع الكوليسترول والدهون الثلاثية والوقاية من الجلطات.",
+                    drugs: ["Atorvastatin", "Rosuvastatin", "Simvastatin", "Pravastatin", "Fenofibrate", "Gemfibrozil", "Ezetimibe", "Omega-3 Ethyl Esters"]
+                },
+                {
+                    ar: "مضادات التخثر ومميعات الدم وأدوية الذبحة وفشل القلب",
+                    en: "Antiplatelets, Anticoagulants, Nitrates & Inotropes",
+                    mech: "منع التجلط وتوسيع الشرايين التاجية وتقوية عضلة القلب.",
+                    drugs: ["Aspirin (75-100mg)", "Clopidogrel", "Ticagrelor", "Warfarin", "Rivaroxaban", "Apixaban", "Enoxaparin", "Nitroglycerin", "Isosorbide Dinitrate", "Digoxin", "Amiodarone", "Methyldopa", "Hydralazine"]
+                }
+            ]
+        },
+        {
+            num: 3,
+            arTitle: "أدوية العيون والقطرات العينية",
+            enTitle: "Ophthalmic Drugs",
+            families: [
+                {
+                    ar: "قطرات ومراهم المضادات الحيوية والفيروسية للعين",
+                    en: "Ophthalmic Anti-infectives",
+                    mech: "علاج التهاب الملتحمة والقرنية البكتيري والفيروسي.",
+                    drugs: ["Tobramycin", "Moxifloxacin", "Ciprofloxacin", "Ofloxacin", "Gentamicin", "Fusidic Acid Eye Gel", "Chloramphenicol", "Acyclovir Eye Ointment"]
+                },
+                {
+                    ar: "الستيرويدات العينية والتركيبات المركبة",
+                    en: "Ophthalmic Corticosteroids & Combinations",
+                    mech: "تقليل التهاب العين الشديد (تُراقب ضغط العين عند الاستخدام الطويل).",
+                    drugs: ["Fluorometholone (FML)", "Prednisolone Acetate", "Dexamethasone", "Tobradex (Tobramycin + Dexamethasone)", "Maxitrol"]
+                },
+                {
+                    ar: "مضادات الحساسية، المرطبات، وأدوية الجلوكوما (الماء الأسود)",
+                    en: "Anti-allergy, Artificial Tears & Anti-glaucoma",
+                    mech: "تخفيف حكة العين وجفافها وخفض ضغط العين.",
+                    drugs: ["Olopatadine", "Ketotifen", "Sodium Cromoglicate", "Sodium Hyaluronate", "Carboxymethylcellulose", "Timolol", "Latanoprost", "Brimonidine", "Dorzolamide"]
+                }
+            ]
+        },
+        {
+            num: 4,
+            arTitle: "أدوية الأذن والسمع والتوازن",
+            enTitle: "Auditory & Vestibular Drugs",
+            families: [
+                {
+                    ar: "قطرات التهابات الأذن البكتيرية والفطرية وشمع الأذن",
+                    en: "Otic Drops & Cerumenolytics",
+                    mech: "علاج التهاب الأذن الخارجية والفطريات وتليين الشمع.",
+                    drugs: ["Ciprofloxacin Ear Drops", "Ciprofloxacin + Dexamethasone", "Ofloxacin Otic", "Clotrimazole Otic", "Locacorten Vioform", "Sodium Bicarbonate Ear Drops", "Carbamide Peroxide"]
+                },
+                {
+                    ar: "أدوية الدوار وطنين الأذن ومرض مينيير",
+                    en: "Antivertigo Agents",
+                    mech: "تحسين تروية الأذن الداخلية وتخفيف الدوخة.",
+                    drugs: ["Betahistine", "Cinnarizine", "Dimenhydrinate", "Meclizine"]
+                }
+            ]
+        },
+        {
+            num: 5,
+            arTitle: "أدوية السكري والغدد الصماء الاستقلابية",
+            enTitle: "Diabetes Mellitus Drugs",
+            families: [
+                {
+                    ar: "البيغوانيدات ومفرزات الإنسولين (Biguanides & Sulfonylureas)",
+                    en: "Metformin & Secretagogues",
+                    mech: "تقليل مقاومة الإنسولين أو تحفيز البنكرياس لإفرازه.",
+                    drugs: ["Metformin", "Glimepiride", "Gliclazide", "Glibenclamide", "Repaglinide"]
+                },
+                {
+                    ar: "مثبطات DPP-4 ومثبطات SGLT2 وناهضات GLP-1",
+                    en: "Gliptins, Flozins & Incretin Mimetics",
+                    mech: "أدوية السكري الحديثة مع حماية للقلب والكلى وإنقاص الوزن.",
+                    drugs: ["Sitagliptin", "Vildagliptin", "Linagliptin", "Saxagliptin", "Empagliflozin", "Dapagliflozin", "Canagliflozin", "Liraglutide", "Semaglutide", "Tirzepatide", "Pioglitazone"]
+                },
+                {
+                    ar: "أنواع الإنسولين (Insulins)",
+                    en: "Rapid, Short, Intermediate & Long-Acting Insulins",
+                    mech: "تعويض هرمون الإنسولين في السكري النوع الأول والثاني.",
+                    drugs: ["Insulin Aspart (NovoRapid)", "Insulin Lispro (Humalog)", "Insulin Glulisine (Apidra)", "Regular Insulin (Actrapid)", "NPH Insulin (Insulatard)", "Insulin Glargine (Lantus/Toujeo)", "Insulin Detemir (Levemir)", "Insulin Degludec (Tresiba)", "Premixed Insulin (Mixtard / NovoMix)"]
+                }
+            ]
+        },
+        {
+            num: 6,
+            arTitle: "أدوية الغدة الدرقية",
+            enTitle: "Thyroid Gland Drugs",
+            families: [
+                {
+                    ar: "هرمونات الغدة الدرقية البديلة (خمول الغدة)",
+                    en: "Hypothyroidism Replacement",
+                    mech: "يُؤخذ صباحاً على معدة فارغة قبل الفطور بـ 30-60 دقيقة.",
+                    drugs: ["Levothyroxine Sodium (T4)", "Liothyronine (T3)"]
+                },
+                {
+                    ar: "مثبطات الغدة الدرقية (فرط نشاط الغدة)",
+                    en: "Antithyroid Drugs",
+                    mech: "تثبيط تصنيع هرمونات الغدة الدرقية المفرطة.",
+                    drugs: ["Carbimazole", "Methimazole", "Propylthiouracil (PTU)", "Lugol's Iodine"]
+                }
+            ]
+        },
+        {
+            num: 7,
+            arTitle: "أدوية الخصوبة وتنشيط التبويض",
+            enTitle: "Fertility & Ovulation Induction Drugs",
+            families: [
+                {
+                    ar: "منشطات التبويض الفموية والحقن الهرمونية",
+                    en: "SERMs, Aromatase Inhibitors & Gonadotropins",
+                    mech: "تحفيز نمو البويضات وإطلاقها وعلاج العقم.",
+                    drugs: ["Clomiphene Citrate (Clomid)", "Letrozole (Femara)", "Human Chorionic Gonadotropin (hCG)", "Follitropin Alfa / Beta (rFSH)", "Menotropins (hMG)", "Cabergoline", "Bromocriptine"]
+                }
+            ]
+        },
+        {
+            num: 8,
+            arTitle: "أدوية الجهاز البولي والتناسلي والبروستاتا",
+            enTitle: "Genito-Urinary Disorder Drugs",
+            families: [
+                {
+                    ar: "أدوية تضخم البروستاتا الحميد (BPH)",
+                    en: "Alpha-1 Blockers & 5-Alpha Reductase Inhibitors",
+                    mech: "إرخاء عضلات البروستاتا وعنق المثانة وتقليص حجم البروستاتا.",
+                    drugs: ["Tamsulosin", "Alfuzosin", "Silodosin", "Doxazosin", "Finasteride", "Dutasteride"]
+                },
+                {
+                    ar: "مطهرات المسالك البولية، الحصوات، وفرط نشاط المثانة",
+                    en: "Urinary Antiseptics, Alkalinizers & Antimuscarinics",
+                    mech: "علاج التهابات البول وتفتيت الحصوات وتهدئة المثانة.",
+                    drugs: ["Nitrofurantoin", "Fosfomycin", "Potassium Citrate", "Sodium Citrate", "Rowatinex", "Oxybutynin", "Solifenacin", "Tolterodine", "Mirabegron", "Sildenafil", "Tadalafil"]
+                }
+            ]
+        },
+        {
+            num: 9,
+            arTitle: "أدوية الجهاز التنفسي والحساسية والربو",
+            enTitle: "Respiratory Disease & Allergy Drugs",
+            families: [
+                {
+                    ar: "مضادات الهستامين (الجيل الأول والجيل الثاني)",
+                    en: "Antihistamines (H1 Receptor Antagonists)",
+                    mech: "الجيل الأول يسبب النعاس؛ الجيل الثاني لا يسبب نعاساً ويستمر 24 ساعة.",
+                    drugs: ["Chlorpheniramine", "Diphenhydramine", "Promethazine", "Hydroxyzine", "Loratadine", "Desloratadine", "Cetirizine", "Levocetirizine", "Fexofenadine", "Bilastine"]
+                },
+                {
+                    ar: "موسعات القصبات وبخاخات الربو (Bronchodilators & ICS)",
+                    en: "Beta-2 Agonists, Anticholinergics & Inhaled Steroids",
+                    mech: "توسيع الشعب الهوائية والسيطرة على التهاب الربو والانسداد الرئوي.",
+                    drugs: ["Salbutamol (Ventolin)", "Formoterol", "Salmeterol", "Ipratropium Bromide", "Tiotropium", "Budesonide", "Fluticasone", "Beclomethasone", "Symbicort (Budesonide + Formoterol)", "Seretide (Fluticasone + Salmeterol)", "Montelukast", "Theophylline"]
+                },
+                {
+                    ar: "أدوية السعال (المقشعات، المذيبات، ومهدئات السعال) وبخاخات الأنف",
+                    en: "Mucolytics, Expectorants, Antitussives & Nasal Sprays",
+                    mech: "طرد البلغم أو تهدئة السعال الجاف وعلاج التهاب الأنف التحسسي.",
+                    drugs: ["Bromhexine", "Ambroxol", "Acetylcysteine (NAC)", "Guaifenesin", "Dextromethorphan", "Butamirate Citrate", "Oxymetazoline", "Xylometazoline", "Mometasone Nasal Spray", "Fluticasone Nasal Spray"]
+                }
+            ]
+        },
+        {
+            num: 10,
+            arTitle: "أدوية الجهاز الهضمي",
+            enTitle: "Gastrointestinal Tract (GIT) Drugs",
+            families: [
+                {
+                    ar: "مثبطات مضخة البروتون وحاصرات H2 ومضادات الحموضة",
+                    en: "PPIs, H2 Blockers & Antacids",
+                    mech: "تثبيط إفراز حمض المعدة وعلاج القرحة والارتجاع المريئي.",
+                    drugs: ["Omeprazole", "Esomeprazole", "Pantoprazole", "Lansoprazole", "Rabeprazole", "Dexlansoprazole", "Famotidine", "Gaviscon (Sodium Alginate)", "Aluminium + Magnesium Hydroxide", "Sucralfate", "Bismuth Subsalicylate"]
+                },
+                {
+                    ar: "مضادات القيء والغثيان ومنظمات حركة المعدة",
+                    en: "Antiemetics & Prokinetics",
+                    mech: "إيقاف القيء والغثيان وتسريع إفراغ المعدة.",
+                    drugs: ["Ondansetron", "Granisetron", "Domperidone", "Metoclopramide", "Meclizine + Vitamin B6 (Navidoxine)", "Itopride", "Mosapride"]
+                },
+                {
+                    ar: "مضادات المغص والقولون العصبي والملينات ومضادات الإسهال",
+                    en: "Antispasmodics, Laxatives & Antidiarrheals",
+                    mech: "إرخاء تشنجات القولون وتنظيم الإخراج وعلاج الإسهال.",
+                    drugs: ["Hyoscine Butylbromide (Buscopan)", "Mebeverine", "Trimebutine", "Chlordiazepoxide + Clidinium (Librax)", "Simethicone", "Lactulose", "Bisacodyl", "Senna", "Polyethylene Glycol (PEG)", "Loperamide", "Racecadotril", "ORS (محلول الإرواء)", "Saccharomyces boulardii"]
+                }
+            ]
+        },
+        {
+            num: 11,
+            arTitle: "أدوية الجهاز العصبي المركزي والنفسي",
+            enTitle: "Central Nervous System (CNS) Drugs",
+            families: [
+                {
+                    ar: "مضادات الاكتئاب والقلق (SSRIs, SNRIs & TCAs)",
+                    en: "Antidepressants & Anxiolytics",
+                    mech: "تنظيم النواقل العصبية (السيروتونين والنورأدرينالين)؛ تحتاج 2-4 أسابيع لبدء الفعالية.",
+                    drugs: ["Sertraline", "Escitalopram", "Citalopram", "Fluoxetine", "Paroxetine", "Venlafaxine", "Duloxetine", "Amitriptyline", "Mirtazapine", "Buspirone"]
+                },
+                {
+                    ar: "مضادات الصرع وآلام الأعصاب والصداع النصفي",
+                    en: "Antiepileptics, Neuropathic Pain & Antimigraine",
+                    mech: "السيطرة على التشنجات العصبية والتهاب الأعصاب الطرفية والشقيقة.",
+                    drugs: ["Pregabalin", "Gabapentin", "Carbamazepine", "Oxcarbazepine", "Sodium Valproate", "Levetiracetam", "Lamotrigine", "Topiramate", "Sumatriptan", "Zolmitriptan", "Flunarizine"]
+                },
+                {
+                    ar: "مضادات الذهان وأدوية باركنسون والزهايمر",
+                    en: "Antipsychotics, Antiparkinson & Cognitive Enhancers",
+                    mech: "تنظيم الدوبامين والأسيتيل كولين في الجهاز العصبي المركزي.",
+                    drugs: ["Olanzapine", "Quetiapine", "Risperidone", "Aripiprazole", "Haloperidol", "Levodopa + Carbidopa", "Trihexyphenidyl", "Donepezil", "Memantine", "Piracetam"]
+                }
+            ]
+        },
+        {
+            num: 12,
+            arTitle: "أدوية الأمراض الجلدية",
+            enTitle: "Dermatology Drugs",
+            families: [
+                {
+                    ar: "الكورتيكوستيرويدات الموضعية (حسب القوة)",
+                    en: "Topical Corticosteroids (Mild to Super-Potent)",
+                    mech: "علاج الأكزيما والصدفية والحساسية الجلدية (تُختار القوة حسب المنطقة والعمر).",
+                    drugs: ["Hydrocortisone 1% (خفيف)", "Desonide (خفيف)", "Mometasone Furoate (متوسط)", "Betamethasone Valerate / Dipropionate (قوي)", "Fluticasone Cream (متوسط)", "Clobetasol Propionate (فائق القوة)"]
+                },
+                {
+                    ar: "المضادات الحيوية والفطرية الجلدية وعلاج حب الشباب",
+                    en: "Topical Antibacterials, Antifungals & Anti-acne",
+                    mech: "علاج الالتهابات الجلدية، الفطريات، وحب الشباب.",
+                    drugs: ["Fusidic Acid", "Mupirocin", "Silver Sulfadiazine", "Clotrimazole", "Miconazole", "Ketoconazole Shampoo", "Terbinafine", "Adapalene", "Tretinoin", "Benzoyl Peroxide", "Isotretinoin (روأكيوتان)", "Permethrin (للجرب)", "Tacrolimus Ointment"]
+                }
+            ]
+        },
+        {
+            num: 13,
+            arTitle: "أدوية البواسير والتشققات الشرجية",
+            enTitle: "Anti-Haemorrhoidal & Anal Fissure Drugs",
+            families: [
+                {
+                    ar: "المراهم والتحاميل الموضعية ومقويات الأوردة الفموية",
+                    en: "Topical Anesthetics/Steroids, Nitroglycerin & Venotonics",
+                    mech: "تسكين الألم والحكة وتقليص الاحتقان الوريدي وإرخاء العضلة الشرجية.",
+                    drugs: ["Tribenoside + Lidocaine (Procto-Glyvenol)", "Fluocortolone + Lidocaine (Ultraproct)", "Cinchocaine + Hydrocortisone (Proctosedyl)", "Glyceryl Trinitrate 0.2% Ointment (للشرخ الشرجي)", "Diltiazem 2% Gel", "Diosmin + Hesperidin (Daflon)", "Calcium Dobesilate (Doxium)"]
+                }
+            ]
+        },
+        {
+            num: 14,
+            arTitle: "أدوية النسائية والتوليد",
+            enTitle: "Gynecology & Obstetrics Drugs",
+            families: [
+                {
+                    ar: "مثبتات الحمل، منظمات الدورة، وموانع الحمل",
+                    en: "Progestogens, Estrogens & Contraceptives",
+                    mech: "تثبيت الحمل، تنظيم الطمث، وعلاج النزيف الوظيفي.",
+                    drugs: ["Dydrogesterone (Duphaston)", "Progesterone (Cyclogest / Utrogestan)", "Hydroxyprogesterone Caproate", "Norethisterone (Primolut-N)", "Ethinylestradiol + Drospirenone (Yasmin)", "Ethinylestradiol + Levonorgestrel", "Desogestrel (Cerazette)"]
+                },
+                {
+                    ar: "علاج الالتهابات المهبلية ومضادات النزيف الرحمي",
+                    en: "Vaginal Anti-infectives & Hemostatics",
+                    mech: "علاج المبيضات والتهابات المهبل وإيقاف النزيف.",
+                    drugs: ["Clotrimazole Vaginal Tab/Cream", "Miconazole Ovules", "Metronidazole + Miconazole Ovules", "Clindamycin Vaginal Cream", "Tranexamic Acid (Cyklokapron)", "Methylergometrine", "Oxytocin"]
+                }
+            ]
+        },
+        {
+            num: 15,
+            arTitle: "المسكنات وأدوية العظام والمفاصل والعضلات والنقرس",
+            enTitle: "Analgesics, Musculoskeletal & Joint Disorder Drugs",
+            families: [
+                {
+                    ar: "مضادات الالتهاب غير الستيرويدية والباراسيتامول (NSAIDs & Analgesics)",
+                    en: "Non-Selective & Selective COX-2 Inhibitors",
+                    mech: "تسكين الألم وخفض الحرارة وتقليل الالتهاب (تُؤخذ بعد الأكل لحماية المعدة).",
+                    drugs: ["Paracetamol (Acetaminophen)", "Ibuprofen", "Diclofenac Sodium / Potassium", "Mefenamic Acid", "Naproxen", "Ketoprofen", "Meloxicam", "Piroxicam", "Celecoxib", "Etoricoxib", "Tramadol"]
+                },
+                {
+                    ar: "مرخيات العضلات الهيكلية (Muscle Relaxants)",
+                    en: "Centrally Acting Muscle Relaxants",
+                    mech: "فك التشنج العضلي وآلام الظهر والرقبة.",
+                    drugs: ["Orphenadrine (Norgesic)", "Chlorzoxazone", "Tizanidine", "Baclofen", "Methocarbamol", "Thiocolchicoside"]
+                },
+                {
+                    ar: "أدوية النقرس (داء الملوك) وهشاشة العظام والروماتيزم",
+                    en: "Antigout, Osteoporosis & DMARDs",
+                    mech: "خفض حمض اليوريك وتقوية كثافة العظام.",
+                    drugs: ["Allopurinol", "Febuxostat", "Colchicine", "Alendronate", "Risedronate", "Zoledronic Acid", "Calcitonin", "Glucosamine + Chondroitin", "Hydroxychloroquine"]
+                }
+            ]
+        },
+        {
+            num: 16,
+            arTitle: "التغذية والفيتامينات والمعادن",
+            enTitle: "Nutrition, Vitamins & Minerals",
+            families: [
+                {
+                    ar: "الفيتامينات الذائبة في الدهون والماء",
+                    en: "Fat-Soluble (A, D, E, K) & Water-Soluble (B-Complex, C)",
+                    mech: "دعم المناعة، العظام، الأعصاب، وتكوين الدم.",
+                    drugs: ["Vitamin D3 (Cholecalciferol)", "Alfacalcidol (One-Alpha)", "Vitamin B1 + B6 + B12 (Neurobion)", "Methylcobalamin (B12)", "Folic Acid (B9)", "Vitamin C (Ascorbic Acid)", "Vitamin E", "Vitamin A", "Vitamin K1 (Phytomenadione)", "Biotin"]
+                },
+                {
+                    ar: "المعادن الأساسية ومكملات الحديد والكالسيوم والزنك",
+                    en: "Essential Minerals & Trace Elements",
+                    mech: "علاج فقر الدم ونقص الكالسيوم وتقوية المناعة.",
+                    drugs: ["Ferrous Sulfate / Fumarate / Bisglycinate", "Iron Polymaltose Complex", "Iron Sucrose IV", "Calcium Carbonate / Citrate", "Zinc Sulfate / Gluconate", "Magnesium Citrate / Oxide", "Selenium", "Multivitamins + Minerals"]
+                }
+            ]
+        },
+        {
+            num: 17,
+            arTitle: "أدوية العلاج الكيميائي والأورام",
+            enTitle: "Chemotherapy & Antineoplastic Drugs",
+            families: [
+                {
+                    ar: "العوامل المؤلكلة ومضادات الأيض ومضادات الأورام النباتية والهرمونية",
+                    en: "Alkylating Agents, Antimetabolites, Taxanes & Hormonal Therapy",
+                    mech: "تثبيط انقسام الخلايا السرطانية وتُصرف حصراً تحت إشراف مراكز الأورام.",
+                    drugs: ["Cyclophosphamide", "Ifosfamide", "Cisplatin", "Carboplatin", "Oxaliplatin", "5-Fluorouracil (5-FU)", "Capecitabine", "Gemcitabine", "Doxorubicin", "Paclitaxel", "Docetaxel", "Vincristine", "Tamoxifen", "Anastrozole", "Imatinib", "Rituximab", "Trastuzumab"]
+                }
+            ]
+        },
+        {
+            num: 18,
+            arTitle: "الأدوية المثبطة للمناعة والبيولوجية",
+            enTitle: "Immunosuppressant & Biologic Drugs",
+            families: [
+                {
+                    ar: "مثبطات الكالسينيورين، مضادات التكاثر، والستيرويدات الجهازية",
+                    en: "Calcineurin Inhibitors, Antiproliferatives & Systemic Corticosteroids",
+                    mech: "تُستخدم بعد زراعة الأعضاء وفي أمراض المناعة الذاتية الشديدة.",
+                    drugs: ["Cyclosporine", "Tacrolimus", "Mycophenolate Mofetil (CellCept)", "Azathioprine (Imuran)", "Methotrexate", "Leflunomide", "Sirolimus", "Prednisolone", "Methylprednisolone", "Dexamethasone", "Hydrocortisone", "Adalimumab (Humira)", "Infliximab", "Etanercept"]
+                }
+            ]
+        }
+    ];
+
+    function render18ClassesTree() {
+        const container = document.getElementById('familiesContainer');
+        if (!container) return;
+
+        container.innerHTML = standard18ClassesData.map((cls, idx) => {
+            const familiesHtml = cls.families.map(fam => {
+                const drugsHtml = fam.drugs.map(d => `<span class="drug-tag">${d}</span>`).join('');
+                return `
+                    <div class="sub-accordion">
+                        <button class="sub-accordion-header" onclick="toggleSubAccordion(this)">
+                            <div>
+                                <span class="sub-accordion-title">📂 ${fam.ar}</span>
+                                <span class="sub-accordion-en">${fam.en}</span>
+                            </div>
+                            <span class="sub-accordion-icon">▼</span>
+                        </button>
+                        <div class="sub-accordion-body">
+                            <div class="sub-mech-note">💡 ${fam.mech}</div>
+                            <div class="drugs-tags">${drugsHtml}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            return `
+                <div class="accordion-item ${idx === 0 ? 'open' : ''}" data-class-num="${cls.num}">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <div>
+                            <span class="class-pill">Class ${cls.num}</span> ${cls.arTitle}
+                            <span class="family-count-pill">${cls.families.length} عوائل</span>
+                            <span class="en-sub">${cls.enTitle}</span>
+                        </div>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        ${familiesHtml}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+    render18ClassesTree();
+
+    function toggleSubAccordion(header) {
+        header.parentElement.classList.toggle('open');
+    }
+
+    function expandCollapseAllClasses(shouldOpen) {
+        document.querySelectorAll('#familiesContainer .accordion-item').forEach(clsEl => {
+            if (shouldOpen) clsEl.classList.add('open');
+            else clsEl.classList.remove('open');
+        });
+        document.querySelectorAll('#familiesContainer .sub-accordion').forEach(subEl => {
+            if (shouldOpen) subEl.classList.add('open');
+            else subEl.classList.remove('open');
+        });
+    }
+
+    function filterClassesTree() {
+        const q = document.getElementById('classTreeSearchInput').value.trim().toLowerCase();
+        const classItems = document.querySelectorAll('#familiesContainer .accordion-item');
+
+        classItems.forEach(clsEl => {
+            if (!q) {
+                clsEl.style.display = 'block';
+                clsEl.querySelectorAll('.sub-accordion').forEach(sub => sub.style.display = 'block');
+                return;
+            }
+
+            const clsText = clsEl.innerText.toLowerCase();
+            if (clsText.includes(q)) {
+                clsEl.style.display = 'block';
+                clsEl.classList.add('open');
+                clsEl.querySelectorAll('.sub-accordion').forEach(sub => {
+                    if (sub.innerText.toLowerCase().includes(q)) {
+                        sub.style.display = 'block';
+                        sub.classList.add('open');
+                    } else {
+                        sub.style.display = 'none';
+                    }
+                });
+            } else {
+                clsEl.style.display = 'none';
+            }
+        });
+    }
+
+    /* ================= 4. حاسبة الجرعات والمحاليل والبحث العام ================= */
     let currentPdfFilename = "Pharmacy_Document";
 
     function estimateWeightFromAge() {
@@ -2691,7 +2966,6 @@
         `;
     }
 
-    // قاعدة بيانات البحث الشاملة لكل الأدوية والحالات في قسم مواعيد الأدوية
     const scheduleMedicationsDB = [
         {
             title: "Atorvastatin / Rosuvastatin / Simvastatin (الدهون والكوليسترول)",
@@ -2907,9 +3181,24 @@
         let hitsHTML = '';
         let count = 0;
 
+        standard18ClassesData.forEach(cls => {
+            cls.families.forEach(fam => {
+                const hay = `${cls.arTitle} ${cls.enTitle} ${fam.ar} ${fam.en} ${fam.drugs.join(' ')}`.toLowerCase();
+                if (hay.includes(term) && count < 5) {
+                    hitsHTML += `
+                        <div class="instant-hit" style="border-right-color:#f59e0b; cursor:pointer;" onclick="jumpToClassTree('${rawTerm.replace(/'/g, '')}')">
+                            <strong>🧬 Class ${cls.num} (${cls.arTitle}) ➔ ${fam.ar}</strong>
+                            <span>${fam.drugs.slice(0, 6).join(' • ')}</span>
+                        </div>
+                    `;
+                    count++;
+                }
+            });
+        });
+
         scheduleMedicationsDB.forEach(m => {
             const blob = `${m.title} ${m.category} ${m.timing} ${m.interactions} ${m.sideEffects}`.toLowerCase();
-            if (blob.includes(term) && count < 6) {
+            if (blob.includes(term) && count < 8) {
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToScheduleWithQuery('${m.title.split('(')[0].trim()}')">
                         <strong>🕒 مواعيد وتداخلات: ${m.title}</strong>
@@ -2922,7 +3211,7 @@
 
         Object.entries(ivSolutionsMeta).forEach(([ivKey, ivObj]) => {
             const hay = `${ivKey} ${ivObj.name} ${ivObj.hint} ${ivObj.howGiven}`.toLowerCase();
-            if (hay.includes(term) && count < 8) {
+            if (hay.includes(term) && count < 10) {
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#38bdf8; cursor:pointer;" onclick="jumpToIvSolution('${ivKey}')">
                         <strong>💧 محلول وريدي: ${ivObj.name}</strong>
@@ -2937,7 +3226,7 @@
             const isMatch = rule.name.toLowerCase().includes(term) ||
                             rule.conc.toLowerCase().includes(term) ||
                             rule.keywords.some(k => k.toLowerCase().includes(term) || term.includes(k.toLowerCase()));
-            if (isMatch && count < 11) {
+            if (isMatch && count < 13) {
                 const ex15 = rule.calc(15);
                 const f15 = Number.isInteger(ex15) ? ex15 : ex15.toFixed(2);
                 hitsHTML += `
@@ -2963,6 +3252,14 @@
     function clearAiSearch() {
         searchInput.value = '';
         clearBtn.style.display = 'none';
+        instantBox.style.display = 'none';
+    }
+
+    function jumpToClassTree(queryText) {
+        switchTab('sec2', document.querySelectorAll('.tab-btn')[1]);
+        const inp = document.getElementById('classTreeSearchInput');
+        inp.value = queryText;
+        filterClassesTree();
         instantBox.style.display = 'none';
     }
 
@@ -2997,8 +3294,8 @@
         currentPdfFilename = fileName;
         const sourceEl = document.getElementById(sourceId);
         const clone = sourceEl.cloneNode(true);
-        clone.querySelectorAll('button, .action-bar, .calc-subtabs, .sched-local-search').forEach(btn => btn.remove());
-        clone.querySelectorAll('.sched-part-panel').forEach(p => p.style.display = 'block');
+        clone.querySelectorAll('button, .action-bar, .calc-subtabs, .sched-local-search, .class-filter-bar').forEach(btn => btn.remove());
+        clone.querySelectorAll('.sched-part-panel, .accordion-body, .sub-accordion-body').forEach(p => p.style.display = 'block');
         clone.style.display = 'block';
 
         const renderArea = document.getElementById('pdfRenderArea');
@@ -3022,7 +3319,7 @@
     }
 
     function openAllFamiliesPdf() {
-        document.querySelectorAll('#familiesContainer .accordion-item').forEach(item => item.classList.add('open'));
+        expandCollapseAllClasses(true);
         openPdfViewer('familiesContainer', 'موسوعة_الـ18_Class_الدوائي_العالمي');
     }
 
