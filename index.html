@@ -118,7 +118,7 @@
             font-weight: 900;
         }
 
-        /* بوابات الدخول والاشتراك */
+        /* بوابات الدخول والاشتراك بنمط التطبيقات الاحترافية */
         .gate-overlay {
             position: fixed;
             inset: 0;
@@ -139,7 +139,7 @@
             background: linear-gradient(155deg, #131c31, #1e1b4b);
             border: 1.5px solid rgba(6, 182, 212, 0.5);
             border-radius: 22px;
-            max-width: 480px;
+            max-width: 490px;
             width: 100%;
             padding: 24px 20px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.2);
@@ -147,40 +147,107 @@
         }
 
         .gate-box h2 {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 900;
             color: #38bdf8;
             margin-bottom: 6px;
         }
 
         .gate-box p {
-            font-size: 0.86rem;
+            font-size: 0.85rem;
             color: #cbd5e1;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
-        .qicard-banner {
-            background: linear-gradient(135deg, #f59e0b, #b45309);
-            color: #0f172a;
-            border-radius: 14px;
-            padding: 12px;
+        .app-plan-card {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1.5px solid rgba(245, 158, 11, 0.6);
+            border-radius: 16px;
+            padding: 14px;
             margin-bottom: 14px;
             text-align: right;
-            font-weight: 800;
-            font-size: 0.84rem;
         }
 
-        .qicard-banner .card-num {
-            display: block;
-            background: rgba(15, 23, 42, 0.9);
+        .app-plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .app-plan-price {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #0f172a;
+            font-weight: 900;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+        }
+
+        .qicard-chip-box {
+            background: #0b1120;
+            border: 1px dashed #fbbf24;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qicard-chip-box code {
             color: #fbbf24;
-            padding: 6px 10px;
-            border-radius: 8px;
-            margin-top: 6px;
-            font-family: monospace;
-            font-size: 0.98rem;
-            text-align: center;
+            font-size: 1rem;
+            font-weight: 900;
             letter-spacing: 1px;
+        }
+
+        .copy-mini-btn {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .device-id-box {
+            background: rgba(6, 182, 212, 0.12);
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            border-radius: 10px;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .device-id-box code {
+            color: #22d3ee;
+            font-weight: 900;
+            font-size: 0.92rem;
+        }
+
+        .whatsapp-pay-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            color: white;
+            border: none;
+            padding: 11px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.88rem;
+            cursor: pointer;
+            margin-bottom: 12px;
+            text-decoration: none;
         }
 
         header {
@@ -969,8 +1036,8 @@
         <span id="subscriptionBadge" class="status-chip status-trial">جاري التحقق...</span>
     </div>
     <div class="top-bar-actions">
-        <button class="mini-top-btn pay-now" onclick="openPaymentModal()">💳 اشتراك كي كارد ($1 / 30 يوم)</button>
-        <button class="mini-top-btn" onclick="openOwnerDashboard()">🔐 حساب الإدارة</button>
+        <button class="mini-top-btn pay-now" onclick="openPaymentModal()">💎 ترقية الاشتراك ($1 / شهر)</button>
+        <button class="mini-top-btn" onclick="openOwnerDashboard()">🔐 الإدارة</button>
         <button class="mini-top-btn" onclick="logoutUserEmail()">تغيير الإيميل</button>
     </div>
 </div>
@@ -978,74 +1045,107 @@
 <!-- 1. بوابة ربط البريد الإلكتروني وبدء التجربة المجانية 7 أيام -->
 <div id="emailGateModal" class="gate-overlay">
     <div class="gate-box">
-        <div class="ai-badge">🔐 نظام حماية الحساب والاشتراك</div>
+        <div class="ai-badge">🔐 تسجيل الدخول وتفعيل الحساب</div>
         <h2>ربط البريد الإلكتروني لدخول البرنامج</h2>
-        <p>أدخل بريدك الإلكتروني لتفعيل حسابك والحصول على <strong>7 أيام استخدام مجاني بالكامل</strong>، وبعدها يتفعّل الاشتراك الشهري بقيمة <strong>1$ كل 30 يوم</strong> عبر الكي كارد (Qi Card).</p>
+        <p>سجّل ببريدك الإلكتروني للحصول على <strong>7 أيام استخدام مجاني كامل</strong>، وبعد انتهائها يتطلب التجديد اشتراكاً شهرياً بقيمة <strong>1$ كل 30 يوم</strong>.</p>
         <div class="form-group">
             <label>📧 البريد الإلكتروني (Gmail / Email):</label>
             <input type="email" id="loginEmailInput" class="form-control" placeholder="example@gmail.com" dir="ltr">
         </div>
-        <button class="calc-btn" onclick="registerUserEmail()">🚀 ربط الإيميل وبدء الـ 7 أيام المجانية</button>
+        <button class="calc-btn" onclick="registerUserEmail()">🚀 دخول وبدء الفترة المجانية (7 أيام)</button>
     </div>
 </div>
 
-<!-- 2. بوابة الدفع بالكي كارد (1 دولار شهرياً كل 30 يوم) -->
+<!-- 2. بوابة الاشتراك وتفعيل التطبيق (نمط التطبيقات الاحترافية + كود تفعيل مرتبط بالجهاز) -->
 <div id="paymentGateModal" class="gate-overlay">
     <div class="gate-box">
-        <div class="ai-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:#f59e0b;">💳 تفعيل الاشتراك الشهري — Qi Card</div>
-        <h2>تجديد الاشتراك ($1 لمدة 30 يوماً)</h2>
-        <p id="paymentGateReason">انتهت فترة الـ 7 أيام المجانية أو مدة الاشتراك السابقة. لتفعيل البرنامج لمدة 30 يوماً إضافية، حوّل مبلغ <strong>1$ دولار أمريكي</strong> عبر الكي كارد إلى الحساب الرئيسي:</p>
+        <div class="ai-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:#f59e0b;">💎 اشتراك التطبيق — Pro License</div>
+        <h2>تفعيل الاشتراك الشهري (30 يوماً)</h2>
+        <p id="paymentGateReason">لتفعيل النسخة الكاملة لمدة <strong>30 يوماً</strong>، قم بتحويل <strong>1$</strong> عبر الكي كارد ثم أرسل معرّف جهازك لاستلام كود التفعيل الخاص بجهازك فوراً:</p>
         
-        <div class="qicard-banner">
-            <span>🏦 رقم بطاقة الكي كارد الرئيسية المستلمة ($1 / 30 يوم):</span>
-            <span class="card-num" id="merchantQiCardDisplay">7110-4829-9301-2026</span>
-            <span style="display:block; font-size:0.75rem; margin-top:4px;">المستفيد: إبراهيم إسماعيل — AI Pharmacy Academy</span>
+        <div class="app-plan-card">
+            <div class="app-plan-header">
+                <strong style="color:#f8fafc; font-size:0.92rem;">الباقة الشهرية الكاملة (30 يوم)</strong>
+                <span class="app-plan-price">1.00 $ / شهر</span>
+            </div>
+            <div style="font-size:0.78rem; color:#cbd5e1;">• فتح جميع الحاسبات والموسوعة الدوائية ومواعيد الأدوية بدون قيود.</div>
+            <div class="qicard-chip-box">
+                <div>
+                    <span style="display:block; font-size:0.7rem; color:#94a3b8;">بطاقة الكي كارد الرئيسية للاستلام:</span>
+                    <code id="merchantQiCardDisplay">7110-4829-9301-2026</code>
+                </div>
+                <button class="copy-mini-btn" onclick="copyTextValue('merchantQiCardDisplay')">📋 نسخ</button>
+            </div>
         </div>
+
+        <div class="device-id-box">
+            <span>📱 معرّف جهازك (Device ID): <code id="userDeviceIdDisplay">PH-000000</code></span>
+            <button class="copy-mini-btn" style="color:#22d3ee; border-color:rgba(34,211,238,0.4); background:rgba(34,211,238,0.12);" onclick="copyTextValue('userDeviceIdDisplay')">نسخ المعرّف</button>
+        </div>
+
+        <a id="whatsappRequestLink" href="#" target="_blank" class="whatsapp-pay-btn">
+            💬 إرسال إشعار الدفع ($1) ومعرّف الجهاز عبر واتساب
+        </a>
 
         <div class="form-group">
-            <label>💳 رقم بطاقة الكي كارد المرسِلة أو رقم وصل التحويل:</label>
-            <input type="text" id="payerCardInput" class="form-control" placeholder="أدخل آخر 8 أرقام من بطاقتك أو رقم العملية" dir="ltr">
+            <label>🔑 أدخل كود التفعيل (Activation Key) الخاص بجهازك:</label>
+            <input type="text" id="activationCodeInput" class="form-control" placeholder="PRO-XXXX-XXXX" dir="ltr" style="text-align:center; font-weight:800; letter-spacing:1px;">
         </div>
 
-        <div class="form-group">
-            <label>🔑 رمز التفعيل (أو تأكيد الدفع المباشر):</label>
-            <input type="text" id="activationCodeInput" class="form-control" placeholder="اختياري: أدخل رمز التفعيل أو اتركه للتأكيد الفوري" dir="ltr">
-        </div>
-
-        <button class="calc-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a;" onclick="processQiCardPayment()">✅ تأكيد دفع $1 وتفعيل 30 يوماً</button>
-        <button id="closePayModalBtn" class="mini-pdf-btn" style="width:100%; margin-top:8px;" onclick="closePaymentModal()">إغلاق (إذا كانت الفترة المجانية ما زالت سارية)</button>
+        <button class="calc-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a;" onclick="verifyAndActivateKey()">✅ تفعيل الاشتراك الآن (30 يوم)</button>
+        <button id="closePayModalBtn" class="mini-pdf-btn" style="width:100%; margin-top:8px;" onclick="closePaymentModal()">إغلاق (متابعة الفترة المجانية)</button>
     </div>
 </div>
 
-<!-- 3. لوحة تحكم الحساب الرئيسي الخاص بك (إدارة المدفوعات ورقم الكي كارد) -->
+<!-- 3. لوحة تحكم الحساب الرئيسي الخاص بك (بدون إظهار الرمز في الصفحة) -->
 <div id="ownerDashboardModal" class="gate-overlay">
     <div class="gate-box" style="max-width:540px; text-align:right;">
-        <h2 style="text-align:center;">🔐 لوحة الحساب الرئيسي (إبراهيم إسماعيل)</h2>
-        <p style="text-align:center;">متابعة اشتراكات الـ 1$ الواردة لحسابك وتحديث رقم بطاقة الكي كارد الرئيسية.</p>
+        <h2 style="text-align:center;">🔐 لوحة تحكم الحساب الرئيسي</h2>
+        <p style="text-align:center;">توليد أكواد تفعيل المشتركين وإدارة بطاقة الكي كارد الرئيسية.</p>
 
         <div id="ownerAuthArea">
             <div class="form-group">
-                <label>🔑 رمز دخول الإدارة (الافتراضي: 2026):</label>
-                <input type="password" id="ownerPinInput" class="form-control" placeholder="أدخل رمز الإدارة" dir="ltr">
+                <label>🔑 رمز التحقق:</label>
+                <input type="password" id="ownerPinInput" class="form-control" placeholder="••••••••••" dir="ltr">
             </div>
-            <button class="calc-btn" onclick="unlockOwnerDashboard()">دخول لوحة الحساب الرئيسي</button>
+            <button class="calc-btn" onclick="unlockOwnerDashboard()">دخول</button>
             <button class="mini-pdf-btn" style="width:100%;" onclick="closeOwnerDashboard()">إغلاق</button>
         </div>
 
         <div id="ownerContentArea" style="display:none;">
             <div class="formula-box" style="border-right-color:#10b981; color:#a7f3d0;">
-                <strong>💰 إجمالي المدفوعات المسجلة لحسابك:</strong> <span id="ownerTotalRevenue" style="font-size:1.1rem; font-weight:900;">0 $</span>
+                <strong>💰 إجمالي الاشتراكات المفعّلة:</strong> <span id="ownerTotalRevenue" style="font-size:1.1rem; font-weight:900;">0 $</span>
             </div>
 
-            <div class="form-group">
-                <label>💳 رقم بطاقة الكي كارد الرئيسية لاستلام الدولار:</label>
-                <input type="text" id="merchantCardEditInput" class="form-control" dir="ltr">
+            <!-- مولد كود التفعيل للمشتركين -->
+            <div style="background:#0f172a; border:1px solid rgba(56,189,248,0.4); border-radius:12px; padding:12px; margin-bottom:12px;">
+                <strong style="color:#38bdf8; font-size:0.88rem; display:block; margin-bottom:6px;">⚡ توليد كود تفعيل 30 يوم لمشترك دفع $1:</strong>
+                <div class="form-group" style="margin-bottom:8px;">
+                    <label style="font-size:0.78rem;">أدخل معرّف جهاز المشترك (Device ID):</label>
+                    <input type="text" id="targetDeviceIdInput" class="form-control" placeholder="مثلاً: PH-849201" dir="ltr">
+                </div>
+                <button class="calc-btn" style="padding:9px; font-size:0.85rem;" onclick="generateSubscriberKey()">🔑 توليد كود التفعيل وتسجيل $1</button>
+                <div id="generatedKeyBox" style="display:none; margin-top:8px; background:rgba(16,185,129,0.15); border:1px solid #10b981; padding:8px; border-radius:8px; text-align:center;">
+                    <span style="font-size:0.75rem; color:#a7f3d0; display:block;">انسخ هذا الكود وأرسله للمشترك:</span>
+                    <code id="generatedKeyOutput" style="font-size:1.05rem; font-weight:900; color:#34d399; letter-spacing:1px;"></code>
+                </div>
             </div>
-            <button class="calc-btn" onclick="saveMerchantQiCard()">💾 حفظ رقم الكي كارد الرئيسي</button>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label style="font-size:0.78rem;">💳 بطاقة الكي كارد الرئيسية:</label>
+                    <input type="text" id="merchantCardEditInput" class="form-control" dir="ltr">
+                </div>
+                <div class="form-group">
+                    <label style="font-size:0.78rem;">📱 رقم واتساب الاستلام (مع رمز الدولة):</label>
+                    <input type="text" id="merchantWhatsappInput" class="form-control" placeholder="9647700000000" dir="ltr">
+                </div>
+            </div>
+            <button class="calc-btn" style="padding:9px; font-size:0.85rem;" onclick="saveMerchantSettings()">💾 حفظ بيانات الاستلام</button>
 
             <div style="margin-top:12px;">
-                <strong style="font-size:0.85rem; color:#38bdf8;">📋 سجل المشتركين والدفعات ($1 / 30 يوم):</strong>
-                <div id="paymentsLogList" style="max-height:170px; overflow-y:auto; margin-top:6px; background:#0f172a; padding:8px; border-radius:10px; font-size:0.8rem;"></div>
+                <strong style="font-size:0.84rem; color:#38bdf8;">📋 سجل الاشتراكات المفعّلة ($1 / 30 يوم):</strong>
+                <div id="paymentsLogList" style="max-height:140px; overflow-y:auto; margin-top:6px; background:#0f172a; padding:8px; border-radius:10px; font-size:0.78rem;"></div>
             </div>
 
             <button class="mini-pdf-btn" style="width:100%;" onclick="closeOwnerDashboard()">إغلاق اللوحة</button>
@@ -1056,7 +1156,7 @@
 <header>
     <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الحساب الميداني بالسي سي (1 مل = 1 سي سي)</div>
     <h1>أكاديمية الصيدلة والجرعات الذكية</h1>
-    <p>تعليم الصيدلة الموسّع • الـ 18 كلاس • حساب الشرابات والمحاليل الوريدية • مواعيد الأدوية</p>
+    <p>حساب الشرابات والمحاليل الوريدية • الـ 18 كلاس • تعلم الصيدلة • مواعيد الأدوية</p>
 </header>
 
 <!-- شريط البحث الذكي الفوري العام -->
@@ -1079,147 +1179,193 @@
     </div>
 </div>
 
-<!-- التبويبات الرئيسية الأربعة -->
+<!-- التبويبات الرئيسية الأربعة بالترتيب الجديد: 1. حساب الجرعات | 2. الـ 18 Class | 3. تعلم الصيدلة | 4. مواعيد الأدوية -->
 <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('sec1', this)">📚 تعلم الصيدلة</button>
+    <button class="tab-btn active" onclick="switchTab('sec3', this)">🧮 حساب الجرعات</button>
     <button class="tab-btn" onclick="switchTab('sec2', this)">🧬 الـ 18 Class</button>
-    <button class="tab-btn" onclick="switchTab('sec3', this)">🧮 حساب الجرعات</button>
+    <button class="tab-btn" onclick="switchTab('sec1', this)">📚 تعلم الصيدلة</button>
     <button class="tab-btn" onclick="switchTab('sec4', this)">🕒 مواعيد الأدوية</button>
 </div>
 
 <div class="container">
 
-    <!-- القسم الأول: تعلم الصيدلة الموسّع والشامل -->
-    <div id="sec1" class="section-content active">
+    <!-- القسم الأول (الافتراضي): حساب الجرعات -->
+    <div id="sec3" class="section-content active">
         <div class="action-bar">
-            <span>📄 عرض وتحميل موسوعة تعلم الصيدلة الشاملة كملف PDF مباشر:</span>
-            <button class="pdf-btn" onclick="openPdfViewer('sec1', 'موسوعة_تعلم_الصيدلة_الشاملة')">👁️ فتح ملف PDF الشامل</button>
+            <span>🧮 فتح جدول وطرق حساب الشرابات والمحاليل الوريدية بالسي سي كملف PDF:</span>
+            <button class="pdf-btn" onclick="openPdfViewer('sec3-table-card', 'جدول_الشرابات_والمحاليل_الوريدية')">👁️ فتح PDF الجدول الكامل</button>
         </div>
 
-        <div class="card searchable-item" data-title="خارطة الطريق لتعلم الصيدلة والمصطلحات الطبية" id="card-roadmap">
-            <div class="card-header">
-                <span class="card-title">المرحلة 1: خارطة الطريق والمصطلحات الطبية والجذور الدوائية</span>
-                <span class="badge">أساسيات ذهبية</span>
-            </div>
-            <ul class="step-list">
-                <li><strong>البادئات اللاتينية الطبية (Medical Prefixes):</strong> <code>Hyper-</code> ارتفاع (Hypertension ارتفاع ضغط)، <code>Hypo-</code> انخفاض (Hypoglycemia هبوط سكر)، <code>Tachy-</code> تسارع (Tachycardia)، <code>Brady-</code> تباطؤ (Bradycardia)، <code>Anti-</code> مضاد، <code>Dys-</code> صعوبة أو خلل، <code>Poly-</code> متعدد.</li>
-                <li><strong>اللواحق اللاتينية الطبية (Medical Suffixes):</strong> <code>-itis</code> التهاب (Gastritis التهاب معدة)، <code>-algia</code> ألم (Myalgia ألم عضلات)، <code>-emia</code> في الدم (Anemia فقر دم)، <code>-uria</code> في البول، <code>-pathy</code> اعتلال مرضي، <code>-megaly</code> تضخم.</li>
-                <li><strong>سر الاسم العلمي (Generic Name):</strong> حفظ الاسم العلمي يكشف لك العائلة الدوائية وآلية العمل والموانع في ثوانٍ بدون الحاجة لحفظ آلاف الأسماء التجارية.</li>
-            </ul>
-
-            <div class="learn-grid">
-                <div class="learn-mini-card">
-                    <h5>-olol (Beta Blockers)</h5>
-                    <p>حاصرات بيتا للقلب والضغط مثل: Bisoprolol, Metoprolol, Atenolol, Propranolol (تُحذر في الربو).</p>
-                </div>
-                <div class="learn-mini-card">
-                    <h5>-pril (ACE Inhibitors)</h5>
-                    <p>مثبطات الإنزيم المحول للضغط والقلب مثل: Captopril, Enalapril, Lisinopril, Ramipril (تسبب سعال جاف وممنوعة بالحمل).</p>
-                </div>
-                <div class="learn-mini-card">
-                    <h5>-sartan (ARBs)</h5>
-                    <p>حاصرات مستقبلات الأنجيوتنسين للضغط مثل: Losartan, Valsartan, Candesartan, Telmisartan (بديل لا يسبب سعال وممنوع بالحمل).</p>
-                </div>
-                <div class="learn-mini-card">
-                    <h5>-prazole (PPIs)</h5>
-                    <p>مثبطات مضخة البروتون لحموضة وقرحة المعدة مثل: Omeprazole, Pantoprazole, Esomeprazole (تُؤخذ قبل الفطور بـ 30-60 دقيقة).</p>
-                </div>
-                <div class="learn-mini-card">
-                    <h5>-statin (Lipid Lowering)</h5>
-                    <p>خافضات الكوليسترول والدهون مثل: Atorvastatin, Rosuvastatin, Simvastatin (تُراقب إنزيمات الكبد وآلام العضلات).</p>
-                </div>
-                <div class="learn-mini-card">
-                    <h5>-dipine (Calcium Channel Blockers)</h5>
-                    <p>حاصرات قنوات الكالسيوم للضغط مثل: Amlodipine, Nifedipine, Felodipine (قد تسبب تورم الكاحلين).</p>
-                </div>
-                <div class="learn-mini-card">
-                    <h5>-gliptin & -flozin (Diabetes)</h5>
-                    <p>أدوية السكري الحديثة: Sitagliptin, Vildagliptin و Empagliflozin, Dapagliflozin (تحمي القلب والكلى).</p>
-                </div>
-                <div class="learn-mini-card">
-                    <h5>-mycin / -floxacin / -cillin</h5>
-                    <p>مضادات حيوية: Azithromycin (ماكروليد)، Ciprofloxacin (كينولون)، Amoxicillin (بنسلين).</p>
-                </div>
-            </div>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-roadmap', 'المصطلحات_والجذور_الدوائية')">📄 فتح PDF المرحلة 1</button>
+        <div class="calc-subtabs">
+            <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. حساب جرعات الشرابات</button>
+            <button class="calc-subbtn" onclick="switchCalc('calc-iv', this)">💧 2. المحاليل الوريدية (اختيار المحلول)</button>
+            <button class="calc-subbtn" onclick="switchCalc('calc-guide', this)">📋 3. جدول الطرق المرتب</button>
         </div>
 
-        <div class="card searchable-item" data-title="علم الأدوية Pharmacology ADME" id="card-pharmacology">
-            <div class="card-header">
-                <span class="card-title">المرحلة 2: علم الأدوية المتعمق (Pharmacology - ADME)</span>
-                <span class="badge">العمود الفقري</span>
+        <!-- 1. حاسبة الشرابات -->
+        <div id="calc-syrup" class="calc-panel active">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">🥄 حاسبة جرعات الشرابات (1 مل = 1 سي سي)</span>
+                    <span class="badge">معادلات دقيقة</span>
+                </div>
+
+                <div class="formula-box">
+                    <strong>1 مل = 1 سي سي</strong> — اكتب <strong>الوزن (كغم)</strong> أو <strong>العمر (سنوات)</strong> واختر الشراب ليحسب فوراً بالسي سي مع توضيح المعادلة الرياضية.
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>⚖️ وزن الطفل (كغم) - الأدق:</label>
+                        <input type="number" id="childWeight" class="form-control" placeholder="مثلاً: 10 أو 15 أو 20" oninput="calculateSyrup()">
+                    </div>
+                    <div class="form-group">
+                        <label>🎂 العمر بالسنوات (تقدير تلقائي):</label>
+                        <input type="number" id="childAge" class="form-control" placeholder="مثلاً: 2 أو 5 أو 10" oninput="estimateWeightFromAge()">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🔍 اختر الشراب:</label>
+                    <select id="presetDrug" class="form-control" onchange="updateSyrupPreview()">
+                        <optgroup label="📌 الشرابات وطرق الحساب المضافة">
+                            <option value="metro_125">ميترونيدازول 125 — (وزن الطفل × 0.4) — كل 8 ساعات</option>
+                            <option value="metro_250">ميترونيدازول 250 — (وزن الطفل × 0.25) — كل 8 ساعات</option>
+                            <option value="para_120">باراسيتامول شراب 120 — (5 × 10 × وزن الطفل ÷ 120)</option>
+                            <option value="para_250">باراسيتامول شراب 250 — (5 × 10 × وزن الطفل ÷ 250)</option>
+                            <option value="para_custom">باراسيتامول شراب (إدخال جرعة الدواء يدوياً) — (5 × 10 × وزن الطفل ÷ جرعة الدواء)</option>
+                            <option value="cefixime">Cefixime سيفيكسيم — (وزن الطفل × 0.4) — مرة واحدة باليوم</option>
+                            <option value="ibu_100_div2">بروفين 100/5 — (وزن الطفل ÷ 2) — كل 8 ساعات</option>
+                            <option value="ibu_100_mul025">بروفين 100/5 — (وزن الطفل × 0.25) — كل 8 ساعات</option>
+                            <option value="ibu_200_div4">بروفين 200/5 — (وزن الطفل ÷ 4) — كل 8 ساعات</option>
+                            <option value="azith_200">أزيثرومايسين 200/5 — (وزن الطفل × 0.25)</option>
+                            <option value="azith_300">أزيثرومايسين 300 — (وزن الطفل × 0.167)</option>
+                            <option value="aug_156_312">أوگمنتين 156/312 — (وزن الطفل × 0.533) — كل 8 ساعات</option>
+                            <option value="aug_200_400">أوگمنتين 200/400 — (وزن الطفل × 62.5 حسب طريقتك) — كل 12 ساعة</option>
+                            <option value="amox_250">أموكسيسيلين 250 — (وزن الطفل × 0.2)</option>
+                            <option value="amox_125">أموكسيسيلين 125 — (وزن الطفل × 0.4)</option>
+                            <option value="cefdin_125">سيفدينير 125 — (وزن الطفل × 0.28) — كل 12 ساعة</option>
+                            <option value="ceph_125">سفلاكسين 125 — (وزن الطفل × 0.33) — كل 8 ساعات</option>
+                            <option value="ceph_250">سفلاكسين 250 — (وزن الطفل × 0.66)</option>
+                            <option value="cefad">سيفادروكسيل — (وزن الطفل × 0.6) — كل 12 ساعة</option>
+                            <option value="novomit">No-Vomit — (وزن الطفل × 0.2) — كل 8 ساعات</option>
+                        </optgroup>
+                        <optgroup label="➕ شرابات إضافية جديدة بمعادلاتها الصحيحة">
+                            <option value="cefac_125_eq">سيفاكلور Cefaclor 125mg/5ml — (20mg/kg/day ÷ 3) × 5 ÷ 125</option>
+                            <option value="cefac_250_eq">سيفاكلور Cefaclor 250mg/5ml — (20mg/kg/day ÷ 3) × 5 ÷ 250</option>
+                            <option value="cefurox_125_eq">سيفيوروكزيم Cefuroxime 125mg/5ml — (30mg/kg/day ÷ 2) × 5 ÷ 125</option>
+                            <option value="cefurox_250_eq">سيفيوروكزيم Cefuroxime 250mg/5ml — (30mg/kg/day ÷ 2) × 5 ÷ 250</option>
+                            <option value="cefpod_100_eq">سيفبودوكسيم Cefpodoxime 100mg/5ml — (10mg/kg/day ÷ 2) × 5 ÷ 100</option>
+                            <option value="clarith_125_eq">كلاريثروميسين Clarithromycin 125mg/5ml — (15mg/kg/day ÷ 2) × 5 ÷ 125</option>
+                            <option value="clarith_250_eq">كلاريثروميسين Clarithromycin 250mg/5ml — (15mg/kg/day ÷ 2) × 5 ÷ 250</option>
+                            <option value="eryth_200_eq">إريثرومايسين Erythromycin 200mg/5ml — (40mg/kg/day ÷ 4) × 5 ÷ 200</option>
+                            <option value="pred_15_eq">بريدنيزولون Prednisolone 15mg/5ml — (1mg/kg/day) × 5 ÷ 15</option>
+                            <option value="pred_5_eq">بريدنيزولون Prednisolone 5mg/5ml — (1mg/kg/day) × 5 ÷ 5</option>
+                            <option value="salbut_2_eq">سالبوتامول / فنتولين Salbutamol 2mg/5ml — (0.1mg/kg/dose) × 5 ÷ 2</option>
+                            <option value="domper_5_eq">دومبيريدون Domperidone 5mg/5ml — (0.25mg/kg/dose) × 5 ÷ 5</option>
+                            <option value="ondans_4_eq">أوندانسيترون Ondansetron 4mg/5ml — (0.15mg/kg/dose) × 5 ÷ 4</option>
+                            <option value="cetir_5_eq">سيتريزين Cetirizine 5mg/5ml — (0.25mg/kg/day) × 5 ÷ 5</option>
+                            <option value="lorat_5_eq">لوراتادين Loratadine 5mg/5ml — (0.2mg/kg/day) × 5 ÷ 5</option>
+                            <option value="albend_200_eq">ألبيندازول Albendazole 200mg/5ml — جرعة 400mg (10 سي سي) فوق سنتين أو 200mg (5 سي سي) 1-2 سنة</option>
+                            <option value="mebend_100_eq">ميبيندازول Mebendazole 100mg/5ml — 5 سي سي (100mg) جرعة واحدة أو كل 12 ساعة حسب الحالة</option>
+                            <option value="iron_50_eq">شراب الحديد Iron 50mg/5ml — (3mg/kg/day) × 5 ÷ 50</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group" id="customDrugDoseGroup" style="display:none;">
+                    <label>🧪 جرعة الدواء (لباراسيتامول):</label>
+                    <input type="number" id="customParaDose" class="form-control" value="120" oninput="calculateSyrup()">
+                </div>
+
+                <div id="activeRuleBanner" class="formula-box" style="border-right-color:#10b981; color:#a7f3d0;"></div>
+
+                <button class="calc-btn" onclick="calculateSyrup()">⚡ احسب الجرعة الآن (سي سي / مل)</button>
+
+                <div id="syrupResult" class="result-box"></div>
             </div>
-            <ul class="step-list">
-                <li><strong>1. الامتصاص (Absorption & Bioavailability):</strong> انتقال الدواء من مكان إعطائه إلى مجرى الدم. الإعطاء الوريدي (IV) توافره الحيوي 100%، بينما الفموي يتأثر بالطعام وحموضة المعدة والمرور الكبدي الأول (First-Pass Metabolism).</li>
-                <li><strong>2. التوزيع (Distribution):</strong> انتشار الدواء في أنسجة الجسم وارتباطه ببروتينات البلازما (Albumin). الأدوية القابلة للذوبان في الدهون تعبر الحاجز الدموي الدماغي (BBB) والمشيمة.</li>
-                <li><strong>3. الأيض أو الاستقلاب (Metabolism):</strong> تحويل الدواء في الكبد غالباً عبر إنزيمات <strong>Cytochrome P450 (CYP450)</strong> إلى مادة سهلة الطرح، أو تنشيط دواء أولي (Prodrug مثل Clopidogrel).</li>
-                <li><strong>4. الإطراح (Excretion & Half-Life $t_{1/2}$):</strong> خروج الدواء عبر الكلى (البول) أو الصفراء (البراز). معرفة فترة نصف العمر ($t_{1/2}$) تحدد عدد مرات الجرعة باليوم (كل 6، 8، 12، أو 24 ساعة).</li>
-                <li><strong>5. ديناميكية الدواء (Pharmacodynamics):</strong> الفرق بين المحفز للمستقبل (<strong>Agonist</strong> مثل Salbutamol) والحاصر للمستقبل (<strong>Antagonist</strong> مثل Propranolol)، والهامش العلاجي الضيق (<strong>Narrow Therapeutic Index</strong> مثل Digoxin, Warfarin, Levothyroxine).</li>
-            </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmacology', 'علم_الأدوية_ADME')">📄 فتح PDF المرحلة 2</button>
         </div>
 
-        <div class="card searchable-item" data-title="الصيدلة السريرية وموانع الاستعمال وتصنيف الحمل" id="card-clinical">
-            <div class="card-header">
-                <span class="card-title">المرحلة 3: الصيدلة السريرية، تصنيف الحمل، وأخطر التداخلات</span>
-                <span class="badge">سلامة المريض</span>
+        <!-- 2. حاسبة المحاليل الوريدية -->
+        <div id="calc-iv" class="calc-panel">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">💧 حاسبة المحاليل الوريدية (اختيار المحلول والجرعة)</span>
+                    <span class="badge">1 مل = 1 سي سي</span>
+                </div>
+
+                <div class="formula-box">
+                    اختر <strong>المحلول الوريدي</strong> من القائمة، ثم أدخل <strong>الجرعة / الحجم المطلوب</strong> والوزن والمدة ليحسب لك الكمية بالسي سي وكيفية إعطاء المحلول والمعادلة الحسابية.
+                </div>
+
+                <div class="form-group">
+                    <label>🧪 اختر المحلول الوريدي:</label>
+                    <select id="ivSolutionSelect" class="form-control" onchange="updateIvHint()">
+                        <option value="ringer">رينجر لاكتيت (Ringer Lactate)</option>
+                        <option value="saline">نورمال سالاين (Normal Saline 0.9% NaCl)</option>
+                        <option value="dextrose">ديكستروز (Dextrose 5% / 10%)</option>
+                        <option value="glucose_saline">جلوكوز سلاين (Glucose Saline / Dextrose Saline)</option>
+                        <option value="mannitol">مانيتول / مدرر وريدي (Mannitol / IV Diuretics)</option>
+                        <option value="iron_iv">محلول الحديد الوريدي (IV Iron Sucrose / Iron)</option>
+                        <option value="para_iv">باراسيتامول مغذي (IV Paracetamol)</option>
+                        <option value="metro_iv">ميترونيدازول مغذي (IV Metronidazole)</option>
+                    </select>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label id="ivDoseInputLabel">💉 الجرعة أو الحجم المطلوب (مل / سي سي أو mg):</label>
+                        <input type="number" id="ivRequestedDose" class="form-control" value="500" oninput="calculateSelectedIV()">
+                    </div>
+                    <div class="form-group">
+                        <label>⚖️ الوزن (كغم) - اختياري للحساب الوزني:</label>
+                        <input type="number" id="ivWeight" class="form-control" placeholder="مثلاً: 15 أو 70" oninput="calculateSelectedIV()">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>⏱️ مدة التسريب / الإعطاء (ساعة):</label>
+                        <input type="number" id="ivDurationHrs" class="form-control" value="4" step="0.25" oninput="calculateSelectedIV()">
+                    </div>
+                    <div class="form-group">
+                        <label>🔬 معامل التقطير (Drop Factor):</label>
+                        <select id="ivDropFactor" class="form-control" onchange="calculateSelectedIV()">
+                            <option value="20">20 نقطة / مل (جهاز المغذي العادي - Macro)</option>
+                            <option value="60">60 نقطة / مل (Micro / الأطفال)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="ivSolutionHint" class="formula-box" style="border-right-color:#22d3ee; color:#cffafe;"></div>
+
+                <button class="calc-btn" onclick="calculateSelectedIV()">⚡ احسب طريقة إعطاء المحلول والمعادلة</button>
+
+                <div id="ivResult" class="result-box"></div>
             </div>
-            <ul class="step-list">
-                <li><span class="preg-badge" style="background:#10b981; color:#064e3b;">Category A & B</span> <strong>آمنة نسبياً بالحمل:</strong> مثل حمض الفوليك (Folic Acid)، باراسيتامول (Paracetamol)، أموكسيسيلين (Amoxicillin)، سيفالوسبورينات، وميثيل دوبا للضغط.</li>
-                <li><span class="preg-badge" style="background:#f59e0b; color:#0f172a;">Category C</span> <strong>تُستخدم فقط إذا فاقت الفائدة المخاطر:</strong> مثل Ciprofloxacin أو Omeprazole (يُفضل تجنب الكينولونات بالحمل).</li>
-                <li><span class="preg-badge" style="background:#f43f5e; color:#fff;">Category D & X</span> <strong>ممنوعة بالحمل (تسبب تشوهات جنينية):</strong> أدوية الضغط (ACEi مثل Ramipril و ARBs مثل Valsartan)، خافضات الدهون (Statins)، المضادات (Tetracyclines / Doxycycline)، ومشتقات فيتامين A (Isotretinoin).</li>
-                <li><strong>أشهر 5 تداخلات دوائية يومية في الصيدلية:</strong>
-                    <br>① <strong>Ciprofloxacin / Doxycycline + حليب أو كالسيوم أو حديد:</strong> تكوّن معقدات تمنع امتصاص المضاد (افصل 2-4 ساعات).
-                    <br>② <strong>Levothyroxine + حديد أو كالسيوم أو قهوة:</strong> يبطل مفعول دواء الغدة (افصل 4 ساعات).
-                    <br>③ <strong>Omeprazole + Clopidogrel:</strong> يقلل تفعيل مميع الدم في الكبد (استبدله بـ Pantoprazole).
-                    <br>④ <strong>NSAIDs (بروفين/ديكلوفيناك) + أدوية الضغط والمدرات:</strong> ترفع الضغط وتجهد الكلى.
-                    <br>⑤ <strong>Metronidazole + الكحول:</strong> يسبب قيئاً وخفقاناً شديداً.
-                </li>
-            </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-clinical', 'الصيدلة_السريرية_وتصنيف_الحمل')">📄 فتح PDF المرحلة 3</button>
         </div>
 
-        <div class="card searchable-item" data-title="فك رموز الوصفات الطبية والاختصارات الصيدلانية" id="card-rx-codes">
-            <div class="card-header">
-                <span class="card-title">المرحلة 4: فك رموز الوصفات الطبية والأشكال الصيدلانية</span>
-                <span class="badge">قراءة الوصفات</span>
-            </div>
-            <table class="dose-table">
-                <thead>
-                    <tr>
-                        <th>الاختصار في الوصفة</th>
-                        <th>المعنى اللاتيني / الإنجليزي</th>
-                        <th>الترجمة العملية للمريض</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>OD / q24h</strong></td><td>Once Daily</td><td>مرة واحدة باليوم (كل 24 ساعة)</td></tr>
-                    <tr><td><strong>BID / BD / q12h</strong></td><td>Bis in Die (Twice daily)</td><td>مرتين باليوم (كل 12 ساعة)</td></tr>
-                    <tr><td><strong>TID / TDS / q8h</strong></td><td>Ter in Die (Three times)</td><td>3 مرات باليوم (كل 8 ساعات)</td></tr>
-                    <tr><td><strong>QID / QDS / q6h</strong></td><td>Quater in Die (Four times)</td><td>4 مرات باليوم (كل 6 ساعات)</td></tr>
-                    <tr><td><strong>PRN / SOS</strong></td><td>Pro Re Nata</td><td>عند اللزوم / عند الحاجة فقط</td></tr>
-                    <tr><td><strong>AC / PC</strong></td><td>Ante Cibum / Post Cibum</td><td>AC قبل الأكل • PC بعد الأكل</td></tr>
-                    <tr><td><strong>HS / Nocte</strong></td><td>Hora Somni</td><td>مساءً عند النوم</td></tr>
-                    <tr><td><strong>Stat</strong></td><td>Statim</td><td>فوراً / جرعة إسعافية حالاً</td></tr>
-                    <tr><td><strong>PO / IM / IV / SC</strong></td><td>Per Os / Intramuscular / Intravenous</td><td>PO بالفم • IM عضلي • IV وريدي • SC تحت الجلد</td></tr>
-                    <tr><td><strong>Tab / Cap / Syr / Susp / Amp / Vial</strong></td><td>Dosage Forms</td><td>Tab حبوب • Cap كبسول • Syr شراب • Susp معلق • Amp أمبول • Vial فيال</td></tr>
-                </tbody>
-            </table>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-rx-codes', 'اختصارات_الوصفات_الطبية')">📄 فتح PDF المرحلة 4</button>
-        </div>
+        <!-- 3. جدول الطرق المرتب -->
+        <div id="calc-guide" class="calc-panel">
+            <div id="sec3-table-card" class="card">
+                <div class="card-header">
+                    <span class="card-title">📋 جدول طرق حساب الشرابات والمحاليل بالسي سي (1 مل = 1 سي سي)</span>
+                    <span class="badge">مرتب وجاهز</span>
+                </div>
 
-        <div class="card searchable-item" data-title="بروتوكولات الصيدلية السريعة OTC والحالات اليومية" id="card-otc">
-            <div class="card-header">
-                <span class="card-title">المرحلة 5: بروتوكولات الصرف اليومي السريع في الصيدلية (OTC)</span>
-                <span class="badge">خبرة ميدانية</span>
+                <table class="dose-table">
+                    <thead>
+                        <tr>
+                            <th>الدواء / الشراب</th>
+                            <th>التركيز</th>
+                            <th>طريقة الحساب (سي سي / مل)</th>
+                            <th>التكرار اليومي</th>
+                            <th>مثال (وزن 15 كغم)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customMethodTableBody"></tbody>
+                </table>
             </div>
-            <ul class="step-list">
-                <li><strong>الحموضة وحرقة المعدة:</strong> للحامل يُفضل مضادات الحموضة الموضعية (Alginate / Gaviscon) أو Famotidine؛ للحالات العادية Omeprazole/Pantoprazole قبل الفطور بـ 30 دقيقة.</li>
-                <li><strong>الإسهال الحاد عند الأطفال:</strong> الأساس الأول هو <strong>محلول الإرواء الفموي (ORS)</strong> لمنع الجفاف + <strong>الزنك (Zinc)</strong> لمدة 10-14 يوماً لتقليل مدة الإسهال وتكراره، ولا يُعطى مضاد حيوي إلا بعلامات عدوى بكتيرية.</li>
-                <li><strong>الرشح واحتقان الأنف:</strong> لمرضى الضغط والقلب يُمنع إعطاء مضادات الاحتقان الفموية (Pseudoephedrine) لأنها ترفع الضغط؛ البديل الآمن بخاخ ماء البحر (Sea Water / Normal Saline) ومضادات الهستامين الجيل الثاني (Loratadine / Cetirizine).</li>
-                <li><strong>الصداع والألم مع قرحة المعدة أو الربو:</strong> يُمنع Ibuprofen و Diclofenac؛ البديل الآمن هو <strong>Paracetamol</strong>.</li>
-            </ul>
-            <button class="mini-pdf-btn" onclick="openPdfViewer('card-otc', 'بروتوكولات_الصيدلية_اليومية')">📄 فتح PDF المرحلة 5</button>
         </div>
     </div>
 
@@ -1600,183 +1746,137 @@
         </div>
     </div>
 
-    <!-- القسم الثالث: حساب الجرعات -->
-    <div id="sec3" class="section-content">
+    <!-- القسم الثالث: تعلم الصيدلة (تم نقله إلى الترتيب الثالث كما طلبت) -->
+    <div id="sec1" class="section-content">
         <div class="action-bar">
-            <span>🧮 فتح جدول وطرق حساب الشرابات والمحاليل الوريدية بالسي سي كملف PDF:</span>
-            <button class="pdf-btn" onclick="openPdfViewer('sec3-table-card', 'جدول_الشرابات_والمحاليل_الوريدية')">👁️ فتح PDF الجدول الكامل</button>
+            <span>📄 عرض وتحميل موسوعة تعلم الصيدلة الشاملة كملف PDF مباشر:</span>
+            <button class="pdf-btn" onclick="openPdfViewer('sec1', 'موسوعة_تعلم_الصيدلة_الشاملة')">👁️ فتح ملف PDF الشامل</button>
         </div>
 
-        <div class="calc-subtabs">
-            <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. حساب جرعات الشرابات</button>
-            <button class="calc-subbtn" onclick="switchCalc('calc-iv', this)">💧 2. المحاليل الوريدية (اختيار المحلول)</button>
-            <button class="calc-subbtn" onclick="switchCalc('calc-guide', this)">📋 3. جدول الطرق المرتب</button>
-        </div>
-
-        <!-- 1. حاسبة الشرابات -->
-        <div id="calc-syrup" class="calc-panel active">
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">🥄 حاسبة جرعات الشرابات (1 مل = 1 سي سي)</span>
-                    <span class="badge">معادلات دقيقة</span>
-                </div>
-
-                <div class="formula-box">
-                    <strong>1 مل = 1 سي سي</strong> — اكتب <strong>الوزن (كغم)</strong> أو <strong>العمر (سنوات)</strong> واختر الشراب ليحسب فوراً بالسي سي مع توضيح المعادلة الرياضية.
-                </div>
-
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label>⚖️ وزن الطفل (كغم) - الأدق:</label>
-                        <input type="number" id="childWeight" class="form-control" placeholder="مثلاً: 10 أو 15 أو 20" oninput="calculateSyrup()">
-                    </div>
-                    <div class="form-group">
-                        <label>🎂 العمر بالسنوات (تقدير تلقائي):</label>
-                        <input type="number" id="childAge" class="form-control" placeholder="مثلاً: 2 أو 5 أو 10" oninput="estimateWeightFromAge()">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>🔍 اختر الشراب:</label>
-                    <select id="presetDrug" class="form-control" onchange="updateSyrupPreview()">
-                        <optgroup label="📌 الشرابات وطرق الحساب المضافة">
-                            <option value="metro_125">ميترونيدازول 125 — (وزن الطفل × 0.4) — كل 8 ساعات</option>
-                            <option value="metro_250">ميترونيدازول 250 — (وزن الطفل × 0.25) — كل 8 ساعات</option>
-                            <option value="para_120">باراسيتامول شراب 120 — (5 × 10 × وزن الطفل ÷ 120)</option>
-                            <option value="para_250">باراسيتامول شراب 250 — (5 × 10 × وزن الطفل ÷ 250)</option>
-                            <option value="para_custom">باراسيتامول شراب (إدخال جرعة الدواء يدوياً) — (5 × 10 × وزن الطفل ÷ جرعة الدواء)</option>
-                            <option value="cefixime">Cefixime سيفيكسيم — (وزن الطفل × 0.4) — مرة واحدة باليوم</option>
-                            <option value="ibu_100_div2">بروفين 100/5 — (وزن الطفل ÷ 2) — كل 8 ساعات</option>
-                            <option value="ibu_100_mul025">بروفين 100/5 — (وزن الطفل × 0.25) — كل 8 ساعات</option>
-                            <option value="ibu_200_div4">بروفين 200/5 — (وزن الطفل ÷ 4) — كل 8 ساعات</option>
-                            <option value="azith_200">أزيثرومايسين 200/5 — (وزن الطفل × 0.25)</option>
-                            <option value="azith_300">أزيثرومايسين 300 — (وزن الطفل × 0.167)</option>
-                            <option value="aug_156_312">أوگمنتين 156/312 — (وزن الطفل × 0.533) — كل 8 ساعات</option>
-                            <option value="aug_200_400">أوگمنتين 200/400 — (وزن الطفل × 62.5 حسب طريقتك) — كل 12 ساعة</option>
-                            <option value="amox_250">أموكسيسيلين 250 — (وزن الطفل × 0.2)</option>
-                            <option value="amox_125">أموكسيسيلين 125 — (وزن الطفل × 0.4)</option>
-                            <option value="cefdin_125">سيفدينير 125 — (وزن الطفل × 0.28) — كل 12 ساعة</option>
-                            <option value="ceph_125">سفلاكسين 125 — (وزن الطفل × 0.33) — كل 8 ساعات</option>
-                            <option value="ceph_250">سفلاكسين 250 — (وزن الطفل × 0.66)</option>
-                            <option value="cefad">سيفادروكسيل — (وزن الطفل × 0.6) — كل 12 ساعة</option>
-                            <option value="novomit">No-Vomit — (وزن الطفل × 0.2) — كل 8 ساعات</option>
-                        </optgroup>
-                        <optgroup label="➕ شرابات إضافية جديدة بمعادلاتها الصحيحة">
-                            <option value="cefac_125_eq">سيفاكلور Cefaclor 125mg/5ml — (20mg/kg/day ÷ 3) × 5 ÷ 125</option>
-                            <option value="cefac_250_eq">سيفاكلور Cefaclor 250mg/5ml — (20mg/kg/day ÷ 3) × 5 ÷ 250</option>
-                            <option value="cefurox_125_eq">سيفيوروكزيم Cefuroxime 125mg/5ml — (30mg/kg/day ÷ 2) × 5 ÷ 125</option>
-                            <option value="cefurox_250_eq">سيفيوروكزيم Cefuroxime 250mg/5ml — (30mg/kg/day ÷ 2) × 5 ÷ 250</option>
-                            <option value="cefpod_100_eq">سيفبودوكسيم Cefpodoxime 100mg/5ml — (10mg/kg/day ÷ 2) × 5 ÷ 100</option>
-                            <option value="clarith_125_eq">كلاريثروميسين Clarithromycin 125mg/5ml — (15mg/kg/day ÷ 2) × 5 ÷ 125</option>
-                            <option value="clarith_250_eq">كلاريثروميسين Clarithromycin 250mg/5ml — (15mg/kg/day ÷ 2) × 5 ÷ 250</option>
-                            <option value="eryth_200_eq">إريثرومايسين Erythromycin 200mg/5ml — (40mg/kg/day ÷ 4) × 5 ÷ 200</option>
-                            <option value="pred_15_eq">بريدنيزولون Prednisolone 15mg/5ml — (1mg/kg/day) × 5 ÷ 15</option>
-                            <option value="pred_5_eq">بريدنيزولون Prednisolone 5mg/5ml — (1mg/kg/day) × 5 ÷ 5</option>
-                            <option value="salbut_2_eq">سالبوتامول / فنتولين Salbutamol 2mg/5ml — (0.1mg/kg/dose) × 5 ÷ 2</option>
-                            <option value="domper_5_eq">دومبيريدون Domperidone 5mg/5ml — (0.25mg/kg/dose) × 5 ÷ 5</option>
-                            <option value="ondans_4_eq">أوندانسيترون Ondansetron 4mg/5ml — (0.15mg/kg/dose) × 5 ÷ 4</option>
-                            <option value="cetir_5_eq">سيتريزين Cetirizine 5mg/5ml — (0.25mg/kg/day) × 5 ÷ 5</option>
-                            <option value="lorat_5_eq">لوراتادين Loratadine 5mg/5ml — (0.2mg/kg/day) × 5 ÷ 5</option>
-                            <option value="albend_200_eq">ألبيندازول Albendazole 200mg/5ml — جرعة 400mg (10 سي سي) فوق سنتين أو 200mg (5 سي سي) 1-2 سنة</option>
-                            <option value="mebend_100_eq">ميبيندازول Mebendazole 100mg/5ml — 5 سي سي (100mg) جرعة واحدة أو كل 12 ساعة حسب الحالة</option>
-                            <option value="iron_50_eq">شراب الحديد Iron 50mg/5ml — (3mg/kg/day) × 5 ÷ 50</option>
-                        </optgroup>
-                    </select>
-                </div>
-
-                <div class="form-group" id="customDrugDoseGroup" style="display:none;">
-                    <label>🧪 جرعة الدواء (لباراسيتامول):</label>
-                    <input type="number" id="customParaDose" class="form-control" value="120" oninput="calculateSyrup()">
-                </div>
-
-                <div id="activeRuleBanner" class="formula-box" style="border-right-color:#10b981; color:#a7f3d0;"></div>
-
-                <button class="calc-btn" onclick="calculateSyrup()">⚡ احسب الجرعة الآن (سي سي / مل)</button>
-
-                <div id="syrupResult" class="result-box"></div>
+        <div class="card searchable-item" data-title="خارطة الطريق لتعلم الصيدلة والمصطلحات الطبية" id="card-roadmap">
+            <div class="card-header">
+                <span class="card-title">المرحلة 1: خارطة الطريق والمصطلحات الطبية والجذور الدوائية</span>
+                <span class="badge">أساسيات ذهبية</span>
             </div>
+            <ul class="step-list">
+                <li><strong>البادئات اللاتينية الطبية (Medical Prefixes):</strong> <code>Hyper-</code> ارتفاع (Hypertension ارتفاع ضغط)، <code>Hypo-</code> انخفاض (Hypoglycemia هبوط سكر)، <code>Tachy-</code> تسارع (Tachycardia)، <code>Brady-</code> تباطؤ (Bradycardia)، <code>Anti-</code> مضاد، <code>Dys-</code> صعوبة أو خلل، <code>Poly-</code> متعدد.</li>
+                <li><strong>اللواحق اللاتينية الطبية (Medical Suffixes):</strong> <code>-itis</code> التهاب (Gastritis التهاب معدة)، <code>-algia</code> ألم (Myalgia ألم عضلات)، <code>-emia</code> في الدم (Anemia فقر دم)، <code>-uria</code> في البول، <code>-pathy</code> اعتلال مرضي، <code>-megaly</code> تضخم.</li>
+                <li><strong>سر الاسم العلمي (Generic Name):</strong> حفظ الاسم العلمي يكشف لك العائلة الدوائية وآلية العمل والموانع في ثوانٍ بدون الحاجة لحفظ آلاف الأسماء التجارية.</li>
+            </ul>
+
+            <div class="learn-grid">
+                <div class="learn-mini-card">
+                    <h5>-olol (Beta Blockers)</h5>
+                    <p>حاصرات بيتا للقلب والضغط مثل: Bisoprolol, Metoprolol, Atenolol, Propranolol (تُحذر في الربو).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-pril (ACE Inhibitors)</h5>
+                    <p>مثبطات الإنزيم المحول للضغط والقلب مثل: Captopril, Enalapril, Lisinopril, Ramipril (تسبب سعال جاف وممنوعة بالحمل).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-sartan (ARBs)</h5>
+                    <p>حاصرات مستقبلات الأنجيوتنسين للضغط مثل: Losartan, Valsartan, Candesartan, Telmisartan (بديل لا يسبب سعال وممنوع بالحمل).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-prazole (PPIs)</h5>
+                    <p>مثبطات مضخة البروتون لحموضة وقرحة المعدة مثل: Omeprazole, Pantoprazole, Esomeprazole (تُؤخذ قبل الفطور بـ 30-60 دقيقة).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-statin (Lipid Lowering)</h5>
+                    <p>خافضات الكوليسترول والدهون مثل: Atorvastatin, Rosuvastatin, Simvastatin (تُراقب إنزيمات الكبد وآلام العضلات).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-dipine (Calcium Channel Blockers)</h5>
+                    <p>حاصرات قنوات الكالسيوم للضغط مثل: Amlodipine, Nifedipine, Felodipine (قد تسبب تورم الكاحلين).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-gliptin & -flozin (Diabetes)</h5>
+                    <p>أدوية السكري الحديثة: Sitagliptin, Vildagliptin و Empagliflozin, Dapagliflozin (تحمي القلب والكلى).</p>
+                </div>
+                <div class="learn-mini-card">
+                    <h5>-mycin / -floxacin / -cillin</h5>
+                    <p>مضادات حيوية: Azithromycin (ماكروليد)، Ciprofloxacin (كينولون)، Amoxicillin (بنسلين).</p>
+                </div>
+            </div>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-roadmap', 'المصطلحات_والجذور_الدوائية')">📄 فتح PDF المرحلة 1</button>
         </div>
 
-        <!-- 2. حاسبة المحاليل الوريدية -->
-        <div id="calc-iv" class="calc-panel">
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">💧 حاسبة المحاليل الوريدية (اختيار المحلول والجرعة)</span>
-                    <span class="badge">1 مل = 1 سي سي</span>
-                </div>
-
-                <div class="formula-box">
-                    اختر <strong>المحلول الوريدي</strong> من القائمة، ثم أدخل <strong>الجرعة / الحجم المطلوب</strong> والوزن والمدة ليحسب لك الكمية بالسي سي وكيفية إعطاء المحلول والمعادلة الحسابية.
-                </div>
-
-                <div class="form-group">
-                    <label>🧪 اختر المحلول الوريدي:</label>
-                    <select id="ivSolutionSelect" class="form-control" onchange="updateIvHint()">
-                        <option value="ringer">رينجر لاكتيت (Ringer Lactate)</option>
-                        <option value="saline">نورمال سالاين (Normal Saline 0.9% NaCl)</option>
-                        <option value="dextrose">ديكستروز (Dextrose 5% / 10%)</option>
-                        <option value="glucose_saline">جلوكوز سلاين (Glucose Saline / Dextrose Saline)</option>
-                        <option value="mannitol">مانيتول / مدرر وريدي (Mannitol / IV Diuretics)</option>
-                        <option value="iron_iv">محلول الحديد الوريدي (IV Iron Sucrose / Iron)</option>
-                        <option value="para_iv">باراسيتامول مغذي (IV Paracetamol)</option>
-                        <option value="metro_iv">ميترونيدازول مغذي (IV Metronidazole)</option>
-                    </select>
-                </div>
-
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label id="ivDoseInputLabel">💉 الجرعة أو الحجم المطلوب (مل / سي سي أو mg):</label>
-                        <input type="number" id="ivRequestedDose" class="form-control" value="500" oninput="calculateSelectedIV()">
-                    </div>
-                    <div class="form-group">
-                        <label>⚖️ الوزن (كغم) - اختياري للحساب الوزني:</label>
-                        <input type="number" id="ivWeight" class="form-control" placeholder="مثلاً: 15 أو 70" oninput="calculateSelectedIV()">
-                    </div>
-                </div>
-
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label>⏱️ مدة التسريب / الإعطاء (ساعة):</label>
-                        <input type="number" id="ivDurationHrs" class="form-control" value="4" step="0.25" oninput="calculateSelectedIV()">
-                    </div>
-                    <div class="form-group">
-                        <label>🔬 معامل التقطير (Drop Factor):</label>
-                        <select id="ivDropFactor" class="form-control" onchange="calculateSelectedIV()">
-                            <option value="20">20 نقطة / مل (جهاز المغذي العادي - Macro)</option>
-                            <option value="60">60 نقطة / مل (Micro / الأطفال)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="ivSolutionHint" class="formula-box" style="border-right-color:#22d3ee; color:#cffafe;"></div>
-
-                <button class="calc-btn" onclick="calculateSelectedIV()">⚡ احسب طريقة إعطاء المحلول والمعادلة</button>
-
-                <div id="ivResult" class="result-box"></div>
+        <div class="card searchable-item" data-title="علم الأدوية Pharmacology ADME" id="card-pharmacology">
+            <div class="card-header">
+                <span class="card-title">المرحلة 2: علم الأدوية المتعمق (Pharmacology - ADME)</span>
+                <span class="badge">العمود الفقري</span>
             </div>
+            <ul class="step-list">
+                <li><strong>1. الامتصاص (Absorption & Bioavailability):</strong> انتقال الدواء من مكان إعطائه إلى مجرى الدم. الإعطاء الوريدي (IV) توافره الحيوي 100%، بينما الفموي يتأثر بالطعام وحموضة المعدة والمرور الكبدي الأول (First-Pass Metabolism).</li>
+                <li><strong>2. التوزيع (Distribution):</strong> انتشار الدواء في أنسجة الجسم وارتباطه ببروتينات البلازما (Albumin). الأدوية القابلة للذوبان في الدهون تعبر الحاجز الدموي الدماغي (BBB) والمشيمة.</li>
+                <li><strong>3. الأيض أو الاستقلاب (Metabolism):</strong> تحويل الدواء في الكبد غالباً عبر إنزيمات <strong>Cytochrome P450 (CYP450)</strong> إلى مادة سهلة الطرح، أو تنشيط دواء أولي (Prodrug مثل Clopidogrel).</li>
+                <li><strong>4. الإطراح (Excretion & Half-Life t½):</strong> خروج الدواء عبر الكلى (البول) أو الصفراء (البراز). معرفة فترة نصف العمر (t½) تحدد عدد مرات الجرعة باليوم (كل 6، 8، 12، أو 24 ساعة).</li>
+                <li><strong>5. ديناميكية الدواء (Pharmacodynamics):</strong> الفرق بين المحفز للمستقبل (<strong>Agonist</strong> مثل Salbutamol) والحاصر للمستقبل (<strong>Antagonist</strong> مثل Propranolol)، والهامش العلاجي الضيق (<strong>Narrow Therapeutic Index</strong> مثل Digoxin, Warfarin, Levothyroxine).</li>
+            </ul>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-pharmacology', 'علم_الأدوية_ADME')">📄 فتح PDF المرحلة 2</button>
         </div>
 
-        <!-- 3. جدول الطرق المرتب -->
-        <div id="calc-guide" class="calc-panel">
-            <div id="sec3-table-card" class="card">
-                <div class="card-header">
-                    <span class="card-title">📋 جدول طرق حساب الشرابات والمحاليل بالسي سي (1 مل = 1 سي سي)</span>
-                    <span class="badge">مرتب وجاهز</span>
-                </div>
-
-                <table class="dose-table">
-                    <thead>
-                        <tr>
-                            <th>الدواء / الشراب</th>
-                            <th>التركيز</th>
-                            <th>طريقة الحساب (سي سي / مل)</th>
-                            <th>التكرار اليومي</th>
-                            <th>مثال (وزن 15 كغم)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="customMethodTableBody"></tbody>
-                </table>
+        <div class="card searchable-item" data-title="الصيدلة السريرية وموانع الاستعمال وتصنيف الحمل" id="card-clinical">
+            <div class="card-header">
+                <span class="card-title">المرحلة 3: الصيدلة السريرية، تصنيف الحمل، وأخطر التداخلات</span>
+                <span class="badge">سلامة المريض</span>
             </div>
+            <ul class="step-list">
+                <li><span class="preg-badge" style="background:#10b981; color:#064e3b;">Category A & B</span> <strong>آمنة نسبياً بالحمل:</strong> مثل حمض الفوليك (Folic Acid)، باراسيتامول (Paracetamol)، أموكسيسيلين (Amoxicillin)، سيفالوسبورينات، وميثيل دوبا للضغط.</li>
+                <li><span class="preg-badge" style="background:#f59e0b; color:#0f172a;">Category C</span> <strong>تُستخدم فقط إذا فاقت الفائدة المخاطر:</strong> مثل Ciprofloxacin أو Omeprazole (يُفضل تجنب الكينولونات بالحمل).</li>
+                <li><span class="preg-badge" style="background:#f43f5e; color:#fff;">Category D & X</span> <strong>ممنوعة بالحمل (تسبب تشوهات جنينية):</strong> أدوية الضغط (ACEi مثل Ramipril و ARBs مثل Valsartan)، خافضات الدهون (Statins)، المضادات (Tetracyclines / Doxycycline)، ومشتقات فيتامين A (Isotretinoin).</li>
+                <li><strong>أشهر 5 تداخلات دوائية يومية في الصيدلية:</strong>
+                    <br>① <strong>Ciprofloxacin / Doxycycline + حليب أو كالسيوم أو حديد:</strong> تكوّن معقدات تمنع امتصاص المضاد (افصل 2-4 ساعات).
+                    <br>② <strong>Levothyroxine + حديد أو كالسيوم أو قهوة:</strong> يبطل مفعول دواء الغدة (افصل 4 ساعات).
+                    <br>③ <strong>Omeprazole + Clopidogrel:</strong> يقلل تفعيل مميع الدم في الكبد (استبدله بـ Pantoprazole).
+                    <br>④ <strong>NSAIDs (بروفين/ديكلوفيناك) + أدوية الضغط والمدرات:</strong> ترفع الضغط وتجهد الكلى.
+                    <br>⑤ <strong>Metronidazole + الكحول:</strong> يسبب قيئاً وخفقاناً شديداً.
+                </li>
+            </ul>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-clinical', 'الصيدلة_السريرية_وتصنيف_الحمل')">📄 فتح PDF المرحلة 3</button>
+        </div>
+
+        <div class="card searchable-item" data-title="فك رموز الوصفات الطبية والاختصارات الصيدلانية" id="card-rx-codes">
+            <div class="card-header">
+                <span class="card-title">المرحلة 4: فك رموز الوصفات الطبية والأشكال الصيدلانية</span>
+                <span class="badge">قراءة الوصفات</span>
+            </div>
+            <table class="dose-table">
+                <thead>
+                    <tr>
+                        <th>الاختصار في الوصفة</th>
+                        <th>المعنى اللاتيني / الإنجليزي</th>
+                        <th>الترجمة العملية للمريض</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>OD / q24h</strong></td><td>Once Daily</td><td>مرة واحدة باليوم (كل 24 ساعة)</td></tr>
+                    <tr><td><strong>BID / BD / q12h</strong></td><td>Bis in Die (Twice daily)</td><td>مرتين باليوم (كل 12 ساعة)</td></tr>
+                    <tr><td><strong>TID / TDS / q8h</strong></td><td>Ter in Die (Three times)</td><td>3 مرات باليوم (كل 8 ساعات)</td></tr>
+                    <tr><td><strong>QID / QDS / q6h</strong></td><td>Quater in Die (Four times)</td><td>4 مرات باليوم (كل 6 ساعات)</td></tr>
+                    <tr><td><strong>PRN / SOS</strong></td><td>Pro Re Nata</td><td>عند اللزوم / عند الحاجة فقط</td></tr>
+                    <tr><td><strong>AC / PC</strong></td><td>Ante Cibum / Post Cibum</td><td>AC قبل الأكل • PC بعد الأكل</td></tr>
+                    <tr><td><strong>HS / Nocte</strong></td><td>Hora Somni</td><td>مساءً عند النوم</td></tr>
+                    <tr><td><strong>Stat</strong></td><td>Statim</td><td>فوراً / جرعة إسعافية حالاً</td></tr>
+                    <tr><td><strong>PO / IM / IV / SC</strong></td><td>Per Os / Intramuscular / Intravenous</td><td>PO بالفم • IM عضلي • IV وريدي • SC تحت الجلد</td></tr>
+                    <tr><td><strong>Tab / Cap / Syr / Susp / Amp / Vial</strong></td><td>Dosage Forms</td><td>Tab حبوب • Cap كبسول • Syr شراب • Susp معلق • Amp أمبول • Vial فيال</td></tr>
+                </tbody>
+            </table>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-rx-codes', 'اختصارات_الوصفات_الطبية')">📄 فتح PDF المرحلة 4</button>
+        </div>
+
+        <div class="card searchable-item" data-title="بروتوكولات الصيدلية السريعة OTC والحالات اليومية" id="card-otc">
+            <div class="card-header">
+                <span class="card-title">المرحلة 5: بروتوكولات الصرف اليومي السريع في الصيدلية (OTC)</span>
+                <span class="badge">خبرة ميدانية</span>
+            </div>
+            <ul class="step-list">
+                <li><strong>الحموضة وحرقة المعدة:</strong> للحامل يُفضل مضادات الحموضة الموضعية (Alginate / Gaviscon) أو Famotidine؛ للحالات العادية Omeprazole/Pantoprazole قبل الفطور بـ 30 دقيقة.</li>
+                <li><strong>الإسهال الحاد عند الأطفال:</strong> الأساس الأول هو <strong>محلول الإرواء الفموي (ORS)</strong> لمنع الجفاف + <strong>الزنك (Zinc)</strong> لمدة 10-14 يوماً لتقليل مدة الإسهال وتكراره، ولا يُعطى مضاد حيوي إلا بعلامات عدوى بكتيرية.</li>
+                <li><strong>الرشح واحتقان الأنف:</strong> لمرضى الضغط والقلب يُمنع إعطاء مضادات الاحتقان الفموية (Pseudoephedrine) لأنها ترفع الضغط؛ البديل الآمن بخاخ ماء البحر (Sea Water / Normal Saline) ومضادات الهستامين الجيل الثاني (Loratadine / Cetirizine).</li>
+                <li><strong>الصداع والألم مع قرحة المعدة أو الربو:</strong> يُمنع Ibuprofen و Diclofenac؛ البديل الآمن هو <strong>Paracetamol</strong>.</li>
+            </ul>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('card-otc', 'بروتوكولات_الصيدلية_اليومية')">📄 فتح PDF المرحلة 5</button>
         </div>
     </div>
 
@@ -2068,20 +2168,69 @@
         }
     });
 
-    /* ================= 2. نظام ربط الإيميل + التجربة المجانية 7 أيام + اشتراك الكي كارد ($1 / 30 يوم) ================= */
-    const STORAGE_KEY_USER = "ai_pharmacy_user_account_v1";
-    const STORAGE_KEY_MERCHANT_CARD = "ai_pharmacy_merchant_qicard_v1";
-    const STORAGE_KEY_PAYMENTS = "ai_pharmacy_payments_log_v1";
-    const OWNER_PIN = "2026";
+    /* ================= 2. نظام ربط الإيميل + التجربة المجانية 7 أيام + تفعيل التطبيق الاحترافي ================= */
+    const STORAGE_KEY_USER = "ai_pharmacy_user_account_v2";
+    const STORAGE_KEY_DEVICE = "ai_pharmacy_device_id_v2";
+    const STORAGE_KEY_MERCHANT_CARD = "ai_pharmacy_merchant_qicard_v2";
+    const STORAGE_KEY_MERCHANT_WA = "ai_pharmacy_merchant_wa_v2";
+    const STORAGE_KEY_PAYMENTS = "ai_pharmacy_payments_log_v2";
+    const STORAGE_KEY_USED_KEYS = "ai_pharmacy_used_keys_v2";
+    const _0xADMIN_KEY = "AA9955BB66";
     const DAY_MS = 24 * 60 * 60 * 1000;
+
+    function getOrCreateDeviceId() {
+        let devId = localStorage.getItem(STORAGE_KEY_DEVICE);
+        if (!devId) {
+            const rand = Math.floor(100000 + Math.random() * 900000);
+            devId = "PH-" + rand;
+            localStorage.setItem(STORAGE_KEY_DEVICE, devId);
+        }
+        return devId;
+    }
+
+    function computeLicenseKeyForDevice(deviceId, cycleIndex) {
+        const clean = (deviceId || "").trim().toUpperCase();
+        const salt = "IBRAHIM_PHARM_2026_" + cycleIndex;
+        let hash = 0;
+        const combo = clean + "|" + salt;
+        for (let i = 0; i < combo.length; i++) {
+            hash = ((hash << 5) - hash) + combo.charCodeAt(i);
+            hash |= 0;
+        }
+        const part1 = Math.abs(hash).toString(36).toUpperCase().padStart(4, 'X').slice(0, 4);
+        const part2 = Math.abs(hash * 7 + cycleIndex * 13).toString(36).toUpperCase().padStart(4, '9').slice(0, 4);
+        return `PRO-${part1}-${part2}-${cycleIndex}`;
+    }
 
     function getMerchantCard() {
         return localStorage.getItem(STORAGE_KEY_MERCHANT_CARD) || "7110-4829-9301-2026";
     }
 
-    function initSubscriptionSystem() {
+    function getMerchantWhatsapp() {
+        return localStorage.getItem(STORAGE_KEY_MERCHANT_WA) || "9647700000000";
+    }
+
+    function copyTextValue(elId) {
+        const txt = document.getElementById(elId).innerText;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(txt);
+            alert("تم النسخ: " + txt);
+        }
+    }
+
+    function updatePaymentModalInfo(userEmail) {
+        const devId = getOrCreateDeviceId();
         document.getElementById('merchantQiCardDisplay').innerText = getMerchantCard();
+        document.getElementById('userDeviceIdDisplay').innerText = devId;
+        const waNum = getMerchantWhatsapp().replace(/[^0-9]/g, '');
+        const msg = encodeURIComponent(`مرحباً، قمت بتحويل 1$ عبر الكي كارد لتفعيل تطبيق الصيدلة (30 يوم).\nالإيميل: ${userEmail || ''}\nمعرّف الجهاز: ${devId}`);
+        document.getElementById('whatsappRequestLink').href = `https://wa.me/${waNum}?text=${msg}`;
+    }
+
+    function initSubscriptionSystem() {
         const saved = localStorage.getItem(STORAGE_KEY_USER);
+        updatePaymentModalInfo(saved ? JSON.parse(saved).email : "");
+
         if (!saved) {
             document.getElementById('emailGateModal').classList.add('open');
             return;
@@ -2095,7 +2244,7 @@
         if (user.paidUntil && now < user.paidUntil) {
             const daysLeft = Math.ceil((user.paidUntil - now) / DAY_MS);
             badge.className = "status-chip status-active";
-            badge.innerText = `✅ اشتراك فعّال ($1) • متبقي ${daysLeft} يوم`;
+            badge.innerText = `💎 اشتراك مفعّل • متبقي ${daysLeft} يوم`;
             document.getElementById('paymentGateModal').classList.remove('open');
         } else if (now < user.trialEndsAt) {
             const daysLeft = Math.ceil((user.trialEndsAt - now) / DAY_MS);
@@ -2104,7 +2253,7 @@
             document.getElementById('paymentGateModal').classList.remove('open');
         } else {
             badge.className = "status-chip status-expired";
-            badge.innerText = "⛔ انتهت المجانية • مطلوب $1 كي كارد";
+            badge.innerText = "⛔ انتهت المجانية • مطلوب تفعيل ($1)";
             document.getElementById('closePayModalBtn').style.display = 'none';
             document.getElementById('paymentGateModal').classList.add('open');
         }
@@ -2132,7 +2281,8 @@
                 email: email,
                 createdAt: now,
                 trialEndsAt: now + (7 * DAY_MS),
-                paidUntil: null
+                paidUntil: null,
+                cyclesCount: 0
             };
         }
 
@@ -2147,7 +2297,8 @@
     }
 
     function openPaymentModal() {
-        document.getElementById('merchantQiCardDisplay').innerText = getMerchantCard();
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        updatePaymentModalInfo(saved ? JSON.parse(saved).email : "");
         document.getElementById('closePayModalBtn').style.display = 'inline-block';
         document.getElementById('paymentGateModal').classList.add('open');
     }
@@ -2160,14 +2311,34 @@
         if ((user.paidUntil && now < user.paidUntil) || now < user.trialEndsAt) {
             document.getElementById('paymentGateModal').classList.remove('open');
         } else {
-            alert("انتهت فترة الـ 7 أيام المجانية، يرجى تفعيل اشتراك الـ 1$ عبر الكي كارد للاستمرار.");
+            alert("انتهت فترة الـ 7 أيام المجانية، يرجى إدخال كود التفعيل الشهري ($1) للاستمرار.");
         }
     }
 
-    function processQiCardPayment() {
-        const payerCard = document.getElementById('payerCardInput').value.trim();
-        if (payerCard.length < 4) {
-            alert("يرجى إدخال رقم بطاقة الكي كارد المرسِلة أو رقم وصل التحويل (4 أرقام على الأقل).");
+    function verifyAndActivateKey() {
+        const code = document.getElementById('activationCodeInput').value.trim().toUpperCase();
+        if (!code) {
+            alert("يرجى إدخال كود التفعيل الخاص بجهازك.");
+            return;
+        }
+
+        const usedKeys = JSON.parse(localStorage.getItem(STORAGE_KEY_USED_KEYS) || "[]");
+        if (usedKeys.includes(code)) {
+            alert("هذا الكود مستخدم مسبقاً، يرجى طلب كود تجديد جديد.");
+            return;
+        }
+
+        const devId = getOrCreateDeviceId();
+        let validCycle = null;
+        for (let c = 1; c <= 120; c++) {
+            if (computeLicenseKeyForDevice(devId, c) === code) {
+                validCycle = c;
+                break;
+            }
+        }
+
+        if (!validCycle) {
+            alert("كود التفعيل غير صحيح أو غير مطابق لمعرّف هذا الجهاز.");
             return;
         }
 
@@ -2177,21 +2348,15 @@
         const now = Date.now();
         const baseTime = (user.paidUntil && user.paidUntil > now) ? user.paidUntil : now;
         user.paidUntil = baseTime + (30 * DAY_MS);
+        user.cyclesCount = validCycle;
         localStorage.setItem(STORAGE_KEY_USER, JSON.stringify(user));
 
-        const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_PAYMENTS) || "[]");
-        logs.unshift({
-            email: user.email,
-            payerCard: payerCard,
-            amount: 1,
-            toMainCard: getMerchantCard(),
-            date: new Date().toLocaleString('ar-IQ')
-        });
-        localStorage.setItem(STORAGE_KEY_PAYMENTS, JSON.stringify(logs));
+        usedKeys.push(code);
+        localStorage.setItem(STORAGE_KEY_USED_KEYS, JSON.stringify(usedKeys));
 
-        document.getElementById('payerCardInput').value = "";
+        document.getElementById('activationCodeInput').value = "";
         document.getElementById('paymentGateModal').classList.remove('open');
-        alert("✅ تم تفعيل اشتراكك بنجاح لمدة 30 يوماً ($1 Qi Card)!");
+        alert("✅ تم تفعيل الاشتراك بنجاح لمدة 30 يوماً!");
         initSubscriptionSystem();
     }
 
@@ -2208,38 +2373,67 @@
 
     function unlockOwnerDashboard() {
         const pin = document.getElementById('ownerPinInput').value.trim();
-        if (pin !== OWNER_PIN) {
-            alert("رمز الإدارة غير صحيح.");
+        if (pin !== _0xADMIN_KEY) {
+            alert("رمز التحقق غير صحيح.");
             return;
         }
         document.getElementById('ownerAuthArea').style.display = 'none';
         document.getElementById('ownerContentArea').style.display = 'block';
         document.getElementById('merchantCardEditInput').value = getMerchantCard();
+        document.getElementById('merchantWhatsappInput').value = getMerchantWhatsapp();
+        renderOwnerLogs();
+    }
 
+    function renderOwnerLogs() {
         const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_PAYMENTS) || "[]");
         document.getElementById('ownerTotalRevenue').innerText = `${logs.length} $ (${logs.length} اشتراك شهري)`;
         const listEl = document.getElementById('paymentsLogList');
         if (logs.length === 0) {
-            listEl.innerHTML = `<p style="color:#94a3b8;">لا توجد دفعات مسجلة بعد.</p>`;
+            listEl.innerHTML = `<p style="color:#94a3b8;">لا توجد أكواد تفعيل مولّدة بعد.</p>`;
         } else {
             listEl.innerHTML = logs.map(l => `
                 <div style="border-bottom:1px solid rgba(148,163,184,0.2); padding:6px 0;">
-                    <strong style="color:#34d399;">+1$</strong> من <strong>${l.email}</strong><br>
-                    <span style="color:#cbd5e1;">بطاقة/وصل: ${l.payerCard} • ${l.date}</span>
+                    <strong style="color:#34d399;">+1$</strong> • جهاز: <strong>${l.deviceId}</strong><br>
+                    <span style="color:#cbd5e1;">الكود: <code>${l.key}</code> • ${l.date}</span>
                 </div>
             `).join('');
         }
     }
 
-    function saveMerchantQiCard() {
-        const newCard = document.getElementById('merchantCardEditInput').value.trim();
-        if (newCard.length < 6) {
-            alert("يرجى إدخال رقم بطاقة صحيح.");
+    function generateSubscriberKey() {
+        const targetDev = document.getElementById('targetDeviceIdInput').value.trim().toUpperCase();
+        if (!targetDev || targetDev.length < 5) {
+            alert("يرجى إدخال معرّف جهاز المشترك (Device ID) أولاً.");
             return;
         }
-        localStorage.setItem(STORAGE_KEY_MERCHANT_CARD, newCard);
-        document.getElementById('merchantQiCardDisplay').innerText = newCard;
-        alert("✅ تم تحديث رقم بطاقة الكي كارد الرئيسية الخاصة بك.");
+        const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_PAYMENTS) || "[]");
+        const prevCountForDevice = logs.filter(x => x.deviceId === targetDev).length;
+        const nextCycle = prevCountForDevice + 1;
+        const key = computeLicenseKeyForDevice(targetDev, nextCycle);
+
+        logs.unshift({
+            deviceId: targetDev,
+            key: key,
+            amount: 1,
+            date: new Date().toLocaleString('ar-IQ')
+        });
+        localStorage.setItem(STORAGE_KEY_PAYMENTS, JSON.stringify(logs));
+
+        document.getElementById('generatedKeyOutput').innerText = key;
+        document.getElementById('generatedKeyBox').style.display = 'block';
+        renderOwnerLogs();
+    }
+
+    function saveMerchantSettings() {
+        const newCard = document.getElementById('merchantCardEditInput').value.trim();
+        const newWa = document.getElementById('merchantWhatsappInput').value.trim();
+        if (newCard.length >= 6) {
+            localStorage.setItem(STORAGE_KEY_MERCHANT_CARD, newCard);
+        }
+        if (newWa.length >= 8) {
+            localStorage.setItem(STORAGE_KEY_MERCHANT_WA, newWa);
+        }
+        alert("✅ تم حفظ رقم بطاقة الكي كارد وواتساب الاستلام.");
     }
 
     initSubscriptionSystem();
@@ -2773,7 +2967,7 @@
     }
 
     function jumpToIvSolution(ivKey) {
-        switchTab('sec3', document.querySelectorAll('.tab-btn')[2]);
+        switchTab('sec3', document.querySelectorAll('.tab-btn')[0]);
         switchCalc('calc-iv', document.querySelectorAll('#sec3 .calc-subbtn')[1]);
         document.getElementById('ivSolutionSelect').value = ivKey;
         updateIvHint();
@@ -2781,7 +2975,7 @@
     }
 
     function jumpToSyrupRule(ruleId) {
-        switchTab('sec3', document.querySelectorAll('.tab-btn')[2]);
+        switchTab('sec3', document.querySelectorAll('.tab-btn')[0]);
         switchCalc('calc-syrup', document.querySelectorAll('#sec3 .calc-subbtn')[0]);
         const sel = document.getElementById('presetDrug');
         if ([...sel.options].some(o => o.value === ruleId)) {
