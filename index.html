@@ -529,6 +529,81 @@
             display: block;
         }
 
+        /* صندوق البحث الخاص بقسم مواعيد الأدوية وبطاقة التفاصيل الكاملة */
+        .sched-local-search {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1.5px solid rgba(56, 189, 248, 0.45);
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 14px;
+        }
+
+        .sched-local-search-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sched-local-search-row input {
+            flex: 1;
+            background: #0b1120;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .sched-local-search-row input:focus {
+            border-color: #22d3ee;
+        }
+
+        .sched-search-results {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .sched-detail-card {
+            background: linear-gradient(145deg, #0f172a, #1e1b4b);
+            border: 1.5px solid rgba(56, 189, 248, 0.5);
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 10px;
+        }
+
+        .sched-detail-card h4 {
+            color: #38bdf8;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .sched-detail-row {
+            margin-bottom: 7px;
+            font-size: 0.86rem;
+            color: #e2e8f0;
+            background: rgba(15, 23, 42, 0.65);
+            padding: 8px 10px;
+            border-radius: 8px;
+        }
+
+        .sched-detail-row.interactions {
+            border-right: 3px solid #f59e0b;
+            color: #fde68a;
+        }
+
+        .sched-detail-row.side-effects {
+            border-right: 3px solid #f43f5e;
+            color: #fecdd3;
+        }
+
+        .sched-detail-row.timing {
+            border-right: 3px solid #10b981;
+            color: #a7f3d0;
+        }
+
         table.dose-table {
             width: 100%;
             border-collapse: collapse;
@@ -659,7 +734,7 @@
     <p>تعليم الصيدلة • الـ 18 كلاس • حساب الشرابات والمحاليل الوريدية • مواعيد الأدوية</p>
 </header>
 
-<!-- شريط البحث الذكي الفوري -->
+<!-- شريط البحث الذكي الفوري العام -->
 <div class="ai-search-wrapper">
     <div class="ai-search-box">
         <span style="font-size:1.2rem; margin-left:6px;">🤖</span>
@@ -1127,7 +1202,7 @@
         </div>
     </div>
 
-    <!-- القسم الثالث: حساب الجرعات (الشرابات + المحاليل الوريدية بالاختيار + جدول الطرق) -->
+    <!-- القسم الثالث: حساب الجرعات -->
     <div id="sec3" class="section-content">
         <div class="action-bar">
             <span>🧮 فتح جدول وطرق حساب الشرابات والمحاليل الوريدية بالسي سي كملف PDF:</span>
@@ -1224,7 +1299,7 @@
             </div>
         </div>
 
-        <!-- 2. حاسبة المحاليل الوريدية: اختيار المحلول + معادلة الجرعة وكيفية الإعطاء -->
+        <!-- 2. حاسبة المحاليل الوريدية -->
         <div id="calc-iv" class="calc-panel">
             <div class="card">
                 <div class="card-header">
@@ -1307,12 +1382,22 @@
         </div>
     </div>
 
-    <!-- القسم الرابع: مواعيد الأدوية (مستنسخ بنفس نظام العوائل على قسمين) -->
+    <!-- القسم الرابع: مواعيد الأدوية مع بحث فوري متكامل (المواعيد + التداخلات + الأضرار الجانبية + التنبيهات) -->
     <div id="sec4" class="section-content">
         <div class="card" id="sec4-card">
             <div class="card-header">
                 <span class="card-title">🕒 مواعيد الأدوية وكيفية أخذها ومواعيدها بالمضبوط</span>
-                <span class="badge">قسمين منظمين</span>
+                <span class="badge">قسمين + بحث ذكي</span>
+            </div>
+
+            <!-- مربع البحث المخصص داخل قسم مواعيد الأدوية -->
+            <div class="sched-local-search">
+                <div class="sched-local-search-row">
+                    <span>🔎</span>
+                    <input type="text" id="scheduleDrugSearch" placeholder="ابحث هنا عن أي دواء أو حالة (Levothyroxine، Atorvastatin، Metformin، ضغط، سكر، غدة، نقرس، معدة)..." oninput="searchScheduleMedication()">
+                    <button id="clearSchedSearchBtn" class="clear-search" onclick="clearScheduleSearch()" style="display:none;">✕</button>
+                </div>
+                <div id="scheduleSearchResults" class="sched-search-results"></div>
             </div>
 
             <div class="calc-subtabs">
@@ -2179,6 +2264,173 @@
         `;
     }
 
+    // قاعدة بيانات البحث المتكاملة لقسم مواعيد الأدوية (المواعيد + طريقة الأخذ + التنبيهات + التداخلات + الأضرار الجانبية)
+    const scheduleMedicationsDB = [
+        {
+            title: "Atorvastatin / Rosuvastatin / Simvastatin (الدهون والكوليسترول)",
+            category: "الدهون الثلاثية والكوليسترول",
+            timing: "مرة كل 24 ساعة في وقت ثابت (Simvastatin يُفضل مساءً أو قبل النوم؛ Atorvastatin و Rosuvastatin مساءً أو في أي وقت ثابت يومياً).",
+            howToTake: "حبة واحدة يومياً مع الماء؛ لا يُكسر أو يُوقف دون مراجعة الطبيب.",
+            importantNote: "يُمنع أثناء الحمل والرضاعة؛ يُنصح بمراجعة الطبيب عند ظهور ألم عضلي غير مبرر أو ضعف شديد.",
+            interactions: "يتداخل مع بعض المضادات الحيوية والفطريات (مثل Clarithromycin و Itraconazole)، ومثبطات البروتياز، وعصير الجريب فروت بكميات كبيرة، وبعض أدوية القلب/الدهون الأخرى (مثل Gemfibrozil أو Cyclosporine) التي ترفع خطر ألم العضلات.",
+            sideEffects: "آلام أو تشنجات عضلية، صداع، إمساك أو غازات، غثيان خفيف، وارتفاع طفيف في إنزيمات الكبد."
+        },
+        {
+            title: "Fenofibrate / Omega-3 (الدهون الثلاثية)",
+            category: "الدهون الثلاثية والكوليسترول",
+            timing: "مرة واحدة يومياً (أو حسب الجرعة) مع الغداء أو العشاء في موعد ثابت.",
+            howToTake: "يُؤخذ مع الوجبة الرئيسية لتحسين امتصاصه وتقليل اضطراب المعدة.",
+            importantNote: "يُراقب في أمراض الكلى والمرارة والحصوات الصفراوية.",
+            interactions: "يتداخل مع مميعات الدم (مثل Warfarin ويزيد تأثيرها)، ومع Statins (يرفع خطر تأثر العضلات)، ومع مثبطات المناعة أو الأدوية السامة للكبد.",
+            sideEffects: "اضطراب المعدة، إسهال أو إمساك، انتفاخ، صداع، وطعم سمكي خفيف مع Omega-3."
+        },
+        {
+            title: "Levothyroxine (خمول الغدة الدرقية)",
+            category: "أدوية الغدة الدرقية",
+            timing: "مرة واحدة يومياً صباحاً على معدة فارغة قبل الفطور بـ 30 إلى 60 دقيقة.",
+            howToTake: "حبة واحدة مع ماء؛ يُفصل عن الحديد والكالسيوم والقهوة ومضادات الحموضة بـ 4 ساعات.",
+            importantNote: "الالتزام بموعد ثابت يومياً ضروري لضبط الهرمون؛ لا تُغيّر الجرعة أو الشركة المصنعة دون متابعة التحليل.",
+            interactions: "يتداخل بوضوح ويقل امتصاصه مع: أملاح الحديد، الكالسيوم، مضادات الحموضة (الألمنيوم/المغنيسيوم)، Sucralfate، Orlistat، Cholestyramine، وبعض أدوية الصرع أو القهوة/الحليب إذا أُخذت معه مباشرة.",
+            sideEffects: "في حال زيادة الجرعة قد تظهر أعراض فرط الهرمون: خفقان القلب، عصبية أو أرق، تعرق، رجفة خفيفة، أو نقص وزن غير مقصود."
+        },
+        {
+            title: "Carbimazole / Propylthiouracil (فرط نشاط الغدة الدرقية)",
+            category: "أدوية الغدة الدرقية",
+            timing: "مرة إلى 3 مرات يومياً بمواعيد متقاربة وثابتة (مع أو بدون طعام حسب الوصفة).",
+            howToTake: "حسب الجرعة المقررة يومياً مع الالتزام التام بالتحاليل الدورية.",
+            importantNote: "يجب مراجعة الطبيب فوراً إذا ظهرت حمى أو التهاب حلق شديد أو تقرحات فموية أو يرقان.",
+            interactions: "يتداخل مع مميعات الدم (Warfarin)، وبعض أدوية القلب (مثل Digoxin و Beta-blockers) مع تحسن مستوى الغدة الدرقية.",
+            sideEffects: "طفح جلدي أو حكة، آلام مفاصل، غثيان، صداع، ونادراً انخفاض كريات الدم البيضاء أو تأثر الكبد."
+        },
+        {
+            title: "Bisoprolol / Metoprolol / Atenolol (حاصرات بيتا والقلب)",
+            category: "أدوية القلب وأدوية الضغط",
+            timing: "مرة إلى مرتين يومياً في موعد ثابت (صباحاً أو مع الوجبة حسب النوع).",
+            howToTake: "حبة كاملة مع الماء؛ يُمنع التوقف المفاجئ عنها.",
+            importantNote: "إيقافها فجأة قد يسبب ارتفاعاً مفاجئاً في الضغط أو ألماً في الصدر أو تسارع نبض القلب؛ يُحذر في الربو الشديد أو بطء النبض الشديد.",
+            interactions: "تتداخل مع حاصرات قنوات الكالسيوم الخافضة للنبض (مثل Verapamil و Diltiazem)، وأدوية الضغط الأخرى، ومضادات الالتهاب (NSAIDs) التي قد تقلل خفض الضغط، وتخفي أعراض هبوط السكر لدى مرضى السكري.",
+            sideEffects: "تعب أو خمول، دوخة خفيفة، برودة الأطراف، بطء نبض القلب، أو اضطرابات نوم."
+        },
+        {
+            title: "Amlodipine / Valsartan / Losartan / Telmisartan / Ramipril / Enalapril (أدوية الضغط)",
+            category: "أدوية القلب وأدوية الضغط",
+            timing: "مرة واحدة يومياً كل 24 ساعة في وقت ثابت يومياً.",
+            howToTake: "جرعة منتظمة يومياً لضبط الضغط وحماية القلب والكلى.",
+            importantNote: "مجموعات ACEi و ARB (مثل Ramipril و Valsartan و Losartan) ممنوعة أثناء الحمل؛ يُراقب الضغط والكلى والبوتاسيوم.",
+            interactions: "تتداخل مع مكملات البوتاسيوم ومدرات البوتاسيوم (ترفع البوتاسيوم)، ومع NSAIDs (تضعف خفض الضغط وتؤثر على الكلى)، ومع Lithium، والجمع بين أكثر من دواء من نفس المسار (ACEi + ARB).",
+            sideEffects: "تورم الكاحلين أو القدمين وصداع أو احمرار وجه مع Amlodipine؛ سعال جاف أحياناً مع Ramipril/Enalapril؛ دوخة عند الوقوف."
+        },
+        {
+            title: "Metformin / Metformin XR (أدوية السكري)",
+            category: "أدوية السكري",
+            timing: "مرتين يومياً (كل 12 ساعة) مع الفطور والعشاء، أو مرة واحدة لنسخة XR.",
+            howToTake: "يُؤخذ مع الطعام أو بعده لتقليل اضطرابات المعدة.",
+            importantNote: "يُؤجل أو يُراجع مع الطبيب قبل الفحوصات الصبغية الوريدية (Contrast) أو في حالات الجفاف الشديد أو قصور الكلى/الكبد.",
+            interactions: "يتداخل مع الكحول (يرفع خطر الحماض اللبني)، ومع بعض مدرات البول أو الكورتيزون أو مضادات الحموضة/الصبغات حسب الحالة الكلوية، وقد يقلل مع الاستخدام الطويل مستوى فيتامين B12.",
+            sideEffects: "غثيان، انتفاخ، إسهال أو اضطراب معدة (يخف بأخذه مع الأكل)، ونقص فيتامين B12 على المدى الطويل."
+        },
+        {
+            title: "Glimepiride / Gliclazide / Sitagliptin / Empagliflozin / Insulin (أدوية السكري)",
+            category: "أدوية السكري",
+            timing: "Glimepiride قبل أو مع الفطور مرة يومياً • Sitagliptin / Empagliflozin مرة يومياً صباحاً • Insulin حسب النوع والطبيب.",
+            howToTake: "حسب نوع الدواء؛ يلتزم المريض بالوجبة بعد خافضات السكر المفرزة للإنسولين.",
+            importantNote: "عدم تناول الطعام بعد Glimepiride أو Insulin قد يسبب هبوطاً حاداً في السكر؛ ومع Empagliflozin يُحافظ على شرب الماء والنظافة الشخصية.",
+            interactions: "تتداخل مع الكحول، وبعض المضادات الحيوية أو المسكنات أو حاصرات بيتا (قد تزيد خطر هبوط السكر أو تخفي أعراضه)، ومع الكورتيزون أو مدرات البول التي قد ترفع السكر.",
+            sideEffects: "هبوط السكر (تعرق، رجفة، دوخة مع Glimepiride/Insulin)، التهابات بولية أو تناسلية فطرية مع Empagliflozin، أو صداع واحتقان أنف خفيف مع Sitagliptin."
+        },
+        {
+            title: "Allopurinol / Febuxostat (أدوية داء الملوك - النقرس)",
+            category: "أدوية داء الملوك (النقرس)",
+            timing: "مرة واحدة يومياً بعد الوجبة في وقت ثابت يومياً (لا يُبدأ أو يُرفع فجأة أثناء نوبة حادة دون توجيه الطبيب).",
+            howToTake: "يُؤخذ بعد الأكل مع شرب كمية جيدة من الماء طوال اليوم.",
+            importantNote: "الالتزام المستمر يمنع ترسب حمض اليوريك؛ يُراجع الطبيب عند ظهور طفح جلدي.",
+            interactions: "يتداخل Allopurinol مع Azathioprine و Mercaptopurine (يزيد سميتها بشدة)، ومع Ampicillin/Amoxicillin (يرفع احتمال الطفح الجلدي)، ومع Warfarin أو مدرات البول الثيازيدية.",
+            sideEffects: "غثيان أو إسهال خفيف، طفح جلدي، صداع، أو تحفيز مؤقت لنوبة نقرس في بداية العلاج."
+        },
+        {
+            title: "Colchicine (كولشيسين - نوبات ووقاية النقرس)",
+            category: "أدوية داء الملوك (النقرس)",
+            timing: "مرة إلى مرتين يومياً للوقاية أو حسب إرشاد الطبيب عند بداية النوبة.",
+            howToTake: "حسب جدول الطبيب للنوبة الحادة أو الوقاية اليومية.",
+            importantNote: "يُلتزم بالجرعة بدقة دون تجاوزها، ويُضبط في قصور الكلى أو الكبد.",
+            interactions: "يتداخل بشدة مع Clarithromycin و Erythromycin و Ketoconazole/Itraconazole وبعض حاصرات الكالسيوم أو Statins مما قد يرفع سمية الكولشيسين.",
+            sideEffects: "إسهال، غثيان، قيء، أو تقلصات بطنية (غالباً علامة مبكرة لزيادة الجرعة)."
+        },
+        {
+            title: "Omeprazole / Pantoprazole (المعدة والحموضة)",
+            category: "باقي الأمراض (المعدة والحموضة)",
+            timing: "قبل الفطور بـ 30-60 دقيقة مرة واحدة يومياً (أو كل 12 ساعة في الحالات الشديدة).",
+            howToTake: "تُبلع كاملة مع الماء دون كسر أو مضغ.",
+            importantNote: "الاستخدام الطويل لعدة أشهر قد يقلل امتصاص المغنيسيوم أو B12 أو يؤثر على كثافة العظام.",
+            interactions: "يتداخل مع Clopidogrel (خصوصاً Omeprazole الذي قد يقلل فاعليته)، ومع الأدوية المعتمدة على حموضة المعدة للامتصاص (مثل بعض مضادات الفطريات أو الحديد)، ومع Methotrexate.",
+            sideEffects: "صداع، إسهال أو إمساك، غازات، أو ألم بطني خفيف."
+        },
+        {
+            title: "Montelukast / Cetirizine / Pregabalin (التنفس والحساسية والأعصاب)",
+            category: "باقي الأمراض (التنفس والحساسية والأعصاب)",
+            timing: "Montelukast و Cetirizine مساءً مرة يومياً • Pregabalin كل 12 ساعة في مواعيد ثابتة.",
+            howToTake: "حسب الجرعة والالتزام بالمواعيد دون انقطاع مفاجئ لأدوية الأعصاب.",
+            importantNote: "Pregabalin لا يُوقف فجأة لتجنب أعراض الانسحاب أو الأرق والقلق؛ ويُحذر مع القيادة في بداية الاستخدام.",
+            interactions: "يتداخل Pregabalin مع المسكنات الأفيونية والمهدئات والمنومات (يزيد النعاس وتثبيط التنفس)؛ ويتداخل Cetirizine مع المهدئات الأخرى بزيادة النعاس.",
+            sideEffects: "نعاس أو دوخة أو جفاف فم وزيادة وزن خفيفة مع Pregabalin؛ نعاس خفيف مع Cetirizine؛ صداع أو أرق أو تغيرات مزاجية نادرة مع Montelukast."
+        }
+    ];
+
+    function searchScheduleMedication() {
+        const inputEl = document.getElementById('scheduleDrugSearch');
+        const clearBtn = document.getElementById('clearSchedSearchBtn');
+        const resultsEl = document.getElementById('scheduleSearchResults');
+        const raw = inputEl.value.trim();
+        const q = raw.toLowerCase();
+
+        clearBtn.style.display = q.length > 0 ? 'block' : 'none';
+        if (q.length < 2) {
+            resultsEl.style.display = 'none';
+            resultsEl.innerHTML = '';
+            return;
+        }
+
+        const matches = scheduleMedicationsDB.filter(item => {
+            const blob = `${item.title} ${item.category} ${item.timing} ${item.howToTake} ${item.importantNote} ${item.interactions} ${item.sideEffects}`.toLowerCase();
+            return blob.includes(q);
+        });
+
+        resultsEl.style.display = 'block';
+        if (matches.length === 0) {
+            resultsEl.innerHTML = `<div class="sched-detail-card"><p style="color:#cbd5e1; font-size:0.88rem;">لا توجد نتائج مطابقة لـ "<strong>${raw}</strong>" في مواعيد الأدوية.</p></div>`;
+            return;
+        }
+
+        resultsEl.innerHTML = matches.map(m => `
+            <div class="sched-detail-card">
+                <h4>💊 ${m.title} <span style="font-size:0.75rem; color:#c4b5fd;">(${m.category})</span></h4>
+                <div class="sched-detail-row timing">
+                    <strong>🕒 المواعيد بالمضبوط:</strong> ${m.timing}
+                </div>
+                <div class="sched-detail-row">
+                    <strong>📌 طريقة الأخذ:</strong> ${m.howToTake}
+                </div>
+                <div class="sched-detail-row">
+                    <strong>⚠️ تنبيهات وموانع مهمة:</strong> ${m.importantNote}
+                </div>
+                <div class="sched-detail-row interactions">
+                    <strong>🔄 التداخلات الدوائية:</strong> ${m.interactions}
+                </div>
+                <div class="sched-detail-row side-effects">
+                    <strong>🩺 الأضرار الجانبية:</strong> ${m.sideEffects}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function clearScheduleSearch() {
+        document.getElementById('scheduleDrugSearch').value = '';
+        document.getElementById('clearSchedSearchBtn').style.display = 'none';
+        const res = document.getElementById('scheduleSearchResults');
+        res.style.display = 'none';
+        res.innerHTML = '';
+    }
+
     function switchSchedulePart(partId, btn) {
         document.querySelectorAll('.sched-part-panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('#sec4 .calc-subbtn').forEach(b => b.classList.remove('active'));
@@ -2222,9 +2474,22 @@
         let hitsHTML = '';
         let count = 0;
 
+        scheduleMedicationsDB.forEach(m => {
+            const blob = `${m.title} ${m.category} ${m.timing} ${m.interactions} ${m.sideEffects}`.toLowerCase();
+            if (blob.includes(term) && count < 5) {
+                hitsHTML += `
+                    <div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToScheduleWithQuery('${m.title.split('(')[0].trim()}')">
+                        <strong>🕒 مواعيد وتداخلات: ${m.title}</strong>
+                        <span><strong>الموعد:</strong> ${m.timing}</span>
+                    </div>
+                `;
+                count++;
+            }
+        });
+
         Object.entries(ivSolutionsMeta).forEach(([ivKey, ivObj]) => {
             const hay = `${ivKey} ${ivObj.name} ${ivObj.hint} ${ivObj.howGiven}`.toLowerCase();
-            if (hay.includes(term) && count < 5) {
+            if (hay.includes(term) && count < 7) {
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#38bdf8; cursor:pointer;" onclick="jumpToIvSolution('${ivKey}')">
                         <strong>💧 محلول وريدي: ${ivObj.name}</strong>
@@ -2239,27 +2504,13 @@
             const isMatch = rule.name.toLowerCase().includes(term) ||
                             rule.conc.toLowerCase().includes(term) ||
                             rule.keywords.some(k => k.toLowerCase().includes(term) || term.includes(k.toLowerCase()));
-            if (isMatch && count < 8) {
+            if (isMatch && count < 10) {
                 const ex15 = rule.calc(15);
                 const f15 = Number.isInteger(ex15) ? ex15 : ex15.toFixed(2);
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#10b981; cursor:pointer;" onclick="jumpToSyrupRule('${rule.id}')">
                         <strong>🥄 شراب: ${rule.name} (${rule.conc}) — 1 مل = 1 سي سي</strong>
                         <span><strong>المعادلة:</strong> ${rule.ruleText} • <strong>مثال 15 كغم:</strong> ${f15} سي سي</span>
-                    </div>
-                `;
-                count++;
-            }
-        });
-
-        document.querySelectorAll('#sec4 .searchable-item').forEach(item => {
-            const title = (item.getAttribute('data-title') || item.innerText).toLowerCase();
-            if (title.includes(term) && count < 10) {
-                const isPart2 = item.closest('#sched-part2') !== null;
-                hitsHTML += `
-                    <div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToScheduleSection(${isPart2})">
-                        <strong>🕒 مواعيد الأدوية: ${item.getAttribute('data-title')}</strong>
-                        <span>اضغط للانتقال إلى القسم وتفاصيل الأخذ والمواعيد</span>
                     </div>
                 `;
                 count++;
@@ -2301,14 +2552,11 @@
         instantBox.style.display = 'none';
     }
 
-    function jumpToScheduleSection(isPart2) {
+    function jumpToScheduleWithQuery(qText) {
         switchTab('sec4', document.querySelectorAll('.tab-btn')[3]);
-        const btns = document.querySelectorAll('#sec4 .calc-subbtn');
-        if (isPart2) {
-            switchSchedulePart('sched-part2', btns[1]);
-        } else {
-            switchSchedulePart('sched-part1', btns[0]);
-        }
+        const input = document.getElementById('scheduleDrugSearch');
+        input.value = qText;
+        searchScheduleMedication();
         instantBox.style.display = 'none';
     }
 
@@ -2316,7 +2564,7 @@
         currentPdfFilename = fileName;
         const sourceEl = document.getElementById(sourceId);
         const clone = sourceEl.cloneNode(true);
-        clone.querySelectorAll('button, .action-bar, .calc-subtabs').forEach(btn => btn.remove());
+        clone.querySelectorAll('button, .action-bar, .calc-subtabs, .sched-local-search').forEach(btn => btn.remove());
         clone.querySelectorAll('.sched-part-panel').forEach(p => p.style.display = 'block');
         clone.style.display = 'block';
 
