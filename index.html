@@ -514,56 +514,96 @@
             color: #bfdbfe;
         }
 
-        .timing-card {
-            background: linear-gradient(145deg, #162238, #1c2842);
-            border: 1px solid rgba(6, 182, 212, 0.35);
-            border-radius: 16px;
-            padding: 16px;
-            margin-top: 14px;
-        }
-
-        .timing-pills {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin: 12px 0;
-        }
-
-        .timing-pill-box {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 12px;
-            padding: 10px;
-        }
-
-        .timing-pill-box span {
-            display: block;
-            font-size: 0.76rem;
-            color: #94a3b8;
-            margin-bottom: 3px;
-        }
-
-        .timing-pill-box strong {
-            font-size: 0.95rem;
-            color: #22d3ee;
-        }
-
-        .quick-chips {
+        /* أقسام مواعيد الأدوية المنظمة */
+        .cat-selector {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
+            gap: 7px;
+            margin-bottom: 16px;
         }
 
-        .quick-chip {
-            background: rgba(139, 92, 246, 0.18);
-            color: #ddd6fe;
-            border: 1px solid rgba(139, 92, 246, 0.35);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.76rem;
-            cursor: pointer;
+        .cat-pill-btn {
+            background: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            padding: 8px 13px;
+            border-radius: 12px;
+            font-size: 0.8rem;
             font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cat-pill-btn.active {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+        }
+
+        .med-timing-card {
+            background: linear-gradient(145deg, #162238, #1a253d);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .med-timing-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #38bdf8;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .med-age-tag {
+            background: rgba(16, 185, 129, 0.16);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .med-details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 9px;
+            margin-bottom: 10px;
+        }
+
+        .med-detail-box {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 10px;
+            padding: 9px 11px;
+        }
+
+        .med-detail-box span {
+            display: block;
+            font-size: 0.74rem;
+            color: #94a3b8;
+            margin-bottom: 2px;
+        }
+
+        .med-detail-box strong {
+            font-size: 0.88rem;
+            color: #f8fafc;
+        }
+
+        .med-note-line {
+            font-size: 0.83rem;
+            color: #cbd5e1;
+            background: rgba(139, 92, 246, 0.1);
+            border-right: 3px solid #8b5cf6;
+            padding: 7px 11px;
+            border-radius: 8px;
         }
 
         table.dose-table {
@@ -693,14 +733,14 @@
 <header>
     <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الحساب الميداني بالسي سي (1 مل = 1 سي سي)</div>
     <h1>أكاديمية الصيدلة والجرعات الذكية</h1>
-    <p>تعليم الصيدلة • الـ 18 كلاس العالمي • حساب الجرعات والمغذيات • مواعيد كل الأدوية</p>
+    <p>كل الشرابات • كل المغذيات • مواعيد الأدوية حسب الأقسام والأعمار</p>
 </header>
 
 <!-- شريط البحث الذكي الفوري -->
 <div class="ai-search-wrapper">
     <div class="ai-search-box">
         <span style="font-size:1.2rem; margin-left:6px;">🤖</span>
-        <input type="text" id="aiSearchInput" placeholder="ابحث فوراً عن أي دواء أو مغذي أو موعد إعطاء (مثلاً: ميترونيدازول، سيفيكسيم، بروفين، مغذي، أوميبرازول)...">
+        <input type="text" id="aiSearchInput" placeholder="ابحث فوراً (مثلاً: حديد، مدررات، رينجر، دهون ثلاثية، ضغط، سكر، سيفيكسيم، ميترونيدازول)...">
         <button id="clearSearchBtn" class="clear-search" onclick="clearAiSearch()">✕</button>
     </div>
 </div>
@@ -1164,29 +1204,29 @@
         </div>
     </div>
 
-    <!-- القسم الثالث: حساب الجرعات والمغذيات على أصل طريقتك (1 مل = 1 سي سي) -->
+    <!-- القسم الثالث: حساب الجرعات والمغذيات (1 مل = 1 سي سي) -->
     <div id="sec3" class="section-content">
         <div class="action-bar">
-            <span>🧮 فتح جدول وطرق حساب الشرابات والمغذيات بالسي سي كملف PDF:</span>
-            <button class="pdf-btn" onclick="openPdfViewer('sec3-table-card', 'جدول_الشرابات_والمغذيات_بالسي_سي')">👁️ فتح PDF الجدول الكامل</button>
+            <span>🧮 فتح جدول وطرق حساب كل الشرابات والمغذيات بالسي سي كملف PDF:</span>
+            <button class="pdf-btn" onclick="openPdfViewer('sec3-table-card', 'جدول_كل_الشرابات_والمغذيات_بالسي_سي')">👁️ فتح PDF الجدول الكامل</button>
         </div>
 
         <div class="calc-subtabs">
-            <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. جميع الشرابات (سي سي / مل)</button>
-            <button class="calc-subbtn" onclick="switchCalc('calc-iv', this)">💧 2. جميع أنواع المغذيات</button>
+            <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. كل الشرابات (سي سي / مل)</button>
+            <button class="calc-subbtn" onclick="switchCalc('calc-iv', this)">💧 2. كل أنواع المغذيات</button>
             <button class="calc-subbtn" onclick="switchCalc('calc-guide', this)">📋 3. جدول الطرق المرتب</button>
         </div>
 
-        <!-- 1. حاسبة جميع الشرابات مع الوزن والعمر -->
+        <!-- 1. حاسبة كل الشرابات مع الوزن والعمر -->
         <div id="calc-syrup" class="calc-panel active">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">🥄 حاسبة جميع الشرابات (بالسي سي / مل)</span>
+                    <span class="card-title">🥄 حاسبة كل الشرابات المتوفرة (بالسي سي / مل)</span>
                     <span class="badge">1 مل = 1 سي سي</span>
                 </div>
 
                 <div class="formula-box">
-                    <strong>1 مل = 1 سي سي</strong> — اكتب <strong>الوزن بالكغم</strong> (وهو الأدق) أو اكتب <strong>العمر بالسنوات</strong> لتقدير الوزن تلقائياً، ثم اختر الشراب ليحسب فوراً.
+                    <strong>1 مل = 1 سي سي</strong> — أدخل <strong>الوزن بالكغم</strong> (الأدق) أو <strong>العمر بالسنوات</strong> للتقدير التلقائي، ثم اختر أي شراب ليحسب فوراً بالسي سي.
                 </div>
 
                 <div class="grid-2">
@@ -1196,12 +1236,12 @@
                     </div>
                     <div class="form-group">
                         <label>🎂 العمر بالسنوات (تقدير تلقائي):</label>
-                        <input type="number" id="childAge" class="form-control" placeholder="مثلاً: 3 أو 6 أو 10" oninput="estimateWeightFromAge()">
+                        <input type="number" id="childAge" class="form-control" placeholder="مثلاً: 2 أو 5 أو 10" oninput="estimateWeightFromAge()">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>🔍 اختر الشراب (على أصل طريقتك + شرابات إضافية):</label>
+                    <label>🔍 اختر الشراب (طرقك المعتمدة + باقي شرابات الأسواق والأقسام الطبية):</label>
                     <select id="presetDrug" class="form-control" onchange="updateSyrupPreview()">
                         <optgroup label="🦠 ميترونيدازول (Metronidazole)">
                             <option value="metro_125">ميترونيدازول 125 — (وزن الطفل × 0.4) — كل 8 ساعات (3 مرات باليوم)</option>
@@ -1228,11 +1268,9 @@
                             <option value="aug_156_312">أوگمنتين 156/312 — (وزن الطفل × 0.533) — كل 8 ساعات</option>
                             <option value="aug_200_400">أوگمنتين 200/400 — (وزن الطفل × 62.5 حسب طريقتك) — كل 12 ساعة</option>
                         </optgroup>
-                        <optgroup label="🦠 أموكسيسيلين (Amoxicillin)">
+                        <optgroup label="🦠 أموكسيسيلين وسيفالوسبورينات وماكروليدات و No-Vomit">
                             <option value="amox_250">أموكسيسيلين 250 — (وزن الطفل × 0.2)</option>
                             <option value="amox_125">أموكسيسيلين 125 — (وزن الطفل × 0.4)</option>
-                        </optgroup>
-                        <optgroup label="🦠 سيفالوسبورينات وماكروليدات و No-Vomit">
                             <option value="cefdin_125">سيفدينير 125 — (وزن الطفل × 0.28) — كل 12 ساعة (2 مرات باليوم)</option>
                             <option value="ceph_125">سفلاكسين 125 — (وزن الطفل × 0.33) — كل 8 ساعات</option>
                             <option value="ceph_250">سفلاكسين 250 — (وزن الطفل × 0.66)</option>
@@ -1247,16 +1285,26 @@
                             <option value="eryth_200">إريثرومايسين 200 — (وزن الطفل × 0.25) — كل 6 ساعات (4 مرات باليوم)</option>
                             <option value="novomit">No-Vomit — (وزن الطفل × 0.2) — كل 8 ساعات (3 مرات باليوم)</option>
                         </optgroup>
-                        <optgroup label="🤧 شرابات الحساسية، الربو، الكورتيزون، الديدان، والحديد">
+                        <optgroup label="🤧 شرابات الحساسية، السعال، البلغم، والربو">
                             <option value="lorat_5">لوراتادين 5/5 — (وزن الطفل × 0.2) — مرة واحدة باليوم</option>
                             <option value="cetir_5">سيتريزين 5/5 — (وزن الطفل × 0.25) — مرة واحدة باليوم</option>
                             <option value="deslorat_2_5">ديسلوراتادين 2.5/5 — (وزن الطفل × 0.25) — مرة واحدة باليوم</option>
                             <option value="salbut_2">فنتولين / سالبوتامول 2/5 — (وزن الطفل × 0.25) — كل 8 ساعات</option>
+                            <option value="ambrox_15">أمبروكسول مذيب بلغم 15/5 — (وزن الطفل × 0.25) — كل 8-12 ساعة</option>
+                            <option value="bromhex_4">برومهيكسين مذيب بلغم 4/5 — (وزن الطفل × 0.25) — كل 8 ساعات</option>
+                            <option value="dextro_15">ديكستروميثورفان سعال جاف 15/5 — (وزن الطفل × 0.2) — كل 6-8 ساعات</option>
+                        </optgroup>
+                        <optgroup label="🤢 شرابات المعدة، المغص، القيء، الإسهال، الفطريات، الديدان، والحديد">
+                            <option value="domper_5">دومبيريدون / موتيليوم 5/5 — (وزن الطفل × 0.25) — حتى 3 مرات باليوم</option>
+                            <option value="ondans_4">أوندانسيترون / زوفران قيء 4/5 — (وزن الطفل × 0.2) — عند اللزوم</option>
+                            <option value="hyoscine_5">هيوسين / بسكوبان مغص 5/5 — (وزن الطفل × 0.25) — كل 8 ساعات</option>
+                            <option value="simeth_40">سيميثيكون غازات / قطرات — (وزن الطفل × 0.2) — كل 6-8 ساعات</option>
+                            <option value="nystat_100k">نيوستاتين فطريات الفم 100,000/مل — (وزن الطفل × 0.2) — 4 مرات باليوم</option>
+                            <option value="albend_200">ألبيندازول ديدان 200/5 — (وزن الطفل × 0.375) — جرعة واحدة أو حسب الحالة</option>
+                            <option value="mebend_100">ميبيندازول ديدان 100/5 — (وزن الطفل × 0.5) — كل 12 ساعة لمدة 3 أيام</option>
+                            <option value="iron_50">شراب الحديد 50/5 — (وزن الطفل × 0.3) — مرة واحدة باليوم</option>
                             <option value="pred_5">بريدنيزولون 5/5 — (وزن الطفل × 1.5) — مقسمة كل 12 ساعة</option>
                             <option value="pred_15">بريدنيزولون 15/5 — (وزن الطفل × 0.5) — مقسمة كل 12 ساعة</option>
-                            <option value="albend_200">ألبيندازول 200/5 — (وزن الطفل × 0.375) — جرعة واحدة أو حسب الحالة</option>
-                            <option value="mebend_100">ميبيندازول 100/5 — (وزن الطفل × 0.5) — كل 12 ساعة لمدة 3 أيام</option>
-                            <option value="iron_50">شراب الحديد 50/5 — (وزن الطفل × 0.3) — مرة واحدة باليوم</option>
                         </optgroup>
                     </select>
                 </div>
@@ -1274,24 +1322,26 @@
             </div>
         </div>
 
-        <!-- 2. جميع أنواع المغذيات مع الوزن والعمر -->
+        <!-- 2. حاسبة كل أنواع المغذيات -->
         <div id="calc-iv" class="calc-panel">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">💧 حاسبة جميع أنواع المغذيات (1 مل = 1 سي سي)</span>
+                    <span class="card-title">💧 حاسبة كل أنواع المغذيات (1 مل = 1 سي سي)</span>
                     <span class="badge">مغذيات شاملة</span>
                 </div>
                 <div class="formula-box">
                     • <strong>1 مل = 1 سي سي</strong><br>
-                    • <strong>باراسيتامول مغذي:</strong> 1.5 سي سي لكل كيلو غرام (الوزن × 1.5)<br>
-                    • <strong>ميترونيدازول مغذي:</strong> 2 سي سي لكل كيلو غرام (الوزن × 2)<br>
-                    • <strong>السوائل والمحاليل (Normal Saline / Dextrose / Ringer):</strong> حساب الحجم الكلي بالسي سي وسرعة التقطير.
+                    • <strong>باراسيتامول مغذي:</strong> الوزن × 1.5 سي سي<br>
+                    • <strong>ميترونيدازول مغذي:</strong> الوزن × 2 سي سي<br>
+                    • <strong>مغذيات الحديد (IV Iron):</strong> حساب الجرعة والمحلول الممزوج بالسي سي<br>
+                    • <strong>المغذيات المدررة (Mannitol / Furosemide IV):</strong> حساب الجرعة بالسي سي<br>
+                    • <strong>السوائل والمحاليل (Normal Saline / Dextrose / Ringer Lactate):</strong> حساب الحجم بالسي سي والقطرات بالدقيقة
                 </div>
 
                 <div class="grid-2">
                     <div class="form-group">
                         <label>⚖️ الوزن (كيلو غرام) - الأدق:</label>
-                        <input type="number" id="ivWeight" class="form-control" placeholder="مثلاً: 10 أو 15 أو 20" oninput="calculateIVMethod()">
+                        <input type="number" id="ivWeight" class="form-control" placeholder="مثلاً: 10 أو 15 أو 50" oninput="calculateIVMethod()">
                     </div>
                     <div class="form-group">
                         <label>🎂 العمر بالسنوات (تقدير تلقائي):</label>
@@ -1301,12 +1351,23 @@
 
                 <div class="grid-2">
                     <div class="form-group">
-                        <label>💧 حجم مغذي السوائل (Normal Saline / Dextrose بالسي سي):</label>
-                        <input type="number" id="ivFluidVol" class="form-control" value="250" oninput="calculateIVMethod()">
+                        <label>🩸 جرعة الحديد الوريدي المطلوبة (mg):</label>
+                        <input type="number" id="ivIronMg" class="form-control" value="100" oninput="calculateIVMethod()">
+                    </div>
+                    <div class="form-group">
+                        <label>🚿 جرعة المدرر الوريدي المطلوبة (mg):</label>
+                        <input type="number" id="ivDiureticMg" class="form-control" value="20" oninput="calculateIVMethod()">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>💧 حجم مغذي السوائل (Saline / Dextrose / Ringer بالسي سي):</label>
+                        <input type="number" id="ivFluidVol" class="form-control" value="500" oninput="calculateIVMethod()">
                     </div>
                     <div class="form-group">
                         <label>⏱️ مدة إعطاء مغذي السوائل (ساعة):</label>
-                        <input type="number" id="ivFluidHrs" class="form-control" value="3" oninput="calculateIVMethod()">
+                        <input type="number" id="ivFluidHrs" class="form-control" value="4" oninput="calculateIVMethod()">
                     </div>
                 </div>
 
@@ -1339,61 +1400,23 @@
         </div>
     </div>
 
-    <!-- القسم الرابع: مواعيد وتكرار إعطاء كل أنواع الأدوية -->
+    <!-- القسم الرابع: مواعيد الأدوية حسب الأقسام المنظمة -->
     <div id="sec4" class="section-content">
         <div class="card" id="sec4-card">
             <div class="card-header">
-                <span class="card-title">🕒 باحث مواعيد وتكرار إعطاء جميع الأدوية</span>
-                <span class="badge">كل الأنواع</span>
+                <span class="card-title">🕒 مواعيد وتكرار الأدوية حسب الأقسام والأعمار</span>
+                <span class="badge">أقسام مرتبة</span>
             </div>
 
             <div class="formula-box">
-                اكتب اسم أي دواء (عربي أو إنجليزي أو حسب المجموعة) في حقل البحث بالأسفل أو اضغط على أي زر سريع؛ ليظهر لك فوراً <strong>كم مرة يُعطى باليوم</strong> و<strong>أفضل وقت لإعطائه</strong>.
+                اختر القسم الدوائي من الأزرار بالأسفل لتصفح الأدوية الموجودة فيه ومعرفة: <strong>كم مرة خلال اليوم</strong>، <strong>أفضل وقت لإعطائه</strong>، و<strong>لأي قد أعمار يصير</strong>.
             </div>
 
-            <div class="form-group">
-                <label>🔍 اكتب اسم الدواء هنا (مضادات، معدة، غدة، دهون، سكري، مسكنات، حساسية، ضغط، حديد، قيء...):</label>
-                <input type="text" id="drugScheduleInput" class="form-control" placeholder="اكتب اسم الدواء للبحث الفوري عن تكراره وأفضل وقت..." oninput="lookupDrugSchedule()">
-            </div>
+            <div class="cat-selector" id="scheduleCategoryButtons"></div>
 
-            <div class="form-group">
-                <label style="font-size:0.78rem; color:#94a3b8;">اختصارات سريعة لمختلف أنواع الأدوية:</label>
-                <div class="quick-chips">
-                    <span class="quick-chip" onclick="selectScheduleChip('ميترونيدازول')">ميترونيدازول</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('سيفيكسيم')">سيفيكسيم</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('بروفين')">بروفين</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('باراسيتامول')">باراسيتامول</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('أزيثرومايسين')">أزيثرومايسين</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('أوگمنتين')">أوگمنتين</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('أموكسيسيلين')">أموكسيسيلين</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Omeprazole')">Omeprazole</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Levothyroxine')">Levothyroxine</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Atorvastatin')">Atorvastatin</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Metformin')">Metformin</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Montelukast')">Montelukast</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Cetirizine')">Cetirizine</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Furosemide')">Furosemide</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Captopril')">Captopril</span>
-                    <span class="quick-chip" onclick="selectScheduleChip('Iron')">الحديد (Iron)</span>
-                </div>
-            </div>
+            <div id="scheduleCategoryCards"></div>
 
-            <div id="scheduleResultBox"></div>
-
-            <h4 style="color:#38bdf8; margin-top:20px; margin-bottom:8px; font-size:0.95rem;">📋 جدول مرجعي شامل لمختلف أنواع الأدوية وتوقيتها المثالي:</h4>
-            <table class="dose-table">
-                <thead>
-                    <tr>
-                        <th>الدواء</th>
-                        <th>التكرار اليومي</th>
-                        <th>أفضل وقت للإعطاء</th>
-                        <th>ملاحظة مهمة</th>
-                    </tr>
-                </thead>
-                <tbody id="scheduleReferenceBody"></tbody>
-            </table>
-
-            <button class="mini-pdf-btn" onclick="openPdfViewer('sec4-card', 'دليل_مواعيد_وتكرار_جميع_الأدوية')">📄 فتح ملف PDF لجدول المواعيد</button>
+            <button class="mini-pdf-btn" onclick="openPdfViewer('sec4-card', 'مواعيد_الأدوية_حسب_الأقسام')">📄 فتح ملف PDF لقسم المواعيد</button>
         </div>
     </div>
 
@@ -1438,13 +1461,13 @@
         }
     }
 
-    // قاعدة بيانات طرق حساب الشرابات والمغذيات بالسي سي (1 مل = 1 سي سي)
+    // كل الشرابات والمغذيات بالسي سي (1 مل = 1 سي سي)
     const userDoseRules = [
         {
             id: "iv_para",
             name: "مغذي باراسيتامول (IV Paracetamol)",
             conc: "مغذي",
-            ruleText: "1.5 سي سي لكل كيلو غرام (وزن الطفل × 1.5)",
+            ruleText: "وزن الطفل × 1.5 سي سي",
             freq: "حسب الوصفة / الحاجة",
             keywords: ["مغذي", "مغذيات", "باراسيتامول مغذي", "paracetamol iv", "سي سي", "مل"],
             calc: (w) => w * 1.5
@@ -1453,10 +1476,37 @@
             id: "iv_metro",
             name: "مغذي ميترونيدازول (IV Metronidazole)",
             conc: "مغذي",
-            ruleText: "2 سي سي لكل كيلو غرام (وزن الطفل × 2)",
+            ruleText: "وزن الطفل × 2 سي سي",
             freq: "حسب الوصفة الطبية",
             keywords: ["مغذي", "مغذيات", "ميترونيدازول مغذي", "فلاجيل مغذي", "metronidazole iv", "سي سي", "مل"],
             calc: (w) => w * 2
+        },
+        {
+            id: "iv_iron",
+            name: "مغذي الحديد (IV Iron Sucrose)",
+            conc: "مغذي حديد",
+            ruleText: "يُخفف في 100-250 سي سي Normal Saline حسب التركيز",
+            freq: "حسب الوصفة السريرية",
+            keywords: ["مغذي", "مغذيات", "حديد", "iron", "فنوفر", "venofera"],
+            calc: (w) => Math.max(100, w * 5)
+        },
+        {
+            id: "iv_diuretic",
+            name: "مغذي مدرر (IV Diuretic / Mannitol)",
+            conc: "مدرر وريدي",
+            ruleText: "حسب الجرعة والتركيز (مثل Furosemide 10mg/ml أو Mannitol)",
+            freq: "حسب إرشاد الطبيب",
+            keywords: ["مغذي", "مغذيات", "مدرر", "مدررات", "لازيكس", "furosemide", "mannitol"],
+            calc: (w) => w * 1
+        },
+        {
+            id: "iv_fluid",
+            name: "مغذي السوائل (Normal Saline / Dextrose / Ringer Lactate)",
+            conc: "سوائل وريدية",
+            ruleText: "1 مل = 1 سي سي (الحجم الكلي بالسي سي والقطرات حسب المدة)",
+            freq: "حسب حالة الإرواء والتعويض",
+            keywords: ["مغذي", "مغذيات", "رينجر", "ringer", "saline", "dextrose", "دكستروز", "نورمال سالاين"],
+            calc: (w) => w * 20
         },
         {
             id: "metro_125",
@@ -1720,6 +1770,15 @@
             calc: (w) => w * 0.25
         },
         {
+            id: "deslorat_2_5",
+            name: "ديسلوراتادين (Desloratadine)",
+            conc: "2.5/5",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "مرة واحدة باليوم",
+            keywords: ["ديسلوراتادين", "desloratadine", "إيريوس", "حساسية"],
+            calc: (w) => w * 0.25
+        },
+        {
             id: "salbut_2",
             name: "فنتولين / سالبوتامول (Salbutamol)",
             conc: "2/5",
@@ -1729,6 +1788,96 @@
             calc: (w) => w * 0.25
         },
         {
+            id: "ambrox_15",
+            name: "أمبروكسول مذيب بلغم (Ambroxol)",
+            conc: "15/5",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "كل 8-12 ساعة",
+            keywords: ["أمبروكسول", "ambroxol", "بلغم", "سعال"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "bromhex_4",
+            name: "برومهيكسين مذيب بلغم (Bromhexine)",
+            conc: "4/5",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "كل 8 ساعات",
+            keywords: ["برومهيكسين", "bromhexine", "بلغم"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "dextro_15",
+            name: "ديكستروميثورفان سعال جاف (Dextromethorphan)",
+            conc: "15/5",
+            ruleText: "وزن الطفل × 0.2",
+            freq: "كل 6-8 ساعات",
+            keywords: ["ديكستروميثورفان", "dextromethorphan", "سعال جاف"],
+            calc: (w) => w * 0.2
+        },
+        {
+            id: "domper_5",
+            name: "دومبيريدون / موتيليوم (Domperidone)",
+            conc: "5/5",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "حتى 3 مرات باليوم",
+            keywords: ["دومبيريدون", "موتيليوم", "domperidone", "قيء"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "ondans_4",
+            name: "أوندانسيترون / زوفران (Ondansetron)",
+            conc: "4/5",
+            ruleText: "وزن الطفل × 0.2",
+            freq: "عند اللزوم",
+            keywords: ["أوندانسيترون", "زوفران", "ondansetron", "استفراغ"],
+            calc: (w) => w * 0.2
+        },
+        {
+            id: "hyoscine_5",
+            name: "هيوسين / بسكوبان (Hyoscine)",
+            conc: "5/5",
+            ruleText: "وزن الطفل × 0.25",
+            freq: "كل 8 ساعات",
+            keywords: ["هيوسين", "بسكوبان", "hyoscine", "buscopan", "مغص"],
+            calc: (w) => w * 0.25
+        },
+        {
+            id: "simeth_40",
+            name: "سيميثيكون غازات (Simethicone)",
+            conc: "40/0.6",
+            ruleText: "وزن الطفل × 0.2",
+            freq: "كل 6-8 ساعات",
+            keywords: ["سيميثيكون", "simethicone", "غازات"],
+            calc: (w) => w * 0.2
+        },
+        {
+            id: "nystat_100k",
+            name: "نيوستاتين فطريات الفم (Nystatin)",
+            conc: "100,000/مل",
+            ruleText: "وزن الطفل × 0.2",
+            freq: "4 مرات باليوم",
+            keywords: ["نيوستاتين", "nystatin", "فطريات", "فم"],
+            calc: (w) => w * 0.2
+        },
+        {
+            id: "albend_200",
+            name: "ألبيندازول ديدان (Albendazole)",
+            conc: "200/5",
+            ruleText: "وزن الطفل × 0.375",
+            freq: "جرعة واحدة أو حسب الحالة",
+            keywords: ["ألبيندازول", "albendazole", "ديدان"],
+            calc: (w) => w * 0.375
+        },
+        {
+            id: "mebend_100",
+            name: "ميبيندازول ديدان (Mebendazole)",
+            conc: "100/5",
+            ruleText: "وزن الطفل × 0.5",
+            freq: "كل 12 ساعة لمدة 3 أيام",
+            keywords: ["ميبيندازول", "mebendazole", "ديدان"],
+            calc: (w) => w * 0.5
+        },
+        {
             id: "iron_50",
             name: "شراب الحديد (Iron)",
             conc: "50/5",
@@ -1736,6 +1885,24 @@
             freq: "مرة واحدة باليوم",
             keywords: ["حديد", "iron", "فقر دم"],
             calc: (w) => w * 0.3
+        },
+        {
+            id: "pred_5",
+            name: "بريدنيزولون (Prednisolone)",
+            conc: "5/5",
+            ruleText: "وزن الطفل × 1.5",
+            freq: "مقسمة كل 12 ساعة",
+            keywords: ["بريدنيزولون", "prednisolone", "كورتيزون"],
+            calc: (w) => w * 1.5
+        },
+        {
+            id: "pred_15",
+            name: "بريدنيزولون (Prednisolone)",
+            conc: "15/5",
+            ruleText: "وزن الطفل × 0.5",
+            freq: "مقسمة كل 12 ساعة",
+            keywords: ["بريدنيزولون", "prednisolone", "15"],
+            calc: (w) => w * 0.5
         }
     ];
 
@@ -1827,6 +1994,8 @@
 
     function calculateIVMethod() {
         const w = parseFloat(document.getElementById('ivWeight').value);
+        const ironMg = parseFloat(document.getElementById('ivIronMg').value) || 0;
+        const diureticMg = parseFloat(document.getElementById('ivDiureticMg').value) || 0;
         const fluidVol = parseFloat(document.getElementById('ivFluidVol').value) || 0;
         const fluidHrs = parseFloat(document.getElementById('ivFluidHrs').value) || 1;
         const resBox = document.getElementById('ivResult');
@@ -1838,17 +2007,259 @@
 
         const paraCc = w * 1.5;
         const metroCc = w * 2;
+        const ironDiluentCc = ironMg <= 100 ? 100 : 250;
+        const furosemideCc = (diureticMg / 10).toFixed(1);
         const ratePerHr = fluidVol / fluidHrs;
         const dropsPerMin = (fluidVol * 20) / (fluidHrs * 60);
 
         resBox.style.display = 'block';
         resBox.innerHTML = `
-            <h4>💧 جرعات المغذيات للوزن ${w} كغم (1 مل = 1 سي سي):</h4>
-            <p>• <strong>باراسيتامول مغذي (1.5 سي سي/كغم):</strong> <strong style="color:#22d3ee; font-size:1.2rem;">${paraCc.toFixed(1)} سي سي</strong> (${paraCc.toFixed(1)} مل)</p>
-            <p>• <strong>ميترونيدازول مغذي (2 سي سي/كغم):</strong> <strong style="color:#34d399; font-size:1.2rem;">${metroCc.toFixed(1)} سي سي</strong> (${metroCc.toFixed(1)} مل)</p>
+            <h4>💧 نتائج المغذيات للوزن ${w} كغم (1 مل = 1 سي سي):</h4>
+            <p>• <strong>مغذي باراسيتامول (1.5 سي سي/كغم):</strong> <strong style="color:#22d3ee;">${paraCc.toFixed(1)} سي سي</strong> (${paraCc.toFixed(1)} مل)</p>
+            <p>• <strong>مغذي ميترونيدازول (2 سي سي/كغم):</strong> <strong style="color:#34d399;">${metroCc.toFixed(1)} سي سي</strong> (${metroCc.toFixed(1)} مل)</p>
+            <p>• <strong>مغذي الحديد (${ironMg} mg):</strong> يُخفف عادةً في <strong style="color:#fbbf24;">${ironDiluentCc} سي سي</strong> Normal Saline بالتسريب البطيء.</p>
+            <p>• <strong>مدرر وريدي (Furosemide ${diureticMg} mg بتركيز 10mg/ml):</strong> <strong style="color:#a78bfa;">${furosemideCc} سي سي</strong>.</p>
             <p style="margin-top:8px; border-top:1px solid rgba(255,255,255,0.1); padding-top:8px;">• <strong>مغذي السوائل (${fluidVol} سي سي خلال ${fluidHrs} ساعة):</strong> <strong>${ratePerHr.toFixed(1)} سي سي/ساعة</strong> (${Math.round(dropsPerMin)} قطرة/دقيقة بجهاز 20).</p>
         `;
     }
+
+    // أقسام مواعيد الأدوية المنظمة
+    const scheduleCategories = [
+        {
+            id: "lipids",
+            label: "🥑 الدهون الثلاثية والكوليسترول",
+            items: [
+                {
+                    name: "أتورفاستاتين / روزوفاستاتين (Atorvastatin / Rosuvastatin)",
+                    age: "البالغون (وغالباً فوق 10 سنوات في حالات عائلية خاصة)",
+                    freq: "مرة واحدة يومياً (كل 24 ساعة)",
+                    time: "مساءً أو في وقت ثابت يومياً (مع أو بدون طعام)",
+                    note: "يُستخدم للكوليسترول والدهون الثلاثية؛ الالتزام اليومي هو الأساس."
+                },
+                {
+                    name: "سيمفاستاتين (Simvastatin)",
+                    age: "البالغون (وفوق 10 سنوات حسب التقييم الطبي)",
+                    freq: "مرة واحدة يومياً (كل 24 ساعة)",
+                    time: "مساءً أو قبل النوم تحديداً",
+                    note: "تصنيع الكوليسترول يرتفع ليلاً مما يجعل المساء هو الأفضل."
+                },
+                {
+                    name: "فينوفايبرات / أوميغا-3 (Fenofibrate / Omega-3)",
+                    age: "البالغون",
+                    freq: "مرة واحدة يومياً (أو حسب الجرعة)",
+                    time: "مع الوجبة الرئيسية (الغداء أو العشاء)",
+                    note: "فعال جداً في خفض الدهون الثلاثية المرتفعة؛ يُفضل مع الطعام لزيادة الامتصاص."
+                }
+            ]
+        },
+        {
+            id: "bp_diuretics",
+            label: "💓 الضغط والقلب والمدررات",
+            items: [
+                {
+                    name: "مثبطات ACE (Captopril / Enalapril / Lisinopril / Ramipril)",
+                    age: "البالغون (وبعضها للأطفال فوق 6 سنوات تحت إشراف مختص)",
+                    freq: "مرة يومياً (أو مرتين في Captopril)",
+                    time: "وقت ثابت يومياً (Captopril قبل الأكل بساعة؛ البقية مع أو بدون أكل)",
+                    note: "مهم لحماية القلب والكلى وضبط الضغط؛ قد يسبب سعالاً جافاً."
+                },
+                {
+                    name: "حاصرات ARBs (Losartan / Valsartan / Candesartan / Telmisartan)",
+                    age: "البالغون (وفوق 6 سنوات لبعض الأنواع)",
+                    freq: "مرة واحدة يومياً (أو مرتين في بعض الحالات)",
+                    time: "في وقت ثابت يومياً (مع أو بدون طعام)",
+                    note: "بديل ممتاز لمن يصاب بسعال جاف من مثبطات ACE."
+                },
+                {
+                    name: "حاصرات بيتا (Bisoprolol / Metoprolol / Atenolol / Propranolol)",
+                    age: "البالغون (وPropranolol يُستخدم للأطفال حسب الوزن)",
+                    freq: "مرة إلى مرتين يومياً (حسب النوع)",
+                    time: "صباحاً أو مع الوجبة (Metoprolol يُفضل مع أو بعد الطعام)",
+                    note: "لا يُقطع فجأة أبداً لتجنب ارتفاع الضغط أو تسارع القلب."
+                },
+                {
+                    name: "أملوديبين (Amlodipine - ضغط وقنوات الكالسيوم)",
+                    age: "البالغون (وفوق 6 سنوات للضغط)",
+                    freq: "مرة واحدة يومياً (كل 24 ساعة)",
+                    time: "في وقت ثابت يومياً (مع أو بدون طعام)",
+                    note: "قد يسبب تورماً خفيفاً في الكاحلين لدى بعض المرضى."
+                },
+                {
+                    name: "المدررات (Furosemide / Hydrochlorothiazide / Spironolactone)",
+                    age: "البالغون والأطفال (حسب النوع والوزن)",
+                    freq: "مرة إلى مرتين يومياً",
+                    time: "صباحاً باكراً أو قبل الساعة 4 عصراً",
+                    note: "يُتجنب إعطاؤه ليلاً حتى لا يضطر المريض للتبول المتكرر أثناء النوم."
+                }
+            ]
+        },
+        {
+            id: "diabetes",
+            label: "🩸 السكري",
+            items: [
+                {
+                    name: "ميتفورمين / جلوكوفاج (Metformin)",
+                    age: "فوق 10 سنوات والبالغون",
+                    freq: "مرتين يومياً (كل 12 ساعة) أو مرة واحدة لـ XR",
+                    time: "أثناء الأكل أو مباشرة بعد الوجبة",
+                    note: "أخذه مع الطعام يقلل الغثيان واضطرابات المعدة بشكل كبير."
+                },
+                {
+                    name: "غليميبيريد / غليكلازيد (Glimepiride / Gliclazide)",
+                    age: "البالغون",
+                    freq: "مرة واحدة يومياً (أو مرتين في بعض الحالات)",
+                    time: "قبل الفطور مباشرة أو مع أول لقمة من الفطور",
+                    note: "انتبه لأعراض هبوط السكر إذا تأخر الأكل بعد الجرعة."
+                },
+                {
+                    name: "مثبطات DPP-4 و SGLT2 (Sitagliptin / Empagliflozin / Dapagliflozin)",
+                    age: "البالغون",
+                    freq: "مرة واحدة يومياً",
+                    time: "صباحاً (مع أو بدون طعام)",
+                    note: "يُفضل شرب كمية جيدة من الماء مع أدوية SGLT2."
+                },
+                {
+                    name: "الإنسولين (Insulin Regular / NPH / Glargine / Mixtard)",
+                    age: "كل الأعمار (الأطفال والكبار حسب نوع الإنسولين والطبيب)",
+                    freq: "مرة يومياً للقاعدي (Glargine) أو 2-3 مرات حسب النظام",
+                    time: "Regular قبل الأكل بـ 20-30 دقيقة • Glargine وقت ثابت يومياً",
+                    note: "يُحفظ غير المستخدم في الثلاجة ولا يُجمّد."
+                }
+            ]
+        },
+        {
+            id: "chronic_other",
+            label: "🧠 الأمراض المزمنة والغدة والأعصاب",
+            items: [
+                {
+                    name: "ليفوثيروكسين (Levothyroxine - خمول الغدة الدرقية)",
+                    age: "كل الأعمار (من الرضع وحتى الكبار حسب الجرعة)",
+                    freq: "مرة واحدة يومياً",
+                    time: "صباحاً على معدة فارغة قبل الفطور بـ 30-60 دقيقة مع ماء",
+                    note: "يُفصل عن الكالسيوم والحديد ومضادات الحموضة بـ 4 ساعات."
+                },
+                {
+                    name: "أدوية الأعصاب والصرع (Pregabalin / Gabapentin / Levetiracetam)",
+                    age: "البالغون (وبعضها للأطفال فوق عمر محدد حسب الدواء)",
+                    freq: "مرتين يومياً (كل 12 ساعة) أو حسب الوصفة",
+                    time: "مواعيد ثابتة (مع أو بدون طعام)",
+                    note: "قد تسبب نعاساً أو دوخة في البداية؛ لا تُوقف فجأة."
+                },
+                {
+                    name: "مونتيلوكاست (Montelukast - الربو والحساسية المزمنة)",
+                    age: "من 6 أشهر إلى سنتين (أكياس/حبيبات) وفوق سنتين للبالغين",
+                    freq: "مرة واحدة يومياً",
+                    time: "مساءً (للربو والحساسية الموسمية)",
+                    note: "يمكن إعطاؤه مع أو بدون طعام."
+                }
+            ]
+        },
+        {
+            id: "git_syrups",
+            label: "🤢 المعدة والهضم والقيء والشرابات",
+            items: [
+                {
+                    name: "مثبطات الحموضة (Omeprazole / Pantoprazole / Esomeprazole)",
+                    age: "البالغون (وبعضها للأطفال فوق سنة أو حسب التركيز)",
+                    freq: "مرة واحدة يومياً (أو مرتين كل 12 ساعة)",
+                    time: "قبل الفطور بـ 30 إلى 60 دقيقة على معدة فارغة",
+                    note: "يُبلع كاملاً دون كسر أو مضغ."
+                },
+                {
+                    name: "ميترونيدازول شراب / مغذي (Metronidazole 125 / 250)",
+                    age: "الرضع والأطفال والكبار حسب الوزن (125: الوزن × 0.4 | 250: الوزن × 0.25)",
+                    freq: "كل 8 ساعات (3 مرات باليوم)",
+                    time: "بعد الأكل",
+                    note: "لتقليل الطعم المعدني واضطراب المعدة."
+                },
+                {
+                    name: "No-Vomit / دومبيريدون / أوندانسيترون (مضادات القيء)",
+                    age: "الأطفال والكبار حسب الوزن والعمر (No-Vomit: الوزن × 0.2 سي سي)",
+                    freq: "كل 8 ساعات أو عند اللزوم حسب الوصفة",
+                    time: "قبل الأكل بـ 15-30 دقيقة أو حسب الحالة",
+                    note: "يُراعى الالتزام بالجرعة المحددة للأطفال."
+                }
+            ]
+        },
+        {
+            id: "antibiotics_analgesics",
+            label: "🦠 المضادات والمسكنات والحساسية",
+            items: [
+                {
+                    name: "سيفيكسيم (Cefixime)",
+                    age: "من 6 أشهر فما فوق والبالغون (الوزن × 0.4 سي سي)",
+                    freq: "مرة واحدة يومياً (أو كل 12 ساعة)",
+                    time: "في وقت ثابت يومياً (مع أو بدون طعام)",
+                    note: "يُرج المعلق جيداً قبل كل استخدام."
+                },
+                {
+                    name: "بروفين / إيبوبروفين (Ibuprofen 100/5 أو 200/5)",
+                    age: "فوق 6 أشهر والبالغون (100/5: الوزن ÷ 2 أو × 0.25 | 200/5: الوزن ÷ 4)",
+                    freq: "كل 8 ساعات عند اللزوم",
+                    time: "بعد الأكل مباشرة مع الماء",
+                    note: "تجنب إعطائه على معدة فارغة أو في حالات الجفاف الشديد."
+                },
+                {
+                    name: "باراسيتامول شراب / مغذي (Paracetamol)",
+                    age: "منذ الولادة والرضع والأطفال والكبار (شراب: 5×10×الوزن÷الجرعة | مغذي: الوزن×1.5)",
+                    freq: "كل 4 إلى 6 ساعات عند اللزوم (بحد أقصى 4-5 جرعات/يوم)",
+                    time: "في أي وقت مع أو بدون أكل",
+                    note: "آمن على المعدة ومناسب للحرارة والألم."
+                },
+                {
+                    name: "أوگمنتين / أموكسيسيلين / أزيثرومايسين",
+                    age: "الرضع والأطفال والكبار حسب الوزن والتركيز",
+                    freq: "أوگمنتين 156/312 وأموكسيسيلين كل 8 ساعات • أوگمنتين 200/400 كل 12 ساعة • أزيثرومايسين مرة يومياً",
+                    time: "أوگمنتين بداية الوجبة • أزيثرومايسين وقت ثابت يومياً",
+                    note: "يجب إكمال مدة المضاد الحيوي المقررة."
+                }
+            ]
+        }
+    ];
+
+    let activeScheduleCategoryId = scheduleCategories[0].id;
+
+    function renderScheduleCategories() {
+        const btnWrap = document.getElementById('scheduleCategoryButtons');
+        btnWrap.innerHTML = scheduleCategories.map(cat => `
+            <button class="cat-pill-btn ${cat.id === activeScheduleCategoryId ? 'active' : ''}" onclick="selectScheduleCategory('${cat.id}')">
+                ${cat.label}
+            </button>
+        `).join('');
+        renderScheduleCategoryCards();
+    }
+
+    function selectScheduleCategory(catId) {
+        activeScheduleCategoryId = catId;
+        renderScheduleCategories();
+    }
+
+    function renderScheduleCategoryCards() {
+        const wrap = document.getElementById('scheduleCategoryCards');
+        const current = scheduleCategories.find(c => c.id === activeScheduleCategoryId);
+        if (!current) return;
+
+        wrap.innerHTML = current.items.map(item => `
+            <div class="med-timing-card">
+                <div class="med-timing-title">
+                    <span>💊 ${item.name}</span>
+                    <span class="med-age-tag">👶/🧑 الأعمار: ${item.age}</span>
+                </div>
+                <div class="med-details-grid">
+                    <div class="med-detail-box">
+                        <span>🔁 كم مرة خلال اليوم؟</span>
+                        <strong style="color:#22d3ee;">${item.freq}</strong>
+                    </div>
+                    <div class="med-detail-box">
+                        <span>⏰ أفضل وقت لإعطاء الدواء</span>
+                        <strong style="color:#34d399;">${item.time}</strong>
+                    </div>
+                </div>
+                <div class="med-note-line">💡 <strong>ملاحظة:</strong> ${item.note}</div>
+            </div>
+        `).join('');
+    }
+    renderScheduleCategories();
 
     function switchTab(sectionId, btn) {
         document.querySelectorAll('.section-content').forEach(sec => sec.classList.remove('active'));
@@ -1868,163 +2279,7 @@
         header.parentElement.classList.toggle('open');
     }
 
-    // مواعيد وتكرار مختلف أنواع الأدوية
-    const drugSchedulesDB = [
-        {
-            name: "ميترونيدازول (Metronidazole - شراب 125/250 أو مغذي)",
-            keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "flagyl"],
-            freq: "كل 8 ساعات (3 مرات باليوم)",
-            bestTime: "بعد الأكل لتقليل الطعم المعدني واضطراب المعدة",
-            note: "125: الوزن × 0.4 سي سي | 250: الوزن × 0.25 سي سي | مغذي: الوزن × 2 سي سي."
-        },
-        {
-            name: "سيفيكسيم (Cefixime)",
-            keywords: ["سيفيكسيم", "سيفاكسيم", "cefixime", "suprax"],
-            freq: "مرة واحدة باليوم (أو كل 12 ساعة حسب الوصفة)",
-            bestTime: "في وقت ثابت يومياً (مع أو بدون طعام)",
-            note: "الجرعة بالسي سي: وزن الطفل × 0.4 سي سي مرة واحدة باليوم."
-        },
-        {
-            name: "بروفين / إيبوبروفين (Ibuprofen - 100/5 أو 200/5)",
-            keywords: ["بروفين", "ايبوبروفين", "ibuprofen", "brufen"],
-            freq: "كل 8 ساعات (3 مرات باليوم عند اللزوم)",
-            bestTime: "بعد الأكل مباشرة مع الماء",
-            note: "100/5: الوزن ÷ 2 أو × 0.25 سي سي | 200/5: الوزن ÷ 4 سي سي."
-        },
-        {
-            name: "باراسيتامول (Paracetamol - شراب أو مغذي)",
-            keywords: ["باراسيتامول", "بنادول", "paracetamol", "panadol"],
-            freq: "كل 4 إلى 6 ساعات عند اللزوم (بحد أقصى 4-5 مرات يومياً)",
-            bestTime: "في أي وقت مع أو بدون أكل",
-            note: "شراب: (5 × 10 × الوزن ÷ جرعة الدواء) سي سي | مغذي: الوزن × 1.5 سي سي."
-        },
-        {
-            name: "أزيثرومايسين (Azithromycin - 200/5 أو 300)",
-            keywords: ["ازيثرومايسين", "أزيثرومايسين", "azithromycin", "zithromax"],
-            freq: "مرة واحدة باليوم",
-            bestTime: "في وقت ثابت يومياً",
-            note: "200/5: الوزن × 0.25 سي سي | 300: الوزن × 0.167 سي سي."
-        },
-        {
-            name: "أوگمنتين (Augmentin - 156/312 أو 200/400)",
-            keywords: ["اوگمنتين", "اوجمنتين", "أوغمنتين", "augmentin"],
-            freq: "كل 8 ساعات (156/312) أو كل 12 ساعة (200/400)",
-            bestTime: "بداية الوجبة لتقليل الإسهال وتهييج المعدة",
-            note: "156/312: الوزن × 0.533 كل 8 ساعات | 200/400: الوزن × 62.5 كل 12 ساعة."
-        },
-        {
-            name: "أموكسيسيلين (Amoxicillin - 125 أو 250)",
-            keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin"],
-            freq: "كل 8 ساعات (3 مرات باليوم)",
-            bestTime: "مع أو بدون طعام",
-            note: "250: الوزن × 0.2 سي سي | 125: الوزن × 0.4 سي سي."
-        },
-        {
-            name: "سيفدينير / سفلاكسين / سيفادروكسيل / سيفاكلور / سيفيوروكزيم / سيفبودوكسيم",
-            keywords: ["سيفدينير", "سفلاكسين", "سيفادروكسيل", "سيفاكلور", "سيفيوروكزيم", "سيفبودوكسيم", "cefdinir", "cephalexin", "cefadroxil", "cefaclor", "cefuroxime", "cefpodoxime"],
-            freq: "كل 12 ساعة (2 مرات) أو كل 8 ساعات (3 مرات) حسب الدواء",
-            bestTime: "بانتظام في مواعيد متساوية",
-            note: "تُطبق معادلة كل تركيز بالسي سي مباشرة من قسم الجرعات."
-        },
-        {
-            name: "كلاريثروميسين / إريثرومايسين / No-Vomit",
-            keywords: ["كلاريثروميسين", "اريثرومايسين", "إريثرومايسين", "no-vomit", "novomit", "clarithromycin", "erythromycin"],
-            freq: "كل 12 ساعة (كلاريثروميسين) • كل 6 ساعات (إريثرومايسين) • كل 8 ساعات (No-Vomit)",
-            bestTime: "حسب الدواء والوصفة",
-            note: "كلاريثروميسين: الوزن × 0.3 | إريثرومايسين 200: الوزن × 0.25 | No-Vomit: الوزن × 0.2."
-        },
-        {
-            name: "أدوية المعدة والحموضة (Omeprazole / Pantoprazole / Esomeprazole)",
-            keywords: ["omeprazole", "pantoprazole", "esomeprazole", "أوميبرازول", "بانتوبرازول", "معدة", "حموضة"],
-            freq: "مرة واحدة يومياً (أو مرتين كل 12 ساعة في الحالات الشديدة)",
-            bestTime: "قبل الفطور بـ 30 إلى 60 دقيقة على معدة فارغة",
-            note: "يُبلع الكبسول أو القرص المغلف كاملاً دون فتح أو مضغ."
-        },
-        {
-            name: "ليفوثيروكسين (Levothyroxine - الغدة الدرقية)",
-            keywords: ["levothyroxine", "ليفوثيروكسين", "غدة"],
-            freq: "مرة واحدة يومياً",
-            bestTime: "صباحاً على معدة فارغة قبل الفطور بـ 30-60 دقيقة مع ماء",
-            note: "يُفصل عن الحديد والكالسيوم ومضادات الحموضة بـ 4 ساعات."
-        },
-        {
-            name: "أدوية الدهون والسكري (Atorvastatin / Metformin)",
-            keywords: ["atorvastatin", "metformin", "أتورفاستاتين", "ميتفورمين", "دهون", "سكري"],
-            freq: "مرة يومياً (Atorvastatin) أو مرتين يومياً (Metformin)",
-            bestTime: "مساءً/وقت ثابت (Atorvastatin) • مع أو بعد الأكل (Metformin)",
-            note: "تناول Metformin مع الطعام يقلل اضطرابات المعدة."
-        },
-        {
-            name: "أدوية الحساسية والربو (Cetirizine / Loratadine / Montelukast / Salbutamol)",
-            keywords: ["cetirizine", "loratadine", "montelukast", "salbutamol", "حساسية", "ربو", "فنتولين"],
-            freq: "مرة واحدة يومياً للحساسية والربو، أو كل 8 ساعات للفنتولين",
-            bestTime: "مساءً (Montelukast و Cetirizine قد يسبب نعاساً خفيفاً)",
-            note: "تُعطى حسب الوزن أو الإرشاد الطبي."
-        },
-        {
-            name: "أدوية الضغط والمدرات والحديد (Captopril / Furosemide / Iron)",
-            keywords: ["captopril", "furosemide", "iron", "ضغط", "مدر", "حديد", "فقر دم"],
-            freq: "مرة إلى مرتين يومياً حسب الدواء",
-            bestTime: "Furosemide صباحاً باكراً • Iron قبل الأكل بساعة أو بعده بساعتين",
-            note: "تجنب شرب الشاي أو الحليب مع الحديد بفارق ساعتين."
-        }
-    ];
-
-    function renderScheduleCard(item) {
-        return `
-            <div class="timing-card">
-                <h4 style="color:#38bdf8; font-size:1.05rem; margin-bottom:4px;">💊 ${item.name}</h4>
-                <div class="timing-pills">
-                    <div class="timing-pill-box">
-                        <span>🔁 كم مرة يُعطى باليوم؟</span>
-                        <strong>${item.freq}</strong>
-                    </div>
-                    <div class="timing-pill-box">
-                        <span>⏰ متى أفضل وقت لإعطائه؟</span>
-                        <strong style="color:#34d399;">${item.bestTime}</strong>
-                    </div>
-                </div>
-                <p style="font-size:0.86rem; color:#e2e8f0;">💡 <strong>ملاحظة وطريقة الحساب:</strong> ${item.note}</p>
-            </div>
-        `;
-    }
-
-    function lookupDrugSchedule() {
-        const q = document.getElementById('drugScheduleInput').value.toLowerCase().trim();
-        const box = document.getElementById('scheduleResultBox');
-        if (!q) {
-            box.innerHTML = '';
-            return;
-        }
-        const matches = drugSchedulesDB.filter(d =>
-            d.name.toLowerCase().includes(q) ||
-            d.keywords.some(k => k.toLowerCase().includes(q) || q.includes(k.toLowerCase()))
-        );
-        box.innerHTML = matches.length > 0
-            ? matches.map(renderScheduleCard).join('')
-            : `<div class="timing-card" style="border-color:rgba(244,63,94,0.45);"><p style="color:#fda4af; font-size:0.9rem;">لم يتم العثور على "<strong>${document.getElementById('drugScheduleInput').value}</strong>".</p></div>`;
-    }
-
-    function selectScheduleChip(val) {
-        document.getElementById('drugScheduleInput').value = val;
-        lookupDrugSchedule();
-    }
-
-    function populateScheduleTable() {
-        const tbody = document.getElementById('scheduleReferenceBody');
-        if (!tbody) return;
-        tbody.innerHTML = drugSchedulesDB.map(d => `
-            <tr>
-                <td style="text-align:right;"><strong>${d.name}</strong></td>
-                <td>${d.freq}</td>
-                <td style="color:#34d399; font-weight:700;">${d.bestTime}</td>
-                <td style="text-align:right; font-size:0.75rem;">${d.note}</td>
-            </tr>
-        `).join('');
-    }
-    populateScheduleTable();
-
-    // البحث الفوري الذكي على أصل طريقتك بالسي سي (1 مل = 1 سي سي)
+    // البحث الفوري الذكي عبر كل الشرابات والمغذيات والأقسام
     const searchInput = document.getElementById('aiSearchInput');
     const clearBtn = document.getElementById('clearSearchBtn');
     const instantBox = document.getElementById('aiInstantResults');
@@ -2037,7 +2292,6 @@
 
         if (term.length < 2) {
             instantBox.style.display = 'none';
-            document.querySelectorAll('.searchable-item').forEach(el => el.style.display = '');
             return;
         }
 
@@ -2049,17 +2303,14 @@
                             rule.conc.toLowerCase().includes(term) ||
                             rule.keywords.some(k => k.toLowerCase().includes(term) || term.includes(k.toLowerCase()));
             if (isMatch && count < 6) {
-                const ex10 = rule.calc(10);
                 const ex15 = rule.calc(15);
-                const f10 = Number.isInteger(ex10) ? ex10 : ex10.toFixed(2);
                 const f15 = Number.isInteger(ex15) ? ex15 : ex15.toFixed(2);
-
                 hitsHTML += `
                     <div class="instant-hit" style="border-right-color:#10b981; cursor:pointer;" onclick="jumpToRule('${rule.id}')">
                         <strong>🧮 ${rule.name} (${rule.conc}) — 1 مل = 1 سي سي</strong>
                         <span>
                             <strong>القاعدة:</strong> ${rule.ruleText} • <strong>التكرار:</strong> ${rule.freq}<br>
-                            <span style="color:#34d399;">مثال وزن 10 كغم = <strong>${f10} سي سي</strong> | مثال وزن 15 كغم = <strong>${f15} سي سي</strong></span>
+                            <span style="color:#34d399;">مثال وزن 15 كغم = <strong>${f15} سي سي</strong></span>
                         </span>
                     </div>
                 `;
@@ -2067,25 +2318,30 @@
             }
         });
 
-        drugSchedulesDB.forEach(d => {
-            const match = d.name.toLowerCase().includes(term) || d.keywords.some(k => k.toLowerCase().includes(term));
-            if (match && count < 8) {
-                hitsHTML += `
-                    <div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToSchedule('${d.keywords[0]}')">
-                        <strong>🕒 موعد وتكرار: ${d.name}</strong>
-                        <span><strong>التكرار:</strong> ${d.freq} • <strong>أفضل وقت:</strong> ${d.bestTime}</span>
-                    </div>
-                `;
-                count++;
-            }
+        scheduleCategories.forEach(cat => {
+            cat.items.forEach(item => {
+                const text = `${cat.label} ${item.name} ${item.freq} ${item.time} ${item.age} ${item.note}`.toLowerCase();
+                if (text.includes(term) && count < 9) {
+                    hitsHTML += `
+                        <div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToScheduleCategory('${cat.id}')">
+                            <strong>🕒 ${item.name} (${cat.label})</strong>
+                            <span>
+                                <strong>التكرار:</strong> ${item.freq} • <strong>أفضل وقت:</strong> ${item.time}<br>
+                                <span style="color:#34d399;">الأعمار: ${item.age}</span>
+                            </span>
+                        </div>
+                    `;
+                    count++;
+                }
+            });
         });
 
         if (count > 0) {
-            document.getElementById('aiHitsCount').innerText = `⚡ نتائج فورية على أصل طريقتك (${count} نتائج):`;
+            document.getElementById('aiHitsCount').innerText = `⚡ نتائج فورية ذكية (${count} نتائج):`;
             hitsList.innerHTML = hitsHTML;
             instantBox.style.display = 'block';
         } else {
-            hitsList.innerHTML = `<div class="instant-hit">لم يتم العثور على تطابق مباشر لـ "${rawTerm}". جرّب البحث باسم الدواء أو "مغذي" أو "سي سي".</div>`;
+            hitsList.innerHTML = `<div class="instant-hit">لم يتم العثور على تطابق مباشر لـ "${rawTerm}". جرّب البحث باسم الدواء أو المغذي أو القسم.</div>`;
             instantBox.style.display = 'block';
         }
     });
@@ -2094,7 +2350,6 @@
         searchInput.value = '';
         clearBtn.style.display = 'none';
         instantBox.style.display = 'none';
-        document.querySelectorAll('.searchable-item').forEach(el => el.style.display = '');
     }
 
     function jumpToRule(ruleId) {
@@ -2114,11 +2369,10 @@
         instantBox.style.display = 'none';
     }
 
-    function jumpToSchedule(keyword) {
+    function jumpToScheduleCategory(catId) {
         const tabBtns = document.querySelectorAll('.tab-btn');
         switchTab('sec4', tabBtns[3]);
-        document.getElementById('drugScheduleInput').value = keyword;
-        lookupDrugSchedule();
+        selectScheduleCategory(catId);
         instantBox.style.display = 'none';
     }
 
@@ -2126,7 +2380,7 @@
         currentPdfFilename = fileName;
         const sourceEl = document.getElementById(sourceId);
         const clone = sourceEl.cloneNode(true);
-        clone.querySelectorAll('button, .action-bar, .quick-chips').forEach(btn => btn.remove());
+        clone.querySelectorAll('button, .action-bar, .cat-selector').forEach(btn => btn.remove());
         clone.style.display = 'block';
 
         const renderArea = document.getElementById('pdfRenderArea');
