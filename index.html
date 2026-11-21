@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src * data: blob:;">
-    <title>AI Pharmacy Academy Pro | أكاديمية الصيدلة الذكية المحمية</title>
+    <title>AI Pharmacy Academy Pro | أكاديمية الصيدلة الذكية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;700;800&family=Almarai:wght@400;700;800&family=Amiri:wght@400;700&family=Changa:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700;800&family=Noto+Naskh+Arabic:wght@400;700&family=Readex+Pro:wght@400;700&family=Rubik:wght@400;700;800&family=El+Messiri:wght@400;700&family=Lemonada:wght@400;700&family=Markazi+Text:wght@400;700&family=Reem+Kufi:wght@400;700&family=Lalezar&family=Harmattan:wght@400;700&family=Scheherazade+New:wght@400;700&family=Lateef&family=Mada:wght@400;700;900&family=Aref+Ruqaa:wght@400;700&family=Mirza:wght@400;700&family=Marhey:wght@400;700&family=Vazirmatn:wght@400;700;800&family=Poppins:wght@400;600;700&family=Montserrat:wght@400;700;800&family=Inter:wght@400;600;800&family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&family=Nunito:wght@400;700&family=Raleway:wght@400;700&family=Ubuntu:wght@400;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&family=Fira+Code:wght@400;700&family=Quicksand:wght@400;700&family=Oswald:wght@400;700&family=Comfortaa:wght@400;700&family=Exo+2:wght@400;700&family=Kanit:wght@400;700&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -266,13 +266,83 @@
         /* النوافذ المنبثقة */
         .gate-overlay { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.96); z-index: 99999; display: none; align-items: center; justify-content: center; padding: 14px; overflow-y: auto; }
         .gate-overlay.open { display: flex; }
-        .gate-box { background: linear-gradient(155deg, #131c31, #1e1b4b); border: 1.5px solid rgba(6, 182, 212, 0.55); border-radius: 20px; max-width: 560px; width: 100%; padding: 18px 16px; box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8); text-align: center; max-height: 92vh; overflow-y: auto; }
-        .gate-top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .gate-box { background: linear-gradient(155deg, #131c31, #1e1b4b); border: 1.5px solid rgba(6, 182, 212, 0.55); border-radius: 20px; max-width: 520px; width: 100%; padding: 20px 18px; box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8); text-align: center; max-height: 92vh; overflow-y: auto; }
+        .gate-top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .back-pill-btn { background: rgba(148, 163, 184, 0.18); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); padding: 5px 12px; border-radius: 10px; font-size: 0.78rem; font-weight: 800; cursor: pointer; }
 
-        .email-sent-status { background: rgba(16, 185, 129, 0.16); border: 1px solid rgba(16, 185, 129, 0.48); border-radius: 12px; padding: 11px; margin: 10px 0; font-size: 0.82rem; color: #a7f3d0; display: none; text-align: right; }
-        .email-provider-btns { display: flex; gap: 6px; justify-content: center; margin-top: 8px; flex-wrap: wrap; }
-        .provider-link-btn { background: #0f172a; border: 1px solid #38bdf8; color: #38bdf8; padding: 5px 11px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; text-decoration: none; }
+        /* تصميم بوابة تسجيل الدخول الرسمية بحساب Gmail فقط */
+        .gmail-official-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .gmail-logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: #1f2937;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 0.82rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+            margin-bottom: 10px;
+        }
+        .gmail-input-group {
+            display: flex;
+            align-items: center;
+            background: #0f172a;
+            border: 1.5px solid rgba(56, 189, 248, 0.55);
+            border-radius: 11px;
+            overflow: hidden;
+            direction: ltr;
+        }
+        .gmail-input-group input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            padding: 11px 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            outline: none;
+        }
+        .gmail-domain-tag {
+            background: rgba(56, 189, 248, 0.16);
+            color: #38bdf8;
+            padding: 11px 12px;
+            font-weight: 900;
+            font-size: 0.88rem;
+            border-left: 1px solid rgba(56, 189, 248, 0.35);
+            user-select: none;
+        }
+
+        .gmail-silent-notice {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.45);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 0.82rem;
+            color: #a7f3d0;
+            display: none;
+            text-align: right;
+            line-height: 1.65;
+        }
+
+        .gmail-alert-error {
+            background: rgba(244, 63, 94, 0.18);
+            border: 1px solid rgba(244, 63, 94, 0.5);
+            color: #fecdd3;
+            padding: 9px 11px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            display: none;
+            text-align: right;
+        }
 
         .audit-msg-card { background: rgba(15, 23, 42, 0.94); border: 1px solid rgba(16, 185, 129, 0.38); border-right: 4px solid #10b981; border-radius: 11px; padding: 10px 12px; margin-bottom: 8px; text-align: right; font-size: 0.81rem; }
         .audit-msg-card.type-delete { border-right-color: #f43f5e; border-color: rgba(244, 63, 94, 0.38); }
@@ -321,7 +391,7 @@
         .card-title { font-size: 1.02rem; font-weight: 800; color: var(--primary); }
         .badge { background: rgba(139, 92, 246, 0.22); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.38); padding: 3px 10px; border-radius: 20px; font-size: 0.73rem; font-weight: 700; }
 
-        /* بطاقات سوق الأدوية وصورها الحقيقية */
+        /* بطاقات سوق الأدوية وصورها */
         .market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); gap: 13px; margin-top: 10px; }
         .market-drug-card { background: linear-gradient(160deg, #0f172a, #182238); border: 1px solid rgba(56, 189, 248, 0.32); border-radius: var(--card-radius); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
         .market-drug-img-wrap { position: relative; width: 100%; height: 165px; background: #f1f5f9; overflow: hidden; }
@@ -381,7 +451,8 @@
         .form-group label { display: block; font-size: 0.81rem; font-weight: 700; margin-bottom: 4px; }
         .form-control { width: 100%; padding: 9px 10px; border-radius: 10px; border: 1px solid rgba(148, 163, 184, 0.32); font-size: 0.87rem; background: #0f172a; color: white; outline: none; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-        .calc-btn { width: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 10px; border-radius: 11px; font-weight: 800; font-size: 0.89rem; cursor: pointer; margin-top: 5px; }
+        .calc-btn { width: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 11px; border-radius: 11px; font-weight: 800; font-size: 0.9rem; cursor: pointer; margin-top: 5px; }
+        .calc-btn:disabled { opacity: 0.6; cursor: not-allowed; }
         .result-box { margin-top: 12px; background: rgba(16, 185, 129, 0.16); border: 1.5px solid #10b981; padding: 12px; border-radius: 11px; display: none; }
         .formula-box { background: rgba(59, 130, 246, 0.14); border-right: 3px solid var(--primary); padding: 9px 12px; border-radius: 8px; margin: 8px 0; font-size: 0.82rem; }
 
@@ -451,7 +522,7 @@
     </div>
 
     <div class="drawer-profile-card">
-        <span style="color:#94a3b8; font-size:0.74rem;" id="lblRegisteredEmail">📧 الحساب المسجل:</span>
+        <span style="color:#94a3b8; font-size:0.74rem;" id="lblRegisteredEmail">📧 حساب Gmail المسجل:</span>
         <div id="displayUserEmail" style="font-weight:800; word-break:break-all; margin:2px 0 6px;">غير مسجل</div>
         <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(148,163,184,0.18); padding-top:6px;">
             <span style="color:#94a3b8; font-size:0.72rem;" id="lblDeviceId">📱 معرّف الجهاز المحمي:</span>
@@ -460,7 +531,7 @@
         <div id="drawerLiveTimer" class="live-timer-box">⏳ ...</div>
     </div>
 
-    <!-- سجل الإجراءات والاسترجاع (مخفي عن الحسابات الاعتيادية، يظهر فقط للمالك والأدمن) -->
+    <!-- سجل الإجراءات والاسترجاع (مخفي تماماً عن الحسابات الاعتيادية) -->
     <button id="drawerAuditLogBtn" class="drawer-menu-item highlight-audit" onclick="openAuditLogFromSettings()">
         <span id="lblAuditMenuBtn">📜 سجل الإجراءات والاسترجاع (أدمن فقط)</span>
         <span id="drawerAuditBadge" style="background:#059669; color:#fff; padding:1px 7px; border-radius:10px; font-size:0.72rem;">0</span>
@@ -515,7 +586,7 @@
     </div>
 
     <button class="drawer-menu-item" onclick="openChangeEmailFromSettings()">
-        <span id="btnChangeEmailText">✉️ تعديل / تغيير الإيميل</span>
+        <span id="btnChangeEmailText">✉️ تعديل / تغيير حساب Gmail</span>
         <span style="color:#38bdf8;">←</span>
     </button>
 
@@ -530,43 +601,48 @@
     </button>
 </aside>
 
-<!-- 1. بوابة إنشاء الحساب وإرسال الكود إلى الإيميل الخارجي (Gmail / Yahoo / Outlook) -->
+<!-- 1. بوابة التسجيل الرسمية بحساب @gmail.com فقط + إرسال صامت في الخلفية بدون مغادرة التطبيق -->
 <div id="emailGateModal" class="gate-overlay">
     <div class="gate-box">
         <div class="gate-top-nav" id="emailBackNav">
             <button class="back-pill-btn" onclick="closeEmailModal()">🔙 رجوع</button>
-            <span style="font-size:0.74rem; color:#34d399; font-weight:800;">🛡️ Cyber-Shield OTP</span>
+            <span style="font-size:0.74rem; color:#34d399; font-weight:800;">🛡️ Google Gmail Verified</span>
         </div>
-        <div class="ai-badge">🔐 التحقق عبر البريد الإلكتروني (Gmail / Yahoo)</div>
-        <h2>إنشاء حساب / تسجيل الدخول الآمن</h2>
-        <p>أدخل بريدك الإلكتروني وسنرسل <strong>رمز التحقق (OTP)</strong> مباشرة إلى تطبيق بريدك الإلكتروني (<strong>Gmail أو Yahoo أو Outlook</strong>). افتح بريدك وانسخ الكود هنا:</p>
 
-        <div id="step1EmailBox">
+        <div class="gmail-official-header">
+            <div class="gmail-logo-pill">
+                <span style="color:#ea4335; font-size:1.05rem;">M</span>
+                <span>Sign in with Gmail Only</span>
+            </div>
+            <h2 style="font-size:1.25rem; margin-bottom:4px;">تسجيل الدخول الرسمي عبر Gmail</h2>
+            <p style="font-size:0.82rem; color:#cbd5e1;">يُسمح بالتسجيل باستخدام حسابات <strong>Gmail (@gmail.com)</strong> فقط. سيصلك رمز التحقق مباشرة في إشعارات تطبيق Gmail بدون مغادرة هذه الصفحة.</p>
+        </div>
+
+        <div id="step1EmailBox" style="text-align:right;">
             <div class="form-group">
-                <label>📧 البريد الإلكتروني الخاص بك:</label>
-                <input type="email" id="loginEmailInput" class="form-control" placeholder="yourname@gmail.com / @yahoo.com" dir="ltr">
+                <label>📧 اسم مستخدم حسابك في Gmail:</label>
+                <div class="gmail-input-group">
+                    <input type="text" id="gmailUsernameInput" placeholder="username" autocomplete="email" autocapitalize="none" spellcheck="false">
+                    <span class="gmail-domain-tag">@gmail.com</span>
+                </div>
             </div>
-            <button class="calc-btn" id="btnSendExternalOtp" onclick="sendOtpToExternalEmail()">📨 إرسال كود التحقق إلى بريدي الإلكتروني</button>
+            <div id="gmailErrorBox" class="gmail-alert-error"></div>
+            <button class="calc-btn" id="btnSendSilentGmailOtp" onclick="sendSilentGmailOtp()">📨 إرسال رمز التحقق إلى تطبيق Gmail</button>
         </div>
 
-        <div id="emailSentStatusBox" class="email-sent-status">
-            <strong>✅ تم إرسال رمز التحقق إلى بريدك الإلكتروني:</strong>
-            <div id="otpTargetEmailDisplay" style="color:#fbbf24; font-weight:900; margin:3px 0;" dir="ltr"></div>
-            <span style="font-size:0.78rem;">افتح تطبيق البريد لديك (تأكد من البريد الوارد أو الرسائل غير المرغوب فيها Spam) وانسخ الرمز المكون من 6 أرقام:</span>
-            <div class="email-provider-btns">
-                <a href="https://mail.google.com/" target="_blank" class="provider-link-btn">📩 فتح Gmail</a>
-                <a href="https://mail.yahoo.com/" target="_blank" class="provider-link-btn">📩 فتح Yahoo Mail</a>
-                <a href="https://outlook.live.com/" target="_blank" class="provider-link-btn">📩 فتح Outlook</a>
-            </div>
+        <div id="gmailSilentSentBox" class="gmail-silent-notice">
+            <strong>✅ تم إرسال رمز التحقق بنجاح إلى حسابك:</strong>
+            <div id="otpTargetGmailDisplay" style="color:#fbbf24; font-weight:900; font-size:0.92rem; margin:3px 0;" dir="ltr"></div>
+            <span>📲 اسحب شريط إشعارات هاتفك أو تفقد تطبيق <strong>Gmail</strong> (البريد الوارد أو الرسائل غير المرغوب فيها Spam) وأدخل الرمز المكون من 6 أرقام أدناه:</span>
         </div>
 
         <div id="step2OtpBox" style="display:none; margin-top:10px;">
             <div class="form-group">
-                <label>🔢 أدخل الرمز المرسل إلى بريدك (6 أرقام):</label>
-                <input type="text" id="verifyOtpInput" class="form-control" placeholder="• • • • • •" dir="ltr" maxlength="6" style="text-align:center; font-size:1.2rem; font-weight:900; letter-spacing:5px;">
+                <label>🔢 رمز التحقق المكون من 6 أرقام:</label>
+                <input type="tel" id="verifyOtpInput" class="form-control" placeholder="• • • • • •" dir="ltr" maxlength="6" style="text-align:center; font-size:1.3rem; font-weight:900; letter-spacing:6px;">
             </div>
-            <button class="calc-btn" style="background:linear-gradient(135deg,#10b981,#059669);" onclick="verifyOtpAndEnterApp()">✅ تأكيد الرمز والدخول للبرنامج</button>
-            <button class="back-pill-btn" style="margin-top:8px;" onclick="resetOtpFlow()">🔄 تغيير الإيميل أو إعادة الإرسال</button>
+            <button class="calc-btn" style="background:linear-gradient(135deg,#10b981,#059669);" onclick="verifyOtpAndEnterApp()">✅ تأكيد الرمز وتفعيل الحساب</button>
+            <button class="back-pill-btn" style="margin-top:9px; width:100%;" onclick="resetOtpFlow()">🔄 تعديل اسم حساب Gmail أو إعادة إرسال الرمز</button>
         </div>
     </div>
 </div>
@@ -618,8 +694,8 @@
 
         <div class="owner-subtabs">
             <button class="owner-subbtn active" onclick="switchOwnerTab('op-subscribers', this)">👥 المشتركون الدافعون</button>
-            <button class="owner-subbtn" onclick="switchOwnerTab('op-admins', this)">🛡️ إضافة أدمن بالإيميل</button>
-            <button class="owner-subbtn" onclick="switchOwnerTab('op-commands', this)">⚡ الإيميل والكي كارد</button>
+            <button class="owner-subbtn" onclick="switchOwnerTab('op-admins', this)">🛡️ إضافة أدمن Gmail</button>
+            <button class="owner-subbtn" onclick="switchOwnerTab('op-commands', this)">⚡ الإرسال والكي كارد</button>
         </div>
 
         <div id="op-subscribers" class="owner-panel active">
@@ -631,10 +707,10 @@
 
         <div id="op-admins" class="owner-panel">
             <div class="formula-box">
-                أضف إيميل أي شخص ليصبح <strong>أدمن مساعد</strong>؛ يمكنه تعديل الأقسام والدخول لسجل الإجراءات، بينما <strong>إيميلك الرئيسي والمشتركين والأرباح مخفية عنه تماماً</strong>.
+                أضف حساب <strong>Gmail</strong> لأي شخص ليصبح <strong>أدمن مساعد</strong>؛ يمكنه تعديل الأقسام والدخول لسجل الإجراءات، بينما <strong>إيميلك الرئيسي والمشتركين والأرباح مخفية عنه تماماً</strong>.
             </div>
-            <div class="form-group"><label>📧 إيميل الأدمن الجديد:</label><input type="email" id="newAdminEmailInput" class="form-control" placeholder="admin@gmail.com" dir="ltr"></div>
-            <button class="calc-btn" onclick="addNewSubAdminByEmail()">➕ إضافة الإيميل كأدمن</button>
+            <div class="form-group"><label>📧 حساب Gmail للأدمن الجديد:</label><input type="email" id="newAdminEmailInput" class="form-control" placeholder="admin@gmail.com" dir="ltr"></div>
+            <button class="calc-btn" onclick="addNewSubAdminByEmail()">➕ إضافة حساب Gmail كأدمن</button>
             <div id="subAdminsListContainer" style="margin-top:12px; max-height:180px; overflow-y:auto;"></div>
         </div>
 
@@ -643,14 +719,15 @@
             <button class="calc-btn" onclick="saveMerchantSettings()">💾 حفظ الكي كارد</button>
 
             <div class="formula-box" style="margin-top:10px;">
-                <strong>📨 إعدادات إرسال كود OTP إلى Gmail / Yahoo (EmailJS):</strong>
+                <strong>📨 ربط الإرسال الفعلي إلى تطبيق Gmail في الخلفية (EmailJS API):</strong><br>
+                <span style="font-size:0.76rem; color:#cbd5e1;">ضع مفاتيح حسابك المجاني من <a href="https://www.emailjs.com/" target="_blank" style="color:#38bdf8;">EmailJS.com</a> ليصل رمز OTP فوراً في الخلفية لأي مستخدم دون مغادرة التطبيق:</span>
             </div>
             <div class="grid-2">
                 <div class="form-group"><label>Service ID:</label><input type="text" id="ejsServiceId" class="form-control" dir="ltr" placeholder="service_xxxxxxx"></div>
                 <div class="form-group"><label>Template ID:</label><input type="text" id="ejsTemplateId" class="form-control" dir="ltr" placeholder="template_xxxxxxx"></div>
             </div>
-            <div class="form-group"><label>Public Key:</label><input type="text" id="ejsPublicKey" class="form-control" dir="ltr" placeholder="user_xxxxxxxxxxxx"></div>
-            <button class="calc-btn" style="background:#0284c7;" onclick="saveEmailJsSettings()">💾 حفظ إعدادات بريد OTP</button>
+            <div class="form-group"><label>Public Key:</label><input type="text" id="ejsPublicKey" class="form-control" dir="ltr" placeholder="xxxxxxxxxxxxxxx"></div>
+            <button class="calc-btn" style="background:#0284c7;" onclick="saveEmailJsSettings()">💾 حفظ وتفعيل الإرسال التلقائي لـ Gmail</button>
 
             <div class="form-group" style="margin-top:10px;"><label>📢 إرسال تعميم أعلى التطبيق:</label><input type="text" id="broadcastMsgInput" class="form-control"></div>
             <div class="grid-2"><button class="calc-btn" onclick="publishBroadcastCommand()">🚀 نشر</button><button class="calc-btn" style="background:#475569;" onclick="clearBroadcastCommand()">🗑️ إيقاف</button></div>
@@ -658,7 +735,7 @@
     </div>
 </div>
 
-<!-- 5. نافذة الإضافة والتعديل الديناميكية مع دعم رفع الصور من الإنترنت أو الجهاز -->
+<!-- 5. نافذة الإضافة والتعديل الديناميكية -->
 <div id="adminCrudModal" class="gate-overlay">
     <div class="gate-box" style="max-width:500px; text-align:right;">
         <div class="gate-top-nav">
@@ -916,7 +993,6 @@
     const CyberShield = {
         sanitizeText(str) {
             if (typeof str !== 'string') return '';
-            // تطهير ومنع أي أكواد خبيثة أو سكريبتات فيروسية XSS / HTML Injection
             return str
                 .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
                 .replace(/on\w+\s*=\s*["'][^"']*["']/gi, '')
@@ -933,7 +1009,7 @@
         },
         logSecurityIncident(reason, details) {
             try {
-                const logs = JSON.parse(localStorage.getItem("ai_pharm_audit_immutable_v13") || "[]");
+                const logs = JSON.parse(localStorage.getItem("ai_pharm_audit_immutable_v14") || "[]");
                 logs.unshift({
                     id: "SEC-" + Date.now(),
                     type: "security",
@@ -943,14 +1019,13 @@
                     timestamp: new Date().toLocaleString('ar-IQ', { hour12: true }),
                     snapshot: null
                 });
-                localStorage.setItem("ai_pharm_audit_immutable_v13", JSON.stringify(logs));
+                localStorage.setItem("ai_pharm_audit_immutable_v14", JSON.stringify(logs));
                 updateAuditCounters();
             } catch (e) {}
         }
     };
 
     (function initGlobalAntiTamper() {
-        // منع فحص الكود واختصارات المطورين والنسخ
         document.addEventListener('keydown', function(e) {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C','K'].includes(e.key.toUpperCase())) || (e.ctrlKey && ['u','U','s','S','p','P'].includes(e.key))) {
                 e.preventDefault();
@@ -959,7 +1034,6 @@
             }
         });
 
-        // مراقبة محاولات التلاعب بالتخزين المحلي
         window.addEventListener('storage', function(e) {
             if (e.key && e.key.startsWith('ai_pharm_user')) {
                 CyberShield.logSecurityIncident("محاولة تعديل خارجي لبيانات الحساب", `المفتاح: ${e.key}`);
@@ -967,7 +1041,6 @@
             }
         });
 
-        // إغلاق قوائم خيارات الأقسام عند النقر خارجها
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.section-options-wrap')) {
                 closeAllSectionMenus();
@@ -976,25 +1049,25 @@
     })();
 
     const ROOT_ADMIN_EMAIL = "iboibo4422@gmail.com";
-    const _0xINTEGRITY_PEPPER = "IBRAHIM_PHARM_CYBER_SHIELD_2026_#9981_ULTRA";
+    const _0xINTEGRITY_PEPPER = "IBRAHIM_PHARM_GMAIL_ONLY_2026_#9981_ULTRA";
     const DEFAULT_QICARD_ID = "1882627332";
 
-    const STORAGE_KEY_USER = "ai_pharm_user_v13";
-    const STORAGE_KEY_DEVICE = "ai_pharm_dev_v13";
-    const STORAGE_KEY_DEVICE_ANCHOR = "ai_pharm_anchor_v13";
-    const STORAGE_KEY_MERCHANT_CARD = "ai_pharm_qicard_v13";
-    const STORAGE_KEY_EJS_CFG = "ai_pharm_emailjs_v13";
-    const STORAGE_KEY_SUBSCRIBERS = "ai_pharm_subs_v13";
-    const STORAGE_KEY_USED_TXNS = "ai_pharm_txns_v13";
-    const STORAGE_KEY_SUBADMINS = "ai_pharm_admins_v13";
-    const STORAGE_KEY_AUDIT_LOG = "ai_pharm_audit_immutable_v13";
-    const STORAGE_KEY_BROADCAST = "ai_pharm_broadcast_v13";
-    const STORAGE_KEY_CUSTOM_DATA = "ai_pharm_db_v13";
-    const STORAGE_KEY_LANG = "ai_pharm_lang_v13";
-    const STORAGE_KEY_COUNTRY = "ai_pharm_country_v13";
-    const STORAGE_KEY_FONT = "ai_pharm_font_v13";
-    const STORAGE_KEY_DESIGN = "ai_pharm_design_v13";
-    const STORAGE_KEY_LIGHTING = "ai_pharm_lighting_v13";
+    const STORAGE_KEY_USER = "ai_pharm_user_v14";
+    const STORAGE_KEY_DEVICE = "ai_pharm_dev_v14";
+    const STORAGE_KEY_DEVICE_ANCHOR = "ai_pharm_anchor_v14";
+    const STORAGE_KEY_MERCHANT_CARD = "ai_pharm_qicard_v14";
+    const STORAGE_KEY_EJS_CFG = "ai_pharm_emailjs_v14";
+    const STORAGE_KEY_SUBSCRIBERS = "ai_pharm_subs_v14";
+    const STORAGE_KEY_USED_TXNS = "ai_pharm_txns_v14";
+    const STORAGE_KEY_SUBADMINS = "ai_pharm_admins_v14";
+    const STORAGE_KEY_AUDIT_LOG = "ai_pharm_audit_immutable_v14";
+    const STORAGE_KEY_BROADCAST = "ai_pharm_broadcast_v14";
+    const STORAGE_KEY_CUSTOM_DATA = "ai_pharm_db_v14";
+    const STORAGE_KEY_LANG = "ai_pharm_lang_v14";
+    const STORAGE_KEY_COUNTRY = "ai_pharm_country_v14";
+    const STORAGE_KEY_FONT = "ai_pharm_font_v14";
+    const STORAGE_KEY_DESIGN = "ai_pharm_design_v14";
+    const STORAGE_KEY_LIGHTING = "ai_pharm_lighting_v14";
     const DAY_MS = 24 * 60 * 60 * 1000;
 
     let currentRoleState = { isRoot: false, isSubAdmin: false, canEditDrugs: false, actorLabel: "مستخدم" };
@@ -1041,7 +1114,7 @@
     }
 
     async function verifyUserRecordIntegrity(u) {
-        return u && u.otpVerified === true && u.sig && (u.sig === await signUserRecord(u));
+        return u && u.otpVerified === true && u.email && u.email.endsWith('@gmail.com') && u.sig && (u.sig === await signUserRecord(u));
     }
 
     /* ================= 2. سجل الإجراءات + سلة التراجع والاسترجاع (مخفي عن الحسابات الاعتيادية) ================= */
@@ -1096,7 +1169,6 @@
 
     function openAuditLogFromSettings() { closeSettingsDrawer(); openAuditLogModal(); }
     function openAuditLogModal() {
-        // الحماية: السجل مخفي وممنوع تماماً على الحسابات الاعتيادية
         if (!currentRoleState.canEditDrugs) {
             CyberShield.logSecurityIncident("محاولة وصول غير مصرح لسجل الإجراءات الإدارية", "حساب اعتيادي حاول فتح السجل");
             return;
@@ -1120,7 +1192,7 @@
     }
     function closeAuditLogModal() { document.getElementById('auditLogModal').classList.remove('open'); }
 
-    /* ================= 3. القوائم المنسدلة المصغرة فوق كل قسم (3 خطوط / ضبط) ================= */
+    /* ================= 3. القوائم المنسدلة المصغرة فوق كل قسم ================= */
     function toggleSectionMenu(menuId) {
         const target = document.getElementById(menuId);
         if (!target) return;
@@ -1251,12 +1323,12 @@
             searchPh: "ابحث فوراً (نشلة، وجع جسم، بنادول، أوگمنتين، BNF، غدة، ضغط، سكر)...",
             tabDosage: "🧮 الجرعات", tabMarket: "🏪 سوق الأدوية", tabClasses: "🧬 24 Class", tabStudy: "🎓 الدراسة", tabSchedule: "🕒 المواعيد",
             drawerTitle: "⚙️ الإعدادات والتخصيص الشامل", drawerBack: "🔙 رجوع",
-            lblRegEmail: "📧 الحساب المسجل:", lblDevId: "📱 معرّف الجهاز المحمي:",
+            lblRegEmail: "📧 حساب Gmail المسجل:", lblDevId: "📱 معرّف الجهاز المحمي:",
             lblAuditMenu: "📜 سجل الإجراءات والاسترجاع (أدمن فقط)",
             lblThemeMode: "🌓 وضع الإضاءة والراينبو:", btnDay: "☀️ نهاري", btnNight: "🌙 ليلي", btnAuto: "🕒 حسب التوقيت", btnRainbow: "🌈 راينبو",
             lblThemeDesign: "🎨 تصميم وشكل الصفحة (+105 تصميم):", lblFont: "✍️ نوع الخط (+105 خط لكل اللغات):",
             lblLang: "🌐 لغة البرنامج (تترجم كل الأقسام):", lblCountry: "🌍 الدولة والعملة وأسعار السوق:",
-            btnChangeEmail: "✉️ تعديل / تغيير الإيميل", btnPaySub: "💳 الاشتراك والدفع التلقائي عبر الكي كارد ($1)", btnAdminPanel: "🛡️ الواجهة الإدارية والمشتركين والأدمن",
+            btnChangeEmail: "✉️ تعديل / تغيير حساب Gmail", btnPaySub: "💳 الاشتراك والدفع التلقائي عبر الكي كارد ($1)", btnAdminPanel: "🛡️ الواجهة الإدارية والمشتركين والأدمن",
             subSyrup: "🥄 1. حساب جرعات الشرابات", subIv: "💧 2. المحاليل الوريدية",
             syrupTitle: "🥄 حاسبة جرعات الشرابات (1 مل = 1 سي سي)", lblWeight: "⚖️ وزن الطفل (كغم):", lblAge: "🎂 العمر بالسنوات:", lblSelSyrup: "🔍 اختر الشراب:", btnCalcSyrup: "⚡ احسب الجرعة الآن (سي سي / مل)",
             ivTitle: "💧 حاسبة المحاليل الوريدية", lblSelIv: "🧪 اختر المحلول الوريدي:", lblIvHours: "⏱️ المدة (ساعة):", lblIvDrop: "🔬 معامل التقطير:", btnCalcIv: "⚡ احسب طريقة إعطاء المحلول",
@@ -1281,16 +1353,16 @@
             searchPh: "گەڕانی خێرا (هەڵامەت، ئازاری لەش، پانادۆڵ، ئۆگمەنتین، BNF، غودە، زەخت، شەکرە)...",
             tabDosage: "🧮 ژەمەکان", tabMarket: "🏪 بازاڕی دەرمان", tabClasses: "🧬 24 Class", tabStudy: "🎓 خوێندن", tabSchedule: "🕒 کاتی دەرمان",
             drawerTitle: "⚙️ ڕێکخستنەکان و گۆڕینی شێواز", drawerBack: "🔙 گەڕانەوە",
-            lblRegEmail: "📧 ئیمەیڵی تۆمارکراو:", lblDevId: "📱 کۆدی ئامێری پارێزراو:",
+            lblRegEmail: "📧 هەژماری Gmail تۆمارکراو:", lblDevId: "📱 کۆدی ئامێری پارێزراو:",
             lblAuditMenu: "📜 تۆماری کارە کارگێڕییەکان و گەڕاندنەوە",
             lblThemeMode: "🌓 دۆخی ڕووناکی و ڕەنگاوڕەنگ:", btnDay: "☀️ ڕۆژ", btnNight: "🌙 شەو", btnAuto: "🕒 بەپێی کات", btnRainbow: "🌈 ڕەنگاوڕەنگ",
             lblThemeDesign: "🎨 دیزاین و شێوەی پەڕە (+١٠٥ دیزاین):", lblFont: "✍️ جۆری فۆنت (+١٠٥ فۆنت بۆ هەموو زمانەکان):",
             lblLang: "🌐 زمانی بەرنامە:", lblCountry: "🌍 وڵات و دراو و نرخی بازاڕ:",
-            btnChangeEmail: "✉️ گۆڕینی ئیمەیڵ", btnPaySub: "💳 بەشداریکردن لە ڕێگەی کی کارد ($1)", btnAdminPanel: "🛡️ پانێڵی بەڕێوەبەری سەرەکی",
+            btnChangeEmail: "✉️ گۆڕینی هەژماری Gmail", btnPaySub: "💳 بەشداریکردن لە ڕێگەی کی کارد ($1)", btnAdminPanel: "🛡️ پانێڵی بەڕێوەبەری سەرەکی",
             subSyrup: "🥄 ١. ژەمی شروبەکان", subIv: "💧 ٢. موغەزییەکان (IV)",
             syrupTitle: "🥄 هەژمارکەری ژەمی شروبەکان (1 مل = 1 سی سی)", lblWeight: "⚖️ کێشی منداڵ (کغم):", lblAge: "🎂 تەمەن بە ساڵ:", lblSelSyrup: "🔍 شروب هەڵبژێرە:", btnCalcSyrup: "⚡ ژەمەکە هەژمار بکە (سی سی)",
             ivTitle: "💧 هەژمارکەری موغەزییەکان (IV Drip)", lblSelIv: "🧪 موغەزی هەڵبژێرە:", lblIvHours: "⏱️ ماوە (کاتژمێر):", lblIvDrop: "🔬 پێوەری دڵۆپە:", btnCalcIv: "⚡ شێوازی پێدانی موغەزی هەژمار بکە",
-            marketTitle: "🏪 ڕێبەری دەرمانخانەکان بە وێنە و نرخی فەرمی", marketSearchPh: "بگەڕێ بۆ چارەسەر (هەڵامەت، ئازاری لەش، پانادۆڵ، ئۆگمەنتین، گەدە، زەخت)...",
+            marketTitle: "🏪 ڕێبەری دەرمانخانەکان بە وێنە و نرخی فەرمی", marketSearchPh: "بگەڕێ بۆ چارەسەر...",
             classesTitle: "🧬 ئینسایکڵۆپیدیای پۆلێنکردنی دەرمان (24 Class)", btnAllPdf: "👁️ کردنەوەی PDF", classSearchPh: "🔎 بگەڕێ لە ناو ٢٤ کڵاس...", btnExpand: "📂 کردنەوەی هەمووی", btnCollapse: "📁 داخستنی هەمووی",
             subStudyYears: "🎓 ١. پێنج قۆناغەکە و مەلزەمە و لینکی فەرمی", subStudyExams: "🤖 ٢. تاقیکردنەوەی AI", subStudyBooks: "📚 ٣. کتێبخانەی فەرمی", subStudyOtc: "💊 ٤. بنەماکانی دەرماندان (+٥٢٠)",
             study5Title: "🎓 ڕێبەری خوێندکاری دەرمانسازی (٥ ساڵ)",
@@ -1311,12 +1383,12 @@
             searchPh: "لێگەڕیانا بلەز (پەرسیڤ، ئێشانا لەشی، پانادۆڵ، ئۆگمەنتین، BNF)...",
             tabDosage: "🧮 ژەمێن دەرمانان", tabMarket: "🏪 بازاڕێ دەرمانان", tabClasses: "🧬 24 Class", tabStudy: "🎓 خواندن", tabSchedule: "🕒 دەمێن دەرمانان",
             drawerTitle: "⚙️ ڕێکخستن و گوهۆڕینا شێوازی", drawerBack: "🔙 زڤڕین",
-            lblRegEmail: "📧 ئیمەیڵێ تۆمارکری:", lblDevId: "📱 کۆدێ ئامیرێ پاراستی:",
+            lblRegEmail: "📧 هەژمارا Gmail تۆمارکری:", lblDevId: "📱 کۆدێ ئامیرێ پاراستی:",
             lblAuditMenu: "📜 تۆمارا کارێن کارگێڕی و زڤڕاندن",
-            lblThemeMode: "🌓 ڕەوشا ڕۆناهیێ و ڕەنگاوڕەنگ:", btnDay: "☀️ ڕۆژ", btnNight: "🌙 شەڤ", btnAuto: "🕒 ل دویڤ دەمی", btnRainbow: "🌈 ڕەنگاوڕەنگ",
+            lblThemeMode: "🌓 ڕەوشا ڕۆناهیێ و ڕەنگاوڕەنگ:", btnDay: "☀️ ڕۆژ", btnNight: "🌙 شەو", btnAuto: "🕒 ل دویڤ دەمی", btnRainbow: "🌈 ڕەنگاوڕەنگ",
             lblThemeDesign: "🎨 دیزاین و شێوێ پەڕی (+١٠٥):", lblFont: "✍️ جۆرێ فۆنتی (+١٠٥):",
             lblLang: "🌐 زمانێ بەرنامەی:", lblCountry: "🌍 وەڵات و دراڤ:",
-            btnChangeEmail: "✉️ گوهۆڕینا ئیمەیڵی", btnPaySub: "💳 بەشداریکرن ب کی کارد ($1)", btnAdminPanel: "🛡️ پانێڵێ ڕێڤەبەرێ سەرەکی",
+            btnChangeEmail: "✉️ گوهۆڕینا Gmail", btnPaySub: "💳 بەشداریکرن ب کی کارد ($1)", btnAdminPanel: "🛡️ پانێڵێ ڕێڤەبەرێ سەرەکی",
             subSyrup: "🥄 ١. ژەمێن شروبان", subIv: "💧 ٢. موغەزی (IV Drip)",
             syrupTitle: "🥄 هژمارکەرێ ژەمێن شروبان", lblWeight: "⚖️ کێشا زارۆکی (کغم):", lblAge: "🎂 ژی ب ساڵان:", lblSelSyrup: "🔍 شروبی هەلبژێرە:", btnCalcSyrup: "⚡ ژەمێ هژمار بکە",
             ivTitle: "💧 هژمارکەرێ موغەزیان", lblSelIv: "🧪 موغەزی هەلبژێرە:", lblIvHours: "⏱️ ماوە (دەمژمێر):", lblIvDrop: "🔬 پیڤەرێ دڵۆپان:", btnCalcIv: "⚡ هژمار بکە",
@@ -1341,12 +1413,12 @@
             searchPh: "Hızlı arama (Grip, ağrı, Panadol, Augmentin, BNF)...",
             tabDosage: "🧮 Dozajlar", tabMarket: "🏪 İlaç Pazarı", tabClasses: "🧬 24 Sınıf", tabStudy: "🎓 Eğitim & PDF", tabSchedule: "🕒 Saatler",
             drawerTitle: "⚙️ Ayarlar ve Özelleştirme", drawerBack: "🔙 Geri",
-            lblRegEmail: "📧 Kayıtlı E-posta:", lblDevId: "📱 Cihaz Kimliği:",
+            lblRegEmail: "📧 Kayıtlı Gmail:", lblDevId: "📱 Cihaz Kimliği:",
             lblAuditMenu: "📜 Yönetici Kaydı & Geri Alma",
             lblThemeMode: "🌓 Aydınlatma Modu:", btnDay: "☀️ Gündüz", btnNight: "🌙 Gece", btnAuto: "🕒 Otomatik", btnRainbow: "🌈 Gökkuşağı",
             lblThemeDesign: "🎨 Sayfa Tasarımı (+105):", lblFont: "✍️ Yazı Tipi (+105):",
             lblLang: "🌐 Program Dili:", lblCountry: "🌍 Ülke ve Para Birimi:",
-            btnChangeEmail: "✉️ E-postayı Değiştir", btnPaySub: "💳 QiCard Abonelik ($1)", btnAdminPanel: "🛡️ Ana Yönetici Paneli",
+            btnChangeEmail: "✉️ Gmail Değiştir", btnPaySub: "💳 QiCard Abonelik ($1)", btnAdminPanel: "🛡️ Ana Yönetici Paneli",
             subSyrup: "🥄 1. Şurup Dozajı", subIv: "💧 2. IV Serum",
             syrupTitle: "🥄 Çocuk Şurup Dozaj Hesaplayıcı", lblWeight: "⚖️ Kilo (kg):", lblAge: "🎂 Yaş:", lblSelSyrup: "🔍 Şurup:", btnCalcSyrup: "⚡ Hesapla",
             ivTitle: "💧 IV Serum Hesaplayıcı", lblSelIv: "🧪 Solüsyon:", lblIvHours: "⏱️ Süre (Saat):", lblIvDrop: "🔬 Damla Faktörü:", btnCalcIv: "⚡ Hesapla",
@@ -1371,12 +1443,12 @@
             searchPh: "Instant AI search (Cold, pain, Panadol, Augmentin, BNF)...",
             tabDosage: "🧮 Dosages", tabMarket: "🏪 Drug Market", tabClasses: "🧬 24 Classes", tabStudy: "🎓 Study & PDFs", tabSchedule: "🕒 Schedules",
             drawerTitle: "⚙️ Settings & Customization", drawerBack: "🔙 Back",
-            lblRegEmail: "📧 Registered Account:", lblDevId: "📱 Device ID:",
+            lblRegEmail: "📧 Registered Gmail:", lblDevId: "📱 Device ID:",
             lblAuditMenu: "📜 Admin Audit Log & Restore",
             lblThemeMode: "🌓 Lighting Mode:", btnDay: "☀️ Day", btnNight: "🌙 Night", btnAuto: "🕒 Auto", btnRainbow: "🌈 Rainbow",
             lblThemeDesign: "🎨 Page Design (+105):", lblFont: "✍️ Font Family (+105):",
             lblLang: "🌐 App Language:", lblCountry: "🌍 Country & Currency:",
-            btnChangeEmail: "✉️ Change Email", btnPaySub: "💳 QiCard Subscription ($1)", btnAdminPanel: "🛡️ Root Owner Dashboard",
+            btnChangeEmail: "✉️ Change Gmail", btnPaySub: "💳 QiCard Subscription ($1)", btnAdminPanel: "🛡️ Root Owner Dashboard",
             subSyrup: "🥄 1. Syrup Calculator", subIv: "💧 2. IV Fluid Drip",
             syrupTitle: "🥄 Pediatric Syrup Calculator", lblWeight: "⚖️ Weight (kg):", lblAge: "🎂 Age:", lblSelSyrup: "🔍 Select Syrup:", btnCalcSyrup: "⚡ Calculate",
             ivTitle: "💧 IV Fluid Calculator", lblSelIv: "🧪 Select IV:", lblIvHours: "⏱️ Hours:", lblIvDrop: "🔬 Drop Factor:", btnCalcIv: "⚡ Calculate",
@@ -1422,12 +1494,12 @@
         renderAllDynamicSections();
     }
 
-    /* ================= 6. إرسال كود OTP إلى الإيميل الفعلي (Gmail / Yahoo / Outlook) عبر EmailJS ================= */
+    /* ================= 6. التسجيل الرسمي عبر Gmail فقط + إرسال صامت في الخلفية بدون مغادرة الصفحة ================= */
     function getEmailJsConfig() {
         try {
             return JSON.parse(localStorage.getItem(STORAGE_KEY_EJS_CFG) || "null") || {
-                serviceId: "service_pharmacy_otp",
-                templateId: "template_otp_verify",
+                serviceId: "",
+                templateId: "",
                 publicKey: ""
             };
         } catch (e) { return { serviceId: "", templateId: "", publicKey: "" }; }
@@ -1440,78 +1512,99 @@
             publicKey: document.getElementById('ejsPublicKey').value.trim()
         };
         localStorage.setItem(STORAGE_KEY_EJS_CFG, JSON.stringify(cfg));
-        recordAdminAuditAction('edit', '📨 تم تحديث إعدادات إرسال البريد الإلكتروني (EmailJS)', `Service: ${cfg.serviceId}`);
-        alert("✅ تم حفظ إعدادات إرسال كود OTP إلى Gmail / Yahoo بنجاح!");
+        recordAdminAuditAction('edit', '📨 تم تفعيل مفاتيح الإرسال التلقائي لـ Gmail', `Service: ${cfg.serviceId}`);
+        alert("✅ تم حفظ مفاتيح الإرسال التلقائي! الآن سيصل رمز التحقق لأي مستخدم في تطبيق Gmail بالخلفية بدون مغادرة التطبيق.");
     }
 
-    async function sendOtpToExternalEmail() {
+    function showGmailGateError(msg) {
+        const errEl = document.getElementById('gmailErrorBox');
+        errEl.innerHTML = msg;
+        errEl.style.display = 'block';
+    }
+
+    async function sendSilentGmailOtp() {
+        const errEl = document.getElementById('gmailErrorBox');
+        errEl.style.display = 'none';
+
         if (Date.now() < pendingOtpState.lockedUntil) {
             const mins = Math.ceil((pendingOtpState.lockedUntil - Date.now()) / 60000);
-            alert(`🔒 تم قفل المحاولات مؤقتاً لمدة ${mins} دقيقة لأسباب أمنية.`);
+            showGmailGateError(`🔒 تم قفل المحاولات مؤقتاً لمدة ${mins} دقيقة لأسباب أمنية.`);
             return;
         }
 
-        const rawEmail = document.getElementById('loginEmailInput').value.trim().toLowerCase();
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(rawEmail)) {
-            alert("⚠️ يرجى إدخال بريد إلكتروني صحيح (مثل: name@gmail.com أو name@yahoo.com).");
+        let rawUser = document.getElementById('gmailUsernameInput').value.trim().toLowerCase();
+        if (!rawUser) {
+            showGmailGateError("⚠️ يرجى كتابة اسم حسابك في Gmail أولاً (مثال: iboibo4422).");
             return;
         }
 
-        const btn = document.getElementById('btnSendExternalOtp');
+        // إذا كتب المستخدم @gmail.com يدوياً نقوم بتنظيفها واستخدام النطاق الرسمي @gmail.com فقط
+        if (rawUser.includes('@')) {
+            if (!rawUser.endsWith('@gmail.com')) {
+                showGmailGateError("⛔ عذراً، هذا النظام يدعم حسابات <strong>Gmail (@gmail.com)</strong> فقط. لا يُسمح بـ Yahoo أو Hotmail أو غيرها.");
+                return;
+            }
+            rawUser = rawUser.replace(/@gmail\.com$/, '');
+        }
+
+        // التحقق من صيغة اسم مستخدم Gmail الصحيحة (حروف إنجليزية، أرقام، نقاط فقط)
+        if (!/^[a-z0-9.]{3,30}$/.test(rawUser) || rawUser.startsWith('.') || rawUser.endsWith('.') || rawUser.includes('..')) {
+            showGmailGateError("⚠️ اسم مستخدم Gmail غير صالح. استخدم حروفاً إنجليزية وأرقاماً ونقاطاً فقط.");
+            return;
+        }
+
+        const fullGmail = `${rawUser}@gmail.com`;
+        const ejs = getEmailJsConfig();
+
+        if (!ejs.publicKey || !ejs.serviceId || !ejs.templateId || typeof emailjs === 'undefined') {
+            showGmailGateError("⚙️ <strong>تنبيه للمالك:</strong> يرجى إدخال مفاتيح <code>EmailJS</code> المجانية في (الواجهة الإدارية -> الإرسال والكي كارد) لتفعيل الإرسال التلقائي الصامت إلى Gmail في الخلفية دون مغادرة التطبيق.");
+            return;
+        }
+
+        const btn = document.getElementById('btnSendSilentGmailOtp');
         btn.disabled = true;
-        btn.innerText = "⏳ جاري إرسال الرمز إلى بريدك الإلكتروني...";
+        btn.innerText = "⏳ جاري إرسال رمز التحقق إلى تطبيق Gmail في الخلفية...";
 
-        // توليد كود آمن مشفر (لا يظهر في الصفحة نهائياً)
+        // توليد كود آمن مشفر (لا يظهر في الصفحة ولا يخرج المستخدم من البرنامج)
         const arr = new Uint32Array(1);
         crypto.getRandomValues(arr);
         const otpCode = String(100000 + (arr[0] % 900000));
-        const codeHash = await sha256Hex(`${rawEmail}|${otpCode}|${_0xINTEGRITY_PEPPER}`);
+        const codeHash = await sha256Hex(`${fullGmail}|${otpCode}|${_0xINTEGRITY_PEPPER}`);
 
-        pendingOtpState = {
-            email: rawEmail,
-            codeHash: codeHash,
-            expiresAt: Date.now() + (10 * 60 * 1000),
-            attempts: 0,
-            lockedUntil: 0
-        };
+        try {
+            emailjs.init(ejs.publicKey);
+            await emailjs.send(ejs.serviceId, ejs.templateId, {
+                to_email: fullGmail,
+                user_email: fullGmail,
+                otp_code: otpCode,
+                app_name: "أكاديمية الصيدلة الذكية (AI Pharmacy Academy)"
+            });
 
-        const ejs = getEmailJsConfig();
-        let sentViaApi = false;
+            pendingOtpState = {
+                email: fullGmail,
+                codeHash: codeHash,
+                expiresAt: Date.now() + (10 * 60 * 1000),
+                attempts: 0,
+                lockedUntil: 0
+            };
 
-        if (ejs.publicKey && ejs.serviceId && ejs.templateId && typeof emailjs !== 'undefined') {
-            try {
-                emailjs.init(ejs.publicKey);
-                await emailjs.send(ejs.serviceId, ejs.templateId, {
-                    to_email: rawEmail,
-                    user_email: rawEmail,
-                    otp_code: otpCode,
-                    app_name: "AI Pharmacy Academy Pro"
-                });
-                sentViaApi = true;
-            } catch (err) {
-                console.warn("EmailJS delivery fallback:", err);
-            }
+            document.getElementById('otpTargetGmailDisplay').innerText = fullGmail;
+            document.getElementById('gmailSilentSentBox').style.display = 'block';
+            document.getElementById('step1EmailBox').style.display = 'none';
+            document.getElementById('step2OtpBox').style.display = 'block';
+            document.getElementById('verifyOtpInput').focus();
+        } catch (err) {
+            console.error("Silent Gmail Delivery Error:", err);
+            showGmailGateError("❌ تعذر إرسال الرمز إلى سيرفر Gmail حالياً. تأكد من اتصال الإنترنت وصحة مفاتيح EmailJS في لوحة المالك.");
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "📨 إرسال رمز التحقق إلى تطبيق Gmail";
         }
-
-        if (!sentViaApi) {
-            // في حال عدم ربط مفتاح API بعد، يرسل عبر عميل البريد الخارجي للمستخدم حتى يصله في صندوق البريد الخارجي
-            const subject = encodeURIComponent("رمز التحقق (OTP) - أكاديمية الصيدلة الذكية");
-            const body = encodeURIComponent(`مرحباً،\nرمز التحقق الخاص بتفعيل حسابك في أكاديمية الصيدلة الذكية هو:\n\n${otpCode}\n\nيرجى عدم مشاركة هذا الرمز مع أي شخص.`);
-            window.open(`mailto:${rawEmail}?subject=${subject}&body=${body}`, '_blank');
-        }
-
-        btn.disabled = false;
-        btn.innerText = "📨 إرسال كود التحقق إلى بريدي الإلكتروني";
-
-        document.getElementById('otpTargetEmailDisplay').innerText = rawEmail;
-        document.getElementById('emailSentStatusBox').style.display = 'block';
-        document.getElementById('step1EmailBox').style.display = 'none';
-        document.getElementById('step2OtpBox').style.display = 'block';
     }
 
     function resetOtpFlow() {
-        document.getElementById('emailSentStatusBox').style.display = 'none';
+        document.getElementById('gmailErrorBox').style.display = 'none';
+        document.getElementById('gmailSilentSentBox').style.display = 'none';
         document.getElementById('step2OtpBox').style.display = 'none';
         document.getElementById('step1EmailBox').style.display = 'block';
         document.getElementById('verifyOtpInput').value = "";
@@ -1532,7 +1625,7 @@
         const enteredHash = await sha256Hex(`${pendingOtpState.email}|${entered}|${_0xINTEGRITY_PEPPER}`);
         if (enteredHash !== pendingOtpState.codeHash) {
             pendingOtpState.attempts += 1;
-            CyberShield.logSecurityIncident("إدخال رمز تحقق (OTP) خاطئ", `البريد: ${pendingOtpState.email} | المحاولة رقم: ${pendingOtpState.attempts}`);
+            CyberShield.logSecurityIncident("إدخال رمز تحقق Gmail خاطئ", `الحساب: ${pendingOtpState.email} | المحاولة رقم: ${pendingOtpState.attempts}`);
             if (pendingOtpState.attempts >= 4) {
                 pendingOtpState.lockedUntil = Date.now() + (15 * 60 * 1000);
                 alert("🚨 تم اكتشاف محاولات تخمين متكررة! تم قفل الدخول لمدة 15 دقيقة وتسجيل المحاولة.");
@@ -1576,7 +1669,6 @@
     }
 
     function applyAdminUiVisibility() {
-        // إظهار قائمة خيارات الأقسام (3 خطوط) وسجل الإجراءات فقط للمالك والأدمن، وإخفاؤها تماماً عن الحسابات الاعتيادية
         document.querySelectorAll('.section-options-wrap').forEach(el => {
             el.classList.toggle('visible', currentRoleState.canEditDrugs);
         });
@@ -1782,12 +1874,15 @@
     }
     function addNewSubAdminByEmail() {
         const email = document.getElementById('newAdminEmailInput').value.trim().toLowerCase();
-        if (!email || !email.includes('@')) return;
+        if (!email || !email.endsWith('@gmail.com')) {
+            alert("⚠️ يرجى إدخال حساب Gmail صحيح ينتهي بـ @gmail.com فقط.");
+            return;
+        }
         const subs = getSubAdmins().filter(s => s.email !== email);
         subs.push({ email, active: true });
         localStorage.setItem(STORAGE_KEY_SUBADMINS, JSON.stringify(subs));
         document.getElementById('newAdminEmailInput').value = "";
-        recordAdminAuditAction('add', '➕ لقد قمت بإضافة أدمن مساعد جديد', `تم منح صلاحيات الأدمن للبريد: ${email}`);
+        recordAdminAuditAction('add', '➕ لقد قمت بإضافة أدمن Gmail مساعد جديد', `تم منح صلاحيات الأدمن لحساب: ${email}`);
         renderSubAdminsList();
     }
     function removeSubAdmin(email) {
@@ -1962,7 +2057,7 @@
     let appDB = loadAppDatabase();
     function saveAppDatabase() { localStorage.setItem(STORAGE_KEY_CUSTOM_DATA, JSON.stringify(appDB)); renderAllDynamicSections(); }
 
-    /* ================= 9. نافذة التعديل ورفع الصور من الإنترنت أو الجهاز + سلة الاسترجاع ================= */
+    /* ================= 9. نافذة التعديل ورفع الصور + سلة الاسترجاع ================= */
     let currentCrudAction = null;
     let uploadedTempImageBase64 = "";
 
@@ -1988,7 +2083,6 @@
     function closeAdminCrudModal() { document.getElementById('adminCrudModal').classList.remove('open'); currentCrudAction = null; }
     function saveAdminCrudAction() { if (currentCrudAction) currentCrudAction(); }
 
-    /* --- خيارات سوق الأدوية (إضافة مع صورة من الإنترنت/الجهاز + تعديل صورة أو بيانات + حذف آمن) --- */
     function openAddMarketDrugModal() {
         openAdminCrudModal("➕ إضافة دواء مع صورة من الإنترنت أو الهاتف", `
             <div class="form-group"><label>القسم:</label><input id="crud_mk_cat" class="form-control" value="النشلة والزكام"></div>
@@ -2074,7 +2168,6 @@
         });
     }
 
-    /* --- خيارات الجرعات والأقسام المخصصة --- */
     function openAddSyrupModal() {
         openAdminCrudModal("➕ إضافة شراب جديد", `
             <div class="form-group"><label>اسم الشراب:</label><input id="crud_s_name" class="form-control"></div>
@@ -2160,7 +2253,6 @@
         saveAppDatabase();
     }
 
-    /* --- خيارات الـ 24 Class --- */
     function openAddClassModal() {
         openAdminCrudModal("➕ إضافة كلاس دوائي جديد", `
             <div class="form-group"><label>اسم الكلاس بالعربي:</label><input id="crud_c_ar" class="form-control"></div>
@@ -2209,7 +2301,6 @@
         });
     }
 
-    /* --- خيارات الدراسة والمواعيد --- */
     function openAddStageSubjectModal() {
         openAdminCrudModal("➕ إضافة مادة دراسية ورابط PDF", `
             <div class="form-group"><label>رقم المرحلة (1 إلى 5):</label><input type="number" min="1" max="5" id="crud_st_yr" class="form-control" value="1"></div>
