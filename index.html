@@ -46,35 +46,60 @@
             min-height: 100vh;
         }
 
-        /* شريط حالة الحساب والاشتراك العلوي */
+        /* الشريط العلوي النظيف مع زر الثلاث خطوط */
         .account-top-bar {
             background: rgba(15, 23, 42, 0.96);
             border-bottom: 1px solid rgba(6, 182, 212, 0.3);
-            padding: 8px 14px;
+            padding: 10px 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            font-size: 0.78rem;
+            gap: 10px;
             position: sticky;
             top: 0;
-            z-index: 50;
+            z-index: 60;
             backdrop-filter: blur(8px);
         }
 
-        .account-info-pill {
+        .hamburger-btn {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1.5px solid rgba(56, 189, 248, 0.45);
+            color: #38bdf8;
+            width: 42px;
+            height: 40px;
+            border-radius: 11px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 20px;
+            height: 2.5px;
+            background: #38bdf8;
+            border-radius: 3px;
+        }
+
+        .top-brand-mini {
             display: flex;
             align-items: center;
             gap: 8px;
-            flex-wrap: wrap;
+            font-weight: 800;
+            font-size: 0.86rem;
+            color: #f8fafc;
         }
 
         .status-chip {
-            padding: 3px 10px;
+            padding: 4px 11px;
             border-radius: 20px;
             font-weight: 800;
             font-size: 0.74rem;
+            white-space: nowrap;
         }
 
         .status-trial {
@@ -101,34 +126,115 @@
             border: 1px solid rgba(244, 63, 94, 0.5);
         }
 
-        .top-bar-actions {
-            display: flex;
-            gap: 6px;
+        /* قائمة الإعدادات الجانبية (الثلاث خطوط) */
+        .settings-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.78);
+            z-index: 9000;
+            display: none;
+            backdrop-filter: blur(3px);
         }
 
-        .mini-top-btn {
-            background: #1e293b;
-            color: #e2e8f0;
-            border: 1px solid var(--border);
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 700;
+        .settings-backdrop.open {
+            display: block;
+        }
+
+        .settings-drawer {
+            position: fixed;
+            top: 0;
+            right: -340px;
+            width: 315px;
+            max-width: 88vw;
+            height: 100vh;
+            background: linear-gradient(180deg, #0f172a, #1e1b4b);
+            border-left: 1.5px solid rgba(56, 189, 248, 0.4);
+            z-index: 9001;
+            padding: 18px 16px;
+            overflow-y: auto;
+            transition: right 0.28s ease;
+            box-shadow: -10px 0 35px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .settings-drawer.open {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            padding-bottom: 12px;
+        }
+
+        .drawer-header h3 {
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: #38bdf8;
+        }
+
+        .drawer-close-btn {
+            background: rgba(244, 63, 94, 0.18);
+            color: #fda4af;
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            padding: 5px 12px;
+            border-radius: 9px;
+            font-weight: 800;
+            font-size: 0.8rem;
             cursor: pointer;
         }
 
-        .mini-top-btn.pay-now {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: #0f172a;
-            border: none;
-            font-weight: 900;
+        .drawer-profile-card {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 14px;
+            padding: 12px;
+            font-size: 0.82rem;
         }
 
-        .mini-top-btn.admin-btn {
-            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
-            color: #fff;
-            border: 1px solid rgba(196, 181, 253, 0.4);
+        .drawer-profile-card .email-line {
+            color: #f8fafc;
             font-weight: 800;
+            word-break: break-all;
+            margin: 4px 0 8px;
+        }
+
+        .drawer-menu-item {
+            width: 100%;
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            color: #f8fafc;
+            padding: 12px 14px;
+            border-radius: 13px;
+            text-align: right;
+            font-weight: 800;
+            font-size: 0.88rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.2s;
+        }
+
+        .drawer-menu-item:hover {
+            border-color: #38bdf8;
+            background: rgba(6, 182, 212, 0.14);
+        }
+
+        .drawer-menu-item.highlight-pay {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(217, 119, 6, 0.22));
+            border-color: rgba(245, 158, 11, 0.55);
+            color: #fbbf24;
+        }
+
+        .drawer-menu-item.highlight-admin {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(109, 40, 217, 0.25));
+            border-color: rgba(167, 139, 250, 0.55);
+            color: #ddd6fe;
             display: none;
         }
 
@@ -136,7 +242,7 @@
         .gate-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(2, 6, 23, 0.96);
+            background: rgba(2, 6, 23, 0.94);
             z-index: 99999;
             display: none;
             align-items: center;
@@ -155,55 +261,80 @@
             border-radius: 22px;
             max-width: 490px;
             width: 100%;
-            padding: 24px 20px;
+            padding: 22px 18px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.2);
             text-align: center;
+            position: relative;
+        }
+
+        .gate-top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .back-pill-btn {
+            background: rgba(148, 163, 184, 0.16);
+            color: #e2e8f0;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            padding: 5px 13px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .gate-box h2 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 900;
             color: #38bdf8;
             margin-bottom: 6px;
         }
 
         .gate-box p {
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             color: #cbd5e1;
             margin-bottom: 12px;
         }
 
-        .app-plan-card {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1.5px solid rgba(245, 158, 11, 0.6);
-            border-radius: 16px;
-            padding: 14px;
-            margin-bottom: 14px;
+        /* تصميم مرتب لخطوات الدفع والتفعيل */
+        .pay-step-card {
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(56, 189, 248, 0.32);
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 10px;
             text-align: right;
         }
 
-        .app-plan-header {
+        .pay-step-title {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            font-size: 0.84rem;
+            font-weight: 800;
+            color: #38bdf8;
+            margin-bottom: 6px;
         }
 
         .app-plan-price {
             background: linear-gradient(135deg, #f59e0b, #d97706);
             color: #0f172a;
             font-weight: 900;
-            padding: 3px 12px;
+            padding: 2px 10px;
             border-radius: 20px;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
         }
 
         .qicard-chip-box {
             background: #0b1120;
             border: 1px dashed #fbbf24;
             border-radius: 10px;
-            padding: 10px;
-            margin-top: 8px;
+            padding: 9px 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -212,76 +343,78 @@
 
         .qicard-chip-box code {
             color: #fbbf24;
-            font-size: 1rem;
+            font-size: 0.96rem;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
         }
 
         .copy-mini-btn {
             background: rgba(251, 191, 36, 0.2);
             color: #fbbf24;
-            border: 1px solid rgba(251, 191, 36, 0.4);
-            padding: 4px 10px;
+            border: 1px solid rgba(251, 191, 36, 0.45);
+            padding: 5px 10px;
             border-radius: 8px;
             font-size: 0.75rem;
             font-weight: 800;
             cursor: pointer;
+            white-space: nowrap;
         }
 
-        .device-id-box {
-            background: rgba(6, 182, 212, 0.12);
-            border: 1px solid rgba(6, 182, 212, 0.35);
-            border-radius: 10px;
-            padding: 8px 12px;
-            margin-bottom: 10px;
+        .device-id-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            padding: 7px 10px;
+            border-radius: 9px;
+            margin-bottom: 8px;
             font-size: 0.8rem;
         }
 
-        .device-id-box code {
+        .device-id-row code {
             color: #22d3ee;
             font-weight: 900;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
+        }
+
+        .pay-actions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
         }
 
         .instagram-pay-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            width: 100%;
+            gap: 6px;
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white;
             border: none;
-            padding: 11px;
-            border-radius: 12px;
+            padding: 9px 8px;
+            border-radius: 10px;
             font-weight: 800;
-            font-size: 0.88rem;
+            font-size: 0.78rem;
             cursor: pointer;
-            margin-bottom: 8px;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.35);
         }
 
         .copy-msg-ig-btn {
-            width: 100%;
-            background: rgba(236, 72, 153, 0.15);
-            color: #f9a8d4;
-            border: 1px solid rgba(236, 72, 153, 0.4);
-            padding: 8px;
+            background: rgba(236, 72, 153, 0.18);
+            color: #fbcfe8;
+            border: 1px solid rgba(236, 72, 153, 0.45);
+            padding: 9px 8px;
             border-radius: 10px;
-            font-weight: 700;
-            font-size: 0.8rem;
+            font-weight: 800;
+            font-size: 0.78rem;
             cursor: pointer;
-            margin-bottom: 12px;
         }
 
         header {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.92));
             border-bottom: 1px solid var(--border);
-            padding: 22px 16px 34px;
+            padding: 20px 16px 32px;
             text-align: center;
         }
 
@@ -294,13 +427,13 @@
             color: #22d3ee;
             padding: 4px 14px;
             border-radius: 50px;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         header h1 {
-            font-size: 1.55rem;
+            font-size: 1.5rem;
             font-weight: 900;
             background: linear-gradient(to left, #22d3ee, #a78bfa, #34d399);
             -webkit-background-clip: text;
@@ -309,13 +442,13 @@
         }
 
         header p {
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             color: var(--text-muted);
         }
 
         .ai-search-wrapper {
             max-width: 920px;
-            margin: -22px auto 18px;
+            margin: -20px auto 18px;
             padding: 0 15px;
             position: relative;
             z-index: 20;
@@ -434,7 +567,7 @@
 
         .section-content {
             display: none;
-            animation: fadeUp 0.3s ease;
+            animation: fadeUp 0.25s ease;
         }
 
         .section-content.active {
@@ -442,7 +575,7 @@
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -687,7 +820,6 @@
             display: block;
         }
 
-        /* المستوى الثاني: العائلة الدوائية القابلة للفتح والإغلاق داخل الكلاس */
         .sub-accordion {
             background: #182236;
             border: 1px solid rgba(139, 92, 246, 0.3);
@@ -875,7 +1007,7 @@
             padding: 12px;
             border-radius: 12px;
             font-weight: 800;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             cursor: pointer;
             margin-top: 6px;
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
@@ -912,7 +1044,6 @@
             color: #bfdbfe;
         }
 
-        /* تنسيق قسم مواعيد الأدوية */
         .sched-part-panel {
             display: none;
         }
@@ -1175,82 +1306,135 @@
 </head>
 <body oncontextmenu="return false;">
 
-<!-- شريط حالة الحساب والاشتراك -->
+<!-- الشريط العلوي النظيف مع زر الثلاث خطوط -->
 <div class="account-top-bar">
-    <div class="account-info-pill">
-        <span>📧 <strong id="displayUserEmail">غير مسجل</strong></span>
-        <span id="subscriptionBadge" class="status-chip status-trial">جاري التحقق...</span>
-    </div>
-    <div class="top-bar-actions">
-        <button id="upgradeSubBtn" class="mini-top-btn pay-now" onclick="openPaymentModal()">💎 ترقية الاشتراك ($1 / شهر)</button>
-        <button id="adminPanelBtn" class="mini-top-btn admin-btn" onclick="openOwnerDashboard()">🔐 لوحة الإدارة</button>
-        <button class="mini-top-btn" onclick="logoutUserEmail()">تغيير الإيميل</button>
-    </div>
+    <button class="hamburger-btn" onclick="openSettingsDrawer()" aria-label="الإعدادات">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="top-brand-mini">💊 أكاديمية الصيدلة الذكية</div>
+    <span id="subscriptionBadge" class="status-chip status-trial">جاري التحقق...</span>
 </div>
 
-<!-- 1. بوابة ربط البريد الإلكتروني وبدء التجربة المجانية 7 أيام -->
+<!-- قائمة الإعدادات الجانبية (تفتح من زر الثلاث خطوط) -->
+<div id="settingsBackdrop" class="settings-backdrop" onclick="closeSettingsDrawer()"></div>
+<aside id="settingsDrawer" class="settings-drawer">
+    <div class="drawer-header">
+        <h3>⚙️ الإعدادات والحساب</h3>
+        <button class="drawer-close-btn" onclick="closeSettingsDrawer()">🔙 رجوع</button>
+    </div>
+
+    <div class="drawer-profile-card">
+        <span style="color:#94a3b8; font-size:0.76rem;">📧 البريد الإلكتروني المسجل:</span>
+        <div id="displayUserEmail" class="email-line">غير مسجل</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(148,163,184,0.18); padding-top:8px;">
+            <span style="color:#94a3b8; font-size:0.75rem;">📱 معرّف الجهاز:</span>
+            <code id="drawerDeviceId" style="color:#22d3ee; font-weight:900;">PH-000000</code>
+        </div>
+    </div>
+
+    <button class="drawer-menu-item" onclick="openChangeEmailFromSettings()">
+        <span>✉️ تعديل / تغيير الإيميل</span>
+        <span style="color:#38bdf8;">←</span>
+    </button>
+
+    <button id="drawerUpgradeBtn" class="drawer-menu-item highlight-pay" onclick="openPaymentFromSettings()">
+        <span>💳 الاشتراك وطرق الدفع ($1 / شهر)</span>
+        <span>←</span>
+    </button>
+
+    <button id="drawerAdminBtn" class="drawer-menu-item highlight-admin" onclick="openOwnerFromSettings()">
+        <span>🔐 لوحة تحكم الإدارة الحصرية</span>
+        <span>←</span>
+    </button>
+
+    <div class="drawer-profile-card" style="margin-top:auto; font-size:0.76rem; color:#94a3b8; text-align:center;">
+        للدعم والتفعيل عبر إنستغرام:<br>
+        <strong style="color:#38bdf8;">@ebo.rr</strong>
+    </div>
+</aside>
+
+<!-- 1. بوابة ربط / تعديل البريد الإلكتروني (مع زر رجوع فوري) -->
 <div id="emailGateModal" class="gate-overlay">
     <div class="gate-box">
-        <div class="ai-badge">🔐 تسجيل الدخول وتفعيل الحساب</div>
-        <h2>ربط البريد الإلكتروني لدخول البرنامج</h2>
-        <p>سجّل ببريدك الإلكتروني للحصول على <strong>7 أيام استخدام مجاني كامل</strong>، وبعد انتهائها يتطلب التجديد اشتراكاً شهرياً بقيمة <strong>1$ كل 30 يوم</strong>.</p>
+        <div class="gate-top-nav" id="emailBackNav">
+            <button class="back-pill-btn" onclick="closeEmailModal()">🔙 رجوع للبرنامج</button>
+            <span style="font-size:0.75rem; color:#94a3b8;">إعدادات الحساب</span>
+        </div>
+        <div class="ai-badge">✉️ إدارة البريد الإلكتروني</div>
+        <h2 id="emailModalTitle">ربط البريد الإلكتروني</h2>
+        <p>أدخل بريدك الإلكتروني لحفظ حسابك (7 أيام مجانية، ثم اشتراك شهري <strong>1$ كل 30 يوم</strong>).</p>
         <div class="form-group">
             <label>📧 البريد الإلكتروني (Gmail / Email):</label>
             <input type="email" id="loginEmailInput" class="form-control" placeholder="example@gmail.com" dir="ltr">
         </div>
-        <button class="calc-btn" onclick="registerUserEmail()">🚀 دخول البرنامج</button>
+        <button class="calc-btn" onclick="registerUserEmail()">✅ حفظ الإيميل والعودة للبرنامج</button>
     </div>
 </div>
 
-<!-- 2. بوابة الاشتراك وتفعيل التطبيق -->
+<!-- 2. بوابة الاشتراك وطرق الدفع المنظمة (مع زر رجوع) -->
 <div id="paymentGateModal" class="gate-overlay">
     <div class="gate-box">
-        <div class="ai-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:#f59e0b;">💎 اشتراك التطبيق — Pro License</div>
-        <h2>تفعيل الاشتراك الشهري (30 يوماً)</h2>
-        <p id="paymentGateReason">لتفعيل النسخة الكاملة لمدة <strong>30 يوماً</strong>، قم بتحويل <strong>1$</strong> عبر الكي كارد ثم أرسل معرّف جهازك على إنستغرام الإدارة لاستلام كود التفعيل فوراً:</p>
+        <div class="gate-top-nav" id="payBackNav">
+            <button class="back-pill-btn" onclick="closePaymentModal()">🔙 رجوع</button>
+            <span class="app-plan-price">1.00 $ / 30 يوم</span>
+        </div>
+
+        <h2>💳 الاشتراك وطرق الدفع والتفعيل</h2>
+        <p id="paymentGateReason" style="margin-bottom:10px;">اتبع الخطوات الثلاث البسيطة أدناه لتفعيل النسخة الكاملة لمدة <strong>30 يوماً</strong>:</p>
         
-        <div class="app-plan-card">
-            <div class="app-plan-header">
-                <strong style="color:#f8fafc; font-size:0.92rem;">الباقة الشهرية الكاملة (30 يوم)</strong>
-                <span class="app-plan-price">1.00 $ / شهر</span>
+        <!-- الخطوة 1: التحويل عبر الكي كارد -->
+        <div class="pay-step-card">
+            <div class="pay-step-title">
+                <span>1️⃣ الخطوة الأولى: التحويل عبر الكي كارد (QiCard)</span>
             </div>
-            <div style="font-size:0.78rem; color:#cbd5e1;">• فتح جميع الحاسبات والموسوعة الدوائية ومواعيد الأدوية بدون قيود.</div>
             <div class="qicard-chip-box">
                 <div>
-                    <span style="display:block; font-size:0.7rem; color:#94a3b8;">بطاقة الكي كارد الرئيسية للاستلام:</span>
+                    <span style="display:block; font-size:0.7rem; color:#94a3b8;">رقم بطاقة الكي كارد للاستلام:</span>
                     <code id="merchantQiCardDisplay">7110-4829-9301-2026</code>
                 </div>
-                <button class="copy-mini-btn" onclick="copyTextValue('merchantQiCardDisplay')">📋 نسخ</button>
+                <button class="copy-mini-btn" onclick="copyTextValue('merchantQiCardDisplay')">📋 نسخ الرقم</button>
             </div>
         </div>
 
-        <div class="device-id-box">
-            <span>📱 معرّف جهازك (Device ID): <code id="userDeviceIdDisplay">PH-000000</code></span>
-            <button class="copy-mini-btn" style="color:#22d3ee; border-color:rgba(34,211,238,0.4); background:rgba(34,211,238,0.12);" onclick="copyTextValue('userDeviceIdDisplay')">نسخ المعرّف</button>
+        <!-- الخطوة 2: إرسال الإشعار عبر إنستغرام -->
+        <div class="pay-step-card">
+            <div class="pay-step-title">
+                <span>2️⃣ الخطوة الثانية: إرسال إشعار الدفع للإدارة</span>
+            </div>
+            <div class="device-id-row">
+                <span>📱 معرّف جهازك: <code id="userDeviceIdDisplay">PH-000000</code></span>
+                <button class="copy-mini-btn" style="color:#22d3ee; border-color:rgba(34,211,238,0.4); background:rgba(34,211,238,0.12);" onclick="copyTextValue('userDeviceIdDisplay')">نسخ</button>
+            </div>
+            <div class="pay-actions-grid">
+                <button class="copy-msg-ig-btn" onclick="copyActivationRequestMessage()">📋 1. نسخ الرسالة الجاهزة</button>
+                <a id="instagramRequestLink" href="https://instagram.com/ebo.rr" target="_blank" class="instagram-pay-btn">📸 2. فتح إنستغرام @ebo.rr</a>
+            </div>
         </div>
 
-        <a id="instagramRequestLink" href="https://instagram.com/ebo.rr" target="_blank" class="instagram-pay-btn">
-            📸 مراسلة الإدارة على إنستغرام (@ebo.rr) لإرسال الإشعار
-        </a>
-        <button class="copy-msg-ig-btn" onclick="copyActivationRequestMessage()">
-            📋 نسخ رسالة التفعيل جاهزة (الإيميل + معرّف الجهاز) للصقها في إنستغرام
-        </button>
-
-        <div class="form-group">
-            <label>🔑 أدخل كود التفعيل (Activation Key) الخاص بجهازك:</label>
-            <input type="text" id="activationCodeInput" class="form-control" placeholder="PRO-XXXX-XXXX" dir="ltr" style="text-align:center; font-weight:800; letter-spacing:1px;">
+        <!-- الخطوة 3: إدخال كود التفعيل -->
+        <div class="pay-step-card" style="margin-bottom:0;">
+            <div class="pay-step-title">
+                <span>3️⃣ الخطوة الثالثة: إدخال كود التفعيل المستلم</span>
+            </div>
+            <div class="form-group" style="margin-bottom:8px;">
+                <input type="text" id="activationCodeInput" class="form-control" placeholder="PRO-XXXX-XXXX-1" dir="ltr" style="text-align:center; font-weight:800; letter-spacing:1px;">
+            </div>
+            <button class="calc-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a; margin-top:0;" onclick="verifyAndActivateKey()">🚀 تفعيل الاشتراك الآن (30 يوم)</button>
         </div>
-
-        <button class="calc-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a;" onclick="verifyAndActivateKey()">✅ تفعيل الاشتراك الآن (30 يوم)</button>
-        <button id="closePayModalBtn" class="mini-pdf-btn" style="width:100%; margin-top:8px;" onclick="closePaymentModal()">إغلاق (متابعة الفترة المجانية)</button>
     </div>
 </div>
 
 <!-- 3. لوحة تحكم الحساب الرئيسي الحصرية (iboibo4422@gmail.com) -->
 <div id="ownerDashboardModal" class="gate-overlay">
     <div class="gate-box" style="max-width:540px; text-align:right;">
+        <div class="gate-top-nav">
+            <button class="back-pill-btn" onclick="closeOwnerDashboard()">🔙 رجوع</button>
+            <span style="font-size:0.75rem; color:#fbbf24; font-weight:800;">@ebo.rr</span>
+        </div>
         <h2 style="text-align:center;">🔐 لوحة تحكم الإدارة الحصرية</h2>
-        <p style="text-align:center; color:#fbbf24; font-weight:700;">الحساب الرئيسي: iboibo4422@gmail.com • إنستغرام: @ebo.rr</p>
+        <p style="text-align:center; color:#fbbf24; font-weight:700;">الحساب الرئيسي: iboibo4422@gmail.com</p>
 
         <div id="ownerAuthArea">
             <div class="form-group">
@@ -1258,7 +1442,6 @@
                 <input type="password" id="ownerPinInput" class="form-control" placeholder="••••••••••" dir="ltr">
             </div>
             <button class="calc-btn" onclick="unlockOwnerDashboard()">دخول لوحة الإدارة</button>
-            <button class="mini-pdf-btn" style="width:100%;" onclick="closeOwnerDashboard()">إغلاق</button>
         </div>
 
         <div id="ownerContentArea" style="display:none;">
@@ -1295,8 +1478,6 @@
                 <strong style="font-size:0.84rem; color:#38bdf8;">📋 سجل الاشتراكات المفعّلة ($1 / 30 يوم):</strong>
                 <div id="paymentsLogList" style="max-height:140px; overflow-y:auto; margin-top:6px; background:#0f172a; padding:8px; border-radius:10px; font-size:0.78rem;"></div>
             </div>
-
-            <button class="mini-pdf-btn" style="width:100%;" onclick="closeOwnerDashboard()">إغلاق اللوحة</button>
         </div>
     </div>
 </div>
@@ -1952,7 +2133,7 @@
         }
     });
 
-    /* ================= 2. نظام ربط الإيميل + الإيميل الحصري للإدارة + التفعيل عبر إنستغرام ================= */
+    /* ================= 2. قائمة الإعدادات الجانبية + نظام الإيميل والدفع ================= */
     const EXCLUSIVE_ADMIN_EMAIL = "iboibo4422@gmail.com";
     const DEFAULT_INSTAGRAM_HANDLE = "ebo.rr";
     const STORAGE_KEY_USER = "ai_pharmacy_user_account_v3";
@@ -1963,6 +2144,16 @@
     const STORAGE_KEY_USED_KEYS = "ai_pharmacy_used_keys_v3";
     const _0xADMIN_KEY = "AA9955BB66";
     const DAY_MS = 24 * 60 * 60 * 1000;
+
+    function openSettingsDrawer() {
+        document.getElementById('settingsBackdrop').classList.add('open');
+        document.getElementById('settingsDrawer').classList.add('open');
+    }
+
+    function closeSettingsDrawer() {
+        document.getElementById('settingsBackdrop').classList.remove('open');
+        document.getElementById('settingsDrawer').classList.remove('open');
+    }
 
     function isExclusiveAdmin(email) {
         return (email || "").trim().toLowerCase() === EXCLUSIVE_ADMIN_EMAIL;
@@ -2004,7 +2195,7 @@
         const txt = document.getElementById(elId).innerText;
         if (navigator.clipboard) {
             navigator.clipboard.writeText(txt);
-            alert("تم النسخ: " + txt);
+            alert("✅ تم النسخ: " + txt);
         }
     }
 
@@ -2025,24 +2216,29 @@
         const igHandle = getMerchantInstagram();
         document.getElementById('merchantQiCardDisplay').innerText = getMerchantCard();
         document.getElementById('userDeviceIdDisplay').innerText = devId;
+        document.getElementById('drawerDeviceId').innerText = devId;
         const igLink = document.getElementById('instagramRequestLink');
         igLink.href = `https://instagram.com/${igHandle}`;
-        igLink.innerText = `📸 مراسلة الإدارة على إنستغرام (@${igHandle}) لإرسال الإشعار`;
+        igLink.innerText = `📸 2. فتح إنستغرام @${igHandle}`;
     }
 
     function initSubscriptionSystem() {
         const saved = localStorage.getItem(STORAGE_KEY_USER);
         updatePaymentModalInfo();
 
-        const adminBtn = document.getElementById('adminPanelBtn');
-        const upgradeBtn = document.getElementById('upgradeSubBtn');
+        const adminBtn = document.getElementById('drawerAdminBtn');
+        const upgradeBtn = document.getElementById('drawerUpgradeBtn');
+        const emailBackNav = document.getElementById('emailBackNav');
 
         if (!saved) {
             adminBtn.style.display = 'none';
+            emailBackNav.style.display = 'none';
+            document.getElementById('emailModalTitle').innerText = "ربط البريد الإلكتروني لدخول البرنامج";
             document.getElementById('emailGateModal').classList.add('open');
             return;
         }
 
+        emailBackNav.style.display = 'flex';
         const user = JSON.parse(saved);
         document.getElementById('displayUserEmail').innerText = user.email;
         const now = Date.now();
@@ -2050,38 +2246,54 @@
 
         if (isExclusiveAdmin(user.email)) {
             badge.className = "status-chip status-admin";
-            badge.innerText = "👑 حساب الإدارة الحصري • مفتوح بالكامل";
-            adminBtn.style.display = 'inline-block';
+            badge.innerText = "👑 الإدارة الحصرية";
+            adminBtn.style.display = 'flex';
             upgradeBtn.style.display = 'none';
             document.getElementById('paymentGateModal').classList.remove('open');
             return;
         } else {
             adminBtn.style.display = 'none';
-            upgradeBtn.style.display = 'inline-block';
+            upgradeBtn.style.display = 'flex';
         }
 
         if (user.paidUntil && now < user.paidUntil) {
             const daysLeft = Math.ceil((user.paidUntil - now) / DAY_MS);
             badge.className = "status-chip status-active";
-            badge.innerText = `💎 اشتراك مفعّل • متبقي ${daysLeft} يوم`;
+            badge.innerText = `💎 مفعّل (${daysLeft} يوم)`;
             document.getElementById('paymentGateModal').classList.remove('open');
         } else if (now < user.trialEndsAt) {
             const daysLeft = Math.ceil((user.trialEndsAt - now) / DAY_MS);
             badge.className = "status-chip status-trial";
-            badge.innerText = `🎁 فترة مجانية • متبقي ${daysLeft} يوم من 7`;
+            badge.innerText = `🎁 مجاني (${daysLeft} يوم)`;
             document.getElementById('paymentGateModal').classList.remove('open');
         } else {
             badge.className = "status-chip status-expired";
-            badge.innerText = "⛔ انتهت المجانية • مطلوب تفعيل ($1)";
-            document.getElementById('closePayModalBtn').style.display = 'none';
+            badge.innerText = "⛔ مطلوب تفعيل ($1)";
+            document.getElementById('payBackNav').style.display = 'none';
             document.getElementById('paymentGateModal').classList.add('open');
+        }
+    }
+
+    function openChangeEmailFromSettings() {
+        closeSettingsDrawer();
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        document.getElementById('emailModalTitle').innerText = "تعديل / تغيير البريد الإلكتروني";
+        document.getElementById('emailBackNav').style.display = saved ? 'flex' : 'none';
+        document.getElementById('loginEmailInput').value = saved ? JSON.parse(saved).email : "";
+        document.getElementById('emailGateModal').classList.add('open');
+    }
+
+    function closeEmailModal() {
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
+        if (saved) {
+            document.getElementById('emailGateModal').classList.remove('open');
         }
     }
 
     function registerUserEmail() {
         const email = document.getElementById('loginEmailInput').value.trim().toLowerCase();
         if (!email || !email.includes('@') || !email.includes('.')) {
-            alert("يرجى إدخال بريد إلكتروني صحيح لربط حسابك.");
+            alert("يرجى إدخال بريد إلكتروني صحيح.");
             return;
         }
 
@@ -2089,12 +2301,12 @@
         let userObj;
         if (existingRaw) {
             const prev = JSON.parse(existingRaw);
-            if (prev.email === email) {
-                userObj = prev;
-            }
-        }
-
-        if (!userObj) {
+            userObj = {
+                ...prev,
+                email: email,
+                isAdmin: isExclusiveAdmin(email)
+            };
+        } else {
             const now = Date.now();
             userObj = {
                 email: email,
@@ -2111,14 +2323,10 @@
         initSubscriptionSystem();
     }
 
-    function logoutUserEmail() {
-        document.getElementById('loginEmailInput').value = "";
-        document.getElementById('emailGateModal').classList.add('open');
-    }
-
-    function openPaymentModal() {
+    function openPaymentFromSettings() {
+        closeSettingsDrawer();
         updatePaymentModalInfo();
-        document.getElementById('closePayModalBtn').style.display = 'inline-block';
+        document.getElementById('payBackNav').style.display = 'flex';
         document.getElementById('paymentGateModal').classList.add('open');
     }
 
@@ -2179,7 +2387,8 @@
         initSubscriptionSystem();
     }
 
-    function openOwnerDashboard() {
+    function openOwnerFromSettings() {
+        closeSettingsDrawer();
         const saved = localStorage.getItem(STORAGE_KEY_USER);
         const currentEmail = saved ? JSON.parse(saved).email : "";
         if (!isExclusiveAdmin(currentEmail)) {
@@ -3215,21 +3424,24 @@
         document.querySelectorAll('.sched-part-panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('#sec4 .calc-subbtn').forEach(b => b.classList.remove('active'));
         document.getElementById(partId).classList.add('active');
-        btn.classList.add('active');
+        if (btn) btn.classList.add('active');
     }
 
     function switchTab(sectionId, btn) {
         document.querySelectorAll('.section-content').forEach(sec => sec.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(sectionId).classList.add('active');
-        btn.classList.add('active');
+        const target = document.getElementById(sectionId);
+        if (target) target.classList.add('active');
+        if (btn) btn.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function switchCalc(panelId, btn) {
         document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.calc-subbtn').forEach(b => b.classList.remove('active'));
-        document.getElementById(panelId).classList.add('active');
-        btn.classList.add('active');
+        document.querySelectorAll('#sec3 .calc-subbtn').forEach(b => b.classList.remove('active'));
+        const target = document.getElementById(panelId);
+        if (target) target.classList.add('active');
+        if (btn) btn.classList.add('active');
     }
 
     function toggleAccordion(header) {
@@ -3317,7 +3529,7 @@
             hitsList.innerHTML = hitsHTML;
             instantBox.style.display = 'block';
         } else {
-            hitsList.innerHTML = `<div class="instant-hit">لم يتم العور على تطابق مباشر لـ "${rawTerm}".</div>`;
+            hitsList.innerHTML = `<div class="instant-hit">لم يتم العثور على تطابق مباشر لـ "${rawTerm}".</div>`;
             instantBox.style.display = 'block';
         }
     });
