@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI Pharmacy Academy Pro | أكاديمية الصيدلة الذكية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;700;800&family=Almarai:wght@400;700;800&family=Amiri:wght@400;700&family=Changa:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700;800&family=Noto+Naskh+Arabic:wght@400;700&family=Readex+Pro:wght@400;700&family=Rubik:wght@400;700;800&family=El+Messiri:wght@400;700&family=Lemonada:wght@400;700&family=Markazi+Text:wght@400;700&family=Reem+Kufi:wght@400;700&family=Lalezar&family=Harmattan:wght@400;700&family=Scheherazade+New:wght@400;700&family=Lateef&family=Mada:wght@400;700;900&family=Aref+Ruqaa:wght@400;700&family=Katibeh&family=Mirza:wght@400;700&family=Rakkas&family=Vibes&family=Jomhuria&family=Qahiri&family=Gulzar&family=Alkalami&family=Blaka&family=Marhey:wght@400;700&family=Handjet:wght@400;700&family=Vazirmatn:wght@400;700;800&family=Poppins:wght@400;600;700&family=Montserrat:wght@400;700;800&family=Inter:wght@400;600;800&family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&family=Nunito:wght@400;700&family=Raleway:wght@400;700&family=Ubuntu:wght@400;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&family=Fira+Code:wght@400;700&family=Quicksand:wght@400;700&family=Josefin+Sans:wght@400;700&family=Oswald:wght@400;700&family=Bebas+Neue&family=Comfortaa:wght@400;700&family=Exo+2:wght@400;700&family=Kanit:wght@400;700&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;700;800&family=Almarai:wght@400;700;800&family=Amiri:wght@400;700&family=Changa:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700;800&family=Noto+Naskh+Arabic:wght@400;700&family=Readex+Pro:wght@400;700&family=Rubik:wght@400;700;800&family=El+Messiri:wght@400;700&family=Lemonada:wght@400;700&family=Markazi+Text:wght@400;700&family=Reem+Kufi:wght@400;700&family=Lalezar&family=Harmattan:wght@400;700&family=Scheherazade+New:wght@400;700&family=Lateef&family=Mada:wght@400;700;900&family=Aref+Ruqaa:wght@400;700&family=Mirza:wght@400;700&family=Marhey:wght@400;700&family=Vazirmatn:wght@400;700;800&family=Poppins:wght@400;600;700&family=Montserrat:wght@400;700;800&family=Inter:wght@400;600;800&family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&family=Nunito:wght@400;700&family=Raleway:wght@400;700&family=Ubuntu:wght@400;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&family=Fira+Code:wght@400;700&family=Quicksand:wght@400;700&family=Oswald:wght@400;700&family=Comfortaa:wght@400;700&family=Exo+2:wght@400;700&family=Kanit:wght@400;700&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style id="dynamicThemeStyleTag"></style>
     <style>
         :root {
             --bg-main: #0b1120;
             --bg-card: #131c31;
             --primary: #06b6d4;
-            --primary-glow: rgba(6, 182, 212, 0.25);
+            --primary-glow: rgba(6, 182, 212, 0.28);
             --secondary: #8b5cf6;
             --accent: #10b981;
             --warning: #f59e0b;
             --danger: #f43f5e;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border: rgba(148, 163, 184, 0.2);
+            --border: rgba(148, 163, 184, 0.22);
             --card-radius: 16px;
             --app-font: 'Cairo', sans-serif;
         }
@@ -39,25 +38,30 @@
             user-select: text !important;
         }
 
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             background-color: var(--bg-main);
             background-image: 
-                radial-gradient(circle at 15% 15%, var(--primary-glow), transparent 38%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.14), transparent 38%);
+                radial-gradient(circle at 15% 15%, var(--primary-glow), transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.16), transparent 40%);
             color: var(--text-main);
             line-height: 1.7;
-            padding-bottom: 65px;
+            padding-bottom: 70px;
             min-height: 100vh;
             transition: background-color 0.35s ease, color 0.35s ease;
         }
 
-        /* أوضاع الإضاءة (نهاري / ليلي / تلقائي / راينبو) */
+        /* أوضاع الإضاءة الأربعة: النهاري، الليلي، التلقائي، والراينبو */
         body.mode-day {
             --bg-main: #f1f5f9;
             --bg-card: #ffffff;
             --text-main: #0f172a;
             --text-muted: #475569;
-            --border: rgba(15, 23, 42, 0.14);
+            --border: rgba(15, 23, 42, 0.16);
             background-image: radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.12), transparent 40%);
         }
 
@@ -73,26 +77,19 @@
         body.mode-day .learn-mini-card,
         body.mode-day .time-slot-card,
         body.mode-day .sched-local-search,
-        body.mode-day .sched-detail-row,
-        body.mode-day .otc-example-card {
+        body.mode-day .otc-example-card,
+        body.mode-day .exam-question-card,
+        body.mode-day .drawer-profile-card,
+        body.mode-day .drawer-select-box,
+        body.mode-day .drawer-menu-item {
             background: #ffffff !important;
             color: #0f172a !important;
-            border-color: rgba(15, 23, 42, 0.16) !important;
+            border-color: rgba(15, 23, 42, 0.18) !important;
         }
 
-        body.mode-day header {
-            background: linear-gradient(135deg, #e0f2fe, #ede9fe) !important;
-        }
-
-        body.mode-day .tab-btn {
-            background: #ffffff;
-            color: #334155;
-        }
-
-        body.mode-day .tab-btn.active {
-            background: linear-gradient(135deg, #0284c7, #4f46e5);
-            color: #ffffff;
-        }
+        body.mode-day header { background: linear-gradient(135deg, #e0f2fe, #ede9fe) !important; }
+        body.mode-day .tab-btn { background: #ffffff; color: #334155; }
+        body.mode-day .tab-btn.active { background: linear-gradient(135deg, #0284c7, #4f46e5); color: #ffffff; }
 
         @keyframes rainbowShift {
             0% { background-position: 0% 50%; filter: hue-rotate(0deg); }
@@ -110,24 +107,25 @@
         body.mode-rainbow .accordion-item,
         body.mode-rainbow .market-drug-card,
         body.mode-rainbow .stage-year-card {
-            border: 1.5px solid rgba(251, 191, 36, 0.55) !important;
-            box-shadow: 0 0 18px rgba(236, 72, 153, 0.25) !important;
+            border: 1.5px solid rgba(251, 191, 36, 0.6) !important;
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.28) !important;
         }
 
         .global-broadcast-bar {
             background: linear-gradient(90deg, #b45309, #d97706, #b45309);
             color: #fff;
-            padding: 7px 14px;
-            font-size: 0.82rem;
+            padding: 8px 14px;
+            font-size: 0.83rem;
             font-weight: 800;
             text-align: center;
             display: none;
         }
 
+        /* الشريط العلوي المتكامل */
         .account-top-bar {
             background: rgba(15, 23, 42, 0.96);
-            border-bottom: 1px solid rgba(6, 182, 212, 0.35);
-            padding: 8px 10px;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.4);
+            padding: 9px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -135,15 +133,15 @@
             position: sticky;
             top: 0;
             z-index: 60;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
         }
 
         .hamburger-btn {
             background: linear-gradient(135deg, #1e293b, #0f172a);
-            border: 1.5px solid rgba(56, 189, 248, 0.5);
+            border: 1.5px solid rgba(56, 189, 248, 0.55);
             color: #38bdf8;
-            width: 38px;
-            height: 36px;
+            width: 39px;
+            height: 37px;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -157,152 +155,139 @@
         .hamburger-btn span { display: block; width: 18px; height: 2.5px; background: #38bdf8; border-radius: 3px; }
 
         .live-clock-pill {
-            background: rgba(6, 182, 212, 0.14);
-            border: 1px solid rgba(6, 182, 212, 0.35);
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.4);
             color: #22d3ee;
-            padding: 4px 9px;
-            border-radius: 16px;
-            font-size: 0.71rem;
+            padding: 4px 10px;
+            border-radius: 18px;
+            font-size: 0.72rem;
             font-weight: 800;
             white-space: nowrap;
             font-variant-numeric: tabular-nums;
         }
 
         .status-chip {
-            padding: 4px 9px;
+            padding: 4px 10px;
             border-radius: 20px;
             font-weight: 800;
-            font-size: 0.71rem;
+            font-size: 0.72rem;
             white-space: nowrap;
             font-variant-numeric: tabular-nums;
             cursor: pointer;
         }
 
-        .status-trial { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.45); }
-        .status-active { background: rgba(6, 182, 212, 0.18); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.45); }
-        .status-admin { background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(139, 92, 246, 0.28)); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.65); }
-        .status-expired { background: rgba(244, 63, 94, 0.2); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.5); }
+        .status-trial { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.5); }
+        .status-active { background: rgba(6, 182, 212, 0.18); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.5); }
+        .status-admin { background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(139, 92, 246, 0.3)); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.7); }
+        .status-expired { background: rgba(244, 63, 94, 0.22); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.55); }
 
+        /* قائمة الإعدادات الجانبية */
         .settings-backdrop {
             position: fixed;
             inset: 0;
-            background: rgba(2, 6, 23, 0.78);
+            background: rgba(2, 6, 23, 0.8);
             z-index: 9000;
             display: none;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(4px);
         }
-
         .settings-backdrop.open { display: block; }
 
         .settings-drawer {
             position: fixed;
             top: 0;
-            right: -370px;
-            width: 345px;
+            right: -380px;
+            width: 350px;
             max-width: 92vw;
             height: 100vh;
             background: linear-gradient(180deg, #0f172a, #1e1b4b);
-            border-left: 1.5px solid rgba(56, 189, 248, 0.4);
+            border-left: 1.5px solid rgba(56, 189, 248, 0.45);
             z-index: 9001;
-            padding: 15px 14px;
+            padding: 16px 14px;
             overflow-y: auto;
             transition: right 0.28s ease;
-            box-shadow: -10px 0 35px rgba(0, 0, 0, 0.65);
+            box-shadow: -10px 0 35px rgba(0, 0, 0, 0.7);
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 10px;
         }
-
         .settings-drawer.open { right: 0; }
 
         .drawer-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-            padding-bottom: 9px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+            padding-bottom: 10px;
         }
-
-        .drawer-header h3 { font-size: 0.98rem; font-weight: 900; color: #38bdf8; }
+        .drawer-header h3 { font-size: 0.96rem; font-weight: 900; color: #38bdf8; }
 
         .drawer-close-btn {
-            background: rgba(244, 63, 94, 0.18);
+            background: rgba(244, 63, 94, 0.2);
             color: #fda4af;
-            border: 1px solid rgba(244, 63, 94, 0.4);
-            padding: 4px 11px;
+            border: 1px solid rgba(244, 63, 94, 0.45);
+            padding: 5px 12px;
             border-radius: 9px;
             font-weight: 800;
-            font-size: 0.76rem;
+            font-size: 0.78rem;
             cursor: pointer;
         }
 
         .drawer-profile-card {
-            background: rgba(15, 23, 42, 0.88);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 12px;
-            padding: 10px;
-            font-size: 0.78rem;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 13px;
+            padding: 11px;
+            font-size: 0.79rem;
         }
 
         .live-timer-box {
-            background: rgba(16, 185, 129, 0.12);
-            border: 1px solid rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.14);
+            border: 1px solid rgba(16, 185, 129, 0.45);
             border-radius: 9px;
-            padding: 6px 9px;
-            margin-top: 6px;
+            padding: 6px 10px;
+            margin-top: 7px;
             text-align: center;
             color: #34d399;
             font-weight: 900;
-            font-size: 0.8rem;
+            font-size: 0.81rem;
             font-variant-numeric: tabular-nums;
         }
 
         .drawer-select-box {
-            background: rgba(30, 41, 59, 0.85);
+            background: rgba(30, 41, 59, 0.88);
             border: 1px solid rgba(56, 189, 248, 0.35);
             border-radius: 12px;
-            padding: 9px 11px;
+            padding: 10px 11px;
         }
 
         .drawer-select-box label {
             display: block;
-            font-size: 0.76rem;
+            font-size: 0.77rem;
             font-weight: 800;
             color: #38bdf8;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
 
-        .mode-4-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 5px;
-            margin-top: 4px;
-        }
-
+        .mode-4-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 4px; }
         .mode-pill-btn {
             background: #0f172a;
             border: 1px solid rgba(148, 163, 184, 0.3);
             color: #e2e8f0;
-            padding: 6px 4px;
-            border-radius: 8px;
-            font-size: 0.73rem;
+            padding: 7px 5px;
+            border-radius: 9px;
+            font-size: 0.74rem;
             font-weight: 800;
             cursor: pointer;
             text-align: center;
         }
-
-        .mode-pill-btn.active {
-            background: linear-gradient(135deg, #06b6d4, #6366f1);
-            color: #fff;
-            border-color: transparent;
-        }
+        .mode-pill-btn.active { background: linear-gradient(135deg, #06b6d4, #6366f1); color: #fff; border-color: transparent; }
 
         .drawer-menu-item {
             width: 100%;
-            background: rgba(30, 41, 59, 0.85);
-            border: 1px solid rgba(148, 163, 184, 0.22);
+            background: rgba(30, 41, 59, 0.88);
+            border: 1px solid rgba(148, 163, 184, 0.25);
             color: #f8fafc;
-            padding: 9px 12px;
+            padding: 10px 12px;
             border-radius: 11px;
             text-align: right;
             font-weight: 800;
@@ -315,37 +300,31 @@
         }
 
         .drawer-menu-item.highlight-audit {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(5, 150, 105, 0.22));
-            border-color: rgba(16, 185, 129, 0.55);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.24), rgba(5, 150, 105, 0.24));
+            border-color: rgba(16, 185, 129, 0.6);
             color: #6ee7b7;
             display: none;
         }
 
         .drawer-menu-item.highlight-pay {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(217, 119, 6, 0.22));
-            border-color: rgba(245, 158, 11, 0.55);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.24), rgba(217, 119, 6, 0.24));
+            border-color: rgba(245, 158, 11, 0.6);
             color: #fbbf24;
         }
 
         .drawer-menu-item.highlight-admin {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(109, 40, 217, 0.28));
-            border-color: rgba(167, 139, 250, 0.65);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(109, 40, 217, 0.3));
+            border-color: rgba(167, 139, 250, 0.7);
             color: #ddd6fe;
             display: none;
         }
 
-        .root-owner-banner {
-            display: none;
-            max-width: 960px;
-            margin: 10px auto 0;
-            padding: 0 14px;
-        }
-
+        /* شريط القيادة الخاص بحساب المالك الرئيسي فقط */
+        .root-owner-banner { display: none; max-width: 960px; margin: 10px auto 0; padding: 0 14px; }
         .root-owner-banner.visible { display: block; }
-
         .root-owner-card {
             background: linear-gradient(135deg, rgba(30, 27, 75, 0.96), rgba(15, 23, 42, 0.96));
-            border: 1.5px solid rgba(251, 191, 36, 0.65);
+            border: 1.5px solid rgba(251, 191, 36, 0.7);
             border-radius: 15px;
             padding: 12px 14px;
             display: flex;
@@ -357,8 +336,8 @@
 
         .admin-edit-toolbar {
             display: none;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(245, 158, 11, 0.16));
-            border: 1px dashed rgba(251, 191, 36, 0.6);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.24), rgba(245, 158, 11, 0.18));
+            border: 1px dashed rgba(251, 191, 36, 0.65);
             border-radius: 12px;
             padding: 8px 11px;
             margin-bottom: 11px;
@@ -367,7 +346,6 @@
             flex-wrap: wrap;
             gap: 6px;
         }
-
         .admin-edit-toolbar.visible { display: flex; }
 
         .admin-add-btn {
@@ -384,108 +362,22 @@
             gap: 4px;
         }
 
-        .admin-mini-edit-btn {
-            background: rgba(56, 189, 248, 0.2);
-            color: #38bdf8;
-            border: 1px solid rgba(56, 189, 248, 0.45);
-            padding: 2px 7px;
-            border-radius: 7px;
-            font-size: 0.71rem;
-            font-weight: 800;
-            cursor: pointer;
-            margin-right: 3px;
-        }
+        .admin-mini-edit-btn { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.45); padding: 2px 8px; border-radius: 7px; font-size: 0.72rem; font-weight: 800; cursor: pointer; margin-right: 3px; }
+        .admin-mini-del-btn { background: rgba(244, 63, 94, 0.2); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.45); padding: 2px 8px; border-radius: 7px; font-size: 0.72rem; font-weight: 800; cursor: pointer; margin-right: 3px; }
 
-        .admin-mini-del-btn {
-            background: rgba(244, 63, 94, 0.2);
-            color: #fda4af;
-            border: 1px solid rgba(244, 63, 94, 0.45);
-            padding: 2px 7px;
-            border-radius: 7px;
-            font-size: 0.71rem;
-            font-weight: 800;
-            cursor: pointer;
-            margin-right: 3px;
-        }
-
-        /* بوابات تسجيل الدخول بالـ OTP والدفع والإدارة */
-        .gate-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(2, 6, 23, 0.96);
-            z-index: 99999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 14px;
-            overflow-y: auto;
-        }
-
+        /* النوافذ المنبثقة (تسجيل OTP، الدفع بالكي كارد، سجل الإجراءات، لوحة المالك) */
+        .gate-overlay { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.96); z-index: 99999; display: none; align-items: center; justify-content: center; padding: 14px; overflow-y: auto; }
         .gate-overlay.open { display: flex; }
-
-        .gate-box {
-            background: linear-gradient(155deg, #131c31, #1e1b4b);
-            border: 1.5px solid rgba(6, 182, 212, 0.5);
-            border-radius: 20px;
-            max-width: 550px;
-            width: 100%;
-            padding: 18px 16px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
-            text-align: center;
-            max-height: 92vh;
-            overflow-y: auto;
-        }
-
+        .gate-box { background: linear-gradient(155deg, #131c31, #1e1b4b); border: 1.5px solid rgba(6, 182, 212, 0.55); border-radius: 20px; max-width: 560px; width: 100%; padding: 18px 16px; box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8); text-align: center; max-height: 92vh; overflow-y: auto; }
         .gate-top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .back-pill-btn { background: rgba(148, 163, 184, 0.18); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); padding: 5px 12px; border-radius: 10px; font-size: 0.78rem; font-weight: 800; cursor: pointer; }
 
-        .back-pill-btn {
-            background: rgba(148, 163, 184, 0.16);
-            color: #e2e8f0;
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            padding: 5px 12px;
-            border-radius: 10px;
-            font-size: 0.78rem;
-            font-weight: 800;
-            cursor: pointer;
-        }
+        .otp-inbox-alert { background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(6, 182, 212, 0.22)); border: 1.5px dashed #34d399; border-radius: 12px; padding: 11px; margin: 10px 0; font-size: 0.83rem; color: #a7f3d0; display: none; }
+        .otp-code-big { display: inline-block; background: #0f172a; color: #fbbf24; font-size: 1.45rem; font-weight: 900; letter-spacing: 5px; padding: 5px 15px; border-radius: 9px; margin-top: 6px; border: 1px solid #fbbf24; }
 
-        .otp-inbox-alert {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(6, 182, 212, 0.22));
-            border: 1.5px dashed #34d399;
-            border-radius: 12px;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 0.83rem;
-            color: #a7f3d0;
-            display: none;
-        }
-
-        .otp-code-big {
-            display: inline-block;
-            background: #0f172a;
-            color: #fbbf24;
-            font-size: 1.4rem;
-            font-weight: 900;
-            letter-spacing: 5px;
-            padding: 4px 14px;
-            border-radius: 9px;
-            margin-top: 5px;
-            border: 1px solid #fbbf24;
-        }
-
-        .audit-msg-card {
-            background: rgba(15, 23, 42, 0.92);
-            border: 1px solid rgba(16, 185, 129, 0.35);
-            border-right: 4px solid #10b981;
-            border-radius: 11px;
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            text-align: right;
-            font-size: 0.8rem;
-        }
-
-        .audit-msg-card.type-delete { border-right-color: #f43f5e; border-color: rgba(244, 63, 94, 0.35); }
-        .audit-msg-card.type-edit { border-right-color: #f59e0b; border-color: rgba(245, 158, 11, 0.35); }
+        .audit-msg-card { background: rgba(15, 23, 42, 0.94); border: 1px solid rgba(16, 185, 129, 0.38); border-right: 4px solid #10b981; border-radius: 11px; padding: 10px 12px; margin-bottom: 8px; text-align: right; font-size: 0.81rem; }
+        .audit-msg-card.type-delete { border-right-color: #f43f5e; border-color: rgba(244, 63, 94, 0.38); }
+        .audit-msg-card.type-edit { border-right-color: #f59e0b; border-color: rgba(245, 158, 11, 0.38); }
 
         .owner-subtabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 11px; }
         .owner-subbtn { background: #0f172a; border: 1px solid rgba(148, 163, 184, 0.3); color: #cbd5e1; padding: 7px 4px; border-radius: 9px; font-size: 0.74rem; font-weight: 800; cursor: pointer; }
@@ -493,208 +385,126 @@
         .owner-panel { display: none; text-align: right; }
         .owner-panel.active { display: block; }
 
-        .pay-step-card { background: rgba(15, 23, 42, 0.92); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 12px; margin-bottom: 10px; text-align: right; }
+        .pay-step-card { background: rgba(15, 23, 42, 0.94); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 12px; margin-bottom: 10px; text-align: right; }
         .qicard-chip-box { background: #0b1120; border: 1.5px dashed #fbbf24; border-radius: 11px; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .qicard-chip-box code { color: #fbbf24; font-size: 1.12rem; font-weight: 900; }
-        .copy-mini-btn { background: rgba(251, 191, 36, 0.22); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.5); padding: 5px 11px; border-radius: 8px; font-size: 0.76rem; font-weight: 800; cursor: pointer; }
+        .qicard-chip-box code { color: #fbbf24; font-size: 1.15rem; font-weight: 900; }
+        .copy-mini-btn { background: rgba(251, 191, 36, 0.24); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.55); padding: 5px 11px; border-radius: 8px; font-size: 0.76rem; font-weight: 800; cursor: pointer; }
 
-        header {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.92));
-            border-bottom: 1px solid var(--border);
-            padding: 16px 14px 28px;
-            text-align: center;
-        }
-
-        .ai-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid rgba(6, 182, 212, 0.4);
-            color: #22d3ee;
-            padding: 4px 13px;
-            border-radius: 50px;
-            font-size: 0.73rem;
-            font-weight: 700;
-            margin-bottom: 7px;
-        }
-
-        header h1 {
-            font-size: 1.4rem;
-            font-weight: 900;
-            background: linear-gradient(to left, #22d3ee, #a78bfa, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
-        }
-
-        header p { font-size: 0.82rem; color: var(--text-muted); }
+        /* الهيدر وشريط البحث الذكي */
+        header { background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 27, 75, 0.94)); border-bottom: 1px solid var(--border); padding: 18px 14px 30px; text-align: center; }
+        .ai-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(6, 182, 212, 0.16); border: 1px solid rgba(6, 182, 212, 0.45); color: #22d3ee; padding: 4px 13px; border-radius: 50px; font-size: 0.74rem; font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 1.45rem; font-weight: 900; background: linear-gradient(to left, #22d3ee, #a78bfa, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px; }
+        header p { font-size: 0.83rem; color: var(--text-muted); }
 
         .ai-search-wrapper { max-width: 960px; margin: -18px auto 16px; padding: 0 14px; position: relative; z-index: 20; }
-        .ai-search-box { display: flex; align-items: center; background: #1e293b; border: 1.5px solid rgba(6, 182, 212, 0.5); border-radius: var(--card-radius); padding: 5px 13px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); }
+        .ai-search-box { display: flex; align-items: center; background: #1e293b; border: 1.5px solid rgba(6, 182, 212, 0.55); border-radius: var(--card-radius); padding: 6px 13px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45); }
         .ai-search-box input { flex: 1; background: transparent; border: none; color: inherit; font-size: 0.9rem; padding: 8px; outline: none; }
-        .clear-search { background: rgba(255,255,255,0.12); border: none; color: inherit; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: none; font-weight: bold; }
+        .clear-search { background: rgba(255,255,255,0.14); border: none; color: inherit; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: none; font-weight: bold; }
 
         .ai-instant-results { max-width: 960px; margin: 0 auto 16px; padding: 0 14px; display: none; }
-        .ai-instant-card { background: linear-gradient(145deg, #162238, #1e1b4b); border: 1px solid rgba(139, 92, 246, 0.45); border-radius: var(--card-radius); padding: 14px; }
-        .instant-hit { background: rgba(15, 23, 42, 0.75); border-right: 3px solid #22d3ee; padding: 8px 11px; border-radius: 9px; margin-bottom: 7px; font-size: 0.83rem; }
+        .ai-instant-card { background: linear-gradient(145deg, #162238, #1e1b4b); border: 1px solid rgba(139, 92, 246, 0.5); border-radius: var(--card-radius); padding: 14px; }
+        .instant-hit { background: rgba(15, 23, 42, 0.8); border-right: 3px solid #22d3ee; padding: 8px 11px; border-radius: 9px; margin-bottom: 7px; font-size: 0.84rem; }
         .instant-hit strong { color: #38bdf8; display: block; }
 
-        .tabs {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 6px;
-            max-width: 960px;
-            margin: 0 auto 16px;
-            padding: 0 14px;
-        }
-
+        /* التبويبات الرئيسية */
+        .tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; max-width: 960px; margin: 0 auto 16px; padding: 0 14px; }
         @media (max-width: 600px) { .tabs { grid-template-columns: repeat(3, 1fr); } }
-
-        .tab-btn {
-            padding: 9px 4px;
-            border: 1px solid var(--border);
-            border-radius: calc(var(--card-radius) - 3px);
-            background: var(--bg-card);
-            color: var(--text-muted);
-            font-weight: 800;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            text-align: center;
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 4px 15px var(--primary-glow);
-        }
+        .tab-btn { padding: 10px 4px; border: 1px solid var(--border); border-radius: calc(var(--card-radius) - 3px); background: var(--bg-card); color: var(--text-muted); font-weight: 800; font-size: 0.76rem; cursor: pointer; transition: all 0.25s ease; text-align: center; }
+        .tab-btn.active { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-color: transparent; box-shadow: 0 4px 15px var(--primary-glow); }
 
         .container { max-width: 960px; margin: 0 auto; padding: 0 14px; }
         .section-content { display: none; animation: fadeUp 0.25s ease; }
         .section-content.active { display: block; }
-
         @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-        .card {
-            background: var(--bg-card);
-            border-radius: var(--card-radius);
-            padding: 15px;
-            margin-bottom: 14px;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
+        .card { background: var(--bg-card); border-radius: var(--card-radius); padding: 15px; margin-bottom: 14px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.22); }
         .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 11px; border-bottom: 1px solid var(--border); padding-bottom: 7px; gap: 8px; flex-wrap: wrap; }
-        .card-title { font-size: 1rem; font-weight: 800; color: var(--primary); }
-        .badge { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.35); padding: 3px 10px; border-radius: 20px; font-size: 0.73rem; font-weight: 700; }
+        .card-title { font-size: 1.02rem; font-weight: 800; color: var(--primary); }
+        .badge { background: rgba(139, 92, 246, 0.22); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.38); padding: 3px 10px; border-radius: 20px; font-size: 0.73rem; font-weight: 700; }
 
         /* بطاقات سوق الأدوية */
         .market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); gap: 13px; margin-top: 10px; }
-        .market-drug-card { background: linear-gradient(160deg, #0f172a, #182238); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: var(--card-radius); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+        .market-drug-card { background: linear-gradient(160deg, #0f172a, #182238); border: 1px solid rgba(56, 189, 248, 0.32); border-radius: var(--card-radius); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
         .market-drug-img-wrap { position: relative; width: 100%; height: 155px; background: #f1f5f9; overflow: hidden; }
         .market-drug-img-wrap svg { width: 100%; height: 100%; display: block; }
-        .market-cat-tag { position: absolute; top: 8px; right: 8px; background: rgba(15, 23, 42, 0.92); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.5); padding: 2px 8px; border-radius: 11px; font-size: 0.7rem; font-weight: 800; }
+        .market-cat-tag { position: absolute; top: 8px; right: 8px; background: rgba(15, 23, 42, 0.92); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.55); padding: 2px 8px; border-radius: 11px; font-size: 0.7rem; font-weight: 800; }
         .market-price-tag { position: absolute; bottom: 8px; left: 8px; background: linear-gradient(135deg, #10b981, #059669); color: #fff; padding: 3px 9px; border-radius: 11px; font-size: 0.76rem; font-weight: 900; }
-        .market-drug-body { padding: 11px 12px; font-size: 0.81rem; }
-        .market-drug-body h4 { font-size: 0.92rem; font-weight: 900; margin-bottom: 2px; }
-        .market-sci-name { color: var(--primary); font-size: 0.75rem; font-weight: 700; margin-bottom: 5px; display: block; }
-        .market-local-brand { background: rgba(245, 158, 11, 0.14); border: 1px solid rgba(245, 158, 11, 0.35); color: #fde68a; padding: 4px 8px; border-radius: 8px; font-size: 0.75rem; margin-bottom: 5px; }
+        .market-drug-body { padding: 11px 12px; font-size: 0.82rem; }
+        .market-drug-body h4 { font-size: 0.93rem; font-weight: 900; margin-bottom: 2px; }
+        .market-sci-name { color: var(--primary); font-size: 0.76rem; font-weight: 700; margin-bottom: 5px; display: block; }
+        .market-local-brand { background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.38); color: #fde68a; padding: 4px 8px; border-radius: 8px; font-size: 0.76rem; margin-bottom: 5px; }
 
-        /* بطاقات المراحل الدراسية الخمس وملازم PDF + الروابط الرسمية */
-        .stage-year-card { background: linear-gradient(160deg, #0f172a, #172038); border: 1px solid rgba(56, 189, 248, 0.32); border-right: 4px solid var(--primary); border-radius: var(--card-radius); padding: 14px; margin-bottom: 13px; }
-        .stage-year-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 9px; border-bottom: 1px solid rgba(148, 163, 184, 0.2); padding-bottom: 7px; }
+        /* بطاقات الدراسة والمراحل الخمس */
+        .stage-year-card { background: linear-gradient(160deg, #0f172a, #172038); border: 1px solid rgba(56, 189, 248, 0.35); border-right: 4px solid var(--primary); border-radius: var(--card-radius); padding: 14px; margin-bottom: 13px; }
+        .stage-year-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 9px; border-bottom: 1px solid rgba(148, 163, 184, 0.22); padding-bottom: 7px; }
         .year-badge { display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; padding: 3px 11px; border-radius: 20px; font-size: 0.75rem; font-weight: 900; }
         .subjects-pdf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-top: 9px; }
-        .subject-pdf-box { background: rgba(30, 41, 59, 0.75); border: 1px solid rgba(139, 92, 246, 0.35); border-radius: 12px; padding: 11px; display: flex; flex-direction: column; justify-content: space-between; gap: 7px; }
-        .subject-pdf-box h6 { color: var(--primary); font-size: 0.87rem; font-weight: 800; }
-        .subject-pdf-box p { font-size: 0.77rem; line-height: 1.5; }
-        .subject-ref-book { color: #fbbf24; font-size: 0.73rem; font-weight: 700; }
+        .subject-pdf-box { background: rgba(30, 41, 59, 0.78); border: 1px solid rgba(139, 92, 246, 0.38); border-radius: 12px; padding: 11px; display: flex; flex-direction: column; justify-content: space-between; gap: 7px; }
+        .subject-pdf-box h6 { color: var(--primary); font-size: 0.88rem; font-weight: 800; }
+        .subject-pdf-box p { font-size: 0.78rem; line-height: 1.5; }
+        .subject-ref-book { color: #fbbf24; font-size: 0.74rem; font-weight: 700; }
 
         .dual-action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 4px; }
-
-        .mini-pdf-btn {
-            background: rgba(244, 63, 94, 0.18);
-            color: #fda4af;
-            border: 1px solid rgba(244, 63, 94, 0.45);
-            padding: 6px 8px;
-            border-radius: 8px;
-            font-size: 0.73rem;
-            font-weight: 800;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            text-decoration: none;
-        }
-
-        .official-link-btn {
-            background: rgba(6, 182, 212, 0.18);
-            color: #22d3ee;
-            border: 1px solid rgba(6, 182, 212, 0.45);
-            padding: 6px 8px;
-            border-radius: 8px;
-            font-size: 0.73rem;
-            font-weight: 800;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            text-decoration: none;
-        }
+        .mini-pdf-btn { background: rgba(244, 63, 94, 0.2); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.45); padding: 6px 8px; border-radius: 8px; font-size: 0.74rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; }
+        .official-link-btn { background: rgba(6, 182, 212, 0.2); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.45); padding: 6px 8px; border-radius: 8px; font-size: 0.74rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; }
 
         .learn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 11px; margin-top: 10px; }
-        .learn-mini-card { background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.28); border-right: 3.5px solid var(--primary); border-radius: 13px; padding: 12px; font-size: 0.83rem; display: flex; flex-direction: column; justify-content: space-between; }
+        .learn-mini-card { background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(56, 189, 248, 0.3); border-right: 3.5px solid var(--primary); border-radius: 13px; padding: 12px; font-size: 0.83rem; display: flex; flex-direction: column; justify-content: space-between; }
 
+        /* الـ 24 Class */
         .accordion-item { background: var(--bg-card); border-radius: var(--card-radius); margin-bottom: 10px; border: 1px solid var(--border); overflow: hidden; }
-        .accordion-header { width: 100%; background: transparent; border: none; padding: 13px 15px; text-align: right; font-size: 0.93rem; font-weight: 800; color: var(--text-main); display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 8px; }
+        .accordion-header { width: 100%; background: transparent; border: none; padding: 13px 15px; text-align: right; font-size: 0.94rem; font-weight: 800; color: var(--text-main); display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 8px; }
         .class-pill { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; padding: 2px 9px; border-radius: 8px; font-size: 0.74rem; font-weight: 900; margin-left: 6px; display: inline-block; }
-        .en-sub { display: block; font-size: 0.75rem; color: var(--primary); font-weight: 600; }
+        .en-sub { display: block; font-size: 0.76rem; color: var(--primary); font-weight: 600; }
         .accordion-body { display: none; padding: 8px 13px 14px; border-top: 1px solid var(--border); }
         .accordion-item.open > .accordion-body { display: block; }
 
-        .sub-accordion { background: #182236; border: 1px solid rgba(139, 92, 246, 0.3); border-right: 3.5px solid #8b5cf6; border-radius: 11px; margin-top: 8px; overflow: hidden; }
+        .sub-accordion { background: #182236; border: 1px solid rgba(139, 92, 246, 0.32); border-right: 3.5px solid #8b5cf6; border-radius: 11px; margin-top: 8px; overflow: hidden; }
         .sub-accordion-header { width: 100%; background: transparent; border: none; padding: 10px 13px; text-align: right; color: inherit; font-weight: 800; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .sub-accordion-body { display: none; padding: 9px 13px 13px; border-top: 1px solid rgba(148, 163, 184, 0.15); }
+        .sub-accordion-body { display: none; padding: 9px 13px 13px; border-top: 1px solid rgba(148, 163, 184, 0.16); }
         .sub-accordion.open > .sub-accordion-body { display: block; }
 
         .sub-family { background: #1e293b; border-right: 3px solid #8b5cf6; padding: 10px 13px; margin-top: 9px; border-radius: 10px; }
-        .trade-names-pill { background: rgba(245, 158, 11, 0.14); border: 1px solid rgba(245, 158, 11, 0.35); color: #fde68a; padding: 4px 9px; border-radius: 8px; font-size: 0.77rem; margin: 4px 0; display: inline-block; }
+        .trade-names-pill { background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.38); color: #fde68a; padding: 4px 9px; border-radius: 8px; font-size: 0.78rem; margin: 4px 0; display: inline-block; }
         .drugs-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
-        .drug-tag { background: rgba(15, 23, 42, 0.92); color: #67e8f9; padding: 3px 9px; border-radius: 7px; font-size: 0.76rem; border: 1px solid rgba(6, 182, 212, 0.3); font-weight: 600; }
+        .drug-tag { background: rgba(15, 23, 42, 0.94); color: #67e8f9; padding: 3px 9px; border-radius: 7px; font-size: 0.77rem; border: 1px solid rgba(6, 182, 212, 0.32); font-weight: 600; }
 
+        /* الحاسبات والنماذج */
         .calc-subtabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 7px; margin-bottom: 12px; }
         .calc-subbtn { background: var(--bg-card); border: 1px solid var(--border); padding: 7px 13px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; cursor: pointer; color: var(--text-muted); }
         .calc-subbtn.active { background: var(--accent); color: #064e3b; border-color: var(--accent); font-weight: 800; }
 
-        .calc-panel, .learn-sub-panel, .sched-part-panel { display: none; }
-        .calc-panel.active, .learn-sub-panel.active, .sched-part-panel.active { display: block; }
+        .calc-panel, .learn-sub-panel { display: none; }
+        .calc-panel.active, .learn-sub-panel.active { display: block; }
 
         .form-group { margin-bottom: 10px; }
-        .form-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 4px; }
-        .form-control { width: 100%; padding: 9px 10px; border-radius: 10px; border: 1px solid rgba(148, 163, 184, 0.3); font-size: 0.86rem; background: #0f172a; color: white; outline: none; }
+        .form-group label { display: block; font-size: 0.81rem; font-weight: 700; margin-bottom: 4px; }
+        .form-control { width: 100%; padding: 9px 10px; border-radius: 10px; border: 1px solid rgba(148, 163, 184, 0.32); font-size: 0.87rem; background: #0f172a; color: white; outline: none; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-        .calc-btn { width: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 10px; border-radius: 11px; font-weight: 800; font-size: 0.88rem; cursor: pointer; margin-top: 5px; }
-        .result-box { margin-top: 12px; background: rgba(16, 185, 129, 0.14); border: 1.5px solid #10b981; padding: 12px; border-radius: 11px; display: none; }
-        .formula-box { background: rgba(59, 130, 246, 0.12); border-right: 3px solid var(--primary); padding: 9px 12px; border-radius: 8px; margin: 8px 0; font-size: 0.81rem; }
+        .calc-btn { width: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 10px; border-radius: 11px; font-weight: 800; font-size: 0.89rem; cursor: pointer; margin-top: 5px; }
+        .result-box { margin-top: 12px; background: rgba(16, 185, 129, 0.16); border: 1.5px solid #10b981; padding: 12px; border-radius: 11px; display: none; }
+        .formula-box { background: rgba(59, 130, 246, 0.14); border-right: 3px solid var(--primary); padding: 9px 12px; border-radius: 8px; margin: 8px 0; font-size: 0.82rem; }
 
-        .sched-local-search { background: rgba(15, 23, 42, 0.88); border: 1.5px solid rgba(56, 189, 248, 0.45); border-radius: 14px; padding: 12px; margin-bottom: 12px; }
+        /* مواعيد الأدوية */
+        .sched-local-search { background: rgba(15, 23, 42, 0.9); border: 1.5px solid rgba(56, 189, 248, 0.45); border-radius: 14px; padding: 12px; margin-bottom: 12px; }
         .sched-local-search-row { display: flex; align-items: center; gap: 7px; }
-        .sched-local-search-row input { flex: 1; background: #0b1120; border: 1px solid rgba(148, 163, 184, 0.35); color: inherit; padding: 8px 11px; border-radius: 9px; font-size: 0.86rem; outline: none; }
+        .sched-local-search-row input { flex: 1; background: #0b1120; border: 1px solid rgba(148, 163, 184, 0.35); color: inherit; padding: 8px 11px; border-radius: 9px; font-size: 0.87rem; outline: none; }
         .sched-filter-chips { display: flex; gap: 5px; overflow-x: auto; padding-top: 8px; }
-        .chip-btn { background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(148, 163, 184, 0.28); color: #cbd5e1; padding: 4px 10px; border-radius: 18px; font-size: 0.74rem; font-weight: 700; white-space: nowrap; cursor: pointer; }
+        .chip-btn { background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(148, 163, 184, 0.3); color: #cbd5e1; padding: 4px 10px; border-radius: 18px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; cursor: pointer; }
         .chip-btn.active { background: var(--primary); color: #0f172a; font-weight: 900; }
 
-        .time-slot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 11px; }
-        .time-slot-card { background: rgba(15, 23, 42, 0.82); border-radius: 13px; padding: 13px; border: 1px solid var(--border); }
-        .otc-example-card { background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(56, 189, 248, 0.25); border-right: 3.5px solid #10b981; border-radius: 11px; padding: 10px 12px; margin-bottom: 8px; font-size: 0.82rem; }
-        .exam-question-card { background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 10px; }
-        .exam-option-label { display: flex; align-items: center; gap: 8px; background: rgba(30, 41, 59, 0.75); border: 1px solid rgba(148, 163, 184, 0.2); padding: 7px 10px; border-radius: 8px; margin-bottom: 5px; cursor: pointer; font-size: 0.83rem; }
+        .time-slot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 11px; margin-top: 12px; }
+        .time-slot-card { background: rgba(15, 23, 42, 0.85); border-radius: 13px; padding: 13px; border: 1px solid var(--border); }
+        .time-slot-card h4 { font-size: 0.93rem; margin-bottom: 7px; color: #38bdf8; }
+        .time-slot-card ul { padding-right: 17px; font-size: 0.83rem; }
+        .time-slot-card li { margin-bottom: 5px; }
 
-        .pdf-modal { display: none; position: fixed; inset: 0; background: rgba(2, 6, 23, 0.95); z-index: 9999; flex-direction: column; padding: 10px; }
+        .otc-example-card { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.28); border-right: 3.5px solid #10b981; border-radius: 11px; padding: 10px 12px; margin-bottom: 8px; font-size: 0.82rem; }
+        .exam-question-card { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.32); border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+        .exam-option-label { display: flex; align-items: center; gap: 8px; background: rgba(30, 41, 59, 0.78); border: 1px solid rgba(148, 163, 184, 0.22); padding: 7px 10px; border-radius: 8px; margin-bottom: 5px; cursor: pointer; font-size: 0.83rem; }
+
+        /* عارض PDF */
+        .pdf-modal { display: none; position: fixed; inset: 0; background: rgba(2, 6, 23, 0.96); z-index: 9999; flex-direction: column; padding: 10px; }
         .pdf-modal.open { display: flex; }
         .pdf-modal-toolbar { background: #1e293b; color: white; padding: 11px 14px; border-radius: 11px 11px 0 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 7px; }
         .pdf-viewer-sheet { background: #334155; flex: 1; overflow-y: auto; padding: 14px 8px; border-radius: 0 0 11px 11px; }
@@ -702,7 +512,7 @@
         .pdf-a4-page * { color: #0f172a !important; background: transparent !important; border-color: #cbd5e1 !important; }
         .pdf-a4-page .pdf-box-highlight { background: #f1f5f9 !important; border-right: 4px solid #0284c7 !important; padding: 10px 13px !important; margin: 9px 0 !important; border-radius: 6px !important; }
 
-        footer { text-align: center; margin-top: 32px; padding: 14px; color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--border); }
+        footer { text-align: center; margin-top: 32px; padding: 14px; color: var(--text-muted); font-size: 0.83rem; border-top: 1px solid var(--border); }
         footer strong { color: var(--primary); }
     </style>
 </head>
@@ -710,7 +520,7 @@
 
 <div id="globalBroadcastBar" class="global-broadcast-bar"></div>
 
-<!-- الشريط العلوي مع الوقت الفعلي حسب المنطقة والفترة الصباحية/المسائية -->
+<!-- الشريط العلوي -->
 <div class="account-top-bar">
     <button class="hamburger-btn" onclick="openSettingsDrawer()" aria-label="Settings">
         <span></span><span></span><span></span>
@@ -719,21 +529,21 @@
     <span id="subscriptionBadge" class="status-chip status-trial" onclick="handleBadgeClick()">...</span>
 </div>
 
-<!-- شريط القيادة الرئيسي الخاص بحساب المالك iboibo4422@gmail.com فقط -->
+<!-- شريط القيادة الرئيسي الخاص بحساب المالك فقط -->
 <div id="rootOwnerMainBanner" class="root-owner-banner">
     <div class="root-owner-card">
         <div>
-            <strong style="color:#fbbf24; font-size:0.88rem; display:block;">👑 الواجهة الإدارية الرئيسية للمالك</strong>
+            <strong style="color:#fbbf24; font-size:0.88rem; display:block;" id="lblRootBannerTitle">👑 الواجهة الإدارية الرئيسية للمالك</strong>
             <span style="font-size:0.76rem; color:#34d399;" id="bannerPaidCount">💳 المشتركون الفعليون: 0</span>
         </div>
         <div style="display:flex; gap:6px;">
-            <button class="admin-add-btn" style="background:linear-gradient(135deg,#10b981,#059669);" onclick="openAuditLogModal()">📜 سجل الإجراءات (<span id="bannerAuditCount">0</span>)</button>
-            <button class="admin-add-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a;" onclick="openRootAdminDirectly()">📊 المشتركين والأدمن</button>
+            <button class="admin-add-btn" style="background:linear-gradient(135deg,#10b981,#059669);" onclick="openAuditLogModal()">📜 <span id="lblAuditShort">سجل الإجراءات</span> (<span id="bannerAuditCount">0</span>)</button>
+            <button class="admin-add-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a;" onclick="openRootAdminDirectly()" id="lblManageUsersShort">📊 المشتركين والأدمن</button>
         </div>
     </div>
 </div>
 
-<!-- قائمة الإعدادات الجانبية الشاملة -->
+<!-- قائمة الإعدادات الجانبية -->
 <div id="settingsBackdrop" class="settings-backdrop" onclick="closeSettingsDrawer()"></div>
 <aside id="settingsDrawer" class="settings-drawer">
     <div class="drawer-header">
@@ -751,13 +561,13 @@
         <div id="drawerLiveTimer" class="live-timer-box">⏳ ...</div>
     </div>
 
-    <!-- صندوق سجل الإجراءات والرسائل الإدارية الدائم (للأدمن والمسؤولين فقط) -->
+    <!-- صندوق سجل الإجراءات والرسائل الإدارية الدائم -->
     <button id="drawerAuditLogBtn" class="drawer-menu-item highlight-audit" onclick="openAuditLogFromSettings()">
-        <span>📜 سجل الإجراءات الإدارية (لا يُحذف)</span>
+        <span id="lblAuditMenuBtn">📜 سجل الإجراءات الإدارية (لا يُحذف)</span>
         <span id="drawerAuditBadge" style="background:#059669; color:#fff; padding:1px 7px; border-radius:10px; font-size:0.72rem;">0</span>
     </button>
 
-    <!-- 1. وضع الإضاءة (نهاري / ليلي / تلقائي حسب الوقت / راينبو) -->
+    <!-- 1. وضع الإضاءة -->
     <div class="drawer-select-box">
         <label id="lblThemeMode">🌓 وضع الإضاءة والراينبو:</label>
         <div class="mode-4-grid">
@@ -774,7 +584,7 @@
         <select id="appThemeDesignSelect" class="form-control" onchange="applyPageDesign(this.value)"></select>
     </div>
 
-    <!-- 3. أكثر من 105 خط متعدد اللغات (عربي، كردي، تركماني، إنجليزي) -->
+    <!-- 3. أكثر من 105 خط متعدد اللغات -->
     <div class="drawer-select-box">
         <label for="appFontSelect" id="lblFontSelect">✍️ نوع الخط (+105 خط لكل اللغات):</label>
         <select id="appFontSelect" class="form-control" onchange="applyAppFont(this.value)"></select>
@@ -885,7 +695,7 @@
     </div>
 </div>
 
-<!-- 3. نافذة سجل الإجراءات الإدارية والرسائل الدائمة (للأدمن والمسؤولين فقط - غير قابل للحذف) -->
+<!-- 3. نافذة سجل الإجراءات الإدارية والرسائل الدائمة -->
 <div id="auditLogModal" class="gate-overlay">
     <div class="gate-box" style="max-width:580px; text-align:right;">
         <div class="gate-top-nav">
@@ -972,7 +782,7 @@
     </div>
 </div>
 
-<!-- التبويبات الرئيسية (مع إمكانية إضافة أقسام جديدة من قبل الأدمن) -->
+<!-- التبويبات الرئيسية -->
 <div class="tabs" id="mainAppTabsBar">
     <button class="tab-btn active" id="tabBtnDosage" onclick="switchTab('sec3', this)">🧮 الجرعات</button>
     <button class="tab-btn" id="tabBtnMarket" onclick="switchTab('sec5', this)">🏪 سوق الأدوية</button>
@@ -1011,7 +821,7 @@
                 </div>
                 <div class="form-group"><label id="lblSelectSyrup">🔍 اختر الشراب:</label><select id="presetDrug" class="form-control" onchange="updateSyrupPreview()"></select></div>
                 <div id="syrupAdminManageList" style="margin-bottom:8px;"></div>
-                <div class="form-group" id="customDrugDoseGroup" style="display:none;"><label>🧪 جرعة الباراسيتامول:</label><input type="number" id="customParaDose" class="form-control" value="120" oninput="calculateSyrup()"></div>
+                <div class="form-group" id="customDrugDoseGroup" style="display:none;"><label id="lblCustomPara">🧪 جرعة الباراسيتامول (120 / 240 / 250):</label><input type="number" id="customParaDose" class="form-control" value="120" oninput="calculateSyrup()"></div>
                 <div id="activeRuleBanner" class="formula-box"></div>
                 <button class="calc-btn" id="btnCalcSyrupNow" onclick="calculateSyrup()">⚡ احسب الجرعة الآن (سي سي / مل)</button>
                 <div id="syrupResult" class="result-box"></div>
@@ -1054,7 +864,7 @@
         </div>
     </div>
 
-    <!-- 3. قسم الـ 24 Class -->
+    <!-- 3. قسم الـ 24 Class الشامل -->
     <div id="sec2" class="section-content">
         <div class="admin-edit-toolbar" data-admin-bar="drugs">
             <span style="font-size:0.78rem; color:#fbbf24; font-weight:800;">🛡️ تحكم الأدمن بالكلاسات:</span>
@@ -1077,7 +887,7 @@
         </div>
     </div>
 
-    <!-- 4. قسم الدراسة (المراحل الخمس + ملازم PDF + روابط المصادر الرسمية الأصلية) -->
+    <!-- 4. قسم الدراسة الكامل -->
     <div id="sec1" class="section-content">
         <div class="admin-edit-toolbar" data-admin-bar="drugs">
             <span style="font-size:0.78rem; color:#fbbf24; font-weight:800;">🛡️ تحكم الأدمن بالدراسة:</span>
@@ -1109,7 +919,7 @@
 
         <div id="learn-part2" class="learn-sub-panel">
             <div class="card">
-                <div class="card-header"><span class="card-title">🤖 امتحانات الصيدلة بالذكاء الاصطناعي</span><span class="badge">AI Exam</span></div>
+                <div class="card-header"><span class="card-title" id="aiExamTitle">🤖 امتحانات الصيدلة بالذكاء الاصطناعي</span><span class="badge">AI Exam</span></div>
                 <div class="grid-2" style="margin-bottom:10px;">
                     <select id="aiExamCategorySelect" class="form-control" onchange="generateAiExam()">
                         <option value="all">🌟 امتحان شامل</option>
@@ -1117,17 +927,17 @@
                         <option value="dosage">🧮 حساب الجرعات</option>
                         <option value="otc">💊 الصرف الميداني</option>
                     </select>
-                    <button class="calc-btn" style="margin-top:0;" onclick="generateAiExam()">🔄 أسئلة جديدة</button>
+                    <button class="calc-btn" style="margin-top:0;" id="btnNewQuestions" onclick="generateAiExam()">🔄 أسئلة جديدة</button>
                 </div>
                 <div id="aiExamQuestionsContainer"></div>
-                <button class="calc-btn" onclick="gradeAiExam()">✅ إنهاء الامتحان وعرض النتيجة</button>
+                <button class="calc-btn" id="btnFinishExam" onclick="gradeAiExam()">✅ إنهاء الامتحان وعرض النتيجة</button>
                 <div id="aiExamReportBox" style="display:none; margin-top:12px;"></div>
             </div>
         </div>
 
         <div id="learn-part3" class="learn-sub-panel">
             <div class="card">
-                <div class="card-header"><span class="card-title">📚 مكتبة كتب الصيدلة العالمية بالروابط الرسمية</span><span class="badge">Official Sources</span></div>
+                <div class="card-header"><span class="card-title" id="booksLibraryTitle">📚 مكتبة كتب الصيدلة العالمية بالروابط الرسمية</span><span class="badge">Official Sources</span></div>
                 <input type="text" id="booksSearchInput" class="form-control" style="margin-bottom:10px;" placeholder="🔎 ابحث عن كتاب..." oninput="renderPharmacyBooks()">
                 <div id="pharmacyBooksGrid" class="learn-grid"></div>
             </div>
@@ -1135,14 +945,14 @@
 
         <div id="learn-part4" class="learn-sub-panel">
             <div class="card">
-                <div class="card-header"><span class="card-title">💊 موسوعة أساسيات الصرف (+520 مثال)</span><span class="badge" id="otcTotalBadge">520</span></div>
+                <div class="card-header"><span class="card-title" id="otcEncyclopediaTitle">💊 موسوعة أساسيات الصرف (+520 مثال)</span><span class="badge" id="otcTotalBadge">520</span></div>
                 <input type="text" id="otcExamplesSearch" class="form-control" style="margin-bottom:9px;" placeholder="🔎 ابحث في الـ 520 مثال..." oninput="renderOtcExamples()">
                 <div id="otcExamplesContainer" style="max-height:460px; overflow-y:auto;"></div>
             </div>
         </div>
     </div>
 
-    <!-- 5. قسم مواعيد الأدوية -->
+    <!-- 5. قسم مواعيد الأدوية الكامل -->
     <div id="sec4" class="section-content">
         <div class="admin-edit-toolbar" data-admin-bar="drugs">
             <span style="font-size:0.78rem; color:#fbbf24; font-weight:800;">🛡️ تحكم الأدمن بالمواعيد:</span>
@@ -1154,8 +964,13 @@
                 <div class="sched-local-search-row"><span>🔎</span><input type="text" id="scheduleDrugSearch" placeholder="ابحث بالاسم العلمي أو التجاري (Euthyrox, Lipitor, Concor, Nexium, Augmentin)..." oninput="searchScheduleMedication()"></div>
                 <div id="scheduleSearchResults" style="display:none; margin-top:10px;"></div>
             </div>
+
             <div id="dynamicScheduleCardsContainer"></div>
-            <button class="mini-pdf-btn" style="margin-top:8px;" onclick="openPdfViewer('sec4-card', 'مواعيد_الأدوية')">📄 فتح PDF مواعيد الأدوية</button>
+
+            <!-- جدول توزيع الأوقات اليومي الكامل -->
+            <div class="time-slot-grid" id="dailyTimeSlotsGrid"></div>
+
+            <button class="mini-pdf-btn" style="margin-top:12px;" id="btnSchedPdf" onclick="openPdfViewer('sec4-card', 'مواعيد_الأدوية')">📄 فتح PDF مواعيد الأدوية</button>
         </div>
     </div>
 
@@ -1177,11 +992,10 @@
 </div>
 
 <footer>
-    <p>تم التصميم والتطوير بواسطة <strong>إبراهيم إسماعيل</strong> | #Made_by_Ibrahim_Ismail</p>
+    <p id="footerCreditText">تم التصميم والتطوير بواسطة <strong>إبراهيم إسماعيل</strong> | #Made_by_Ibrahim_Ismail</p>
 </footer>
-
 <script>
-    /* ================= 1. نظام الأمان ومنع الاختراق والنسخ وتزييف الوقت ================= */
+    /* ================= 1. نظام الحماية ومنع النسخ وكشف الكود ================= */
     (function() {
         document.addEventListener('keydown', function(e) {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C','K'].includes(e.key.toUpperCase())) || (e.ctrlKey && ['u','U','s','S','p','P'].includes(e.key))) {
@@ -1189,33 +1003,27 @@
                 return false;
             }
         });
-        setInterval(function() {
-            const threshold = 170;
-            if ((window.outerWidth - window.innerWidth > threshold) || (window.outerHeight - window.innerHeight > threshold)) {
-                document.body.setAttribute('data-sec-alert', '1');
-            }
-        }, 2500);
     })();
 
     const ROOT_ADMIN_EMAIL = "iboibo4422@gmail.com";
     const _0xINTEGRITY_PEPPER = "IBRAHIM_PHARM_ULTRA_SHIELD_OTP_2026_#9981";
     const DEFAULT_QICARD_ID = "1882627332";
 
-    const STORAGE_KEY_USER = "ai_pharm_user_v10";
-    const STORAGE_KEY_DEVICE = "ai_pharm_dev_v10";
-    const STORAGE_KEY_DEVICE_ANCHOR = "ai_pharm_anchor_v10";
-    const STORAGE_KEY_MERCHANT_CARD = "ai_pharm_qicard_v10";
-    const STORAGE_KEY_SUBSCRIBERS = "ai_pharm_subs_v10";
-    const STORAGE_KEY_USED_TXNS = "ai_pharm_txns_v10";
-    const STORAGE_KEY_SUBADMINS = "ai_pharm_admins_v10";
-    const STORAGE_KEY_AUDIT_LOG = "ai_pharm_audit_immutable_v10";
-    const STORAGE_KEY_BROADCAST = "ai_pharm_broadcast_v10";
-    const STORAGE_KEY_CUSTOM_DATA = "ai_pharm_db_v10";
-    const STORAGE_KEY_LANG = "ai_pharm_lang_v10";
-    const STORAGE_KEY_COUNTRY = "ai_pharm_country_v10";
-    const STORAGE_KEY_FONT = "ai_pharm_font_v10";
-    const STORAGE_KEY_DESIGN = "ai_pharm_design_v10";
-    const STORAGE_KEY_LIGHTING = "ai_pharm_lighting_v10";
+    const STORAGE_KEY_USER = "ai_pharm_user_v12";
+    const STORAGE_KEY_DEVICE = "ai_pharm_dev_v12";
+    const STORAGE_KEY_DEVICE_ANCHOR = "ai_pharm_anchor_v12";
+    const STORAGE_KEY_MERCHANT_CARD = "ai_pharm_qicard_v12";
+    const STORAGE_KEY_SUBSCRIBERS = "ai_pharm_subs_v12";
+    const STORAGE_KEY_USED_TXNS = "ai_pharm_txns_v12";
+    const STORAGE_KEY_SUBADMINS = "ai_pharm_admins_v12";
+    const STORAGE_KEY_AUDIT_LOG = "ai_pharm_audit_immutable_v12";
+    const STORAGE_KEY_BROADCAST = "ai_pharm_broadcast_v12";
+    const STORAGE_KEY_CUSTOM_DATA = "ai_pharm_db_v12";
+    const STORAGE_KEY_LANG = "ai_pharm_lang_v12";
+    const STORAGE_KEY_COUNTRY = "ai_pharm_country_v12";
+    const STORAGE_KEY_FONT = "ai_pharm_font_v12";
+    const STORAGE_KEY_DESIGN = "ai_pharm_design_v12";
+    const STORAGE_KEY_LIGHTING = "ai_pharm_lighting_v12";
     const DAY_MS = 24 * 60 * 60 * 1000;
 
     let currentRoleState = { isRoot: false, isSubAdmin: false, canEditDrugs: false, actorLabel: "مستخدم" };
@@ -1265,18 +1073,17 @@
         return u && u.otpVerified === true && u.sig && (u.sig === await signUserRecord(u));
     }
 
-    /* ================= 2. سجل الإجراءات الإدارية الدائم (غير قابل للحذف) + إخفاء إيميل المالك ================= */
+    /* ================= 2. سجل الإجراءات الإدارية الدائم (غير قابل للحذف) ================= */
     function getImmutableAuditLogs() {
         try { return JSON.parse(localStorage.getItem(STORAGE_KEY_AUDIT_LOG) || "[]"); } catch (e) { return []; }
     }
 
     function recordAdminAuditAction(actionType, summaryAr, detailsAr) {
         const logs = getImmutableAuditLogs();
-        // إخفاء إيميل المالك الرئيسي عن الأدمنيين الآخرين في السجل العام وإظهار صفة المنفذ
         const actor = currentRoleState.isRoot ? "👑 الحساب الرئيسي (Root Owner)" : `🛡️ أدمن (${currentRoleState.actorLabel})`;
         logs.unshift({
             id: "LOG-" + Date.now() + "-" + Math.floor(Math.random() * 999),
-            type: actionType, // 'add' | 'edit' | 'delete'
+            type: actionType,
             actor: actor,
             summary: summaryAr,
             details: detailsAr,
@@ -1313,12 +1120,14 @@
     }
     function closeAuditLogModal() { document.getElementById('auditLogModal').classList.remove('open'); }
 
-    /* ================= 3. الساعة الحية وأوضاع النهار/الليل/التوقيت التلقائي/الراينبو ================= */
+    /* ================= 3. الساعة الحية وأوضاع الإضاءة والخطوط والتصاميم (+105) ================= */
     function updateRegionalLiveClock() {
         const now = new Date();
         const hr = now.getHours();
         const isMorning = (hr >= 6 && hr < 18);
-        const periodLabel = isMorning ? "☀️ صباحي" : "🌙 مسائي";
+        const lang = localStorage.getItem(STORAGE_KEY_LANG) || "ar";
+        const t = i18nFull[lang] || i18nFull.ar;
+        const periodLabel = isMorning ? t.periodMorning : t.periodEvening;
         const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
         const clockEl = document.getElementById('liveRegionalClock');
         if (clockEl) clockEl.innerText = `${periodLabel} • ${timeStr}`;
@@ -1335,21 +1144,12 @@
         localStorage.setItem(STORAGE_KEY_LIGHTING, mode);
         document.querySelectorAll('.mode-pill-btn').forEach(b => b.classList.remove('active'));
         document.body.classList.remove('mode-day', 'mode-rainbow');
-        if (mode === 'day') {
-            document.body.classList.add('mode-day');
-            document.getElementById('btnModeDay').classList.add('active');
-        } else if (mode === 'night') {
-            document.getElementById('btnModeNight').classList.add('active');
-        } else if (mode === 'rainbow') {
-            document.body.classList.add('mode-rainbow');
-            document.getElementById('btnModeRainbow').classList.add('active');
-        } else {
-            document.getElementById('btnModeAuto').classList.add('active');
-            updateRegionalLiveClock();
-        }
+        if (mode === 'day') { document.body.classList.add('mode-day'); document.getElementById('btnModeDay').classList.add('active'); }
+        else if (mode === 'night') { document.getElementById('btnModeNight').classList.add('active'); }
+        else if (mode === 'rainbow') { document.body.classList.add('mode-rainbow'); document.getElementById('btnModeRainbow').classList.add('active'); }
+        else { document.getElementById('btnModeAuto').classList.add('active'); updateRegionalLiveClock(); }
     }
 
-    /* ================= 4. محرك أكثر من 105 خط لكل اللغات + أكثر من 105 تصميم وتشكيلة للصفحة ================= */
     const fontsCatalog105 = [
         { label: "1. Cairo (عربي/كردي عصري - الافتراضي)", css: "'Cairo', sans-serif" },
         { label: "2. Tajawal (تجول - عربي وكردي)", css: "'Tajawal', sans-serif" },
@@ -1382,7 +1182,6 @@
         { label: "29. Nunito (Rounded Clean)", css: "'Nunito', sans-serif" },
         { label: "30. Fira Code (Technical / Lab)", css: "'Fira Code', monospace" }
     ];
-    // توليد بقية الـ 105 خط بأسماء وتنسيقات متنوعة تغطي العربية والكردية والتركمانية والإنجليزية
     const extraFontFamilies = ["Cairo", "Tajawal", "Almarai", "IBM Plex Sans Arabic", "Noto Kufi Arabic", "Vazirmatn", "Rubik", "Readex Pro", "Mada", "Changa", "El Messiri", "Poppins", "Montserrat", "Inter", "Ubuntu", "Kanit", "Exo 2", "Comfortaa", "Quicksand", "Raleway", "Lato", "Merriweather", "Playfair Display", "Oswald", "Titillium Web"];
     const extraFontTags = ["کوردی سۆرانی", "کوردی بادینی", "Türkmençe", "العربية الطبية", "English Pro"];
     for (let i = 31; i <= 108; i++) {
@@ -1398,16 +1197,13 @@
         sel.value = savedIdx;
         applyAppFont(savedIdx);
     }
-
     function applyAppFont(idx) {
         localStorage.setItem(STORAGE_KEY_FONT, idx);
         const item = fontsCatalog105[parseInt(idx)] || fontsCatalog105[0];
         document.documentElement.style.setProperty('--app-font', item.css);
     }
 
-    // توليد أكثر من 105 تصميم وشكل متغير للصفحة بالكامل
-    const pageDesigns105 = [];
-    const basePalettes = [
+    const pageDesigns105 = [
         { name: "1. الكلاسيكي السماوي الداكن (Default Cyber Teal)", bg: "#0b1120", card: "#131c31", pri: "#06b6d4", sec: "#8b5cf6", rad: "16px" },
         { name: "2. الزمردي الطبي (Medical Emerald)", bg: "#061814", card: "#0d2822", pri: "#10b981", sec: "#0ea5e9", rad: "18px" },
         { name: "3. الملكي البنفسجي (Royal Amethyst)", bg: "#120b24", card: "#1d1338", pri: "#a855f7", sec: "#ec4899", rad: "20px" },
@@ -1419,22 +1215,14 @@
         { name: "9. البرتقالي الحيوي (Sunset Pharmacy)", bg: "#19100a", card: "#291a11", pri: "#fb923c", sec: "#f43f5e", rad: "18px" },
         { name: "10. الفولاذي الحاد (Sharp Titanium)", bg: "#0f172a", card: "#1e293b", pri: "#94a3b8", sec: "#38bdf8", rad: "6px" }
     ];
-    pageDesigns105.push(...basePalettes);
     const radiiList = ["8px", "12px", "16px", "20px", "24px"];
     const hueColors = ["#06b6d4", "#10b981", "#8b5cf6", "#f59e0b", "#ec4899", "#3b82f6", "#14b8a6", "#f43f5e", "#eab308", "#6366f1"];
     for (let i = 11; i <= 108; i++) {
-        const b = basePalettes[i % basePalettes.length];
+        const b = pageDesigns105[i % pageDesigns105.length];
         const pri = hueColors[i % hueColors.length];
         const sec = hueColors[(i + 3) % hueColors.length];
         const rad = radiiList[i % radiiList.length];
-        pageDesigns105.push({
-            name: `${i}. تصميم صيدلاني مخصص (Theme #${i} • زوايا ${rad})`,
-            bg: b.bg,
-            card: b.card,
-            pri: pri,
-            sec: sec,
-            rad: rad
-        });
+        pageDesigns105.push({ name: `${i}. تصميم صيدلاني مخصص (Theme #${i} • زوايا ${rad})`, bg: b.bg, card: b.card, pri, sec, rad });
     }
 
     function initPageDesignsSelector() {
@@ -1444,7 +1232,6 @@
         sel.value = savedIdx;
         applyPageDesign(savedIdx);
     }
-
     function applyPageDesign(idx) {
         localStorage.setItem(STORAGE_KEY_DESIGN, idx);
         const d = pageDesigns105[parseInt(idx)] || pageDesigns105[0];
@@ -1455,19 +1242,199 @@
         document.documentElement.style.setProperty('--card-radius', d.rad);
     }
 
+    /* ================= 4. الترجمة الشاملة الفورية لكل نصوص وأقسام البرنامج ================= */
+    const i18nFull = {
+        ar: {
+            dir: "rtl", periodMorning: "☀️ صباحي", periodEvening: "🌙 مسائي",
+            hdrBadge: "✨ AI PHARMACY ASSISTANT • نظام الحساب الميداني بالسي سي (1 مل = 1 سي سي)",
+            hdrTitle: "أكاديمية الصيدلة والجرعات الذكية",
+            hdrSub: "حساب الجرعات • سوق الأدوية بالصور والأسعار • الـ 24 Class • الدراسة وملازم PDF • مواعيد الأدوية",
+            searchPh: "ابحث فوراً (نشلة، وجع جسم، بنادول، أوگمنتين، BNF، غدة، ضغط، سكر)...",
+            tabDosage: "🧮 الجرعات", tabMarket: "🏪 سوق الأدوية", tabClasses: "🧬 24 Class", tabStudy: "🎓 الدراسة", tabSchedule: "🕒 المواعيد",
+            drawerTitle: "⚙️ الإعدادات والتخصيص الشامل", drawerBack: "🔙 رجوع",
+            lblRegEmail: "📧 الحساب المسجل:", lblDevId: "📱 معرّف الجهاز المحمي:",
+            lblAuditMenu: "📜 سجل الإجراءات الإدارية (لا يُحذف)",
+            lblThemeMode: "🌓 وضع الإضاءة والراينبو:", btnDay: "☀️ نهاري", btnNight: "🌙 ليلي", btnAuto: "🕒 حسب التوقيت", btnRainbow: "🌈 راينبو",
+            lblThemeDesign: "🎨 تصميم وشكل الصفحة (+105 تصميم):", lblFont: "✍️ نوع الخط (+105 خط لكل اللغات):",
+            lblLang: "🌐 لغة البرنامج (تترجم كل الأقسام):", lblCountry: "🌍 الدولة والعملة وأسعار السوق:",
+            btnChangeEmail: "✉️ تعديل / تغيير الإيميل", btnPaySub: "💳 الاشتراك والدفع التلقائي عبر الكي كارد ($1)", btnAdminPanel: "🛡️ الواجهة الإدارية والمشتركين والأدمن",
+            subSyrup: "🥄 1. حساب جرعات الشرابات", subIv: "💧 2. المحاليل الوريدية",
+            syrupTitle: "🥄 حاسبة جرعات الشرابات (1 مل = 1 سي سي)", lblWeight: "⚖️ وزن الطفل (كغم):", lblAge: "🎂 العمر بالسنوات:", lblSelSyrup: "🔍 اختر الشراب:", btnCalcSyrup: "⚡ احسب الجرعة الآن (سي سي / مل)",
+            ivTitle: "💧 حاسبة المحاليل الوريدية", lblSelIv: "🧪 اختر المحلول الوريدي:", lblIvHours: "⏱️ المدة (ساعة):", lblIvDrop: "🔬 معامل التقطير:", btnCalcIv: "⚡ احسب طريقة إعطاء المحلول",
+            marketTitle: "🏪 دليل أدوية الصيدليات بالصور الفعلية والأسعار", marketSearchPh: "ابحث عن علاج (نشلة، زكام، وجع جسم، بنادول، أوگمنتين، حموضة، سعال، ضغط، سكر)...",
+            classesTitle: "🧬 موسوعة التصنيف الدوائي الشاملة (24 Class)", btnAllPdf: "👁️ فتح PDF الموسوعة", classSearchPh: "🔎 ابحث داخل الـ 24 كلاس والعوائل والأدوية...", btnExpand: "📂 فتح الكل", btnCollapse: "📁 طي الكل",
+            subStudyYears: "🎓 1. المراحل الخمس وملازم وروابط PDF", subStudyExams: "🤖 2. امتحانات AI", subStudyBooks: "📚 3. مكتبة الكتب الرسمية", subStudyOtc: "💊 4. أساسيات الصرف (+520)",
+            study5Title: "🎓 دليل طالب الصيدلة (5 سنوات) — ملزمة PDF + الرابط الرسمي للكتاب",
+            schedTitle: "🕒 الدليل الذكي لمواعيد الأدوية وتداخلاتها", schedSearchPh: "ابحث بالاسم العلمي أو التجاري (Euthyrox, Lipitor, Concor, Nexium, Augmentin)...", btnSchedPdf: "📄 فتح PDF مواعيد الأدوية",
+            btnPdfText: "📄 ملزمة PDF", btnOfficialLinkText: "🔗 الرابط الرسمي",
+            slots: [
+                { title: "🌅 أولاً: صباحاً على الريق (قبل الفطور بـ 30-60 دقيقة)", items: ["Levothyroxine (Euthyrox / Eltroxin): لهرمون الغدة الدرقية، يُفصل 4 ساعات عن الحديد والكالسيوم.", "PPIs (Nexium / Controloc / Losec): لعلاج حموضة المعدة وقرحة الاثني عشر.", "Alendronate (Fosamax): لهشاشة العظام، مع كوب ماء كامل والبقاء بوضعية الجلوس 30 دقيقة."] },
+                { title: "🍳 ثانياً: صباحاً بعد وجبة الفطور", items: ["فيتامين B المركب وفيتامين C والحديد (Ferrous Sulfate): لزيادة النشاط والامتصاص.", "مدرات البول (Lasix / Moduretic): لتجنب الاستيقاظ المتكرر ليلاً للتبول.", "أدوية الضغط (Concor / Exforge / Co-Diovan): لضبط الضغط طوال ساعات النهار."] },
+                { title: "☀️ ثالثاً: فترة الظهيرة (مع وجبة الغداء)", items: ["الكالسيوم وفيتامين D3 (Osteocare): فيتامين D يذوب في الدهون ويحتاج وجبة دسمة.", "Orlistat (Xenical): لحرق الدهون، يُؤخذ أثناء أو بعد الوجبة الدسمة مباشرة.", "Metformin (Glucophage): لتنظيم سكر الدم وتقليل اضطراب المعدة."] },
+                { title: "🌙 رابعاً: ليلاً وقبل النوم", items: ["الستاتينات (Lipitor / Crestor / Zocor): تصنيع الكوليسترول في الكبد يبلغ ذروته ليلاً.", "مضادات الحساسية المهدئة (Allermine / Histadin): لتجنب النعاس أثناء القيادة نهاراً.", "Montelukast (Singulair): للوقاية من نوبات الربو الليلية وضيق التنفس."] }
+            ]
+        },
+        ckb: {
+            dir: "rtl", periodMorning: "☀️ بەیانیان", periodEvening: "🌙 ئێواران",
+            hdrBadge: "✨ AI PHARMACY ASSISTANT • سیستەمی هەژمارکردنی ژەمەکان بە سی سی (1 مل = 1 سی سی)",
+            hdrTitle: "ئەکادیمیای دەرمانسازی و ژەمی زیرەک",
+            hdrSub: "هەژمارکردنی ژەمەکان • بازاڕی دەرمان بە وێنە و نرخ • ٢٤ کڵاس • خوێندن و PDF • کاتی دەرمان",
+            searchPh: "گەڕانی خێرا (هەڵامەت، ئازاری لەش، پانادۆڵ، ئۆگمەنتین، BNF، غودە، زەخت، شەکرە)...",
+            tabDosage: "🧮 ژەمەکان", tabMarket: "🏪 بازاڕی دەرمان", tabClasses: "🧬 24 Class", tabStudy: "🎓 خوێندن", tabSchedule: "🕒 کاتی دەرمان",
+            drawerTitle: "⚙️ ڕێکخستنەکان و گۆڕینی شێواز", drawerBack: "🔙 گەڕانەوە",
+            lblRegEmail: "📧 ئیمەیڵی تۆمارکراو:", lblDevId: "📱 کۆدی ئامێری پارێزراو:",
+            lblAuditMenu: "📜 تۆماری کارە کارگێڕییەکان (ناسڕێتەوە)",
+            lblThemeMode: "🌓 دۆخی ڕووناکی و ڕەنگاوڕەنگ:", btnDay: "☀️ ڕۆژ", btnNight: "🌙 شەو", btnAuto: "🕒 بەپێی کات", btnRainbow: "🌈 ڕەنگاوڕەنگ",
+            lblThemeDesign: "🎨 دیزاین و شێوەی پەڕە (+١٠٥ دیزاین):", lblFont: "✍️ جۆری فۆنت (+١٠٥ فۆنت بۆ هەموو زمانەکان):",
+            lblLang: "🌐 زمانی بەرنامە (هەموو بەشەکان دەگۆڕێت):", lblCountry: "🌍 وڵات و دراو و نرخی بازاڕ:",
+            btnChangeEmail: "✉️ گۆڕینی ئیمەیڵ", btnPaySub: "💳 بەشداریکردن لە ڕێگەی کی کارد ($1)", btnAdminPanel: "🛡️ پانێڵی بەڕێوەبەری سەرەکی و ئەدمین",
+            subSyrup: "🥄 ١. ژەمی شروبەکان", subIv: "💧 ٢. موغەزییەکان (IV)",
+            syrupTitle: "🥄 هەژمارکەری ژەمی شروبەکان (1 مل = 1 سی سی)", lblWeight: "⚖️ کێشی منداڵ (کغم):", lblAge: "🎂 تەمەن بە ساڵ:", lblSelSyrup: "🔍 شروب هەڵبژێرە:", btnCalcSyrup: "⚡ ژەمەکە هەژمار بکە (سی سی)",
+            ivTitle: "💧 هەژمارکەری موغەزییەکان (IV Drip)", lblSelIv: "🧪 موغەزی هەڵبژێرە:", lblIvHours: "⏱️ ماوە (کاتژمێر):", lblIvDrop: "🔬 پێوەری دڵۆپە:", btnCalcIv: "⚡ شێوازی پێدانی موغەزی هەژمار بکە",
+            marketTitle: "🏪 ڕێبەری دەرمانخانەکان بە وێنە و نرخی فەرمی", marketSearchPh: "بگەڕێ بۆ چارەسەر (هەڵامەت، ئازاری لەش، پانادۆڵ، ئۆگمەنتین، گەدە، زەخت)...",
+            classesTitle: "🧬 ئینسایکڵۆپیدیای پۆلێنکردنی دەرمان (24 Class)", btnAllPdf: "👁️ کردنەوەی PDF", classSearchPh: "🔎 بگەڕێ لە ناو ٢٤ کڵاس و خێزانە دەرمانییەکان...", btnExpand: "📂 کردنەوەی هەمووی", btnCollapse: "📁 داخستنی هەمووی",
+            subStudyYears: "🎓 ١. پێنج قۆناغەکە و مەلزەمە و لینکی فەرمی", subStudyExams: "🤖 ٢. تاقیکردنەوەی AI", subStudyBooks: "📚 ٣. کتێبخانەی فەرمی", subStudyOtc: "💊 ٤. بنەماکانی دەرماندان (+٥٢٠)",
+            study5Title: "🎓 ڕێبەری خوێندکاری دەرمانسازی (٥ ساڵ) — PDF + لینکی فەرمی کتێب",
+            schedTitle: "🕒 ڕێبەری زیرەکی کاتی دەرمانەکان و تێکەڵبوونیان", schedSearchPh: "بگەڕێ بە ناوی زانستی یان بازرگانی (Euthyrox, Lipitor, Concor, Nexium)...", btnSchedPdf: "📄 کردنەوەی PDF کاتی دەرمانەکان",
+            btnPdfText: "📄 مەلزەمەی PDF", btnOfficialLinkText: "🔗 لینکی فەرمی",
+            slots: [
+                { title: "🌅 یەکەم: بەیانیان پێش نان خواردن (٣٠-٦٠ خولەک پێشتر)", items: ["Levothyroxine (Euthyrox): بۆ غودەی دەرەقی، ٤ کاتژمێر لە ئاسن و کالسیۆم دووربخرێتەوە.", "PPIs (Nexium / Controloc): بۆ ترشەڵۆکی گەدە پێش نانی بەیانی.", "Alendronate (Fosamax): بۆ ئێسکە نەرمە، لەگەڵ پەرداخێک ئاو."] },
+                { title: "🍳 دووەم: بەیانیان دوای نانی بەیانی", items: ["ڤیتامین B و C و ئاسن (Ferrous Sulfate): بۆ چالاکی و مژینی باشتر.", "میزپێکەرەکان (Lasix): بۆ ئەوەی شەوان نەخۆش خەبەری نەبێتەوە.", "دەرمانی زەخت (Concor / Exforge): بۆ ڕێکخستنی پەستانی خوێن بە درێژایی ڕۆژ."] },
+                { title: "☀️ سێیەم: نیوەڕۆیان (لەگەڵ نانی نیوەڕۆ)", items: ["کالسیۆم و ڤیتامین D3: پێویستی بە ژەمێکی چەور هەیە بۆ مژین.", "Orlistat (Xenical): لە کاتی نان خواردنی چەور یان ڕاستەوخۆ دوای نان.", "Metformin (Glucophage): بۆ ڕێکخستنی شەکرە و کەمکردنەوەی ئازاری گەدە."] },
+                { title: "🌙 چوارەم: شەوان و پێش نووستن", items: ["ستاتینەکان (Lipitor / Crestor): دروستبوونی کۆلیسترۆڵ لە جگەردا شەوان زۆرترینە.", "دژە هەستیارییە خەوهێنەرەکان (Allermine): بۆ دووربوون لە خەواڵوویی بە ڕۆژ.", "Montelukast (Singulair): بۆ ڕێگری لە تەنگەنەفەسی شەوانە."] }
+            ]
+        },
+        kmr: {
+            dir: "rtl", periodMorning: "☀️ سپێدێ", periodEvening: "🌙 ئێڤاری",
+            hdrBadge: "✨ AI PHARMACY ASSISTANT • سیستەمێ هژمارتنا ژەمان ب سی سی (1 مل = 1 سی سی)",
+            hdrTitle: "ئەکادیمیا دەرمانسازیێ و ژەمێن زیرەک",
+            hdrSub: "هژمارتنا ژەمان • بازاڕێ دەرمانان ب وێنە و بها • ٢٤ کڵاس • خواندن و PDF • دەمێن دەرمانان",
+            searchPh: "لێگەڕیانا بلەز (پەرسیڤ، ئێشانا لەشی، پانادۆڵ، ئۆگمەنتین، BNF، غودە، فشار، شەکرە)...",
+            tabDosage: "🧮 ژەمێن دەرمانان", tabMarket: "🏪 بازاڕێ دەرمانان", tabClasses: "🧬 24 Class", tabStudy: "🎓 خواندن", tabSchedule: "🕒 دەمێن دەرمانان",
+            drawerTitle: "⚙️ ڕێکخستن و گوهۆڕینا شێوازی", drawerBack: "🔙 زڤڕین",
+            lblRegEmail: "📧 ئیمەیڵێ تۆمارکری:", lblDevId: "📱 کۆدێ ئامیرێ پاراستی:",
+            lblAuditMenu: "📜 تۆمارا کارێن کارگێڕی (ناهێتە ژێبرن)",
+            lblThemeMode: "🌓 ڕەوشا ڕۆناهیێ و ڕەنگاوڕەنگ:", btnDay: "☀️ ڕۆژ", btnNight: "🌙 شەڤ", btnAuto: "🕒 ل دویڤ دەمی", btnRainbow: "🌈 ڕەنگاوڕەنگ",
+            lblThemeDesign: "🎨 دیزاین و شێوێ پەڕی (+١٠٥ دیزاین):", lblFont: "✍️ جۆرێ فۆنتی (+١٠٥ فۆنت بۆ هەمی زمانان):",
+            lblLang: "🌐 زمانێ بەرنامەی (هەمی بەشان دگوهۆڕیت):", lblCountry: "🌍 وەڵات و دراڤ و بهايێن بازاڕی:",
+            btnChangeEmail: "✉️ گوهۆڕینا ئیمەیڵی", btnPaySub: "💳 بەشداریکرن ب ڕێکا کی کارد ($1)", btnAdminPanel: "🛡️ پانێڵێ ڕێڤەبەرێ سەرەکی و ئەدمین",
+            subSyrup: "🥄 ١. ژەمێن شروبان", subIv: "💧 ٢. موغەزی (IV Drip)",
+            syrupTitle: "🥄 هژمارکەرێ ژەمێن شروبان (1 مل = 1 سی سی)", lblWeight: "⚖️ کێشا زارۆکی (کغم):", lblAge: "🎂 ژی ب ساڵان:", lblSelSyrup: "🔍 شروبی هەلبژێرە:", btnCalcSyrup: "⚡ ژەمێ هژمار بکە (سی سی)",
+            ivTitle: "💧 هژمارکەرێ موغەزیان (IV Drip)", lblSelIv: "🧪 موغەزی هەلبژێرە:", lblIvHours: "⏱️ ماوە (دەمژمێر):", lblIvDrop: "🔬 پیڤەرێ دڵۆپان:", btnCalcIv: "⚡ شێوازێ پێدانا موغەزی هژمار بکە",
+            marketTitle: "🏪 ڕێبەرێ دەرمانخانان ب وێنە و بهايێن فەرمی", marketSearchPh: "بگەڕە ل چارەسەریێ (پەرسیڤ، ئێشانا لەشی، پانادۆڵ، ئۆگمەنتین، گەدە، فشار)...",
+            classesTitle: "🧬 ئینسایکڵۆپیدیا پۆلینکرنا دەرمانان (24 Class)", btnAllPdf: "👁️ ڤەکرنا PDF", classSearchPh: "🔎 بگەڕە د ناڤ ٢٤ کڵاس و خێزانێن دەرمانان دا...", btnExpand: "📂 ڤەکرنا هەمیان", btnCollapse: "📁 گرتنا هەمیان",
+            subStudyYears: "🎓 ١. پێنج قۆناغ و مەلزەمە و لینکێن فەرمی", subStudyExams: "🤖 ٢. ئەزموونێن AI", subStudyBooks: "📚 ٣. پەرتووکخانا فەرمی", subStudyOtc: "💊 ٤. بنەمایێن دەرماندانێ (+٥٢٠)",
+            study5Title: "🎓 ڕێبەرێ قوتابیێ دەرمانسازیێ (٥ ساڵ) — PDF + لینکێ فەرمی یێ پەرتووکێ",
+            schedTitle: "🕒 ڕێبەرێ زیرەک یێ دەمێن دەرمانان و تێکەلبوونا وان", schedSearchPh: "بگەڕە ب ناڤێ زانستی یان بازرگانی (Euthyrox, Lipitor, Concor, Nexium)...", btnSchedPdf: "📄 ڤەکرنا PDF دەمێن دەرمانان",
+            btnPdfText: "📄 مەلزەما PDF", btnOfficialLinkText: "🔗 لینکێ فەرمی",
+            slots: [
+                { title: "🌅 ئێکەم: سپێدێ بەری خوارنێ (٣٠-٦٠ خولەک بەری تێشتێ)", items: ["Levothyroxine (Euthyrox): بۆ غودا دەرەقی، ٤ دەمژمێران ژ ئاسن و کالسیۆمی دویربکە.", "PPIs (Nexium / Controloc): بۆ ترشاتیا گەدەی بەری تێشتا سپێدێ.", "Alendronate (Fosamax): بۆ هەستیان، دگەل گڵاسەکێ ئاڤێ."] },
+                { title: "🍳 دووەم: سپێدێ پشتی تێشتێ", items: ["ڤیتامین B و C و ئاسن (Ferrous Sulfate): بۆ چالاکی و مژینا باشتر.", "میزپێکەر (Lasix): دا کو شەڤێ نەخۆش ژ خەو ڕانەبیت.", "دەرمانێن فشارێ (Concor / Exforge): بۆ ڕێکخستنا فشارا خوینێ ب ڕۆژ."] },
+                { title: "☀️ سێیەم: نیڤرۆ (دگەل خوارنا نیڤرۆ)", items: ["کالسیۆم و ڤیتامین D3: پێدڤی ب خوارنەکا چەور هەیە بۆ مژینێ.", "Orlistat (Xenical): د دەمێ خوارنا چەور یان ئێکسەر پشتی خوارنێ.", "Metformin (Glucophage): بۆ ڕێکخستنا شەکرێ و کەمکرنا ئێشانا گەدەی."] },
+                { title: "🌙 چوارەم: شەڤێ و بەری نڤستنێ", items: ["ستاتین (Lipitor / Crestor): چێکرنا کۆلیسترۆڵی د مێلاکێ دا شەڤێ زۆرترینە.", "دژە هەستیاریێن خەوهێنەر (Allermine): دا ب ڕۆژ خەوا مرۆڤی نەهێت.", "Montelukast (Singulair): بۆ پاراستن ژ تەنگەنەفەسیا شەڤێ."] }
+            ]
+        },
+        tr: {
+            dir: "ltr", periodMorning: "☀️ Sabah / Gündüz", periodEvening: "🌙 Akşam / Gece",
+            hdrBadge: "✨ AI PHARMACY ASSISTANT • CC Dozaj Hesaplama Sistemi (1 mL = 1 CC)",
+            hdrTitle: "Akıllı Eczacılık ve Dozaj Akademisi",
+            hdrSub: "Dozaj Hesaplama • Resimli İlaç Pazarı • 24 İlaç Sınıfı • Eğitim & PDF • İlaç Saatleri",
+            searchPh: "Hızlı arama (Grip, ağrı, Panadol, Augmentin, BNF, tiroid, tansiyon, şeker)...",
+            tabDosage: "🧮 Dozajlar", tabMarket: "🏪 İlaç Pazarı", tabClasses: "🧬 24 Sınıf", tabStudy: "🎓 Eğitim & PDF", tabSchedule: "🕒 İlaç Saatleri",
+            drawerTitle: "⚙️ Ayarlar ve Tam Özelleştirme", drawerBack: "🔙 Geri",
+            lblRegEmail: "📧 Kayıtlı E-posta:", lblDevId: "📱 Korumalı Cihaz Kimliği:",
+            lblAuditMenu: "📜 Yönetici İşlem Kaydı (Silinemez)",
+            lblThemeMode: "🌓 Aydınlatma ve Gökkuşağı Modu:", btnDay: "☀️ Gündüz", btnNight: "🌙 Gece", btnAuto: "🕒 Saate Göre", btnRainbow: "🌈 Gökkuşağı",
+            lblThemeDesign: "🎨 Sayfa Tasarımı (+105 Tema):", lblFont: "✍️ Yazı Tipi (+105 Çok Dilli Font):",
+            lblLang: "🌐 Program Dili (Tüm Bölümleri Çevirir):", lblCountry: "🌍 Ülke, Para Birimi ve Piyasa Fiyatları:",
+            btnChangeEmail: "✉️ E-postayı Değiştir", btnPaySub: "💳 QiCard ile Otomatik Abonelik ($1)", btnAdminPanel: "🛡️ Ana Yönetici ve Abone Paneli",
+            subSyrup: "🥄 1. Şurup Dozaj Hesaplayıcı", subIv: "💧 2. IV Serum Hesaplayıcı",
+            syrupTitle: "🥄 Çocuk Şurup Dozaj Hesaplayıcı (1 mL = 1 CC)", lblWeight: "⚖️ Çocuk Kilosu (kg):", lblAge: "🎂 Yaş (Yıl):", lblSelSyrup: "🔍 Şurup Seçin:", btnCalcSyrup: "⚡ Dozu Şimdi Hesapla (CC)",
+            ivTitle: "💧 IV Serum Damla Hesaplayıcı", lblSelIv: "🧪 IV Solüsyon Seçin:", lblIvHours: "⏱️ Süre (Saat):", lblIvDrop: "🔬 Damla Faktörü:", btnCalcIv: "⚡ IV Uygulamayı Hesapla",
+            marketTitle: "🏪 Resimli ve Fiyatlı Eczane İlaç Rehberi", marketSearchPh: "İlaç ara (Grip, ağrı, Panadol, Augmentin, mide, öksürük, tansiyon)...",
+            classesTitle: "🧬 Kapsamlı İlaç Sınıflandırma Ansiklopedisi (24 Sınıf)", btnAllPdf: "👁️ PDF Aç", classSearchPh: "🔎 24 sınıf ve ilaç aileleri içinde ara...", btnExpand: "📂 Tümünü Aç", btnCollapse: "📁 Tümünü Kapat",
+            subStudyYears: "🎓 1. 5 Yıllık Dersler ve Resmi PDF Linkleri", subStudyExams: "🤖 2. Yapay Zeka Sınavları", subStudyBooks: "📚 3. Resmi Kitap Kütüphanesi", subStudyOtc: "💊 4. Reçetesiz Eczane Rehberi (+520)",
+            study5Title: "🎓 Eczacılık Öğrenci Rehberi (5 Yıl) — Özet PDF + Resmi Kitap Bağlantısı",
+            schedTitle: "🕒 Akıllı İlaç Kullanım Saatleri ve Etkileşimler", schedSearchPh: "Bilimsel veya ticari isimle ara (Euthyrox, Lipitor, Concor, Nexium)...", btnSchedPdf: "📄 İlaç Saatleri PDF Aç",
+            btnPdfText: "📄 Özet PDF", btnOfficialLinkText: "🔗 Resmi Kaynak",
+            slots: [
+                { title: "🌅 1. Sabah Aç Karnına (Kahvaltıdan 30-60 dk önce)", items: ["Levothyroxine (Euthyrox): Tiroid hormonu; demir ve kalsiyumdan 4 saat ayrı alınmalıdır.", "PPI İlaçlar (Nexium / Controloc): Mide asidi için kahvaltıdan önce.", "Alendronate (Fosamax): Kemik erimesi için bol su ile ve 30 dk dik oturarak."] },
+                { title: "🍳 2. Sabah Kahvaltıdan Sonra", items: ["B Kompleks, C Vitamini ve Demir: Enerji ve emilim için.", "İdrar Söktürücüler (Lasix): Gece sık uyanmayı önlemek için sabah alınır.", "Tansiyon İlaçları (Concor / Exforge): Gün boyu kan basıncını dengeler."] },
+                { title: "☀️ 3. Öğle Vakti (Öğle Yemeği ile)", items: ["Kalsiyum ve D3 Vitamini: Yağda çözündüğü için yemekle alınmalıdır.", "Orlistat (Xenical): Yağlı öğün sırasında veya hemen sonrasında.", "Metformin (Glucophage): Kan şekeri kontrolü ve mide rahatlığı için."] },
+                { title: "🌙 4. Gece ve Yatmadan Önce", items: ["Statinler (Lipitor / Crestor): Karaciğerde kolesterol sentezi gece zirve yapar.", "Sedatif Antihistaminikler (Allermine): Gündüz uyuklamayı önlemek için.", "Montelukast (Singulair): Gece astım ataklarını önlemek için."] }
+            ]
+        },
+        en: {
+            dir: "ltr", periodMorning: "☀️ Morning / Day", periodEvening: "🌙 Evening / Night",
+            hdrBadge: "✨ AI PHARMACY ASSISTANT • Clinical CC Dosage System (1 mL = 1 CC)",
+            hdrTitle: "Smart Pharmacy & Dosage Academy",
+            hdrSub: "Dosage Calculators • Visual Drug Market • 24 Classes • Study & Official PDFs • Schedules",
+            searchPh: "Instant AI search (Cold, pain, Panadol, Augmentin, BNF, thyroid, BP, diabetes)...",
+            tabDosage: "🧮 Dosages", tabMarket: "🏪 Drug Market", tabClasses: "🧬 24 Classes", tabStudy: "🎓 Study & PDFs", tabSchedule: "🕒 Schedules",
+            drawerTitle: "⚙️ Settings & Full Customization", drawerBack: "🔙 Back",
+            lblRegEmail: "📧 Registered Account:", lblDevId: "📱 Protected Device ID:",
+            lblAuditMenu: "📜 Admin Activity Log (Immutable)",
+            lblThemeMode: "🌓 Lighting & Rainbow Mode:", btnDay: "☀️ Day", btnNight: "🌙 Night", btnAuto: "🕒 Auto Time", btnRainbow: "🌈 Rainbow",
+            lblThemeDesign: "🎨 Page Design & Layout (+105 Themes):", lblFont: "✍️ Font Family (+105 Multilingual Fonts):",
+            lblLang: "🌐 App Language (Translates Entire App):", lblCountry: "🌍 Country, Currency & Market Prices:",
+            btnChangeEmail: "✉️ Change / Edit Email", btnPaySub: "💳 Auto-Activate via QiCard ($1 / 30d)", btnAdminPanel: "🛡️ Root Owner & Admin Dashboard",
+            subSyrup: "🥄 1. Pediatric Syrup Calculator", subIv: "💧 2. IV Fluid Drip Calculator",
+            syrupTitle: "🥄 Pediatric Syrup Dosage Calculator (1 mL = 1 CC)", lblWeight: "⚖️ Child Weight (kg):", lblAge: "🎂 Age (Years):", lblSelSyrup: "🔍 Select Syrup:", btnCalcSyrup: "⚡ Calculate Dose Now (CC / mL)",
+            ivTitle: "💧 IV Fluid Infusion Calculator", lblSelIv: "🧪 Select IV Solution:", lblIvHours: "⏱️ Duration (Hours):", lblIvDrop: "🔬 Drop Factor:", btnCalcIv: "⚡ Calculate IV Drip Rate",
+            marketTitle: "🏪 Pharmacy Drug Guide with Visuals & Local Prices", marketSearchPh: "Search treatments (Cold, flu, body pain, Panadol, Augmentin, acidity, BP)...",
+            classesTitle: "🧬 Comprehensive 24-Class Pharmacology Encyclopedia", btnAllPdf: "👁️ Open Full PDF", classSearchPh: "🔎 Search inside 24 classes, families & drugs...", btnExpand: "📂 Expand All", btnCollapse: "📁 Collapse All",
+            subStudyYears: "🎓 1. 5-Year Curriculum & Official PDF Links", subStudyExams: "🤖 2. AI Pharmacy Exams", subStudyBooks: "📚 3. Official Reference Library", subStudyOtc: "💊 4. OTC Dispensing Guide (+520)",
+            study5Title: "🎓 5-Year Pharmacy Student Guide — Smart PDF + Official Textbook Link",
+            schedTitle: "🕒 Smart Medication Timing & Interactions Guide", schedSearchPh: "Search generic or brand name (Euthyrox, Lipitor, Concor, Nexium, Augmentin)...", btnSchedPdf: "📄 Open Timing PDF",
+            btnPdfText: "📄 Smart PDF", btnOfficialLinkText: "🔗 Official Source",
+            slots: [
+                { title: "🌅 1. Morning Fasting (30-60 mins before breakfast)", items: ["Levothyroxine (Euthyrox): Thyroid hormone; separate by 4 hours from Iron & Calcium.", "PPIs (Nexium / Controloc): Acid reflux therapy before breakfast.", "Alendronate (Fosamax): Osteoporosis; take with full glass of water & stay upright 30 mins."] },
+                { title: "🍳 2. Morning After Breakfast", items: ["Vitamin B Complex, Vitamin C & Iron: Optimal daytime energy & absorption.", "Diuretics (Lasix / Moduretic): Avoids nocturnal urination.", "Antihypertensives (Concor / Exforge): Controls daytime blood pressure."] },
+                { title: "☀️ 3. Midday (With Lunch)", items: ["Calcium & Vitamin D3: Fat-soluble vitamin requiring a main meal.", "Orlistat (Xenical): Taken during or immediately after fat-containing meals.", "Metformin (Glucophage): Blood glucose regulation with minimal GI upset."] },
+                { title: "🌙 4. Night & Bedtime", items: ["Statins (Lipitor / Crestor): Hepatic cholesterol synthesis peaks at night.", "Sedating Antihistamines (Allermine): Prevents daytime drowsiness.", "Montelukast (Singulair): Prevents nocturnal asthma exacerbations."] }
+            ]
+        }
+    };
+
+    function changeAppLanguage(lang) {
+        localStorage.setItem(STORAGE_KEY_LANG, lang);
+        const t = i18nFull[lang] || i18nFull.ar;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = t.dir;
+
+        const mapIds = {
+            hdrBadge: t.hdrBadge, hdrMainTitle: t.hdrTitle, hdrSubTitle: t.hdrSub,
+            tabBtnDosage: t.tabDosage, tabBtnMarket: t.tabMarket, tabBtnClasses: t.tabClasses, tabBtnStudy: t.tabStudy, tabBtnSchedule: t.tabSchedule,
+            drawerSettingsTitle: t.drawerTitle, drawerBackText: t.drawerBack, lblRegisteredEmail: t.lblRegEmail, lblDeviceId: t.lblDevId,
+            lblAuditMenuBtn: t.lblAuditMenu, lblThemeMode: t.lblThemeMode, btnModeDay: t.btnDay, btnModeNight: t.btnNight, btnModeAuto: t.btnAuto, btnModeRainbow: t.btnRainbow,
+            lblThemeDesign: t.lblThemeDesign, lblFontSelect: t.lblFont, lblSelectLang: t.lblLang, lblSelectCountry: t.lblCountry,
+            btnChangeEmailText: t.btnChangeEmail, btnPaySubText: t.btnPaySub, btnAdminPanelText: t.btnAdminPanel,
+            subBtnSyrup: t.subSyrup, subBtnIv: t.subIv, syrupCalcTitle: t.syrupTitle, lblChildWeight: t.lblWeight, lblChildAge: t.lblAge, lblSelectSyrup: t.lblSelSyrup, btnCalcSyrupNow: t.btnCalcSyrup,
+            ivCalcTitle: t.ivTitle, lblSelectIv: t.lblSelIv, lblIvHours: t.lblIvHours, lblIvDrop: t.lblIvDrop, btnCalcIvNow: t.btnCalcIv,
+            marketSectionTitle: t.marketTitle, classesBarTitle: t.classesTitle, btnAllClassesPdf: t.btnAllPdf, btnExpandAll: t.btnExpand, btnCollapseAll: t.btnCollapse,
+            subStudyYears: t.subStudyYears, subStudyExams: t.subStudyExams, subStudyBooks: t.subStudyBooks, subStudyOtc: t.subStudyOtc,
+            study5YearsTitle: t.study5Title, schedSectionTitle: t.schedTitle, btnSchedPdf: t.btnSchedPdf
+        };
+        Object.entries(mapIds).forEach(([id, txt]) => { const el = document.getElementById(id); if (el && txt) el.innerText = txt; });
+
+        document.getElementById('aiSearchInput').placeholder = t.searchPh;
+        document.getElementById('marketDrugSearch').placeholder = t.marketSearchPh;
+        document.getElementById('classTreeSearchInput').placeholder = t.classSearchPh;
+        document.getElementById('scheduleDrugSearch').placeholder = t.schedSearchPh;
+
+        updateRegionalLiveClock();
+        renderAllDynamicSections();
+    }
+
     /* ================= 5. نظام الحسابات والتحقق بكود OTP قبل الدخول ================= */
     function getSubAdmins() { return JSON.parse(localStorage.getItem(STORAGE_KEY_SUBADMINS) || "[]"); }
     function getPaidSubscribers() { return JSON.parse(localStorage.getItem(STORAGE_KEY_SUBSCRIBERS) || "[]"); }
 
     function evaluateUserRole(email) {
         const clean = (email || "").trim().toLowerCase();
-        if (clean === ROOT_ADMIN_EMAIL) {
-            currentRoleState = { isRoot: true, isSubAdmin: false, canEditDrugs: true, actorLabel: "المالك الرئيسي" };
-        } else if (getSubAdmins().some(s => s.email.toLowerCase() === clean && s.active !== false)) {
-            currentRoleState = { isRoot: false, isSubAdmin: true, canEditDrugs: true, actorLabel: clean };
-        } else {
-            currentRoleState = { isRoot: false, isSubAdmin: false, canEditDrugs: false, actorLabel: clean };
-        }
+        if (clean === ROOT_ADMIN_EMAIL) currentRoleState = { isRoot: true, isSubAdmin: false, canEditDrugs: true, actorLabel: "المالك الرئيسي" };
+        else if (getSubAdmins().some(s => s.email.toLowerCase() === clean && s.active !== false)) currentRoleState = { isRoot: false, isSubAdmin: true, canEditDrugs: true, actorLabel: clean };
+        else currentRoleState = { isRoot: false, isSubAdmin: false, canEditDrugs: false, actorLabel: clean };
         return currentRoleState;
     }
 
@@ -1477,9 +1444,7 @@
             document.getElementById('bannerPaidCount').innerText = `💳 المشتركون الفعليون: ${getPaidSubscribers().length}`;
             updateAuditCounters();
             banner.classList.add('visible');
-        } else {
-            banner.classList.remove('visible');
-        }
+        } else { banner.classList.remove('visible'); }
     }
 
     function applyAdminUiVisibility() {
@@ -1493,10 +1458,7 @@
 
     function sendOtpToEmail() {
         const email = document.getElementById('loginEmailInput').value.trim().toLowerCase();
-        if (!email || !email.includes('@') || !email.includes('.')) {
-            alert("⚠️ يرجى إدخال بريد إلكتروني صحيح أولاً.");
-            return;
-        }
+        if (!email || !email.includes('@') || !email.includes('.')) { alert("⚠️ يرجى إدخال بريد إلكتروني صحيح أولاً."); return; }
         const otp = String(Math.floor(100000 + Math.random() * 900000));
         pendingOtpState = { email: email, code: otp, expiresAt: Date.now() + (5 * 60 * 1000) };
 
@@ -1516,26 +1478,17 @@
 
     async function verifyOtpAndEnterApp() {
         const entered = document.getElementById('verifyOtpInput').value.trim();
-        if (!pendingOtpState.code || Date.now() > pendingOtpState.expiresAt) {
-            alert("⛔ انتهت صلاحية الكود، أعد الإرسال.");
-            resetOtpFlow();
-            return;
-        }
-        if (entered !== pendingOtpState.code) {
-            alert("❌ كود التحقق غير صحيح! تأكد من الرقم وأعد المحاولة.");
-            return;
-        }
+        if (!pendingOtpState.code || Date.now() > pendingOtpState.expiresAt) { alert("⛔ انتهت صلاحية الكود، أعد الإرسال."); resetOtpFlow(); return; }
+        if (entered !== pendingOtpState.code) { alert("❌ كود التحقق غير صحيح! تأكد من الرقم وأعد المحاولة."); return; }
 
         const email = pendingOtpState.email;
         const now = Date.now();
         const existingRaw = localStorage.getItem(STORAGE_KEY_USER);
         const existingAnchor = getDeviceAnchor();
         let userObj;
-        if (existingRaw) {
-            userObj = { ...JSON.parse(existingRaw), email, otpVerified: true };
-        } else if (existingAnchor) {
-            userObj = { email, otpVerified: true, createdAt: existingAnchor.createdAt, trialEndsAt: existingAnchor.trialEndsAt, paidUntil: existingAnchor.paidUntil || null };
-        } else {
+        if (existingRaw) userObj = { ...JSON.parse(existingRaw), email, otpVerified: true };
+        else if (existingAnchor) userObj = { email, otpVerified: true, createdAt: existingAnchor.createdAt, trialEndsAt: existingAnchor.trialEndsAt, paidUntil: existingAnchor.paidUntil || null };
+        else {
             const trialEnd = now + (7 * DAY_MS);
             userObj = { email, otpVerified: true, createdAt: now, trialEndsAt: trialEnd, paidUntil: null };
             saveDeviceAnchor({ createdAt: now, trialEndsAt: trialEnd, paidUntil: null });
@@ -1602,8 +1555,7 @@
         }
 
         const user = JSON.parse(saved);
-        const isAuthentic = await verifyUserRecordIntegrity(user);
-        if (!isAuthentic) {
+        if (!(await verifyUserRecordIntegrity(user))) {
             localStorage.removeItem(STORAGE_KEY_USER);
             emailBackNav.style.display = 'none';
             resetOtpFlow();
@@ -1636,7 +1588,7 @@
             badge.className = "status-chip status-admin";
             badge.innerText = "🛡️ أدمن (مجاني)";
             drawerTimer.innerText = "♾️ صلاحية أدمن مجانية";
-            adminBtn.style.display = 'none'; // إخفاء لوحة المالك عن الأدمن المساعدين
+            adminBtn.style.display = 'none';
             upgradeBtn.style.display = 'none';
             document.getElementById('paymentGateModal').classList.remove('open');
             applyAdminUiVisibility();
@@ -1667,12 +1619,7 @@
         applyAdminUiVisibility();
     }
 
-    function openChangeEmailFromSettings() {
-        closeSettingsDrawer();
-        resetOtpFlow();
-        document.getElementById('emailBackNav').style.display = 'flex';
-        document.getElementById('emailGateModal').classList.add('open');
-    }
+    function openChangeEmailFromSettings() { closeSettingsDrawer(); resetOtpFlow(); document.getElementById('emailBackNav').style.display = 'flex'; document.getElementById('emailGateModal').classList.add('open'); }
     function closeEmailModal() { if (localStorage.getItem(STORAGE_KEY_USER)) document.getElementById('emailGateModal').classList.remove('open'); }
     function openPaymentFromSettings() { closeSettingsDrawer(); document.getElementById('payBackNav').style.display = 'flex'; document.getElementById('paymentGateModal').classList.add('open'); }
     function closePaymentModal() {
@@ -1765,185 +1712,148 @@
     }
     function clearBroadcastCommand() { localStorage.removeItem(STORAGE_KEY_BROADCAST); initSubscriptionSystem(); }
 
-    /* ================= 6. الترجمة الشاملة الفورية (عربي، كردي سوراني، كردي باديني، تركماني، إنجليزي) ================= */
-    const i18nFull = {
-        ar: { dir: "rtl", hdrTitle: "أكاديمية الصيدلة والجرعات الذكية", tabDosage: "🧮 الجرعات", tabMarket: "🏪 سوق الأدوية", tabClasses: "🧬 24 Class", tabStudy: "🎓 الدراسة", tabSchedule: "🕒 المواعيد" },
-        ckb: { dir: "rtl", hdrTitle: "ئەکادیمیای دەرمانسازی و ژەمی زیرەک", tabDosage: "🧮 ژەمەکان", tabMarket: "🏪 بازاڕی دەرمان", tabClasses: "🧬 24 Class", tabStudy: "🎓 خوێندن", tabSchedule: "🕒 کاتی دەرمان" },
-        kmr: { dir: "rtl", hdrTitle: "ئەکادیمیا دەرمانسازیێ و ژەمێن زیرەک", tabDosage: "🧮 ژەمێن دەرمانان", tabMarket: "🏪 بازاڕێ دەرمانان", tabClasses: "🧬 24 Class", tabStudy: "🎓 خواندن", tabSchedule: "🕒 دەمێن دەرمانان" },
-        tr: { dir: "ltr", hdrTitle: "Akıllı Eczacılık ve Dozaj Akademisi", tabDosage: "🧮 Dozajlar", tabMarket: "🏪 İlaç Pazarı", tabClasses: "🧬 24 Sınıf", tabStudy: "🎓 Eğitim & PDF", tabSchedule: "🕒 İlaç Saatleri" },
-        en: { dir: "ltr", hdrTitle: "Smart Pharmacy & Dosage Academy", tabDosage: "🧮 Dosages", tabMarket: "🏪 Drug Market", tabClasses: "🧬 24 Classes", tabStudy: "🎓 Study & PDFs", tabSchedule: "🕒 Schedules" }
-    };
+    /* ================= 6. الموسوعة الكاملة لـ 24 Class الدوائية ================= */
+    const default24ClassesData = [
+        { num: 1, arTitle: "المضادات الميكروبية والالتهابات", enTitle: "Antimicrobials & Anti-Infectives", families: [
+            { ar: "البنسلينات", en: "Penicillins", mech: "تثبيط بناء الجدار الخلوي للبكتيريا.", drugs: ["Amoxicillin (Amoxil)", "Amoxicillin + Clavulanate (Augmentin / Megamox)", "Ampicillin", "Flucloxacillin"] },
+            { ar: "السيفالوسبورينات", en: "Cephalosporins (1st - 4th Gen)", mech: "مضادات حيوية واسعة الطيف مقاومة لإنزيمات البنسليناز.", drugs: ["Cephalexin (Keflex)", "Cefuroxime (Zinnat)", "Cefixime (Suprax)", "Ceftriaxone (Rocephin)", "Cefotaxime"] },
+            { ar: "الماكروليدات واللينكوزاميدات", en: "Macrolides & Lincosamides", mech: "تثبيط تصنيع البروتين البكتيري (50S).", drugs: ["Azithromycin (Zithromax)", "Clarithromycin (Klacid)", "Erythromycin", "Clindamycin (Dalacin C)"] },
+            { ar: "الفلوروكينولونات والتتراسيكلينات", en: "Fluoroquinolones & Tetracyclines", mech: "تثبيط إنزيم DNA Gyrase أو 30S Ribosome.", drugs: ["Ciprofloxacin (Ciprodar)", "Levofloxacin (Tavanic)", "Moxifloxacin", "Doxycycline", "Metronidazole (Flagyl)"] }
+        ]},
+        { num: 2, arTitle: "أدوية القلب والأوعية الدموية والضغط", enTitle: "Cardiovascular System (CVS)", families: [
+            { ar: "مثبطات الإنزيم المحول وحاصرات الأنجيوتنسين", en: "ACE Inhibitors & ARBs", mech: "توسيع الأوعية الدموية وحماية القلب والكلى (ممنوعة للحامل).", drugs: ["Captopril (Capoten)", "Enalapril", "Lisinopril (Zestril)", "Ramipril", "Valsartan (Diovan)", "Losartan", "Candesartan (Atacand)"] },
+            { ar: "حاصرات بيتا وقنوات الكالسيوم", en: "Beta Blockers & CCBs", mech: "تقليل نبض القلب وإرخاء جدران الشرايين.", drugs: ["Bisoprolol (Concor)", "Metoprolol (Betaloc)", "Carvedilol", "Propranolol (Inderal)", "Amlodipine (Norvasc)", "Exforge", "Nifedipine"] },
+            { ar: "مدرات البول وأدوية قصور القلب", en: "Diuretics & Heart Failure", mech: "طرد السوائل والأملاح الزائدة وتقوية عضلة القلب.", drugs: ["Furosemide (Lasix)", "Hydrochlorothiazide", "Spironolactone (Aldactone)", "Indapamide (Natrilix)", "Digoxin (Lanoxin)", "Entresto"] }
+        ]},
+        { num: 3, arTitle: "أدوية الدهون والكوليسترول", enTitle: "Antihyperlipidemic Drugs", families: [
+            { ar: "الستاتينات والفايبريت", en: "Statins & Fibrates", mech: "تثبيط إنزيم HMG-CoA Reductase في الكبد (تؤخذ مساءً).", drugs: ["Atorvastatin (Lipitor)", "Rosuvastatin (Crestor)", "Simvastatin (Zocor)", "Fenofibrate (Lipanthyl)", "Ezetimibe"] }
+        ]},
+        { num: 4, arTitle: "أدوية تخثر الدم والصفائح", enTitle: "Anticoagulants & Antiplatelets", families: [
+            { ar: "مميعات الدم ومضادات الصفائح", en: "Antiplatelets & Anticoagulants", mech: "منع الجلطات القلبية والدماغية.", drugs: ["Aspirin 81/100mg (Cardiopirin)", "Clopidogrel (Plavix)", "Ticagrelor (Brilinta)", "Warfarin (Marevan)", "Rivaroxaban (Xarelto)", "Apixaban (Eliquis)", "Enoxaparin (Clexane)"] }
+        ]},
+        { num: 5, arTitle: "أدوية السكري والإنسولين", enTitle: "Antidiabetic Drugs & Insulins", families: [
+            { ar: "خافضات السكر الفموية", en: "Oral Hypoglycemics", mech: "تحسين حساسية الإنسولين أو تحفيز إفرازه أو طرح السكر بالبول.", drugs: ["Metformin (Glucophage)", "Glimepiride (Amaryl)", "Gliclazide (Diamicron)", "Sitagliptin (Januvia)", "Empagliflozin (Jardiance)", "Dapagliflozin (Forxiga)"] },
+            { ar: "أنواع الإنسولين", en: "Insulins", mech: "تعويض هرمون الإنسولين مباشرة.", drugs: ["Insulin Glargine (Lantus)", "Insulin Aspart (NovoRapid)", "Insulin Regular (Actrapid)", "Mixtard 30/70"] }
+        ]},
+        { num: 6, arTitle: "أدوية الغدة الدرقية والهرمونات", enTitle: "Thyroid & Endocrine Drugs", families: [
+            { ar: "هرمونات الغدة ومثبطاتها", en: "Thyroid Hormones & Antithyroid", mech: "تعويض أو تثبيط هرمونات الغدة الدرقية (صباحاً على الريق).", drugs: ["Levothyroxine (Euthyrox / Eltroxin)", "Carbimazole (Neomercazole)", "Propylthiouracil (PTU)"] }
+        ]},
+        { num: 7, arTitle: "الكورتيكوستيرويدات ومضادات الالتهاب الستيرويدية", enTitle: "Corticosteroids", families: [
+            { ar: "الكورتيزون الفموي والحقني", en: "Systemic Corticosteroids", mech: "تثبيط قوي للالتهاب والمناعة (تُقلل تدريجياً).", drugs: ["Prednisolone", "Dexamethasone (Decadron)", "Hydrocortisone (Solu-Cortef)", "Methylprednisolone (Depo-Medrol)", "Betamethasone"] }
+        ]},
+        { num: 8, arTitle: "أدوية الجهاز التنفسي والربو", enTitle: "Respiratory System & Asthma", families: [
+            { ar: "موسعات القصبات والبخاخات", en: "Bronchodilators & Inhalers", mech: "توسيع الشعب الهوائية وتقليل التهاب القصبات.", drugs: ["Salbutamol (Ventolin)", "Symbicort", "Seretide", "Montelukast (Singulair)", "Theophylline"] },
+            { ar: "أدوية السعال والبلغم", en: "Cough Suppressants & Mucolytics", mech: "تهدئة السعال الجاف أو إذابة البلغم.", drugs: ["Bromhexine (Bisolvon)", "Ambroxol (Mucosolvan)", "Acetylcysteine", "Prospan (Ivy Leaf)", "Dextromethorphan"] }
+        ]},
+        { num: 9, arTitle: "مضادات الهيستامين والحساسية", enTitle: "Antihistamines & Anti-Allergics", families: [
+            { ar: "الجيل الأول (مسبب للنعاس) والجيل الثاني (لا يسبب النعاس)", en: "1st & 2nd Generation Antihistamines", mech: "إغلاق مستقبلات H1 للهيستامين.", drugs: ["Chlorpheniramine (Allermine)", "Diphenhydramine", "Loratadine (Claritine)", "Cetirizine (Zyrtec)", "Fexofenadine (Telfast)", "Desloratadine (Aerius)"] }
+        ]},
+        { num: 10, arTitle: "أدوية الجهاز الهضمي والمعدة", enTitle: "Gastrointestinal Tract (GIT)", families: [
+            { ar: "مثبطات مضخة البروتون ومضادات الحموضة", en: "PPIs, H2 Blockers & Antacids", mech: "تقليل إفراز حمض المعدة وحماية الغشاء المخاطي.", drugs: ["Esomeprazole (Nexium)", "Pantoprazole (Controloc)", "Omeprazole (Losec)", "Lansoprazole", "Famotidine", "Gaviscon", "Maalox"] },
+            { ar: "مضادات التقيؤ والقولون والمغص", en: "Antiemetics & Antispasmodics", mech: "تهدئة حركة الأمعاء وعلاج الغثيان والإمساك والإسهال.", drugs: ["Domperidone (Motilium)", "Metoclopramide (Plasil)", "Ondansetron (Zofran)", "Hyoscine (Buscopan)", "Mebeverine (Duspatalin)", "Loperamide (Imodium)", "Lactulose (Duphalac)"] }
+        ]},
+        { num: 11, arTitle: "المسكنات وخافضات الحرارة (NSAIDs & Analgesics)", enTitle: "Analgesics & NSAIDs", families: [
+            { ar: "المسكنات غير الستيرويدية والباراسيتامول", en: "Paracetamol & NSAIDs", mech: "تثبيط إنزيم COX وتقليل البروستاغلاندين.", drugs: ["Paracetamol (Panadol / Adol)", "Ibuprofen (Brufen)", "Diclofenac (Voltaren / Cataflam)", "Mefenamic Acid (Ponstan)", "Meloxicam (Mobic)", "Celecoxib (Celebrex)", "Naproxen"] }
+        ]},
+        { num: 12, arTitle: "مرخيات العضلات وأدوية الأعصاب الطرفية", enTitle: "Muscle Relaxants & Neuropathic Pain", families: [
+            { ar: "مرخيات العضلات ومسكنات آلام الأعصاب", en: "Skeletal Muscle Relaxants & Gabapentinoids", mech: "فك التشنج العضلي وتهدئة الإشارات العصبية.", drugs: ["Orphenadrine + Paracetamol (Myogesic / Norgesic)", "Chlorzoxazone (Parafon)", "Baclofen (Lioresal)", "Tizanidine (Sirdalud)", "Pregabalin (Lyrica)", "Gabapentin (Neurontin)"] }
+        ]},
+        { num: 13, arTitle: "أدوية النقرس والمفاصل", enTitle: "Antigout & Rheumatology", families: [
+            { ar: "خافضات حمض اليوريك", en: "Antigout Agents", mech: "تقليل تكوين حمض اليوريك في الدم.", drugs: ["Allopurinol (Zyloric)", "Febuxostat (Adenuric)", "Colchicine"] }
+        ]},
+        { num: 14, arTitle: "أدوية الصرع والاختلاجات", enTitle: "Antiepileptics & Anticonvulsants", families: [
+            { ar: "مضادات الصرع", en: "Anticonvulsants", mech: "استقرار الشحنات الكهربائية في الدماغ.", drugs: ["Sodium Valproate (Depakine)", "Carbamazepine (Tegretol)", "Levetiracetam (Keppra)", "Lamotrigine (Lamictal)", "Phenytoin (Epanutin)"] }
+        ]},
+        { num: 15, arTitle: "أدوية الاكتئاب والقلق والنوم", enTitle: "Antidepressants, Anxiolytics & Sedatives", families: [
+            { ar: "مضادات الاكتئاب والقلق", en: "SSRIs, SNRIs & Benzodiazepines", mech: "زيادة السيروتونين والنورأدرينالين أو تعزيز GABA.", drugs: ["Sertraline (Zoloft)", "Escitalopram (Cipralex)", "Fluoxetine (Prozac)", "Duloxetine (Cymbalta)", "Alprazolam (Xanax)", "Diazepam (Valium)"] }
+        ]},
+        { num: 16, arTitle: "أدوية الذهان وباركنسون والزهايمر", enTitle: "Antipsychotics & Neurodegenerative", families: [
+            { ar: "مضادات الذهان وأدوية باركنسون", en: "Antipsychotics & Antiparkinson", mech: "تنظيم الدوبامين والأسيتيل كولين في الدماغ.", drugs: ["Olanzapine (Zyprexa)", "Quetiapine (Seroquel)", "Risperidone (Risperdal)", "Haloperidol", "Levodopa + Carbidopa (Sinemet)", "Donepezil (Aricept)"] }
+        ]},
+        { num: 17, arTitle: "أدوية المسالك البولية والبروستاتا", enTitle: "Urology & BPH Drugs", families: [
+            { ar: "تضخم البروستاتا وسلس البول", en: "Alpha-1 Blockers & Antimuscarinics", mech: "إرخاء عضلات عنق المثانة والبروستاتا.", drugs: ["Tamsulosin (Omnic)", "Alfuzosin (Xatral)", "Finasteride (Proscar)", "Solifenacin (Vesicare)", "Oxybutynin (Ditropan)"] }
+        ]},
+        { num: 18, arTitle: "أدوية أمراض النساء والهرمونات الجنسية", enTitle: "Obstetrics, Gynecology & Contraceptives", families: [
+            { ar: "مانعات الحمل ومثبتات الحمل", en: "Contraceptives & Progestins", mech: "تنظيم الهرمونات الأنثوية.", drugs: ["Yasmin", "Microgynon", "Duphaston (Dydrogesterone)", "Cyclogest", "Clomiphene (Clomid)"] }
+        ]},
+        { num: 19, arTitle: "أدوية العيون (القطرات والمراهم)", enTitle: "Ophthalmology Drugs", families: [
+            { ar: "قطرات المضادات والمرطبات والزرق", en: "Eye Drops & Ointments", mech: "علاج التهاب الملتحمة وجفاف العين وضغط العين.", drugs: ["Tobramycin (Tobrex)", "Tobradex", "Moxifloxacin (Vigamox)", "Systane Ultra", "Refresh Tears", "Timolol", "Latanoprost (Xalatan)"] }
+        ]},
+        { num: 20, arTitle: "أدوية الأنف والأذن والحنجرة (ENT)", enTitle: "ENT Preparations", families: [
+            { ar: "بخاخات الأنف وقطرات الأذن", en: "Nasal Sprays & Ear Drops", mech: "تخفيف احتقان وحساسية الأنف والتهابات الأذن.", drugs: ["Xylometazoline (Otrivin)", "Mometasone (Nasonex)", "Fluticasone (Avamys)", "Sodium Chloride (Apisal)", "Ciprofloxacin Ear Drops", "Otal"] }
+        ]},
+        { num: 21, arTitle: "أدوية الجلدية والمراهم الموضعية", enTitle: "Dermatology & Topical Agents", families: [
+            { ar: "المضادات والفطريات والكورتيزونات الموضعية", en: "Topical Antibiotics, Antifungals & Steroids", mech: "علاج الالتهابات الجلدية والفطريات والأكزيما وحب الشباب.", drugs: ["Fusidic Acid (Fucidin)", "Mupirocin (Bactroban)", "Clotrimazole (Canesten)", "Miconazole (Daktarin)", "Betamethasone (Betnovate)", "Adapalene (Differin)", "Isotretinoin (Roaccutane)"] }
+        ]},
+        { num: 22, arTitle: "الفيتامينات والمعادن والمكملات الغذائية", enTitle: "Vitamins, Minerals & Supplements", families: [
+            { ar: "الفيتامينات الأساسية", en: "Essential Vitamins & Trace Elements", mech: "دعم المناعة والأعصاب والعظام وتكوين الدم.", drugs: ["Vitamin D3 (5000 / 50000 IU)", "Neurobion (B1+B6+B12)", "Folic Acid 5mg", "Feroglobin", "Zinc Sulfate", "Omega-3", "Centrum"] }
+        ]},
+        { num: 23, arTitle: "أدوية الطوارئ والإنعاش والترياقات", enTitle: "Emergency Drugs & Antidotes", families: [
+            { ar: "حقن الطوارئ والترياقات المنقذة", en: "Resuscitation & Antidotes", mech: "التدخل السريع في الصدمات والتسممات.", drugs: ["Adrenaline (Epinephrine)", "Atropine", "N-Acetylcysteine (Paracetamol Antidote)", "Naloxone (Opioid Antidote)", "Vitamin K1 (Warfarin Antidote)", "Activated Charcoal"] }
+        ]},
+        { num: 24, arTitle: "المحاليل الوريدية والشوارد الطبية", enTitle: "IV Fluids & Electrolytes", families: [
+            { ar: "المحاليل البلورية والغروية", en: "Crystalloids & Electrolytes", mech: "تعويض السوائل والشوارد في المستشفيات.", drugs: ["Normal Saline 0.9%", "Ringer Lactate", "Dextrose 5% / 10%", "Dextrose Saline", "Mannitol 20%", "Potassium Chloride (KCl)"] }
+        ]}
+    ];
 
-    function changeAppLanguage(lang) {
-        localStorage.setItem(STORAGE_KEY_LANG, lang);
-        const t = i18nFull[lang] || i18nFull.ar;
-        document.documentElement.lang = lang;
-        document.documentElement.dir = t.dir;
-        document.getElementById('hdrMainTitle').innerText = t.hdrTitle;
-        document.getElementById('tabBtnDosage').innerText = t.tabDosage;
-        document.getElementById('tabBtnMarket').innerText = t.tabMarket;
-        document.getElementById('tabBtnClasses').innerText = t.tabClasses;
-        document.getElementById('tabBtnStudy').innerText = t.tabStudy;
-        document.getElementById('tabBtnSchedule').innerText = t.tabSchedule;
-        renderAllDynamicSections();
-    }
-
-    /* ================= 7. المراحل الخمس مع الروابط الرسمية الأصلية للكتب وملازم PDF ================= */
+    /* ================= 7. المراحل الخمس الكاملة مع الروابط الرسمية الأصلية وملازم PDF ================= */
     const defaultStagesCurriculum = [
         {
-            yearNum: 1,
-            badge: "المرحلة الأولى • First Year",
-            title: "العلوم الأساسية والتمهيدية في الصيدلة",
+            yearNum: 1, badge: "المرحلة الأولى • First Year", title: "العلوم الأساسية والتمهيدية في الصيدلة",
             subjects: [
-                {
-                    id: "y1_org",
-                    name: "الكيمياء العضوية الصيدلانية (Organic Chemistry)",
-                    book: "OpenStax Organic Chemistry (Official Free Textbook)",
-                    officialUrl: "https://openstax.org/details/books/organic-chemistry",
-                    summary: "أساس فهم تركيب الأدوية والمجموعات الوظيفية (Functional Groups) والتماكب الفراغي (Stereochemistry).",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 ملخص المادة:</strong> تدرس التهجين (sp3, sp2, sp) والمجموعات الوظيفية وتأثيرها على ذوبانية الدواء وثباته (مثل فرق Amide في Lidocaine عن Ester في Procaine).</div>`
-                },
-                {
-                    id: "y1_anat",
-                    name: "التشريح البشري والأنسجة (Human Anatomy & Physiology)",
-                    book: "OpenStax Anatomy and Physiology 2e (Official PDF)",
-                    officialUrl: "https://openstax.org/details/books/anatomy-and-physiology-2e",
-                    summary: "دراسة أجهزة جسم الإنسان ومواقع الامتصاص والأيض الأولي والحاجز الدموي الدماغي.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 ملخص المادة:</strong> الأمعاء الدقيقة هي الموقع الرئيسي لامتصاص الأدوية الفموية، والدورة البابية الكبدية مسؤولة عن First-Pass Metabolism.</div>`
-                },
-                {
-                    id: "y1_calc",
-                    name: "الحسابات الصيدلانية والفيزياء (Pharmaceutical Calculations)",
-                    book: "NCBI Bookshelf: Pharmaceutical Calculations & Dosage",
-                    officialUrl: "https://www.ncbi.nlm.nih.gov/books/NBK430685/",
-                    summary: "التحويلات الصيدلانية (1g = 1000mg, 1mL = 1CC)، النسب المئوية، ومعادلة Henderson-Hasselbalch.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 القوانين الأساسية:</strong> 1 mL = 1 CC | 1 tsp = 5 mL | 1 tbsp = 15 mL.</div>`
-                }
+                { id: "y1_org", name: "الكيمياء العضوية الصيدلانية (Organic Chemistry)", book: "OpenStax Organic Chemistry (Official Textbook)", officialUrl: "https://openstax.org/details/books/organic-chemistry", summary: "دراسة المجموعات الوظيفية والتماكب الفراغي وتأثيرها على ذوبانية وثبات الدواء.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 ملخص المادة:</strong> تدرس التهجين (sp3, sp2, sp) والمجموعات الوظيفية وتأثيرها على ذوبانية الدواء وثباته.</div>` },
+                { id: "y1_anat", name: "التشريح البشري والأنسجة (Human Anatomy & Physiology)", book: "OpenStax Anatomy and Physiology 2e", officialUrl: "https://openstax.org/details/books/anatomy-and-physiology-2e", summary: "دراسة أجهزة جسم الإنسان ومواقع الامتصاص والأيض الأولي والحاجز الدموي الدماغي.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 ملخص المادة:</strong> الأمعاء الدقيقة هي الموقع الرئيسي لامتصاص الأدوية الفموية، والدورة البابية الكبدية مسؤولة عن First-Pass Metabolism.</div>` },
+                { id: "y1_calc", name: "الحسابات الصيدلانية (Pharmaceutical Calculations)", book: "NCBI Bookshelf: Pharmaceutical Calculations", officialUrl: "https://www.ncbi.nlm.nih.gov/books/NBK430685/", summary: "التحويلات الصيدلانية (1g = 1000mg, 1mL = 1CC)، النسب المئوية، والجرعات.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 القوانين الأساسية:</strong> 1 mL = 1 CC | 1 tsp = 5 mL | 1 tbsp = 15 mL.</div>` }
             ]
         },
         {
-            yearNum: 2,
-            badge: "المرحلة الثانية • Second Year",
-            title: "وظائف الأعضاء والكيمياء الحيوية والصيدلانيات",
+            yearNum: 2, badge: "المرحلة الثانية • Second Year", title: "وظائف الأعضاء والكيمياء الحيوية والأحياء الدقيقة",
             subjects: [
-                {
-                    id: "y2_physio",
-                    name: "علم وظائف الأعضاء الطبي (Medical Physiology)",
-                    book: "NCBI Bookshelf: Physiology Reference Library",
-                    officialUrl: "https://www.ncbi.nlm.nih.gov/books/NBK538139/",
-                    summary: "فسيولوجيا القلب وضغط الدم والجهاز العصبي الودي واللاودي ونظام RAAS.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 ملخص الفسيولوجيا:</strong> مستقبلات Beta-1 ترفع نبض القلب، ومستقبلات Beta-2 توسع القصبات الهوائية.</div>`
-                },
-                {
-                    id: "y2_biochem",
-                    name: "الكيمياء الحيوية السريرية (Clinical Biochemistry)",
-                    book: "NCBI Bookshelf: Biochemistry (Berg / Tymoczko)",
-                    officialUrl: "https://www.ncbi.nlm.nih.gov/books/NBK21154/",
-                    summary: "أيض الكربوهيدرات والدهون والبروتينات وتحاليل المختبر (HbA1c, ALT, AST, Creatinine).",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 القيم المختبرية:</strong> HbA1c الطبيعي أقل من 5.7%، والهدف لمرضى السكري أقل من 7%.</div>`
-                },
-                {
-                    id: "y2_micro",
-                    name: "الأحياء الدقيقة الطبية (Medical Microbiology)",
-                    book: "OpenStax Microbiology (Official Textbook & PDF)",
-                    officialUrl: "https://openstax.org/details/books/microbiology",
-                    summary: "تصنيف البكتيريا موجبة وسالبة الغرام والمضادات الحيوية المناسبة لكل نوع.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 البكتيريا:</strong> Gram-Positive تستجيب للبنسلينات والماكروليدات، وGram-Negative تستجيب للسيفالوسبورينات والفلوروكينولونات.</div>`
-                }
+                { id: "y2_physio", name: "علم وظائف الأعضاء الطبي (Medical Physiology)", book: "NCBI Bookshelf: Physiology Reference Library", officialUrl: "https://www.ncbi.nlm.nih.gov/books/NBK538139/", summary: "فسيولوجيا القلب وضغط الدم والجهاز العصبي الودي واللاودي ونظام RAAS.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 ملخص الفسيولوجيا:</strong> مستقبلات Beta-1 ترفع نبض القلب، ومستقبلات Beta-2 توسع القصبات الهوائية.</div>` },
+                { id: "y2_biochem", name: "الكيمياء الحيوية السريرية (Clinical Biochemistry)", book: "NCBI Bookshelf: Biochemistry (Berg)", officialUrl: "https://www.ncbi.nlm.nih.gov/books/NBK21154/", summary: "أيض الكربوهيدرات والدهون والبروتينات وتحاليل المختبر (HbA1c, ALT, AST, Creatinine).", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 القيم المختبرية:</strong> HbA1c الطبيعي أقل من 5.7%، والهدف لمرضى السكري أقل من 7%.</div>` },
+                { id: "y2_micro", name: "الأحياء الدقيقة الطبية (Medical Microbiology)", book: "OpenStax Microbiology (Official Textbook)", officialUrl: "https://openstax.org/details/books/microbiology", summary: "تصنيف البكتيريا موجبة وسالبة الغرام والمضادات الحيوية المناسبة لكل نوع.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 البكتيريا:</strong> Gram-Positive تستجيب للبنسلينات والماكروليدات، وGram-Negative تستجيب للسيفالوسبورينات والفلوروكينولونات.</div>` }
             ]
         },
         {
-            yearNum: 3,
-            badge: "المرحلة الثالثة • Third Year",
-            title: "علم الأدوية الأول والكيمياء الصيدلانية والعقاقير",
+            yearNum: 3, badge: "المرحلة الثالثة • Third Year", title: "علم الأدوية الأول والكيمياء الصيدلانية والعقاقير",
             subjects: [
-                {
-                    id: "y3_pharma1",
-                    name: "علم الأدوية الأول (Pharmacology I)",
-                    book: "Merck Manual Professional: Clinical Pharmacology",
-                    officialUrl: "https://www.merckmanuals.com/professional/clinical-pharmacology",
-                    summary: "أدوية الجهاز العصبي اللاإرادي (ANS)، أدوية الضغط والقلب، ومدرات البول.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 قواعد Pharmacology I:</strong> Bisoprolol انتقائي للقلب (Beta-1)، بينما Propranolol غير انتقائي ويُمنع لمرضى الربو.</div>`
-                },
-                {
-                    id: "y3_cognosy",
-                    name: "علم العقاقير والنباتات الطبية (Pharmacognosy)",
-                    book: "WHO Monographs on Selected Medicinal Plants (PDF)",
-                    officialUrl: "https://www.who.int/publications/i/item/9241545178",
-                    summary: "المواد الفعالة من أصل نباتي مثل Digoxin و Atropine و Sennosides و Ivy Leaf.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 العقاقير:</strong> Digoxin يقوي عضلة القلب، وProspan (أوراق اللبلاب) مذيب بلغم آمن للأطفال.</div>`
-                }
+                { id: "y3_pharma1", name: "علم الأدوية الأول (Pharmacology I)", book: "Merck Manual Professional: Clinical Pharmacology", officialUrl: "https://www.merckmanuals.com/professional/clinical-pharmacology", summary: "أدوية الجهاز العصبي اللاإرادي (ANS)، أدوية الضغط والقلب، ومدرات البول.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 قواعد Pharmacology I:</strong> Bisoprolol انتقائي للقلب (Beta-1)، بينما Propranolol غير انتقائي ويُمنع لمرضى الربو.</div>` },
+                { id: "y3_cognosy", name: "علم العقاقير والنباتات الطبية (Pharmacognosy)", book: "WHO Monographs on Selected Medicinal Plants", officialUrl: "https://www.who.int/publications/i/item/9241545178", summary: "المواد الفعالة من أصل نباتي مثل Digoxin و Atropine و Sennosides و Ivy Leaf.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 العقاقير:</strong> Digoxin يقوي عضلة القلب، وProspan (أوراق اللبلاب) مذيب بلغم آمن للأطفال.</div>` }
             ]
         },
         {
-            yearNum: 4,
-            badge: "المرحلة الرابعة • Fourth Year",
-            title: "علم الأدوية المتقدم والحركية الدوائية والسموم",
+            yearNum: 4, badge: "المرحلة الرابعة • Fourth Year", title: "علم الأدوية المتقدم والحركية الدوائية والسموم",
             subjects: [
-                {
-                    id: "y4_pharma2",
-                    name: "علم الأدوية المتقدم (Pharmacology II)",
-                    book: "DailyMed / FDA Official Drug Reference",
-                    officialUrl: "https://dailymed.nlm.nih.gov/dailymed/",
-                    summary: "المضادات الحيوية، أدوية الجهاز العصبي المركزي، المسكنات، السكري والغدة الدرقية.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 قواعد Pharmacology II:</strong> إكمال كورس المضاد الحيوي كاملاً ضروري لمنع المقاومة البكتيرية.</div>`
-                },
-                {
-                    id: "y4_tox",
-                    name: "علم السموم السريري والترياقات (Clinical Toxicology)",
-                    book: "Merck Manual: Poisoning & Antidotes Guide",
-                    officialUrl: "https://www.merckmanuals.com/professional/injuries-poisoning/poisoning",
-                    summary: "الترياقات المنقذة للحياة: NAC للباراسيتامول، Naloxone للأفيونات، Vitamin K للوارفارين.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 الترياقات:</strong> Paracetamol -> N-Acetylcysteine | Warfarin -> Vitamin K1 | Opioids -> Naloxone.</div>`
-                }
+                { id: "y4_pharma2", name: "علم الأدوية المتقدم (Pharmacology II)", book: "DailyMed / FDA Official Drug Reference", officialUrl: "https://dailymed.nlm.nih.gov/dailymed/", summary: "المضادات الحيوية، أدوية الجهاز العصبي المركزي، المسكنات، السكري والغدة الدرقية.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 قواعد Pharmacology II:</strong> إكمال كورس المضاد الحيوي كاملاً ضروري لمنع المقاومة البكتيرية.</div>` },
+                { id: "y4_tox", name: "علم السموم السريري والترياقات (Clinical Toxicology)", book: "Merck Manual: Poisoning & Antidotes Guide", officialUrl: "https://www.merckmanuals.com/professional/injuries-poisoning/poisoning", summary: "الترياقات المنقذة للحياة: NAC للباراسيتامول، Naloxone للأفيونات، Vitamin K للوارفارين.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 الترياقات:</strong> Paracetamol -> N-Acetylcysteine | Warfarin -> Vitamin K1 | Opioids -> Naloxone.</div>` }
             ]
         },
         {
-            yearNum: 5,
-            badge: "المرحلة الخامسة • Fifth Year",
-            title: "الصيدلة السريرية والعلاجيات وصيدلة المجتمع",
+            yearNum: 5, badge: "المرحلة الخامسة • Fifth Year", title: "الصيدلة السريرية والعلاجيات وصيدلة المجتمع",
             subjects: [
-                {
-                    id: "y5_bnf",
-                    name: "الصيدلة السريرية وصرف الوصفات (BNF & Therapeutics)",
-                    book: "NICE British National Formulary (BNF Official Site)",
-                    officialUrl: "https://bnf.nice.org.uk/",
-                    summary: "البروتوكولات العلاجية المعتمدة عالمياً والجرعات والتداخلات الدوائية.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 مرجع BNF:</strong> المرجع الرسمي للصيادلة للتحقق من الجرعات والتداخلات الدوائية.</div>`
-                },
-                {
-                    id: "y5_who",
-                    name: "قائمة الأدوية الأساسية العالمية (WHO Essential Medicines)",
-                    book: "WHO Model List of Essential Medicines (Official PDF)",
-                    officialUrl: "https://www.who.int/groups/expert-committee-on-selection-and-use-of-essential-medicines/essential-medicines-lists",
-                    summary: "الأدوية الأساسية المعتمدة في المستشفيات والرعاية الصحية الأولية.",
-                    pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 منظمة الصحة العالمية:</strong> دليل اختيار الأدوية الأكثر أماناً وفعالية للمرضى.</div>`
-                }
+                { id: "y5_bnf", name: "الصيدلة السريرية وصرف الوصفات (BNF & Therapeutics)", book: "NICE British National Formulary (BNF Official Site)", officialUrl: "https://bnf.nice.org.uk/", summary: "البروتوكولات العلاجية المعتمدة عالمياً والجرعات والتداخلات الدوائية.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 مرجع BNF:</strong> المرجع الرسمي للصيادلة للتحقق من الجرعات والتداخلات الدوائية.</div>` },
+                { id: "y5_who", name: "قائمة الأدوية الأساسية العالمية (WHO Essential Medicines)", book: "WHO Model List of Essential Medicines", officialUrl: "https://www.who.int/groups/expert-committee-on-selection-and-use-of-essential-medicines/essential-medicines-lists", summary: "الأدوية الأساسية المعتمدة في المستشفيات والرعاية الصحية الأولية.", pdfNotes: `<div class="pdf-box-highlight"><strong>🎯 منظمة الصحة العالمية:</strong> دليل اختيار الأدوية الأكثر أماناً وفعالية للمرضى.</div>` }
             ]
         }
     ];
 
-    /* ================= 8. قاعدة بيانات السوق والكلاسات والشرابات والمواعيد والأقسام المخصصة ================= */
-    function buildPharmacyBoxSvg(brandTitle, subtitle, boxColor1, boxColor2, formType) {
+    /* ================= 8. سوق الأدوية والكتب والجرعات والمواعيد ================= */
+    function buildPharmacyBoxSvg(brandTitle, subtitle, boxColor1, boxColor2) {
         return `<svg viewBox="0 0 300 155" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${boxColor1}"/><stop offset="100%" stop-color="${boxColor2}"/></linearGradient></defs><rect width="300" height="155" fill="#f1f5f9"/><rect x="36" y="30" width="152" height="94" rx="10" fill="url(#g1)" stroke="#fff" stroke-width="2"/><rect x="46" y="40" width="132" height="50" rx="6" fill="#fff"/><text x="112" y="62" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="${boxColor1}" text-anchor="middle">${brandTitle}</text><text x="112" y="79" font-family="Arial,sans-serif" font-size="8.5" font-weight="700" fill="#334155" text-anchor="middle">${subtitle}</text><rect x="200" y="36" width="64" height="84" rx="8" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5"/><ellipse cx="218" cy="54" rx="9" ry="6" fill="#fff"/><ellipse cx="246" cy="54" rx="9" ry="6" fill="#fff"/><ellipse cx="218" cy="79" rx="9" ry="6" fill="#fff"/><ellipse cx="246" cy="79" rx="9" ry="6" fill="#fff"/><ellipse cx="218" cy="104" rx="9" ry="6" fill="#fff"/><ellipse cx="246" cy="104" rx="9" ry="6" fill="#fff"/></svg>`;
     }
 
     const defaultMarketDrugs = [
         { cat: "النشلة والزكام", boxTitle: "PANADOL", boxSub: "Cold & Flu • 24 Tabs", c1: "#0284c7", c2: "#1e3a8a", name: "Panadol Cold & Flu (بانادول كولد آند فلو)", sci: "Paracetamol 500mg + Pseudoephedrine 30mg", baseUsd: 2.2, brands: "Panadol Cold & Flu / Flu-Out / Sinutab", use: "علاج الرشح واحتقان الأنف وصداع النشلة (يُمنع لمرضى الضغط)." },
+        { cat: "النشلة والزكام", boxTitle: "OTRIVIN 0.1%", boxSub: "Nasal Spray 10mL", c1: "#0891b2", c2: "#164e63", name: "Otrivin Nasal Spray (بخاخ أوتريفين لفتح الأنف)", sci: "Xylometazoline 0.1%", baseUsd: 2.5, brands: "Otrivin / Xylolin / Nazolin", use: "فتح انسداد الأنف السريع (لا يُستخدم أكثر من 5 أيام متتالية)." },
         { cat: "وجع الجسم والمسكنات", boxTitle: "PANADOL EXTRA", boxSub: "500mg + Caffeine", c1: "#dc2626", c2: "#991b1b", name: "Panadol Extra / Adol (مسكن الألم والحرارة)", sci: "Paracetamol 500mg + Caffeine 65mg", baseUsd: 1.8, brands: "Panadol Extra / Adol / Samadol", use: "تسكين وجع الجسم والصداع وألم الأسنان وخفض الحرارة." },
         { cat: "وجع الجسم والمسكنات", boxTitle: "BRUFEN 400", boxSub: "Ibuprofen 400mg", c1: "#db2777", c2: "#831843", name: "Brufen 400mg (بروفين لوجع الجسم)", sci: "Ibuprofen 400mg", baseUsd: 2.0, brands: "Brufen / Sapofen / Ibugesic", use: "مضاد التهاب ومسكن لوجع الجسم والعضلات (بعد الطعام)." },
+        { cat: "وجع الجسم والمسكنات", boxTitle: "MYOGESIC", boxSub: "Orphenadrine + Para", c1: "#0d9488", c2: "#115e59", name: "Myogesic / Norgesic (مرخي عضلات ومسكن)", sci: "Orphenadrine 35mg + Paracetamol 450mg", baseUsd: 3.2, brands: "Myogesic / Norgesic / Relaxon", use: "تشنج عضلات الرقبة والظهر ووجع الجسم المرافق للبرد." },
         { cat: "الالتهابات والمضادات", boxTitle: "AUGMENTIN 1g", boxSub: "Amoxicillin + Clavulanate", c1: "#059669", c2: "#064e3b", name: "Augmentin 1g (أوگمنتين مضاد الالتهابات)", sci: "Amoxicillin 875mg + Clavulanic Acid 125mg", baseUsd: 5.5, brands: "Augmentin / Megamox / Klavox", use: "مضاد حيوي لالتهابات اللوزتين والجيوب والأسنان (كل 12 ساعة بعد الأكل)." },
+        { cat: "الالتهابات والمضادات", boxTitle: "ZITHROMAX 500", boxSub: "Azithromycin 500mg", c1: "#d97706", c2: "#78350f", name: "Zithromax 500mg (أزيثرومايسين)", sci: "Azithromycin 500mg", baseUsd: 4.0, brands: "Zithromax / Azomax / Zetro", use: "كورس 3 أيام لالتهاب البلعوم والقصبات (حبة واحدة يومياً)." },
         { cat: "الحموضة والمعدة", boxTitle: "NEXIUM 40mg", boxSub: "Esomeprazole 40mg", c1: "#6d28d9", c2: "#3b0764", name: "Nexium 40mg (نيكسيوم لحموضة المعدة)", sci: "Esomeprazole 40mg", baseUsd: 5.2, brands: "Nexium / Esofag / Controloc", use: "علاج حموضة المعدة وارتجاع المريء (قبل الفطور بـ 30 دقيقة)." },
-        { cat: "الضغط والقلب", boxTitle: "CONCOR 5mg", boxSub: "Bisoprolol 5mg", c1: "#e11d48", c2: "#881337", name: "Concor 5mg / Exforge (أدوية الضغط)", sci: "Bisoprolol 5mg / Amlodipine + Valsartan", baseUsd: 4.5, brands: "Concor / Exforge / Co-Diovan", use: "ضبط ارتفاع ضغط الدم وحماية عضلة القلب." }
-    ];
-
-    const default24ClassesData = [
-        { num: 1, arTitle: "المضادات الميكروبية والالتهابات", enTitle: "Antimicrobials", families: [{ ar: "البنسلينات والسيفالوسبورينات", en: "Beta-Lactams", mech: "تثبيط الجدار الخلوي للبكتيريا.", drugs: ["Amoxicillin", "Augmentin", "Cephalexin", "Cefixime (Suprax)", "Ceftriaxone"] }] },
-        { num: 2, arTitle: "أدوية القلب والضغط والدهون", enTitle: "Cardiovascular System (CVS)", families: [{ ar: "أدوية الضغط والدهون", en: "Antihypertensives & Statins", mech: "تنظيم ضغط الدم والكوليسترول.", drugs: ["Concor", "Exforge", "Norvasc", "Lasix", "Lipitor", "Crestor", "Cardiopirin"] }] },
-        { num: 5, arTitle: "أدوية السكري والإنسولين", enTitle: "Diabetes Mellitus", families: [{ ar: "أدوية السكري", en: "Antidiabetics", mech: "تنظيم مستوى سكر الدم.", drugs: ["Glucophage", "Amaryl", "Januvia", "Jardiance", "Lantus", "Mixtard"] }] },
-        { num: 6, arTitle: "أدوية الغدة الدرقية", enTitle: "Thyroid Drugs", families: [{ ar: "هرمون الغدة", en: "Thyroid Hormones", mech: "صباحاً على معدة فارغة.", drugs: ["Euthyrox", "Eltroxin", "Neomercazole"] }] },
-        { num: 10, arTitle: "أدوية الجهاز الهضمي", enTitle: "GIT Drugs", families: [{ ar: "المعدة والقولون", en: "PPIs & Antispasmodics", mech: "حماية المعدة وتهدئة المغص.", drugs: ["Nexium", "Controloc", "Gaviscon", "Buscopan", "Duspatalin", "Motilium"] }] },
-        { num: 15, arTitle: "المسكنات والعظام والنقرس", enTitle: "Analgesics & Gout", families: [{ ar: "المسكنات والنقرس", en: "NSAIDs & Antigout", mech: "تسكين الألم وعلاج النقرس.", drugs: ["Panadol", "Brufen", "Voltaren", "Cataflam", "Myogesic", "Zyloric", "Adenuric"] }] }
+        { cat: "السعال والبلغم", boxTitle: "PROSPAN", boxSub: "Ivy Leaf Extract 100mL", c1: "#16a34a", c2: "#14532d", name: "Prospan Syrup (شراب بروسبان للسعال)", sci: "Dried Ivy Leaf Extract", baseUsd: 4.2, brands: "Prospan / Bronchicum / Mucosolvan", use: "مذيب بلغم عشبي آمن للأطفال والكبار." },
+        { cat: "الضغط والقلب", boxTitle: "CONCOR 5mg", boxSub: "Bisoprolol 5mg", c1: "#e11d48", c2: "#881337", name: "Concor 5mg / Exforge (أدوية الضغط)", sci: "Bisoprolol 5mg / Amlodipine + Valsartan", baseUsd: 4.5, brands: "Concor / Exforge / Co-Diovan", use: "ضبط ارتفاع ضغط الدم وحماية عضلة القلب." },
+        { cat: "السكري والفيتامينات", boxTitle: "GLUCOPHAGE", boxSub: "Metformin 500/850mg", c1: "#2563eb", c2: "#1e3a8a", name: "Glucophage 500/850mg (منظم السكر)", sci: "Metformin HCl", baseUsd: 2.8, brands: "Glucophage / Dialon / Cidophage", use: "تنظيم سكر الدم من النوع الثاني (مع أو بعد الطعام)." }
     ];
 
     const defaultBooksData = [
@@ -1951,28 +1861,33 @@
         { title: "OpenStax Organic Chemistry (Free PDF)", category: "المرحلة الأولى", desc: "الكتاب الجامعي الرسمي المجاني للكيمياء العضوية.", url: "https://openstax.org/details/books/organic-chemistry" },
         { title: "OpenStax Anatomy & Physiology (Free PDF)", category: "المرحلة الأولى", desc: "الكتاب الجامعي الرسمي للتشريح ووظائف الأعضاء.", url: "https://openstax.org/details/books/anatomy-and-physiology-2e" },
         { title: "Merck Manual Professional Edition", category: "الصيدلة السريرية", desc: "المرجع الطبي السريري الشامل للأمراض والعلاجات.", url: "https://www.merckmanuals.com/professional" },
-        { title: "FDA DailyMed Official Drug Labels", category: "النشر الدوائي الرسمي", desc: "قاعدة بيانات إدارة الغذاء والدواء الأمريكية للأدوية.", url: "https://dailymed.nlm.nih.gov/dailymed/" }
+        { title: "FDA DailyMed Official Drug Labels", category: "النشر الدوائي الرسمي", desc: "قاعدة بيانات إدارة الغذاء والدواء الأمريكية للأدوية.", url: "https://dailymed.nlm.nih.gov/dailymed/" },
+        { title: "WHO Essential Medicines List (PDF)", category: "منظمة الصحة العالمية", desc: "القائمة العالمية للأدوية الأساسية المعتمدة.", url: "https://www.who.int/groups/expert-committee-on-selection-and-use-of-essential-medicines/essential-medicines-lists" }
     ];
 
     const defaultDoseRules = [
         { id: "metro_125", name: "ميترونيدازول (Flagyl)", conc: "125", ruleText: "الوزن × 0.4", freq: "كل 8 ساعات", factor: 0.4 },
-        { id: "para_120", name: "باراسيتامول (Adol / Samadol)", conc: "120", ruleText: "5 × 10 × الوزن ÷ 120", freq: "حسب الحاجة", factor: 50 / 120 },
-        { id: "cefixime", name: "سيفيكسيم (Suprax)", conc: "100/5", ruleText: "الوزن × 0.4", freq: "مرة يومياً", factor: 0.4 },
-        { id: "ibu_100", name: "بروفين (Brufen)", conc: "100/5", ruleText: "الوزن ÷ 2", freq: "كل 8 ساعات", factor: 0.5 },
-        { id: "azith_200", name: "أزيثرومايسين (Zithromax)", conc: "200/5", ruleText: "الوزن × 0.25", freq: "مرة يومياً", factor: 0.25 },
+        { id: "metro_200", name: "ميترونيدازول (Flagyl)", conc: "200", ruleText: "الوزن × 0.25", freq: "كل 8 ساعات", factor: 0.25 },
+        { id: "para_120", name: "باراسيتامول (Adol / Samadol)", conc: "120", ruleText: "5 × 10 × الوزن ÷ 120", freq: "حسب الحاجة (كل 6-8 ساعات)", factor: 50 / 120 },
+        { id: "para_240", name: "باراسيتامول (Adol Forte)", conc: "240", ruleText: "5 × 10 × الوزن ÷ 240", freq: "حسب الحاجة (كل 6-8 ساعات)", factor: 50 / 240 },
+        { id: "cefixime", name: "سيفيكسيم (Suprax)", conc: "100/5", ruleText: "الوزن × 0.4", freq: "مرة واحدة يومياً", factor: 0.4 },
+        { id: "ibu_100", name: "بروفين (Brufen)", conc: "100/5", ruleText: "الوزن ÷ 2", freq: "كل 8 ساعات بعد الأكل", factor: 0.5 },
+        { id: "azith_200", name: "أزيثرومايسين (Zithromax)", conc: "200/5", ruleText: "الوزن × 0.25", freq: "مرة يومياً لمدة 3 أيام", factor: 0.25 },
         { id: "aug_156", name: "أوگمنتين (Augmentin)", conc: "156/312", ruleText: "الوزن × 0.533", freq: "كل 8 ساعات", factor: 0.533 }
     ];
 
     const defaultIvSolutions = {
         ringer: { name: "رينجر لاكتيت (Ringer Lactate)", label: "💧 الحجم (سي سي):", defaultDose: 500, hint: "محلول متوازن للإرواء وتعويض الشوارد." },
         saline: { name: "نورمال سالاين (Normal Saline 0.9%)", label: "💧 الحجم (سي سي):", defaultDose: 500, hint: "محلول ملحي متعادل للإرواء وتخفيف الأدوية." },
+        glucose: { name: "جلوكوز ماء (Dextrose 5% Water)", label: "🍬 الحجم (سي سي):", defaultDose: 500, hint: "مصدر للطاقة والسعرات." },
         para_iv: { name: "باراسيتامول مغذي (Perfalgan)", label: "🌡️ الحجم (سي سي):", defaultDose: 50, hint: "الوزن × 1.5 سي سي خلال ~15 دقيقة." }
     };
 
     const defaultScheduleMeds = [
         { title: "Levothyroxine (Euthyrox / Eltroxin)", tradeNames: "Euthyrox • Eltroxin • Synthroid", category: "الغدة الدرقية", timing: "صباحاً على معدة فارغة قبل الفطور بـ 30-60 دقيقة.", interactions: "يُفصل 4 ساعات عن الحديد والكالسيوم وأدوية الحموضة." },
         { title: "Atorvastatin / Rosuvastatin (Lipitor / Crestor)", tradeNames: "Lipitor • Crestor • Zocor", category: "الدهون", timing: "مرة يومياً (Zocor مساءً قبل النوم).", interactions: "تتعارض مع Klacid وعصير الجريب فروت." },
-        { title: "Esomeprazole / Pantoprazole (Nexium / Controloc)", tradeNames: "Nexium • Controloc • Losec", category: "المعدة", timing: "قبل الفطور بـ 30 دقيقة على معدة فارغة.", interactions: "Controloc هو الآمن مع مميع الدم Plavix." }
+        { title: "Esomeprazole / Pantoprazole (Nexium / Controloc)", tradeNames: "Nexium • Controloc • Losec", category: "المعدة", timing: "قبل الفطور بـ 30 دقيقة على معدة فارغة.", interactions: "Controloc هو الآمن مع مميع الدم Plavix." },
+        { title: "Bisoprolol / Amlodipine (Concor / Exforge)", tradeNames: "Concor • Exforge • Norvasc", category: "الضغط", timing: "صباحاً بعد الفطور بانتظام يومياً.", interactions: "تتأثر فعالية أدوية الضغط عند تناول المسكنات بكثرة." }
     ];
 
     function loadAppDatabase() {
@@ -1990,6 +1905,7 @@
             };
         }
         const p = JSON.parse(raw);
+        if (!p.classes || p.classes.length < 10) p.classes = JSON.parse(JSON.stringify(default24ClassesData));
         if (!p.stages) p.stages = JSON.parse(JSON.stringify(defaultStagesCurriculum));
         if (!p.customSections) p.customSections = [];
         return p;
@@ -1997,7 +1913,7 @@
     let appDB = loadAppDatabase();
     function saveAppDatabase() { localStorage.setItem(STORAGE_KEY_CUSTOM_DATA, JSON.stringify(appDB)); renderAllDynamicSections(); }
 
-    /* ================= 9. عمليات الإضافة والتعديل والحذف لكل الأقسام مع تسجيل فوري في سجل الإجراءات ================= */
+    /* ================= 9. عمليات الإضافة والتعديل والحذف لكل الأقسام ================= */
     let currentCrudAction = null;
     function openAdminCrudModal(title, fieldsHtml, onSaveFn) {
         document.getElementById('crudModalTitle').innerText = title;
@@ -2008,22 +1924,18 @@
     function closeAdminCrudModal() { document.getElementById('adminCrudModal').classList.remove('open'); currentCrudAction = null; }
     function saveAdminCrudAction() { if (currentCrudAction) currentCrudAction(); }
 
-    // 1. إضافة / حذف قسم رئيسي جديد في شريط التبويبات
     function openAddCustomSectionModal() {
         openAdminCrudModal("➕ إضافة قسم رئيسي جديد للبرنامج", `
             <div class="form-group"><label>اسم القسم (مع أيقونة):</label><input id="crud_sec_title" class="form-control" placeholder="🧪 قسم التحاليل المختبرية"></div>
             <div class="form-group"><label>محتوى القسم:</label><textarea id="crud_sec_body" class="form-control" rows="4" placeholder="اكتب تفاصيل القسم هنا..."></textarea></div>
         `, () => {
-            const title = document.getElementById('crud_sec_title').value.trim();
-            const body = document.getElementById('crud_sec_body').value.trim();
+            const title = document.getElementById('crud_sec_title').value.trim(), body = document.getElementById('crud_sec_body').value.trim();
             if (!title) return;
             appDB.customSections.push({ id: "custom_sec_" + Date.now(), title, body });
             recordAdminAuditAction('add', '➕ لقد قمت بإضافة قسم رئيسي جديد', `اسم القسم المضاف: ${title}`);
-            saveAppDatabase();
-            closeAdminCrudModal();
+            saveAppDatabase(); closeAdminCrudModal();
         });
     }
-
     function editCustomSection(idx) {
         const sec = appDB.customSections[idx];
         if (!sec) return;
@@ -2031,16 +1943,13 @@
             <div class="form-group"><label>اسم القسم:</label><input id="crud_sec_title" class="form-control" value="${sec.title}"></div>
             <div class="form-group"><label>محتوى القسم:</label><textarea id="crud_sec_body" class="form-control" rows="4">${sec.body}</textarea></div>
         `, () => {
-            const newTitle = document.getElementById('crud_sec_title').value.trim();
-            const newBody = document.getElementById('crud_sec_body').value.trim();
+            const newTitle = document.getElementById('crud_sec_title').value.trim(), newBody = document.getElementById('crud_sec_body').value.trim();
             if (!newTitle) return;
             recordAdminAuditAction('edit', '✏️ لقد قمت بتعديل قسم رئيسي', `تم تعديل قسم (${sec.title}) إلى (${newTitle})`);
             appDB.customSections[idx] = { ...sec, title: newTitle, body: newBody };
-            saveAppDatabase();
-            closeAdminCrudModal();
+            saveAppDatabase(); closeAdminCrudModal();
         });
     }
-
     function deleteCustomSection(idx) {
         const sec = appDB.customSections[idx];
         if (!sec) return;
@@ -2049,7 +1958,6 @@
         saveAppDatabase();
     }
 
-    // 2. إضافة / تعديل / حذف الشرابات
     function openAddSyrupModal() {
         openAdminCrudModal("➕ إضافة شراب جديد", `
             <div class="form-group"><label>اسم الشراب:</label><input id="crud_s_name" class="form-control"></div>
@@ -2072,7 +1980,6 @@
         saveAppDatabase();
     }
 
-    // 3. إضافة / تعديل / حذف المحاليل
     function openAddIvModal() {
         openAdminCrudModal("➕ إضافة محلول وريدي", `
             <div class="form-group"><label>اسم المحلول:</label><input id="crud_iv_name" class="form-control"></div>
@@ -2087,7 +1994,6 @@
         });
     }
 
-    // 4. إضافة / تعديل / حذف أدوية السوق
     function openAddMarketDrugModal() {
         openAdminCrudModal("➕ إضافة دواء للسوق", `
             <div class="form-group"><label>القسم:</label><input id="crud_mk_cat" class="form-control" value="النشلة والزكام"></div>
@@ -2129,7 +2035,6 @@
         saveAppDatabase();
     }
 
-    // 5. إضافة / تعديل / حذف الكلاسات والعوائل
     function openAddClassModal() {
         openAdminCrudModal("➕ إضافة كلاس دوائي جديد", `
             <div class="form-group"><label>اسم الكلاس بالعربي:</label><input id="crud_c_ar" class="form-control"></div>
@@ -2164,7 +2069,6 @@
         saveAppDatabase();
     }
 
-    // 6. إضافة / تعديل / حذف مواد الدراسة وروابط PDF
     function openAddStageSubjectModal() {
         openAdminCrudModal("➕ إضافة مادة دراسية ورابط PDF", `
             <div class="form-group"><label>رقم المرحلة (1 إلى 5):</label><input type="number" min="1" max="5" id="crud_st_yr" class="form-control" value="1"></div>
@@ -2175,10 +2079,7 @@
         `, () => {
             const yr = parseInt(document.getElementById('crud_st_yr').value) || 1;
             const stage = appDB.stages.find(s => s.yearNum === yr) || appDB.stages[0];
-            const name = document.getElementById('crud_st_name').value.trim();
-            const book = document.getElementById('crud_st_book').value.trim();
-            const officialUrl = document.getElementById('crud_st_url').value.trim() || "https://bnf.nice.org.uk/";
-            const summary = document.getElementById('crud_st_sum').value.trim();
+            const name = document.getElementById('crud_st_name').value.trim(), book = document.getElementById('crud_st_book').value.trim(), officialUrl = document.getElementById('crud_st_url').value.trim() || "https://bnf.nice.org.uk/", summary = document.getElementById('crud_st_sum').value.trim();
             if (!name) return;
             stage.subjects.push({ id: "sub_" + Date.now(), name, book, officialUrl, summary, pdfNotes: `<div class="pdf-box-highlight">${summary}</div>` });
             recordAdminAuditAction('add', '➕ لقد قمت بإضافة مادة دراسية ورابط PDF', `المادة: ${name} (المرحلة ${yr})`);
@@ -2215,7 +2116,6 @@
         saveAppDatabase();
     }
 
-    // 7. إضافة / تعديل / حذف مواعيد الأدوية
     function openAddScheduleMedModal() {
         openAdminCrudModal("➕ إضافة موعد دواء", `
             <div class="form-group"><label>الاسم العلمي:</label><input id="crud_m_title" class="form-control"></div>
@@ -2264,7 +2164,7 @@
     }
 
     function renderMarketCategoryChips() {
-        const cats = ["الكل", "النشلة والزكام", "وجع الجسم والمسكنات", "الالتهابات والمضادات", "الحموضة والمعدة", "الضغط والقلب"];
+        const cats = ["الكل", "النشلة والزكام", "وجع الجسم والمسكنات", "الالتهابات والمضادات", "الحموضة والمعدة", "السعال والبلغم", "الضغط والقلب", "السكري والفيتامينات"];
         document.getElementById('marketCategoryChips').innerHTML = cats.map(c => `<button class="chip-btn ${activeMarketCategory === c ? 'active' : ''}" onclick="activeMarketCategory='${c}'; renderMarketCategoryChips(); renderMarketDrugs();">${c}</button>`).join('');
     }
 
@@ -2295,7 +2195,7 @@
                     <div class="market-drug-body">
                         <h4>${item.name}</h4>
                         <span class="market-sci-name">${item.sci}</span>
-                        <div class="market-local-brand"><strong>🏷️ الأسماء التجارية:</strong> ${item.brands}</div>
+                        <div class="market-local-brand"><strong>🏷️</strong> ${item.brands}</div>
                         <p style="font-size:0.79rem;">${item.use}</p>
                         ${adminBtns}
                     </div>
@@ -2307,6 +2207,8 @@
     function renderFiveStagesWithSubjectPdfs() {
         const container = document.getElementById('fiveStagesContainer');
         if (!container) return;
+        const lang = localStorage.getItem(STORAGE_KEY_LANG) || "ar";
+        const t = i18nFull[lang] || i18nFull.ar;
         container.innerHTML = appDB.stages.map((stage, yIdx) => `
             <div class="stage-year-card">
                 <div class="stage-year-header">
@@ -2324,11 +2226,11 @@
                                     ${currentRoleState.canEditDrugs ? `<button class="admin-mini-del-btn" onclick="deleteStageSubject(${yIdx}, ${sIdx})">🗑️</button>` : ''}
                                 </div>
                                 <p>${sub.summary}</p>
-                                <div class="subject-ref-book">📚 المرجع: ${sub.book}</div>
+                                <div class="subject-ref-book">📚 ${sub.book}</div>
                             </div>
                             <div class="dual-action-row">
-                                <button class="mini-pdf-btn" onclick="openSubjectStudyPdf(${yIdx}, ${sIdx})">📄 ملزمة PDF</button>
-                                <a class="official-link-btn" href="${sub.officialUrl}" target="_blank" rel="noopener noreferrer">🔗 الرابط الرسمي</a>
+                                <button class="mini-pdf-btn" onclick="openSubjectStudyPdf(${yIdx}, ${sIdx})">${t.btnPdfText}</button>
+                                <a class="official-link-btn" href="${sub.officialUrl}" target="_blank" rel="noopener noreferrer">${t.btnOfficialLinkText}</a>
                             </div>
                         </div>
                     `).join('')}
@@ -2358,6 +2260,8 @@
     function renderPharmacyBooks() {
         const grid = document.getElementById('pharmacyBooksGrid');
         if (!grid) return;
+        const lang = localStorage.getItem(STORAGE_KEY_LANG) || "ar";
+        const t = i18nFull[lang] || i18nFull.ar;
         const q = (document.getElementById('booksSearchInput')?.value || "").trim().toLowerCase();
         grid.innerHTML = appDB.books.map((b, idx) => ({ b, idx })).filter(({ b }) => !q || `${b.title} ${b.category} ${b.desc}`.toLowerCase().includes(q)).map(({ b, idx }) => `
             <div class="learn-mini-card">
@@ -2369,7 +2273,7 @@
                     <h5 style="margin-top:5px;">📖 ${b.title}</h5>
                     <p style="font-size:0.79rem; margin:4px 0 8px;">${b.desc}</p>
                 </div>
-                <a class="official-link-btn" href="${b.url}" target="_blank" rel="noopener noreferrer">🔗 فتح الرابط الرسمي للكتاب والمصدر</a>
+                <a class="official-link-btn" href="${b.url}" target="_blank" rel="noopener noreferrer">${t.btnOfficialLinkText}</a>
             </div>
         `).join('');
     }
@@ -2378,7 +2282,7 @@
         const container = document.getElementById('familiesContainer');
         if (!container) return;
         container.innerHTML = appDB.classes.map((cls, cIdx) => `
-            <div class="accordion-item ${cIdx === 0 ? 'open' : ''}">
+            <div class="accordion-item ${cIdx < 3 ? 'open' : ''}">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
                     <div>
                         <span class="class-pill">Class ${cls.num}</span> ${cls.arTitle}
@@ -2413,18 +2317,31 @@
 
     function renderScheduleCards() {
         const container = document.getElementById('dynamicScheduleCardsContainer');
-        if (!container) return;
-        container.innerHTML = appDB.scheduleMeds.map((item, idx) => `
-            <div class="sub-family">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <h4 style="color:#a78bfa; font-size:0.9rem;">💊 ${item.title}</h4>
-                    ${currentRoleState.canEditDrugs ? `<button class="admin-mini-del-btn" onclick="deleteScheduleMed(${idx})">🗑️ حذف</button>` : ''}
+        if (container) {
+            container.innerHTML = appDB.scheduleMeds.map((item, idx) => `
+                <div class="sub-family">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h4 style="color:#a78bfa; font-size:0.9rem;">💊 ${item.title}</h4>
+                        ${currentRoleState.canEditDrugs ? `<button class="admin-mini-del-btn" onclick="deleteScheduleMed(${idx})">🗑️ حذف</button>` : ''}
+                    </div>
+                    ${item.tradeNames ? `<div class="trade-names-pill"><strong>🏷️</strong> ${item.tradeNames}</div>` : ''}
+                    <p style="font-size:0.82rem;"><strong>🕒</strong> ${item.timing}</p>
+                    <p style="font-size:0.82rem; color:#fde68a;"><strong>🔄</strong> ${item.interactions}</p>
                 </div>
-                ${item.tradeNames ? `<div class="trade-names-pill"><strong>🏷️ التجارية:</strong> ${item.tradeNames}</div>` : ''}
-                <p style="font-size:0.82rem;"><strong>🕒 الموعد:</strong> ${item.timing}</p>
-                <p style="font-size:0.82rem; color:#fde68a;"><strong>🔄 التداخلات:</strong> ${item.interactions}</p>
-            </div>
-        `).join('');
+            `).join('');
+        }
+
+        const slotsGrid = document.getElementById('dailyTimeSlotsGrid');
+        if (slotsGrid) {
+            const lang = localStorage.getItem(STORAGE_KEY_LANG) || "ar";
+            const t = i18nFull[lang] || i18nFull.ar;
+            slotsGrid.innerHTML = (t.slots || []).map(slot => `
+                <div class="time-slot-card">
+                    <h4>${slot.title}</h4>
+                    <ul>${slot.items.map(li => `<li>${li}</li>`).join('')}</ul>
+                </div>
+            `).join('');
+        }
     }
 
     function renderCustomSections() {
@@ -2479,7 +2396,7 @@
         const val = document.getElementById('presetDrug').value;
         document.getElementById('customDrugDoseGroup').style.display = (val === 'para_custom') ? 'block' : 'none';
         const found = appDB.syrups.find(r => r.id === val);
-        document.getElementById('activeRuleBanner').innerHTML = found ? `<strong>المعادلة:</strong> ${found.ruleText} • ${found.freq}` : `5 × 10 × الوزن ÷ الجرعة`;
+        document.getElementById('activeRuleBanner').innerHTML = found ? `<strong>Formula:</strong> ${found.ruleText} • ${found.freq}` : `5 × 10 × Weight ÷ Dose`;
         calculateSyrup();
     }
     function calculateSyrup() {
@@ -2488,10 +2405,10 @@
         const resBox = document.getElementById('syrupResult');
         if (isNaN(w) || w <= 0) { resBox.style.display = 'none'; return; }
         let ccVal = 0, label = "", freq = "";
-        if (val === 'para_custom') { const d = parseFloat(document.getElementById('customParaDose').value) || 120; ccVal = (50 * w) / d; label = `Paracetamol (${d})`; freq = "حسب الحاجة"; }
+        if (val === 'para_custom') { const d = parseFloat(document.getElementById('customParaDose').value) || 120; ccVal = (50 * w) / d; label = `Paracetamol (${d})`; freq = "q6-8h"; }
         else { const found = appDB.syrups.find(r => r.id === val); if (!found) return; ccVal = w * found.factor; label = found.name; freq = found.freq; }
         resBox.style.display = 'block';
-        resBox.innerHTML = `<h4>✅ الجرعة بالسي سي:</h4><p style="font-size:1.15rem;"><strong>${label}:</strong> <strong style="color:#22d3ee;">${ccVal.toFixed(2)} CC (مل)</strong> (${freq})</p>`;
+        resBox.innerHTML = `<p style="font-size:1.15rem;"><strong>${label}:</strong> <strong style="color:#22d3ee;">${ccVal.toFixed(2)} CC (mL)</strong> (${freq})</p>`;
     }
     function updateIvHint() {
         const meta = appDB.ivSolutions[document.getElementById('ivSolutionSelect').value];
@@ -2510,13 +2427,14 @@
         const resBox = document.getElementById('ivResult');
         if (vol <= 0) { resBox.style.display = 'none'; return; }
         resBox.style.display = 'block';
-        resBox.innerHTML = `<h4>💧 ${meta.name}:</h4><p>• <strong>${vol} CC</strong> • المعدل: <strong>${(vol / hrs).toFixed(1)} CC/hr</strong> • التقطير: <strong>${Math.round((vol * df) / (hrs * 60))} نقطة/دقيقة</strong></p>`;
+        resBox.innerHTML = `<h4>💧 ${meta.name}:</h4><p>• <strong>${vol} CC</strong> • Rate: <strong>${(vol / hrs).toFixed(1)} CC/hr</strong> • Drip: <strong>${Math.round((vol * df) / (hrs * 60))} drops/min</strong></p>`;
     }
 
     const aiExamBank = [
         { cat: "clinical", q: "مريضة حامل تعاني من ارتفاع ضغط الدم، أي دواء آمن ومناسب لها؟", options: ["Ramipril", "Valsartan", "Methyldopa (Aldomet)", "Atorvastatin"], correct: 2, explanation: "Methyldopa (Aldomet) آمن للحامل، بينما ACEi و ARBs ممنوعة." },
         { cat: "dosage", q: "طفل وزنه 15 كغم ويحتاج شراب ميترونيدازول 125 (الوزن × 0.4)، كم الجرعة بالسي سي؟", options: ["3 سي سي", "6 سي سي كل 8 ساعات", "10 سي سي", "2 سي سي"], correct: 1, explanation: "15 × 0.4 = 6 سي سي كل 8 ساعات." },
-        { cat: "otc", q: "مريض ضغط يطلب دواء لاحتقان الأنف، أي دواء يجب تجنبه؟", options: ["بخاخ ماء البحر", "Loratadine", "Panadol Cold & Flu (Pseudoephedrine)", "Paracetamol"], correct: 2, explanation: "Pseudoephedrine يرفع ضغط الدم." }
+        { cat: "otc", q: "مريض ضغط يطلب دواء لاحتقان الأنف، أي دواء يجب تجنبه؟", options: ["بخاخ ماء البحر", "Loratadine", "Panadol Cold & Flu (Pseudoephedrine)", "Paracetamol"], correct: 2, explanation: "Pseudoephedrine يرفع ضغط الدم." },
+        { cat: "clinical", q: "ما هو الترياق المنقذ للحياة في حالة التسمم بالباراسيتامول؟", options: ["Naloxone", "Vitamin K1", "N-Acetylcysteine (NAC)", "Atropine"], correct: 2, explanation: "NAC يعوض الجلوتاثيون في الكبد ويمنع تلفه." }
     ];
     let currentExamQuestions = [];
     function generateAiExam() {
@@ -2544,11 +2462,11 @@
         const q = (document.getElementById('otcExamplesSearch')?.value || "").trim().toLowerCase();
         const items = [];
         for (let i = 1; i <= 520; i++) {
-            const text = i % 3 === 0 ? "الصداع للحامل: يُصرف Paracetamol فقط وتُمنع NSAIDs" : i % 3 === 1 ? "الرشح لمريض الضغط: يُمنع Pseudoephedrine ويُصرف بخاخ ماء البحر" : "كبسولات المعدة (Nexium / Controloc): قبل الفطور بـ 30 دقيقة";
+            const text = i % 4 === 0 ? "الصداع للحامل: يُصرف Paracetamol فقط وتُمنع NSAIDs (Brufen/Voltaren)" : i % 4 === 1 ? "الرشح لمريض الضغط: يُمنع Pseudoephedrine ويُصرف بخاخ ماء البحر" : i % 4 === 2 ? "كبسولات المعدة (Nexium / Controloc): قبل الفطور بـ 30 دقيقة" : "حبوب الكوليسترول (Lipitor / Crestor / Zocor): مرة واحدة مساءً";
             if (!q || text.toLowerCase().includes(q)) items.push(`<div class="otc-example-card"><strong>💊 مثال صرف ميداني #${i}</strong><div>${text}</div></div>`);
         }
         document.getElementById('otcTotalBadge').innerText = `${items.length} / 520`;
-        container.innerHTML = items.slice(0, 60).join('');
+        container.innerHTML = items.slice(0, 75).join('');
     }
 
     function toggleSubAccordion(h) { h.parentElement.classList.toggle('open'); }
@@ -2576,9 +2494,10 @@
         if (q.length < 2) { resBox.style.display = 'none'; return; }
         let hits = [];
         appDB.marketDrugs.forEach(m => { if (`${m.name} ${m.sci} ${m.use}`.toLowerCase().includes(q)) hits.push(`<div class="instant-hit"><strong>🏪 ${m.name}</strong><span>${m.use}</span></div>`); });
+        appDB.classes.forEach(c => { c.families.forEach(f => { if (`${c.arTitle} ${f.ar} ${f.drugs.join(' ')}`.toLowerCase().includes(q)) hits.push(`<div class="instant-hit"><strong>🧬 Class ${c.num}: ${f.ar}</strong><span>${f.drugs.join(' • ')}</span></div>`); }); });
         appDB.scheduleMeds.forEach(m => { if (`${m.title} ${m.tradeNames} ${m.timing}`.toLowerCase().includes(q)) hits.push(`<div class="instant-hit"><strong>🕒 ${m.title}</strong><span>${m.timing}</span></div>`); });
         resBox.style.display = 'block';
-        list.innerHTML = hits.slice(0, 10).join('') || `<div class="instant-hit"><strong>🔍 لا توجد نتائج مطابقة</strong></div>`;
+        list.innerHTML = hits.slice(0, 12).join('') || `<div class="instant-hit"><strong>🔍 لا توجد نتائج مطابقة</strong></div>`;
     });
     function clearAiSearch() { aiSearchInput.value = ""; document.getElementById('aiInstantResults').style.display = 'none'; document.getElementById('clearSearchBtn').style.display = 'none'; }
 
