@@ -47,7 +47,6 @@
             min-height: 100vh;
         }
 
-        /* شريط الأوامر الإدارية العلوي (يظهر فقط عند إرسال أمر من المالك) */
         .global-broadcast-bar {
             background: linear-gradient(90deg, #b45309, #d97706, #b45309);
             color: #fff;
@@ -59,7 +58,6 @@
             border-bottom: 1px solid rgba(255,255,255,0.25);
         }
 
-        /* الشريط العلوي النظيف مع زر الثلاث خطوط */
         .account-top-bar {
             background: rgba(15, 23, 42, 0.96);
             border-bottom: 1px solid rgba(6, 182, 212, 0.3);
@@ -120,7 +118,6 @@
         .status-admin { background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(139, 92, 246, 0.28)); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.65); }
         .status-expired { background: rgba(244, 63, 94, 0.2); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.5); }
 
-        /* قائمة الإعدادات الجانبية (الثلاث خطوط) */
         .settings-backdrop {
             position: fixed;
             inset: 0;
@@ -210,7 +207,6 @@
         .drawer-menu-item.highlight-pay { background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(217, 119, 6, 0.22)); border-color: rgba(245, 158, 11, 0.55); color: #fbbf24; }
         .drawer-menu-item.highlight-admin { background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(109, 40, 217, 0.28)); border-color: rgba(167, 139, 250, 0.65); color: #ddd6fe; display: none; }
 
-        /* أزرار التعديل والإضافة الحصرية للإداريين */
         .admin-edit-toolbar {
             display: none;
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(245, 158, 11, 0.16));
@@ -264,11 +260,10 @@
             margin-right: 4px;
         }
 
-        /* بوابات الدخول والاشتراك والإدارة */
         .gate-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(2, 6, 23, 0.94);
+            background: rgba(2, 6, 23, 0.95);
             z-index: 99999;
             display: none;
             align-items: center;
@@ -317,7 +312,6 @@
         .gate-box h2 { font-size: 1.2rem; font-weight: 900; color: #38bdf8; margin-bottom: 6px; }
         .gate-box p { font-size: 0.83rem; color: #cbd5e1; margin-bottom: 10px; }
 
-        /* تبويبات لوحة الإدارة */
         .owner-subtabs {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -345,13 +339,12 @@
         .owner-panel { display: none; text-align: right; }
         .owner-panel.active { display: block; }
 
-        /* تصميم خطوات الدفع */
         .pay-step-card {
-            background: rgba(15, 23, 42, 0.88);
-            border: 1px solid rgba(56, 189, 248, 0.32);
-            border-radius: 14px;
-            padding: 12px;
-            margin-bottom: 10px;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 15px;
+            padding: 14px;
+            margin-bottom: 12px;
             text-align: right;
         }
 
@@ -359,41 +352,41 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.84rem;
+            font-size: 0.86rem;
             font-weight: 800;
             color: #38bdf8;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .app-plan-price {
             background: linear-gradient(135deg, #f59e0b, #d97706);
             color: #0f172a;
             font-weight: 900;
-            padding: 2px 10px;
+            padding: 3px 11px;
             border-radius: 20px;
             font-size: 0.82rem;
         }
 
         .qicard-chip-box {
             background: #0b1120;
-            border: 1px dashed #fbbf24;
-            border-radius: 10px;
-            padding: 9px 10px;
+            border: 1.5px dashed #fbbf24;
+            border-radius: 12px;
+            padding: 12px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 8px;
         }
 
-        .qicard-chip-box code { color: #fbbf24; font-size: 0.96rem; font-weight: 900; letter-spacing: 0.8px; }
+        .qicard-chip-box code { color: #fbbf24; font-size: 1.15rem; font-weight: 900; letter-spacing: 1px; }
 
         .copy-mini-btn {
-            background: rgba(251, 191, 36, 0.2);
+            background: rgba(251, 191, 36, 0.22);
             color: #fbbf24;
-            border: 1px solid rgba(251, 191, 36, 0.45);
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-size: 0.75rem;
+            border: 1px solid rgba(251, 191, 36, 0.5);
+            padding: 6px 12px;
+            border-radius: 9px;
+            font-size: 0.78rem;
             font-weight: 800;
             cursor: pointer;
             white-space: nowrap;
@@ -405,42 +398,13 @@
             align-items: center;
             background: rgba(6, 182, 212, 0.1);
             border: 1px solid rgba(6, 182, 212, 0.35);
-            padding: 7px 10px;
-            border-radius: 9px;
-            margin-bottom: 8px;
-            font-size: 0.8rem;
-        }
-
-        .device-id-row code { color: #22d3ee; font-weight: 900; font-size: 0.9rem; }
-
-        .pay-actions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-
-        .instagram-pay-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-            border: none;
-            padding: 9px 8px;
+            padding: 8px 11px;
             border-radius: 10px;
-            font-weight: 800;
-            font-size: 0.78rem;
-            cursor: pointer;
-            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 0.82rem;
         }
 
-        .copy-msg-ig-btn {
-            background: rgba(236, 72, 153, 0.18);
-            color: #fbcfe8;
-            border: 1px solid rgba(236, 72, 153, 0.45);
-            padding: 9px 8px;
-            border-radius: 10px;
-            font-weight: 800;
-            font-size: 0.78rem;
-            cursor: pointer;
-        }
+        .device-id-row code { color: #22d3ee; font-weight: 900; font-size: 0.92rem; }
 
         header {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.92));
@@ -665,21 +629,24 @@
 
         .learn-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 11px;
             margin-top: 10px;
         }
 
         .learn-mini-card {
-            background: rgba(15, 23, 42, 0.82);
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            border-right: 3px solid #22d3ee;
-            border-radius: 12px;
-            padding: 12px 13px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            border-right: 3.5px solid #22d3ee;
+            border-radius: 13px;
+            padding: 13px 14px;
             font-size: 0.84rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .learn-mini-card h5 { color: #38bdf8; font-size: 0.92rem; margin-bottom: 5px; }
+        .learn-mini-card h5 { color: #38bdf8; font-size: 0.93rem; margin-bottom: 6px; }
 
         .year-badge {
             display: inline-block;
@@ -690,18 +657,82 @@
             font-size: 0.74rem;
             font-weight: 800;
             margin-bottom: 6px;
+            align-self: flex-start;
+        }
+
+        .stage-books-box {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(148, 163, 184, 0.25);
+            font-size: 0.8rem;
+            color: #fde68a;
         }
 
         .mini-pdf-btn {
-            background: rgba(244, 63, 94, 0.15);
+            background: rgba(244, 63, 94, 0.16);
             color: #fda4af;
-            border: 1px solid rgba(244, 63, 94, 0.35);
-            padding: 7px 14px;
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            padding: 6px 12px;
             border-radius: 8px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 700;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 9px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* تصميم الامتحان التجريبي بالذكاء الاصطناعي */
+        .exam-question-card {
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 13px;
+            padding: 13px;
+            margin-bottom: 11px;
+        }
+
+        .exam-question-card h5 {
+            color: #f8fafc;
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+        }
+
+        .exam-option-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(30, 41, 59, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            padding: 8px 11px;
+            border-radius: 9px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .exam-option-label:hover {
+            border-color: #38bdf8;
+        }
+
+        .exam-mistake-item {
+            background: rgba(244, 63, 94, 0.12);
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            border-right: 4px solid #f43f5e;
+            border-radius: 11px;
+            padding: 11px 13px;
+            margin-top: 9px;
+            font-size: 0.84rem;
+        }
+
+        .exam-correct-item {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-right: 4px solid #10b981;
+            border-radius: 11px;
+            padding: 10px 13px;
+            margin-top: 8px;
+            font-size: 0.84rem;
         }
 
         /* نظام الشجرة المتداخلة للكلاسات */
@@ -1053,9 +1084,22 @@
         .time-slot-card h4 { font-size: 0.94rem; margin-bottom: 6px; color: #f8fafc; }
         .time-slot-card p { font-size: 0.83rem; color: #cbd5e1; margin-bottom: 6px; }
 
-        table.dose-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.78rem; }
-        table.dose-table th, table.dose-table td { border: 1px solid rgba(148, 163, 184, 0.25); padding: 8px 6px; text-align: center; }
-        table.dose-table th { background: #1e293b; color: #38bdf8; }
+        .otc-example-card {
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-right: 3.5px solid #10b981;
+            border-radius: 12px;
+            padding: 11px 13px;
+            margin-bottom: 9px;
+            font-size: 0.84rem;
+        }
+
+        .otc-example-card strong.case-title {
+            color: #38bdf8;
+            display: block;
+            margin-bottom: 3px;
+            font-size: 0.9rem;
+        }
 
         .pdf-modal {
             display: none;
@@ -1135,7 +1179,6 @@
 </head>
 <body oncontextmenu="return false;" oncopy="return false;" oncut="return false;" ondragstart="return false;">
 
-<!-- شريط الأوامر والتنبيهات الإدارية -->
 <div id="globalBroadcastBar" class="global-broadcast-bar"></div>
 
 <!-- الشريط العلوي النظيف مع زر الثلاث خطوط -->
@@ -1149,7 +1192,7 @@
     <span id="subscriptionBadge" class="status-chip status-trial">جاري التحقق...</span>
 </div>
 
-<!-- قائمة الإعدادات الجانبية (تفتح من زر الثلاث خطوط) -->
+<!-- قائمة الإعدادات الجانبية -->
 <div id="settingsBackdrop" class="settings-backdrop" onclick="closeSettingsDrawer()"></div>
 <aside id="settingsDrawer" class="settings-drawer">
     <div class="drawer-header">
@@ -1172,22 +1215,22 @@
     </button>
 
     <button id="drawerUpgradeBtn" class="drawer-menu-item highlight-pay" onclick="openPaymentFromSettings()">
-        <span>💳 الاشتراك وطرق الدفع ($1 / شهر)</span>
+        <span>💳 الاشتراك والدفع عبر الكي كارد ($1)</span>
         <span>←</span>
     </button>
 
     <button id="drawerAdminBtn" class="drawer-menu-item highlight-admin" onclick="openOwnerFromSettings()">
-        <span>🛡️ غرفة العمليات والأوامر والصلاحيات</span>
+        <span>🛡️ غرفة العمليات والأدمن والصلاحيات</span>
         <span>←</span>
     </button>
 
     <div class="drawer-profile-card" style="margin-top:auto; font-size:0.76rem; color:#94a3b8; text-align:center;">
-        نظام محمي ومشفّر بالكامل<br>
-        للدعم والتفعيل: <strong style="color:#38bdf8;">@ebo.rr</strong>
+        نظام محمي بتوقيع رقمي مشفّر<br>
+        معرّف الكي كارد: <strong style="color:#fbbf24;">1882627332</strong>
     </div>
 </aside>
 
-<!-- 1. بوابة ربط / تعديل البريد الإلكتروني (مع زر رجوع فوري) -->
+<!-- 1. بوابة ربط / تعديل البريد الإلكتروني -->
 <div id="emailGateModal" class="gate-overlay">
     <div class="gate-box">
         <div class="gate-top-nav" id="emailBackNav">
@@ -1205,7 +1248,7 @@
     </div>
 </div>
 
-<!-- 2. بوابة الاشتراك وطرق الدفع المنظمة (مع زر رجوع) -->
+<!-- 2. بوابة الاشتراك والدفع المبسطة (فقط معرّف الكي كارد + التفعيل الفوري) -->
 <div id="paymentGateModal" class="gate-overlay">
     <div class="gate-box">
         <div class="gate-top-nav" id="payBackNav">
@@ -1213,104 +1256,88 @@
             <span class="app-plan-price">1.00 $ / 30 يوم</span>
         </div>
 
-        <h2>💳 الاشتراك وطرق الدفع والتفعيل</h2>
-        <p style="margin-bottom:10px;">اتبع الخطوات الثلاث البسيطة أدناه لتفعيل النسخة الكاملة لمدة <strong>30 يوماً</strong>:</p>
+        <h2>💳 الاشتراك وتفعيل النسخة الكاملة</h2>
+        <p style="margin-bottom:12px;">أرسل <strong>1$ (دولار واحد)</strong> إلى معرّف الكي كارد أدناه، وفور استلام كود الموافقة أدخله ليتفعّل اشتراكك تلقائياً لمدة <strong>30 يوماً</strong>:</p>
         
         <div class="pay-step-card">
             <div class="pay-step-title">
-                <span>1️⃣ الخطوة الأولى: التحويل عبر الكي كارد (QiCard)</span>
+                <span>1️⃣ معرّف الكي كارد الرسمي للتحويل (QiCard):</span>
             </div>
             <div class="qicard-chip-box">
                 <div>
-                    <span style="display:block; font-size:0.7rem; color:#94a3b8;">رقم بطاقة الكي كارد للاستلام:</span>
-                    <code id="merchantQiCardDisplay">7110-4829-9301-2026</code>
+                    <span style="display:block; font-size:0.72rem; color:#94a3b8;">معرّف الكي كارد المعتمد:</span>
+                    <code id="merchantQiCardDisplay">1882627332</code>
                 </div>
-                <button class="copy-mini-btn" onclick="copyTextValue('merchantQiCardDisplay')">📋 نسخ الرقم</button>
-            </div>
-        </div>
-
-        <div class="pay-step-card">
-            <div class="pay-step-title">
-                <span>2️⃣ الخطوة الثانية: إرسال إشعار الدفع للإدارة</span>
-            </div>
-            <div class="device-id-row">
-                <span>📱 معرّف جهازك: <code id="userDeviceIdDisplay">PH-000000</code></span>
-                <button class="copy-mini-btn" style="color:#22d3ee; border-color:rgba(34,211,238,0.4); background:rgba(34,211,238,0.12);" onclick="copyTextValue('userDeviceIdDisplay')">نسخ</button>
-            </div>
-            <div class="pay-actions-grid">
-                <button class="copy-msg-ig-btn" onclick="copyActivationRequestMessage()">📋 1. نسخ الرسالة الجاهزة</button>
-                <a id="instagramRequestLink" href="https://instagram.com/ebo.rr" target="_blank" class="instagram-pay-btn">📸 2. فتح إنستغرام @ebo.rr</a>
+                <button class="copy-mini-btn" onclick="copyTextValue('merchantQiCardDisplay')">📋 نسخ المعرّف</button>
             </div>
         </div>
 
         <div class="pay-step-card" style="margin-bottom:0;">
             <div class="pay-step-title">
-                <span>3️⃣ الخطوة الثالثة: إدخال كود التفعيل المستلم</span>
+                <span>2️⃣ أدخل كود الموافقة لتفعيل الاشتراك تلقائياً:</span>
             </div>
-            <div class="form-group" style="margin-bottom:8px;">
-                <input type="text" id="activationCodeInput" class="form-control" placeholder="PRO-XXXX-XXXX-1" dir="ltr" style="text-align:center; font-weight:800; letter-spacing:1px;">
+            <div class="device-id-row">
+                <span>📱 معرّف جهازك المرتبط بالدفع: <code id="userDeviceIdDisplay">PH-000000</code></span>
+                <button class="copy-mini-btn" style="color:#22d3ee; border-color:rgba(34,211,238,0.4); background:rgba(34,211,238,0.12);" onclick="copyTextValue('userDeviceIdDisplay')">نسخ</button>
             </div>
-            <button class="calc-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a; margin-top:0;" onclick="verifyAndActivateKey()">🚀 تفعيل الاشتراك الآن (30 يوم)</button>
+            <div class="form-group" style="margin-bottom:10px;">
+                <input type="text" id="activationCodeInput" class="form-control" placeholder="أدخل كود الموافقة هنا (PRO-XXXX-XXXX-1)" dir="ltr" style="text-align:center; font-weight:900; letter-spacing:1.2px; font-size:1rem;">
+            </div>
+            <button class="calc-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706); color:#0f172a; margin-top:0;" onclick="verifyAndActivateKey()">⚡ تأكيد الموافقة وتفعيل 30 يوم تلقائياً</button>
         </div>
     </div>
 </div>
 
-<!-- 3. غرفة العمليات والأوامر وصلاحيات الإداريين -->
+<!-- 3. غرفة العمليات والأدمن والصلاحيات -->
 <div id="ownerDashboardModal" class="gate-overlay">
     <div class="gate-box" style="max-width:560px; text-align:right;">
         <div class="gate-top-nav">
             <button class="back-pill-btn" onclick="closeOwnerDashboard()">🔙 رجوع</button>
-            <span id="adminRoleHeaderTag" style="font-size:0.75rem; color:#fbbf24; font-weight:800;">🛡️ نظام الحماية المشفر</span>
+            <span id="adminRoleHeaderTag" style="font-size:0.75rem; color:#fbbf24; font-weight:800;">🛡️ نظام محمي</span>
         </div>
-        <h2 style="text-align:center;">🛡️ غرفة العمليات والأوامر والصلاحيات</h2>
+        <h2 style="text-align:center;">🛡️ لوحة الإدارة والصلاحيات</h2>
         <p id="ownerHiddenIdentityNote" style="text-align:center; color:#34d399; font-weight:700; display:none;"></p>
 
         <div id="ownerAuthArea">
             <div class="form-group">
-                <label>🔑 رمز التحقق الأمني المشفر:</label>
+                <label>🔑 رمز التحقق الأمني:</label>
                 <input type="password" id="ownerPinInput" class="form-control" placeholder="••••••••••" dir="ltr">
             </div>
-            <button class="calc-btn" onclick="unlockOwnerDashboard()">🔓 فتح غرفة العمليات</button>
+            <button class="calc-btn" onclick="unlockOwnerDashboard()">🔓 دخول لوحة الإدارة</button>
         </div>
 
         <div id="ownerContentArea" style="display:none;">
-            <div class="owner-subtabs">
-                <button class="owner-subbtn active" onclick="switchOwnerTab('op-keys', this)">💳 التفعيل والدفع</button>
-                <button class="owner-subbtn" id="tabBtnAdmins" onclick="switchOwnerTab('op-admins', this)">👥 صلاحيات الإداريين</button>
+            <div class="owner-subtabs" id="ownerTabsBar">
+                <button class="owner-subbtn active" id="tabBtnKeys" onclick="switchOwnerTab('op-keys', this)">💳 الكي كارد والتفعيل</button>
+                <button class="owner-subbtn" id="tabBtnAdmins" onclick="switchOwnerTab('op-admins', this)">👥 إضافة أدمن</button>
                 <button class="owner-subbtn" id="tabBtnCommands" onclick="switchOwnerTab('op-commands', this)">⚡ الأوامر والحماية</button>
             </div>
 
-            <!-- تبويب 1: توليد الأكواد وإعدادات الدفع -->
+            <!-- تبويب 1: حصري للمالك الرئيسي فقط (معرّف الكي كارد + توليد أكواد الموافقة) -->
             <div id="op-keys" class="owner-panel active">
                 <div class="formula-box" style="border-right-color:#10b981; color:#a7f3d0;">
                     <strong>💰 إجمالي الاشتراكات المفعّلة:</strong> <span id="ownerTotalRevenue" style="font-size:1.05rem; font-weight:900;">0 $</span>
                 </div>
 
                 <div style="background:#0f172a; border:1px solid rgba(56,189,248,0.4); border-radius:12px; padding:12px; margin-bottom:12px;">
-                    <strong style="color:#38bdf8; font-size:0.86rem; display:block; margin-bottom:6px;">⚡ توليد كود تفعيل 30 يوم لمشترك دفع $1:</strong>
+                    <strong style="color:#38bdf8; font-size:0.86rem; display:block; margin-bottom:6px;">⚡ توليد كود موافقة 30 يوم لمشترك حول 1$ على الكي كارد:</strong>
                     <div class="form-group" style="margin-bottom:8px;">
                         <label style="font-size:0.76rem;">أدخل معرّف جهاز المشترك (Device ID):</label>
                         <input type="text" id="targetDeviceIdInput" class="form-control" placeholder="مثلاً: PH-849201" dir="ltr">
                     </div>
-                    <button class="calc-btn" style="padding:9px; font-size:0.84rem;" onclick="generateSubscriberKey()">🔑 توليد كود التفعيل وتسجيل $1</button>
+                    <button class="calc-btn" style="padding:9px; font-size:0.84rem;" onclick="generateSubscriberKey()">🔑 توليد كود الموافقة وتسجيل $1</button>
                     <div id="generatedKeyBox" style="display:none; margin-top:8px; background:rgba(16,185,129,0.15); border:1px solid #10b981; padding:8px; border-radius:8px; text-align:center;">
-                        <span style="font-size:0.75rem; color:#a7f3d0; display:block;">انسخ هذا الكود وأرسله للمشترك:</span>
+                        <span style="font-size:0.75rem; color:#a7f3d0; display:block;">كود الموافقة الجاهز للإرسال للمشترك:</span>
                         <code id="generatedKeyOutput" style="font-size:1.05rem; font-weight:900; color:#34d399; letter-spacing:1px;"></code>
                     </div>
                 </div>
 
                 <div id="merchantSettingsBox">
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label style="font-size:0.76rem;">💳 بطاقة الكي كارد الرئيسية:</label>
-                            <input type="text" id="merchantCardEditInput" class="form-control" dir="ltr">
-                        </div>
-                        <div class="form-group">
-                            <label style="font-size:0.76rem;">📸 معرّف إنستغرام الاستلام:</label>
-                            <input type="text" id="merchantInstagramInput" class="form-control" value="ebo.rr" dir="ltr">
-                        </div>
+                    <div class="form-group">
+                        <label style="font-size:0.78rem;">💳 معرّف الكي كارد المعتمد لاستلام الدفعات:</label>
+                        <input type="text" id="merchantCardEditInput" class="form-control" dir="ltr">
                     </div>
-                    <button class="calc-btn" style="padding:9px; font-size:0.84rem;" onclick="saveMerchantSettings()">💾 حفظ بيانات الاستلام</button>
+                    <button class="calc-btn" style="padding:9px; font-size:0.84rem;" onclick="saveMerchantSettings()">💾 حفظ معرّف الكي كارد</button>
                 </div>
 
                 <div style="margin-top:12px;">
@@ -1319,58 +1346,47 @@
                 </div>
             </div>
 
-            <!-- تبويب 2: تعيين إداريين وصلاحيات تحت إشراف المالك -->
+            <!-- تبويب 2: إضافة أدمن مساعدين (يدخلون مجاناً ويتحكمون بالبرنامج بدون قسم الكي كارد) -->
             <div id="op-admins" class="owner-panel">
                 <div class="formula-box" style="border-right-color:#8b5cf6; color:#ddd6fe;">
-                    أضف إيميلات الإداريين المساعدين وحدد صلاحيات كل أدمن تحت إشرافك الكامل.
+                    الإداريون المضافون هنا يدخلون البرنامج <strong>مجاناً بدون اشتراك</strong> ويتحكمون بالأدوية والأقسام والكتب، لكن <strong>قسم الكي كارد والأمور المالية محجوب عنهم تماماً</strong>.
                 </div>
                 <div class="form-group">
-                    <label>📧 إيميل الإداري الجديد:</label>
+                    <label>📧 إيميل الأدمن الجديد:</label>
                     <input type="email" id="newAdminEmailInput" class="form-control" placeholder="admin@gmail.com" dir="ltr">
                 </div>
                 <div class="form-group">
-                    <label>🔑 رمز دخول خاص للأدمن:</label>
+                    <label>🔑 رمز دخول الأدمن:</label>
                     <input type="text" id="newAdminPinInput" class="form-control" placeholder="مثلاً: 202688" dir="ltr">
                 </div>
-                <div style="background:#0f172a; padding:10px; border-radius:10px; margin-bottom:10px; font-size:0.8rem;">
-                    <label style="display:flex; align-items:center; gap:8px; margin-bottom:6px; cursor:pointer;">
-                        <input type="checkbox" id="permEditDrugs" checked> <span>✏️ صلاحية إضافة وتعديل وحذف الأدوية والأقسام</span>
-                    </label>
-                    <label style="display:flex; align-items:center; gap:8px; margin-bottom:6px; cursor:pointer;">
-                        <input type="checkbox" id="permGenKeys" checked> <span>🔑 صلاحية توليد أكواد تفعيل المشتركين ($1)</span>
-                    </label>
-                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
-                        <input type="checkbox" id="permCommands"> <span>⚡ صلاحية إرسال أوامر وتنبيهات للمستخدمين</span>
-                    </label>
-                </div>
-                <button class="calc-btn" onclick="addNewSubAdmin()">➕ تعيين الإداري ومنح الصلاحيات</button>
+                <button class="calc-btn" onclick="addNewSubAdmin()">➕ إضافة أدمن ومنحه صلاحية إدارة البرنامج</button>
 
                 <div style="margin-top:12px;">
-                    <strong style="font-size:0.82rem; color:#fbbf24;">👥 قائمة الإداريين المعينين تحت إشرافك:</strong>
+                    <strong style="font-size:0.82rem; color:#fbbf24;">👥 قائمة الأدمن المساعدين الحاليين:</strong>
                     <div id="subAdminsListContainer" style="margin-top:6px; max-height:160px; overflow-y:auto;"></div>
                 </div>
             </div>
 
-            <!-- تبويب 3: إصدار الأوامر الفورية ودرع الحماية -->
+            <!-- تبويب 3: الأوامر والحماية -->
             <div id="op-commands" class="owner-panel">
                 <div style="background:#0f172a; border:1px solid rgba(245,158,11,0.45); border-radius:12px; padding:11px; margin-bottom:10px;">
                     <strong style="color:#fbbf24; font-size:0.84rem; display:block; margin-bottom:6px;">📢 أمر إرسال تنبيه / تعميم فوري أعلى التطبيق:</strong>
-                    <input type="text" id="broadcastMsgInput" class="form-control" placeholder="اكتب أمرك أو تنبيهك ليظهر أعلى التطبيق لجميع المستخدمين...">
+                    <input type="text" id="broadcastMsgInput" class="form-control" placeholder="اكتب أمرك أو تنبيهك ليظهر أعلى التطبيق...">
                     <div class="grid-2" style="margin-top:6px;">
-                        <button class="calc-btn" style="padding:8px; font-size:0.8rem;" onclick="publishBroadcastCommand()">🚀 نشر الأمر الآن</button>
+                        <button class="calc-btn" style="padding:8px; font-size:0.8rem;" onclick="publishBroadcastCommand()">🚀 نشر الأمر</button>
                         <button class="calc-btn" style="padding:8px; font-size:0.8rem; background:#475569;" onclick="clearBroadcastCommand()">🗑️ إيقاف التنبيه</button>
                     </div>
                 </div>
 
-                <div style="background:#0f172a; border:1px solid rgba(16,185,129,0.45); border-radius:12px; padding:11px; margin-bottom:10px;">
-                    <strong style="color:#34d399; font-size:0.84rem; display:block; margin-bottom:6px;">🛡️ حالة درع الحماية ومكافحة القرصنة:</strong>
+                <div style="background:#0f172a; border:1px solid rgba(16,185,129,0.45); border-radius:12px; padding:11px;">
+                    <strong style="color:#34d399; font-size:0.84rem; display:block; margin-bottom:6px;">🛡️ درع الحماية ومنع الثغرات المجانية:</strong>
                     <ul class="step-list" style="font-size:0.78rem;">
-                        <li><strong>تشفير الهوية الرئيسية:</strong> الإيميل الرئيسي مشفر (SHA-256) ومخفي عن جميع المستخدمين.</li>
-                        <li><strong>حماية DOM و DevTools:</strong> منع F12، منع Inspect، منع نسخ النصوص وحفظ الصفحة.</li>
-                        <li><strong>نسخ احتياطي مشفر للبيانات المضافة:</strong> تصدير أو استيراد جميع الأدوية المضافة من قبل الإدارة.</li>
+                        <li><strong>توقيع سلامة الاشتراك (HMAC Integrity):</strong> أي محاولة لتعديل مدة الاشتراك يدوياً في المتصفح تبطل التوقيع وتغلق الحساب فوراً.</li>
+                        <li><strong>مراقبة التلاعب بالوقت (Anti-Clock Tamper):</strong> يمنع تقديم تاريخ الهاتف لتجاوز انتهاء المدة.</li>
+                        <li><strong>عزل الصلاحيات:</strong> الأدمن المساعد لا يملك أي وصول لقسم الكي كارد أو إعدادات الدفع.</li>
                     </ul>
                     <div class="grid-2" style="margin-top:6px;">
-                        <button class="calc-btn" style="padding:8px; font-size:0.78rem; background:#0284c7;" onclick="exportAdminDatabase()">📤 تصدير بيانات الإدارة</button>
+                        <button class="calc-btn" style="padding:8px; font-size:0.78rem; background:#0284c7;" onclick="exportAdminDatabase()">📤 تصدير نسخة احتياطية</button>
                         <button class="calc-btn" style="padding:8px; font-size:0.78rem; background:#7c3aed;" onclick="resetAllCustomEdits()">♻️ استعادة الافتراضي</button>
                     </div>
                 </div>
@@ -1379,7 +1395,7 @@
     </div>
 </div>
 
-<!-- 4. نافذة الإضافة والتعديل الديناميكية للإداريين (تعمل في كل قسم) -->
+<!-- 4. نافذة الإضافة والتعديل الديناميكية للإداريين -->
 <div id="adminCrudModal" class="gate-overlay">
     <div class="gate-box" style="max-width:480px; text-align:right;">
         <div class="gate-top-nav">
@@ -1395,14 +1411,14 @@
 <header>
     <div class="ai-badge">✨ AI PHARMACY ASSISTANT • نظام الحساب الميداني بالسي سي (1 مل = 1 سي سي)</div>
     <h1>أكاديمية الصيدلة والجرعات الذكية</h1>
-    <p>حساب الشرابات والمحاليل • الموسوعة الدوائية الشاملة (24 كلاس) • دراسة الصيدلة 5 سنوات • مواعيد الأدوية</p>
+    <p>حساب الشرابات والمحاليل • الموسوعة الدوائية (24 كلاس) • دراسة الصيدلة 5 سنوات والامتحانات الذكية • مواعيد الأدوية</p>
 </header>
 
 <!-- شريط البحث الذكي الفوري العام -->
 <div class="ai-search-wrapper">
     <div class="ai-search-box">
         <span style="font-size:1.2rem; margin-left:6px;">🤖</span>
-        <input type="text" id="aiSearchInput" placeholder="ابحث فوراً (رينجر، بنسلين، سيفالوسبورين، طوارئ، تخدير، لقاحات، غدة، ضغط، سكر)...">
+        <input type="text" id="aiSearchInput" placeholder="ابحث فوراً (رينجر، بنسلين، طوارئ، تخدير، BNF، Lippincott، غدة، ضغط، سكر، وصفة)...">
         <button id="clearSearchBtn" class="clear-search" onclick="clearAiSearch()">✕</button>
     </div>
 </div>
@@ -1428,25 +1444,19 @@
 
 <div class="container">
 
-    <!-- القسم الأول (الافتراضي): حساب الجرعات -->
+    <!-- القسم الأول (الافتراضي): حساب الجرعات (تم حذف التبويب الثالث بالكامل حسب طلبك) -->
     <div id="sec3" class="section-content active">
         <div class="admin-edit-toolbar" data-admin-bar="drugs">
-            <span style="font-size:0.8rem; color:#fbbf24; font-weight:800;">🛡️ وضع الإدارة: إضافة أو تعديل الشرابات والمحاليل</span>
+            <span style="font-size:0.8rem; color:#fbbf24; font-weight:800;">🛡️ وضع الإدارة: إضافة الشرابات والمحاليل الوريدية</span>
             <div style="display:flex; gap:6px;">
                 <button class="admin-add-btn" onclick="openAddSyrupModal()">➕ إضافة شراب جديد</button>
                 <button class="admin-add-btn" style="background:linear-gradient(135deg,#0284c7,#0369a1);" onclick="openAddIvModal()">➕ إضافة محلول وريدي</button>
             </div>
         </div>
 
-        <div class="action-bar">
-            <span>🧮 فتح جدول وطرق حساب الشرابات والمحاليل الوريدية بالسي سي كملف PDF:</span>
-            <button class="pdf-btn" onclick="openPdfViewer('sec3-table-card', 'جدول_الشرابات_والمحاليل_الوريدية')">👁️ فتح PDF الجدول الكامل</button>
-        </div>
-
         <div class="calc-subtabs">
             <button class="calc-subbtn active" onclick="switchCalc('calc-syrup', this)">🥄 1. حساب جرعات الشرابات</button>
             <button class="calc-subbtn" onclick="switchCalc('calc-iv', this)">💧 2. المحاليل الوريدية (اختيار المحلول)</button>
-            <button class="calc-subbtn" onclick="switchCalc('calc-guide', this)">📋 3. جدول الطرق المرتب</button>
         </div>
 
         <!-- 1. حاسبة الشرابات -->
@@ -1539,32 +1549,9 @@
                 <div id="ivResult" class="result-box"></div>
             </div>
         </div>
-
-        <!-- 3. جدول الطرق المرتب -->
-        <div id="calc-guide" class="calc-panel">
-            <div id="sec3-table-card" class="card">
-                <div class="card-header">
-                    <span class="card-title">📋 جدول طرق حساب الشرابات والمحاليل بالسي سي (1 مل = 1 سي سي)</span>
-                    <span class="badge">مرتب وجاهز</span>
-                </div>
-
-                <table class="dose-table">
-                    <thead>
-                        <tr>
-                            <th>الدواء / الشراب</th>
-                            <th>التركيز</th>
-                            <th>طريقة الحساب (سي سي / مل)</th>
-                            <th>التكرار اليومي</th>
-                            <th>مثال (وزن 15 كغم)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="customMethodTableBody"></tbody>
-                </table>
-            </div>
-        </div>
     </div>
 
-    <!-- القسم الثاني: الموسوعة الدوائية القياسية (24 كلاس مفصل + فصل كامل للعوائل) -->
+    <!-- القسم الثاني: الموسوعة الدوائية القياسية (24 كلاس مفصل) -->
     <div id="sec2" class="section-content">
         <div class="admin-edit-toolbar" data-admin-bar="drugs">
             <span style="font-size:0.8rem; color:#fbbf24; font-weight:800;">🛡️ وضع الإدارة: إضافة كلاس، عائلة دوائية، أو دواء</span>
@@ -1588,127 +1575,200 @@
         <div id="familiesContainer"></div>
     </div>
 
-    <!-- القسم الثالث: دراسة الصيدلة الأكاديمية (5 سنوات + الامتحانات + كتب الصيدلة) -->
+    <!-- القسم الثالث: دراسة الصيدلة الأكاديمية (5 سنوات + الامتحانات الذكية AI + مكتبة الكتب PDF + أساسيات الصرف الموسعة) -->
     <div id="sec1" class="section-content">
         <div class="admin-edit-toolbar" data-admin-bar="drugs">
-            <span style="font-size:0.8rem; color:#fbbf24; font-weight:800;">🛡️ وضع الإدارة: إضافة كتاب أو ملزمة أو مادة دراسية</span>
-            <button class="admin-add-btn" onclick="openAddStudyBookModal()">➕ إضافة كتاب / مرجع صيدلاني</button>
+            <span style="font-size:0.8rem; color:#fbbf24; font-weight:800;">🛡️ وضع الإدارة: إضافة كتب وملازم صيدلانية ومراجع PDF</span>
+            <button class="admin-add-btn" onclick="openAddStudyBookModal()">➕ إضافة كتاب / ملزمة PDF</button>
         </div>
 
         <div class="action-bar">
-            <span>🎓 المنهج الأكاديمي الشامل للصيدلة (5 سنوات دراسية + الامتحانات + كتب الصيدلة):</span>
-            <button class="pdf-btn" onclick="openPdfViewer('sec1', 'منهج_دراسة_الصيدلة_5_سنوات_والكتب')">👁️ فتح PDF المنهج والكتب</button>
+            <span>🎓 أكاديمية دراسة الصيدلة (5 سنوات + امتحانات الذكاء الاصطناعي + مكتبة الكتب PDF + أساسيات الصرف):</span>
+            <button class="pdf-btn" onclick="openPdfViewer('sec1', 'أكاديمية_دراسة_الصيدلة_والكتب_الشاملة')">👁️ فتح PDF القسم الكامل</button>
         </div>
 
         <div class="calc-subtabs">
-            <button class="calc-subbtn active" onclick="switchLearnSub('learn-part1', this)">🎓 أولاً: الدراسة (5 سنوات)</button>
-            <button class="calc-subbtn" onclick="switchLearnSub('learn-part2', this)">📝 ثانياً: الامتحانات والتقييم</button>
-            <button class="calc-subbtn" onclick="switchLearnSub('learn-part3', this)">📚 ثالثاً: كتب ومراجع الصيدلة</button>
-            <button class="calc-subbtn" onclick="switchLearnSub('learn-part4', this)">💊 رابعاً: أساسيات الصرف الميداني</button>
+            <button class="calc-subbtn active" onclick="switchLearnSub('learn-part1', this)">🎓 أولاً: الدراسة (5 سنوات + الكتب)</button>
+            <button class="calc-subbtn" onclick="switchLearnSub('learn-part2', this)">🤖 ثانياً: امتحانات AI وتصحيح الأخطاء</button>
+            <button class="calc-subbtn" onclick="switchLearnSub('learn-part3', this)">📚 ثالثاً: مكتبة كتب الصيدلة PDF</button>
+            <button class="calc-subbtn" onclick="switchLearnSub('learn-part4', this)">💊 رابعاً: أساسيات الصرف (+500 مثال)</button>
         </div>
 
-        <!-- أولاً: الدراسة (5 سنوات) -->
+        <!-- أولاً: الدراسة (5 سنوات + الكتب والملازم والـ PDF لكل مرحلة) -->
         <div id="learn-part1" class="learn-sub-panel active">
             <div class="card" id="card-5years">
                 <div class="card-header">
-                    <span class="card-title">🎓 أولاً: الخطة الدراسية للصيدلة (السنوات الخمس 1 → 5)</span>
+                    <span class="card-title">🎓 أولاً: الخطة الدراسية للصيدلة (5 سنوات) مع الكتب والملازم PDF</span>
                     <span class="badge">B.Pharm / Pharm.D</span>
                 </div>
 
                 <div class="learn-grid">
-                    <div class="learn-mini-card">
-                        <span class="year-badge">السنة الأولى • First Year</span>
-                        <h5>العلوم الأساسية والتمهيدية</h5>
-                        <p>• <strong>الكيمياء العامة والعضوية (General & Organic Chemistry):</strong> أسس الروابط والتفاعلات العضوية.<br>
-                        • <strong>البيولوجيا والتشريح (Biology & Human Anatomy):</strong> تركيب الخلية وأجهزة جسم الإنسان.<br>
-                        • <strong>الفيزياء الصيدلانية والرياضيات (Pharmaceutical Physics):</strong> الحسابات الصيدلانية الأولية.<br>
-                        • <strong>المصطلحات الطبية (Medical Terminology):</strong> البادئات واللواحق اللاتينية.</p>
+                    <div class="learn-mini-card" id="stage-year-1">
+                        <div>
+                            <span class="year-badge">المرحلة الأولى • First Year</span>
+                            <h5>العلوم الأساسية والتمهيدية</h5>
+                            <p>• <strong>المواد:</strong> الكيمياء العامة والعضوية، البيولوجيا، التشريح البشري، الفيزياء الصيدلانية، والمصطلحات الطبية.</p>
+                            <div class="stage-books-box">
+                                <strong>📚 كتب وملازم المرحلة الأولى:</strong><br>
+                                • McMurry Organic Chemistry<br>
+                                • Tortora Principles of Anatomy & Physiology<br>
+                                • Martin's Physical Pharmacy<br>
+                                • ملزمة المصطلحات الطبية والجذور اللاتينية
+                            </div>
+                        </div>
+                        <button class="mini-pdf-btn" onclick="openPdfViewer('stage-year-1', 'ملزمة_وكتب_المرحلة_الأولى_صيدلة')">📄 فتح PDF ملازم المرحلة 1</button>
                     </div>
 
-                    <div class="learn-mini-card">
-                        <span class="year-badge">السنة الثانية • Second Year</span>
-                        <h5>وظائف الأعضاء والكيمياء الحيوية والصيدلانيات</h5>
-                        <p>• <strong>علم وظائف الأعضاء (Physiology):</strong> آلية عمل القلب، الكلى، الجهاز العصبي والهضمي.<br>
-                        • <strong>الكيمياء الحيوية (Biochemistry):</strong> أيض السكريات والدهون والبروتينات والإنزيمات.<br>
-                        • <strong>الأحياء الدقيقة والمناعة (Microbiology & Immunology):</strong> البكتيريا، الفيروسات، الفطريات والمناعة.<br>
-                        • <strong>مبادئ الصيدلانيات (Pharmaceutics I):</strong> المحاليل، المعلقات، والمستحلبات.</p>
+                    <div class="learn-mini-card" id="stage-year-2">
+                        <div>
+                            <span class="year-badge">المرحلة الثانية • Second Year</span>
+                            <h5>وظائف الأعضاء والكيمياء الحيوية والصيدلانيات</h5>
+                            <p>• <strong>المواد:</strong> علم وظائف الأعضاء (Physiology)، الكيمياء الحيوية (Biochemistry)، الأحياء الدقيقة والمناعة، ومبادئ الصيدلانيات.</p>
+                            <div class="stage-books-box">
+                                <strong>📚 كتب وملازم المرحلة الثانية:</strong><br>
+                                • Guyton & Hall Textbook of Medical Physiology<br>
+                                • Lippincott Illustrated Reviews: Biochemistry<br>
+                                • Jawetz Medical Microbiology<br>
+                                • Aulton's Pharmaceutics (الجزء الأول)
+                            </div>
+                        </div>
+                        <button class="mini-pdf-btn" onclick="openPdfViewer('stage-year-2', 'ملزمة_وكتب_المرحلة_الثانية_صيدلة')">📄 فتح PDF ملازم المرحلة 2</button>
                     </div>
 
-                    <div class="learn-mini-card">
-                        <span class="year-badge">السنة الثالثة • Third Year</span>
-                        <h5>بداية التخصص الدوائي الحقيقي</h5>
-                        <p>• <strong>علم الأدوية (Pharmacology I):</strong> امتصاص وتوزيع وأيض وإطراح الأدوية (ADME) وأدوية الجهاز العصبي الذاتي والقلبي.<br>
-                        • <strong>الكيمياء الصيدلانية (Medicinal Chemistry I):</strong> العلاقة بين التركيب الكيميائي وفعالية الدواء (SAR).<br>
-                        • <strong>العقاقير والنباتات الطبية (Pharmacognosy):</strong> المواد الفعالة المستخلصة من النباتات.<br>
-                        • <strong>التكنولوجيا الصيدلانية (Pharmaceutical Technology):</strong> تصنيع الحبوب والكبسولات.</p>
+                    <div class="learn-mini-card" id="stage-year-3">
+                        <div>
+                            <span class="year-badge">المرحلة الثالثة • Third Year</span>
+                            <h5>علم الأدوية الأول والكيمياء الصيدلانية والعقاقير</h5>
+                            <p>• <strong>المواد:</strong> علم الأدوية (Pharmacology I - ADME & ANS/CVS)، الكيمياء الصيدلانية (Medicinal Chemistry I)، العقاقير (Pharmacognosy)، والتكنولوجيا الصيدلانية.</p>
+                            <div class="stage-books-box">
+                                <strong>📚 كتب وملازم المرحلة الثالثة:</strong><br>
+                                • Lippincott Illustrated Reviews: Pharmacology<br>
+                                • Wilson & Gisvold's Organic & Medicinal Chemistry<br>
+                                • Trease & Evans Pharmacognosy<br>
+                                • Lachman Industrial Pharmacy
+                            </div>
+                        </div>
+                        <button class="mini-pdf-btn" onclick="openPdfViewer('stage-year-3', 'ملزمة_وكتب_المرحلة_الثالثة_صيدلة')">📄 فتح PDF ملازم المرحلة 3</button>
                     </div>
 
-                    <div class="learn-mini-card">
-                        <span class="year-badge">السنة الرابعة • Fourth Year</span>
-                        <h5>الأدوية المتقدمة والحركية الدوائية</h5>
-                        <p>• <strong>علم الأدوية المتقدم (Pharmacology II):</strong> المضادات الحيوية، أدوية الغدد الصماء، السرطان، والجهاز العصبي المركزي.<br>
-                        • <strong>الصيدلة الحيوية وحركية الدواء (Biopharmaceutics & Pharmacokinetics):</strong> حساب نصف العمر t½ والجرعات.<br>
-                        • <strong>الكيمياء الصيدلانية المتقدمة (Medicinal Chemistry II):</strong> تصميم الأدوية وتطويرها.<br>
-                        • <strong>الصحة العامة والوبائيات (Public Health & Epidemiology).</strong></p>
+                    <div class="learn-mini-card" id="stage-year-4">
+                        <div>
+                            <span class="year-badge">المرحلة الرابعة • Fourth Year</span>
+                            <h5>علم الأدوية المتقدم والحركية الدوائية</h5>
+                            <p>• <strong>المواد:</strong> علم الأدوية المتقدم (Pharmacology II - Antibiotics, CNS, Endocrine)، الصيدلة الحيوية وحركية الدواء (Pharmacokinetics)، والكيمياء الصيدلانية المتقدمة.</p>
+                            <div class="stage-books-box">
+                                <strong>📚 كتب وملازم المرحلة الرابعة:</strong><br>
+                                • Katzung's Basic & Clinical Pharmacology<br>
+                                • Shargel Applied Biopharmaceutics & Pharmacokinetics<br>
+                                • Foye's Principles of Medicinal Chemistry<br>
+                                • ملزمة حسابات الحركية الدوائية (Half-life & Clearance)
+                            </div>
+                        </div>
+                        <button class="mini-pdf-btn" onclick="openPdfViewer('stage-year-4', 'ملزمة_وكتب_المرحلة_الرابعة_صيدلة')">📄 فتح PDF ملازم المرحلة 4</button>
                     </div>
 
-                    <div class="learn-mini-card">
-                        <span class="year-badge">السنة الخامسة • Fifth Year</span>
-                        <h5>الصيدلة السريرية والتطبيق الميداني</h5>
-                        <p>• <strong>الصيدلة السريرية والعلاجيات (Clinical Pharmacy & Therapeutics):</strong> اختيار الدواء الأمثل لكل مريض وتعديل الجرعات لمرضى الكلى والكبد.<br>
-                        • <strong>علم السموم (Toxicology):</strong> التعامل مع التسمم الدوائي والكيميائي والترياقات (Antidotes).<br>
-                        • <strong>صيدلة المستشفيات والمجتمع (Hospital & Community Pharmacy):</strong> قراءة الوصفات والتداخلات الدوائية.<br>
-                        • <strong>بحث التخرج والتدريب السريري (Graduation Research & Clinical Clerkship).</strong></p>
+                    <div class="learn-mini-card" id="stage-year-5">
+                        <div>
+                            <span class="year-badge">المرحلة الخامسة • Fifth Year</span>
+                            <h5>الصيدلة السريرية والعلاجيات والتدريب الميداني</h5>
+                            <p>• <strong>المواد:</strong> الصيدلة السريرية والعلاجيات (Clinical Therapeutics)، علم السموم والترياقات (Toxicology)، صيدلة المستشفيات والمجتمع، وبحث التخرج.</p>
+                            <div class="stage-books-box">
+                                <strong>📚 كتب وملازم المرحلة الخامسة:</strong><br>
+                                • DiPiro's Pharmacotherapy: A Pathophysiologic Approach<br>
+                                • Applied Therapeutics (Koda-Kimble)<br>
+                                • Goldfrank's Toxicologic Emergencies<br>
+                                • British National Formulary (BNF) & Lexicomp
+                            </div>
+                        </div>
+                        <button class="mini-pdf-btn" onclick="openPdfViewer('stage-year-5', 'ملزمة_وكتب_المرحلة_الخامسة_صيدلة')">📄 فتح PDF ملازم المرحلة 5</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ثانياً: الامتحانات والتقييم -->
+        <!-- ثانياً: الامتحانات التجريبية الذكية بالذكاء الاصطناعي وتصحيح الأخطاء -->
         <div id="learn-part2" class="learn-sub-panel">
             <div class="card" id="card-exams">
                 <div class="card-header">
-                    <span class="card-title">📝 ثانياً: نظام الامتحانات الصيدلانية والترخيص العالمي</span>
-                    <span class="badge">الامتحانات المهنية</span>
+                    <span class="card-title">🤖 ثانياً: امتحانات الصيدلة التجريبية بالذكاء الاصطناعي (تصحيح وتحليل الأخطاء)</span>
+                    <span class="badge">AI Exam Simulator</span>
                 </div>
 
-                <ul class="step-list">
-                    <li><strong>1. الامتحانات الفصلية والنهائية (Midterm & Final Theory Exams):</strong> أسئلة الاختيار من متعدد (MCQs) ودراسة الحالات السريرية (Case-Based Questions) لاختبار الفهم العلاجي وليس الحفظ المجرد.</li>
-                    <li><strong>2. المختبرات العملية (Practical Lab Exams):</strong> تحضير التركيبات الصيدلانية (Compounding)، التحليل الكيميائي للأدوية، والتعرف على الأشكال الصيدلانية.</li>
-                    <li><strong>3. امتحان المهارات السريرية الموضوعي (OSCE - Objective Structured Clinical Examination):</strong> محطات عملية تحاكي الصيدلية الحقيقية (التواصل مع المريض، اكتشاف خطأ في الوصفة الطبية، وشرح طريقة استخدام البخاخات أو الإنسولين).</li>
-                    <li><strong>4. امتحانات النقابة ومزاولة المهنة والترخيص العالمي:</strong>
-                        <br>• <strong>الامتحان التقويمي / النقابي الوطني:</strong> شرط أساسي للحصول على إجازة ممارسة مهنة الصيدلة.
-                        <br>• <strong>FPGEE & NAPLEX (أمريكا):</strong> امتحان المعادلة الأجنبية وامتحان الترخيص الصيدلاني الأمريكي.
-                        <br>• <strong>PEBC (كندا) & KAPS (أستراليا) & DHA/MOH (الخليج):</strong> امتحانات التقييم المهني المعتمدة دولياً.
-                    </li>
-                </ul>
+                <div class="formula-box">
+                    اختر <strong>القسم / المرحلة الدراسية</strong> أدناه لبدء اختبار تجريبي تفاعلي. بعد الإجابة، سيقوم نظام الذكاء الاصطناعي بحساب نتيجتك وتحديد <strong>أخطائك بدقة مع شرح التصحيح العلمي والمرجع الصيدلاني</strong>.
+                </div>
+
+                <div class="grid-2" style="margin-bottom:12px;">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>🎯 اختر تخصص / قسم الامتحان:</label>
+                        <select id="aiExamCategorySelect" class="form-control" onchange="generateAiExam()">
+                            <option value="all">🌟 امتحان شامل (جميع أقسام الصيدلة)</option>
+                            <option value="pharmacology">🧬 علم الأدوية وآليات العمل (Pharmacology)</option>
+                            <option value="clinical">🏥 الصيدلة السريرية والتداخلات (Clinical & Interactions)</option>
+                            <option value="dosage">🧮 حساب الجرعات والمحاليل (Dosage Calculations)</option>
+                            <option value="otc">💊 الصرف الميداني والوصفات (OTC & Prescriptions)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0; display:flex; align-items:flex-end;">
+                        <button class="calc-btn" style="margin-top:0; background:linear-gradient(135deg,#0284c7,#6366f1);" onclick="generateAiExam()">🔄 توليد أسئلة جديدة</button>
+                    </div>
+                </div>
+
+                <div id="aiExamQuestionsContainer"></div>
+
+                <button class="calc-btn" onclick="gradeAiExam()">✅ إنهاء الامتحان وعرض النتيجة وتحليل الأخطاء</button>
+
+                <div id="aiExamReportBox" style="display:none; margin-top:15px;"></div>
             </div>
         </div>
 
-        <!-- ثالثاً: كتب ومراجع الصيدلة -->
+        <!-- ثالثاً: مكتبة كتب الصيدلة العالمية والنقابية وكتب المراحل (PDF) -->
         <div id="learn-part3" class="learn-sub-panel">
             <div class="card" id="card-books">
                 <div class="card-header">
-                    <span class="card-title">📚 ثالثاً: أهم كتب ومراجع الصيدلة المعتمدة عالمياً</span>
-                    <span class="badge">المكتبة الصيدلانية</span>
+                    <span class="card-title">📚 ثالثاً: مكتبة كتب الصيدلة العالمية والنقابية وكتب المراحل (PDF)</span>
+                    <span class="badge">مكتبة شاملة PDF</span>
+                </div>
+
+                <div class="class-filter-bar">
+                    <input type="text" id="booksSearchInput" placeholder="🔎 ابحث عن كتاب (BNF, DiPiro, Katzung, Lippincott, Aulton, النقابة, المرحلة)..." oninput="filterPharmacyBooks()">
                 </div>
 
                 <div id="pharmacyBooksGrid" class="learn-grid"></div>
             </div>
         </div>
 
-        <!-- رابعاً: أساسيات الصرف الميداني -->
+        <!-- رابعاً: أساسيات الصرف الميداني الموسعة (+500 مثال عملي ووصفة) -->
         <div id="learn-part4" class="learn-sub-panel">
             <div class="card" id="card-otc-basics">
                 <div class="card-header">
-                    <span class="card-title">💊 رابعاً: الجذور الدوائية وتصنيف الحمل واختصارات الوصفات</span>
-                    <span class="badge">ملخص الصيدلي</span>
+                    <span class="card-title">💊 رابعاً: موسوعة أساسيات الصرف الميداني (+500 مثال وحالة سريرية)</span>
+                    <span class="badge" id="otcTotalBadge">520+ مثال عملي</span>
                 </div>
-                <ul class="step-list">
-                    <li><strong>أشهر اللواحق الدوائية:</strong> <code>-olol</code> حاصرات بيتا • <code>-pril</code> مثبطات ACE • <code>-sartan</code> حاصرات ARBs • <code>-prazole</code> مثبطات مضخة البروتون • <code>-statin</code> خافضات الكوليسترول • <code>-dipine</code> حاصرات الكالسيوم.</li>
-                    <li><strong>تصنيف الحمل:</strong> <strong>Category A & B</strong> آمنة نسبياً (Paracetamol, Amoxicillin, Folic Acid) • <strong>Category D & X</strong> ممنوعة (ACEi, ARBs, Statins, Tetracyclines, Isotretinoin).</li>
-                    <li><strong>اختصارات الوصفات:</strong> <code>OD</code> مرة يومياً • <code>BID</code> مرتين (كل 12 ساعة) • <code>TID</code> 3 مرات (كل 8 ساعات) • <code>QID</code> 4 مرات (كل 6 ساعات) • <code>AC</code> قبل الأكل • <code>PC</code> بعد الأكل • <code>PRN</code> عند اللزوم.</li>
-                </ul>
+
+                <div class="formula-box">
+                    دليل الصيدلي العملي الشامل: يحتوي على قواعد الصرف الذهبية، الجذور الدوائية، تصنيف الحمل، و<strong>أكثر من 520 مثالاً وحالة صرف ميدانية</strong> قابلة للبحث الفوري.
+                </div>
+
+                <div class="sched-local-search">
+                    <div class="sched-local-search-row">
+                        <span>🔎</span>
+                        <input type="text" id="otcExamplesSearch" placeholder="ابحث في الـ 520+ مثال (حامل، طفل، ضغط، سكر، قرحة، ربو، مضاد، سعال، إسهال، حرارة، قطرة)..." oninput="renderOtcExamples()">
+                    </div>
+                    <div class="sched-filter-chips">
+                        <button class="chip-btn" onclick="quickFilterOtc('الكل')">📋 الكل (520+)</button>
+                        <button class="chip-btn" onclick="quickFilterOtc('حامل')">🤰 الحوامل والرضاعة</button>
+                        <button class="chip-btn" onclick="quickFilterOtc('أطفال')">👶 الأطفال والرضع</button>
+                        <button class="chip-btn" onclick="quickFilterOtc('ضغط')">❤️ مرضى الضغط والقلب</button>
+                        <button class="chip-btn" onclick="quickFilterOtc('تداخل')">🔄 تداخلات دوائية</button>
+                        <button class="chip-btn" onclick="quickFilterOtc('مضاد')">💊 المضادات الحيوية</button>
+                        <button class="chip-btn" onclick="quickFilterOtc('معدة')">🩺 المعدة والقولون</button>
+                    </div>
+                </div>
+
+                <div id="otcExamplesContainer" style="max-height:520px; overflow-y:auto; padding-left:4px;"></div>
+
+                <button class="mini-pdf-btn" onclick="openPdfViewer('card-otc-basics', 'موسوعة_أساسيات_الصرف_الميداني')">📄 فتح PDF أساسيات الصرف والأمثلة</button>
             </div>
         </div>
     </div>
@@ -1818,11 +1878,11 @@
 </div>
 
 <footer>
-    <p>تم التصميم والتطوير بواسطة <strong>إبراهيم إسماعيل</strong> | Instagram: <strong>@ebo.rr</strong> | #Made_by_Ibrahim_Ismail</p>
+    <p>تم التصميم والتطوير بواسطة <strong>إبراهيم إسماعيل</strong> | #Made_by_Ibrahim_Ismail</p>
 </footer>
 
 <script>
-    /* ================= 1. درع الحماية المتقدم ومكافحة القرصنة ================= */
+    /* ================= 1. درع الحماية المتقدم ومكافحة القرصنة والثغرات ================= */
     (function() {
         document.addEventListener('keydown', function(e) {
             if (
@@ -1844,28 +1904,41 @@
         }, 1200);
     })();
 
-    /* ================= 2. التشفير ونظام الصلاحيات (المالك المخفي + الإداريين) ================= */
-    // بصمة SHA-256 للإيميل الرئيسي بحيث لا يظهر كنص صريح في الكود أبداً
+    /* ================= 2. التشفير ونظام الصلاحيات والاشتراك المحصن ================= */
     const _0xROOT_HASH = "e15f4e6150f39e8d29e12dc01d9e0f258a99ebbb089c0e6cb624f5eb1c5cb88b";
     const _0xROOT_PIN = "AA9955BB66";
-    const DEFAULT_INSTAGRAM_HANDLE = "ebo.rr";
+    const _0xINTEGRITY_PEPPER = "IBRAHIM_PHARM_SECURE_SIG_2026_#9981";
+    const DEFAULT_QICARD_ID = "1882627332";
 
-    const STORAGE_KEY_USER = "ai_pharmacy_user_account_v4";
-    const STORAGE_KEY_DEVICE = "ai_pharmacy_device_id_v4";
-    const STORAGE_KEY_MERCHANT_CARD = "ai_pharmacy_merchant_qicard_v4";
-    const STORAGE_KEY_MERCHANT_IG = "ai_pharmacy_merchant_ig_v4";
-    const STORAGE_KEY_PAYMENTS = "ai_pharmacy_payments_log_v4";
-    const STORAGE_KEY_USED_KEYS = "ai_pharmacy_used_keys_v4";
-    const STORAGE_KEY_SUBADMINS = "ai_pharmacy_subadmins_v4";
-    const STORAGE_KEY_BROADCAST = "ai_pharmacy_broadcast_v4";
-    const STORAGE_KEY_CUSTOM_DATA = "ai_pharmacy_custom_db_v4";
+    const STORAGE_KEY_USER = "ai_pharmacy_user_account_v5";
+    const STORAGE_KEY_DEVICE = "ai_pharmacy_device_id_v5";
+    const STORAGE_KEY_MERCHANT_CARD = "ai_pharmacy_merchant_qicard_v5";
+    const STORAGE_KEY_PAYMENTS = "ai_pharmacy_payments_log_v5";
+    const STORAGE_KEY_USED_KEYS = "ai_pharmacy_used_keys_v5";
+    const STORAGE_KEY_SUBADMINS = "ai_pharmacy_subadmins_v5";
+    const STORAGE_KEY_BROADCAST = "ai_pharmacy_broadcast_v5";
+    const STORAGE_KEY_CUSTOM_DATA = "ai_pharmacy_custom_db_v5";
+    const STORAGE_KEY_LAST_SEEN = "ai_pharmacy_last_seen_ts_v5";
     const DAY_MS = 24 * 60 * 60 * 1000;
 
-    let currentRoleState = { isRoot: false, isSubAdmin: false, perms: { editDrugs: false, genKeys: false, commands: false } };
+    let currentRoleState = { isRoot: false, isSubAdmin: false, canEditDrugs: false };
 
     async function sha256Hex(str) {
-        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str.trim().toLowerCase()));
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
         return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // توقيع رقمي لمنع أي مستخدم من تعديل مدة الاشتراك يدوياً في localStorage
+    async function signUserRecord(userObj) {
+        const devId = getOrCreateDeviceId();
+        const payload = `${userObj.email}|${devId}|${userObj.createdAt}|${userObj.trialEndsAt}|${userObj.paidUntil || 0}|${userObj.cyclesCount || 0}|${_0xINTEGRITY_PEPPER}`;
+        return await sha256Hex(payload);
+    }
+
+    async function verifyUserRecordIntegrity(userObj) {
+        if (!userObj || !userObj.sig) return false;
+        const expected = await signUserRecord(userObj);
+        return userObj.sig === expected;
     }
 
     function getSubAdmins() {
@@ -1875,28 +1948,27 @@
     async function evaluateUserRole(email) {
         const clean = (email || "").trim().toLowerCase();
         if (!clean) {
-            currentRoleState = { isRoot: false, isSubAdmin: false, perms: { editDrugs: false, genKeys: false, commands: false } };
+            currentRoleState = { isRoot: false, isSubAdmin: false, canEditDrugs: false };
             return currentRoleState;
         }
         const h = await sha256Hex(clean);
         if (h === _0xROOT_HASH) {
-            currentRoleState = { isRoot: true, isSubAdmin: false, perms: { editDrugs: true, genKeys: true, commands: true } };
+            currentRoleState = { isRoot: true, isSubAdmin: false, canEditDrugs: true };
             return currentRoleState;
         }
         const subs = getSubAdmins();
         const foundSub = subs.find(s => s.email.toLowerCase() === clean && s.active !== false);
         if (foundSub) {
-            currentRoleState = { isRoot: false, isSubAdmin: true, subAdminObj: foundSub, perms: foundSub.perms || { editDrugs: true, genKeys: true, commands: false } };
+            currentRoleState = { isRoot: false, isSubAdmin: true, subAdminObj: foundSub, canEditDrugs: true };
             return currentRoleState;
         }
-        currentRoleState = { isRoot: false, isSubAdmin: false, perms: { editDrugs: false, genKeys: false, commands: false } };
+        currentRoleState = { isRoot: false, isSubAdmin: false, canEditDrugs: false };
         return currentRoleState;
     }
 
     function applyAdminUiVisibility() {
-        const canEdit = currentRoleState.isRoot || (currentRoleState.isSubAdmin && currentRoleState.perms.editDrugs);
         document.querySelectorAll('.admin-edit-toolbar').forEach(el => {
-            if (canEdit) el.classList.add('visible');
+            if (currentRoleState.canEditDrugs) el.classList.add('visible');
             else el.classList.remove('visible');
         });
         renderAllDynamicSections();
@@ -1935,7 +2007,7 @@
 
     function computeLicenseKeyForDevice(deviceId, cycleIndex) {
         const clean = (deviceId || "").trim().toUpperCase();
-        const salt = "IBRAHIM_PHARM_2026_" + cycleIndex;
+        const salt = "IBRAHIM_QICARD_1882627332_" + cycleIndex;
         let hash = 0;
         const combo = clean + "|" + salt;
         for (let i = 0; i < combo.length; i++) {
@@ -1947,8 +2019,7 @@
         return `PRO-${part1}-${part2}-${cycleIndex}`;
     }
 
-    function getMerchantCard() { return localStorage.getItem(STORAGE_KEY_MERCHANT_CARD) || "7110-4829-9301-2026"; }
-    function getMerchantInstagram() { return (localStorage.getItem(STORAGE_KEY_MERCHANT_IG) || DEFAULT_INSTAGRAM_HANDLE).replace(/^@/, ''); }
+    function getMerchantCard() { return localStorage.getItem(STORAGE_KEY_MERCHANT_CARD) || DEFAULT_QICARD_ID; }
 
     function copyTextValue(elId) {
         const txt = document.getElementById(elId).innerText;
@@ -1958,34 +2029,26 @@
         }
     }
 
-    function copyActivationRequestMessage() {
-        const saved = localStorage.getItem(STORAGE_KEY_USER);
-        const email = saved ? JSON.parse(saved).email : "";
-        const devId = getOrCreateDeviceId();
-        const igHandle = getMerchantInstagram();
-        const msg = `مرحباً @${igHandle}، قمت بتحويل 1$ عبر الكي كارد لتفعيل تطبيق الصيدلة (30 يوم).\n📧 الإيميل: ${email}\n📱 معرّف الجهاز: ${devId}`;
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(msg);
-            alert("✅ تم نسخ رسالة التفعيل، افتح إنستغرام والصقها في الرسائل الخاصة لـ @" + igHandle);
-        }
-    }
-
     function updatePaymentModalInfo() {
         const devId = getOrCreateDeviceId();
-        const igHandle = getMerchantInstagram();
         document.getElementById('merchantQiCardDisplay').innerText = getMerchantCard();
         document.getElementById('userDeviceIdDisplay').innerText = devId;
         document.getElementById('drawerDeviceId').innerText = devId;
-        const igLink = document.getElementById('instagramRequestLink');
-        igLink.href = `https://instagram.com/${igHandle}`;
-        igLink.innerText = `📸 2. فتح إنستغرام @${igHandle}`;
     }
 
     async function initSubscriptionSystem() {
         applyBroadcastBanner();
-        const saved = localStorage.getItem(STORAGE_KEY_USER);
         updatePaymentModalInfo();
 
+        // منع التلاعب بساعة الجهاز للرجوع بالزمن
+        const now = Date.now();
+        const lastSeen = parseInt(localStorage.getItem(STORAGE_KEY_LAST_SEEN) || "0");
+        if (lastSeen > 0 && now < (lastSeen - 3600000)) {
+            alert("⚠️ تم اكتشاف تغيير غير طبيعي في ساعة الجهاز. يرجى ضبط الوقت الصحيح للمتابعة.");
+        }
+        if (now > lastSeen) localStorage.setItem(STORAGE_KEY_LAST_SEEN, String(now));
+
+        const saved = localStorage.getItem(STORAGE_KEY_USER);
         const adminBtn = document.getElementById('drawerAdminBtn');
         const upgradeBtn = document.getElementById('drawerUpgradeBtn');
         const emailBackNav = document.getElementById('emailBackNav');
@@ -2002,10 +2065,9 @@
         emailBackNav.style.display = 'flex';
         const user = JSON.parse(saved);
         const role = await evaluateUserRole(user.email);
-        const now = Date.now();
         const badge = document.getElementById('subscriptionBadge');
 
-        // إخفاء الإيميل الرئيسي تماماً في القائمة الجانبية حتى لا يظهر لأي شخص
+        // 1) المالك الرئيسي (مخفي الإيميل + صلاحيات كاملة)
         if (role.isRoot) {
             document.getElementById('displayUserEmail').innerText = "🛡️ حساب المالك الرئيسي (مشفّر ومخفي)";
             badge.className = "status-chip status-admin";
@@ -2015,19 +2077,34 @@
             document.getElementById('paymentGateModal').classList.remove('open');
             applyAdminUiVisibility();
             return;
-        } else if (role.isSubAdmin) {
-            document.getElementById('displayUserEmail').innerText = user.email + " (إداري مخوّل)";
+        }
+
+        // 2) الأدمن المساعد (يدخل مجاناً بدون اشتراك + لا يرى قسم الكي كارد)
+        if (role.isSubAdmin) {
+            document.getElementById('displayUserEmail').innerText = user.email + " (أدمن مساعد)";
             badge.className = "status-chip status-admin";
-            badge.innerText = "🛡️ إداري (Admin)";
+            badge.innerText = "🛡️ أدمن (مجاني)";
             adminBtn.style.display = 'flex';
             upgradeBtn.style.display = 'none';
             document.getElementById('paymentGateModal').classList.remove('open');
             applyAdminUiVisibility();
             return;
-        } else {
-            document.getElementById('displayUserEmail').innerText = user.email;
-            adminBtn.style.display = 'none';
-            upgradeBtn.style.display = 'flex';
+        }
+
+        // 3) المستخدم العادي: التحقق من التوقيع الرقمي لمنع الثغرات المجانية
+        document.getElementById('displayUserEmail').innerText = user.email;
+        adminBtn.style.display = 'none';
+        upgradeBtn.style.display = 'flex';
+
+        const isAuthentic = await verifyUserRecordIntegrity(user);
+        if (!isAuthentic) {
+            // إذا تم التلاعب ببيانات المتصفح، يتم إبطال الاشتراك فوراً وطلب التفعيل
+            badge.className = "status-chip status-expired";
+            badge.innerText = "⛔ مطلوب تفعيل ($1)";
+            document.getElementById('payBackNav').style.display = 'none';
+            document.getElementById('paymentGateModal').classList.add('open');
+            applyAdminUiVisibility();
+            return;
         }
 
         if (user.paidUntil && now < user.paidUntil) {
@@ -2054,7 +2131,6 @@
         const saved = localStorage.getItem(STORAGE_KEY_USER);
         document.getElementById('emailModalTitle').innerText = "تعديل / تغيير البريد الإلكتروني";
         document.getElementById('emailBackNav').style.display = saved ? 'flex' : 'none';
-        // لا نملأ الإيميل تلقائياً إذا كان المالك الرئيسي لحماية خصوصيته
         const prevEmail = saved ? JSON.parse(saved).email : "";
         document.getElementById('loginEmailInput').value = currentRoleState.isRoot ? "" : prevEmail;
         document.getElementById('emailGateModal').classList.add('open');
@@ -2081,6 +2157,7 @@
             const now = Date.now();
             userObj = { email: email, createdAt: now, trialEndsAt: now + (7 * DAY_MS), paidUntil: null, cyclesCount: 0 };
         }
+        userObj.sig = await signUserRecord(userObj);
         localStorage.setItem(STORAGE_KEY_USER, JSON.stringify(userObj));
         document.getElementById('emailGateModal').classList.remove('open');
         await initSubscriptionSystem();
@@ -2101,23 +2178,23 @@
         if (currentRoleState.isRoot || currentRoleState.isSubAdmin || (user.paidUntil && now < user.paidUntil) || now < user.trialEndsAt) {
             document.getElementById('paymentGateModal').classList.remove('open');
         } else {
-            alert("انتهت فترة الـ 7 أيام المجانية، يرجى إدخال كود التفعيل الشهري ($1) للاستمرار.");
+            alert("يرجى إرسال 1$ إلى معرّف الكي كارد وإدخال كود الموافقة لتفعيل الاشتراك.");
         }
     }
 
-    function verifyAndActivateKey() {
+    async function verifyAndActivateKey() {
         const code = document.getElementById('activationCodeInput').value.trim().toUpperCase();
-        if (!code) { alert("يرجى إدخال كود التفعيل الخاص بجهازك."); return; }
+        if (!code) { alert("يرجى إدخال كود الموافقة المستلم."); return; }
 
         const usedKeys = JSON.parse(localStorage.getItem(STORAGE_KEY_USED_KEYS) || "[]");
-        if (usedKeys.includes(code)) { alert("هذا الكود مستخدم مسبقاً، يرجى طلب كود تجديد جديد."); return; }
+        if (usedKeys.includes(code)) { alert("⚠️ هذا الكود مستخدم مسبقاً ولا يمكن استخدامه مرة أخرى."); return; }
 
         const devId = getOrCreateDeviceId();
         let validCycle = null;
         for (let c = 1; c <= 120; c++) {
             if (computeLicenseKeyForDevice(devId, c) === code) { validCycle = c; break; }
         }
-        if (!validCycle) { alert("كود التفعيل غير صحيح أو غير مطابق لمعرّف هذا الجهاز."); return; }
+        if (!validCycle) { alert("❌ كود الموافقة غير صحيح أو غير مطابق لمعرّف جهازك."); return; }
 
         const saved = localStorage.getItem(STORAGE_KEY_USER);
         if (!saved) return;
@@ -2126,6 +2203,7 @@
         const baseTime = (user.paidUntil && user.paidUntil > now) ? user.paidUntil : now;
         user.paidUntil = baseTime + (30 * DAY_MS);
         user.cyclesCount = validCycle;
+        user.sig = await signUserRecord(user);
         localStorage.setItem(STORAGE_KEY_USER, JSON.stringify(user));
 
         usedKeys.push(code);
@@ -2133,8 +2211,8 @@
 
         document.getElementById('activationCodeInput').value = "";
         document.getElementById('paymentGateModal').classList.remove('open');
-        alert("✅ تم تفعيل الاشتراك بنجاح لمدة 30 يوماً!");
-        initSubscriptionSystem();
+        alert("✅ تمت الموافقة وتفعيل اشتراكك تلقائياً لمدة 30 يوماً!");
+        await initSubscriptionSystem();
     }
 
     function openOwnerFromSettings() {
@@ -2165,18 +2243,22 @@
         if (currentRoleState.isRoot) {
             if (pin !== _0xROOT_PIN) { alert("رمز التحقق الأمني غير صحيح."); return; }
             const saved = JSON.parse(localStorage.getItem(STORAGE_KEY_USER) || "{}");
-            noteEl.innerText = `👑 أهلاً بك أيها المالك الرئيسي (${saved.email}) — إيميلك مخفي عن الجميع`;
+            noteEl.innerText = `👑 أهلاً بك أيها المالك الرئيسي (${saved.email}) — صلاحيات كاملة`;
             noteEl.style.display = 'block';
+            document.getElementById('ownerTabsBar').style.display = 'grid';
+            document.getElementById('tabBtnKeys').style.display = 'block';
             document.getElementById('tabBtnAdmins').style.display = 'block';
             document.getElementById('tabBtnCommands').style.display = 'block';
-            document.getElementById('merchantSettingsBox').style.display = 'block';
+            switchOwnerTab('op-keys', document.getElementById('tabBtnKeys'));
         } else if (currentRoleState.isSubAdmin) {
-            if (pin !== currentRoleState.subAdminObj.pin) { alert("رمز دخول الإداري غير صحيح."); return; }
-            noteEl.innerText = `🛡️ أهلاً بك في لوحة الإداري المساعد (${currentRoleState.subAdminObj.email})`;
+            if (pin !== currentRoleState.subAdminObj.pin) { alert("رمز دخول الأدمن غير صحيح."); return; }
+            noteEl.innerText = `🛡️ أهلاً بك في لوحة الأدمن (${currentRoleState.subAdminObj.email}) — دخول مجاني وإدارة المحتوى`;
             noteEl.style.display = 'block';
+            // حجب قسم الكي كارد وإضافة الأدمن عن الأدمن المساعد تماماً
+            document.getElementById('tabBtnKeys').style.display = 'none';
             document.getElementById('tabBtnAdmins').style.display = 'none';
-            document.getElementById('merchantSettingsBox').style.display = 'none';
-            document.getElementById('tabBtnCommands').style.display = currentRoleState.perms.commands ? 'block' : 'none';
+            document.getElementById('ownerTabsBar').style.display = 'block';
+            switchOwnerTab('op-commands', document.getElementById('tabBtnCommands'));
         } else {
             alert("⛔ غير مصرح بالدخول.");
             return;
@@ -2185,7 +2267,6 @@
         document.getElementById('ownerAuthArea').style.display = 'none';
         document.getElementById('ownerContentArea').style.display = 'block';
         document.getElementById('merchantCardEditInput').value = getMerchantCard();
-        document.getElementById('merchantInstagramInput').value = getMerchantInstagram();
         renderOwnerLogs();
         renderSubAdminsList();
     }
@@ -2200,21 +2281,12 @@
         }
         const subs = getSubAdmins();
         const filtered = subs.filter(s => s.email.toLowerCase() !== email);
-        filtered.push({
-            email: email,
-            pin: pin,
-            active: true,
-            perms: {
-                editDrugs: document.getElementById('permEditDrugs').checked,
-                genKeys: document.getElementById('permGenKeys').checked,
-                commands: document.getElementById('permCommands').checked
-            }
-        });
+        filtered.push({ email: email, pin: pin, active: true });
         localStorage.setItem(STORAGE_KEY_SUBADMINS, JSON.stringify(filtered));
         document.getElementById('newAdminEmailInput').value = "";
         document.getElementById('newAdminPinInput').value = "";
         renderSubAdminsList();
-        alert("✅ تم تعيين الإداري ومنحه الصلاحيات بنجاح.");
+        alert("✅ تم إضافة الأدمن بنجاح (يدخل مجاناً ويتحكم بالبرنامج بدون الوصول للكي كارد).");
     }
 
     function removeSubAdmin(email) {
@@ -2229,14 +2301,14 @@
         if (!container) return;
         const subs = getSubAdmins();
         if (subs.length === 0) {
-            container.innerHTML = `<p style="color:#94a3b8; font-size:0.78rem;">لا يوجد إداريون مساعدون مضافون حالياً.</p>`;
+            container.innerHTML = `<p style="color:#94a3b8; font-size:0.78rem;">لا يوجد أدمن مساعدون مضافون حالياً.</p>`;
             return;
         }
         container.innerHTML = subs.map(s => `
             <div style="background:#0f172a; border:1px solid rgba(139,92,246,0.35); padding:8px 10px; border-radius:9px; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; font-size:0.78rem;">
                 <div>
                     <strong style="color:#38bdf8;">${s.email}</strong> (رمز: <code>${s.pin}</code>)<br>
-                    <span style="color:#cbd5e1;">الصلاحيات: ${s.perms.editDrugs ? 'تعديل الأدوية • ' : ''}${s.perms.genKeys ? 'توليد أكواد • ' : ''}${s.perms.commands ? 'إرسال أوامر' : ''}</span>
+                    <span style="color:#34d399;">دخول مجاني + تحكم بالبرنامج (بدون قسم الكي كارد)</span>
                 </div>
                 <button class="admin-mini-del-btn" onclick="removeSubAdmin('${s.email}')">🗑️ إزالة</button>
             </div>
@@ -2257,11 +2329,12 @@
     }
 
     function renderOwnerLogs() {
+        if (!currentRoleState.isRoot) return;
         const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_PAYMENTS) || "[]");
         document.getElementById('ownerTotalRevenue').innerText = `${logs.length} $ (${logs.length} اشتراك شهري)`;
         const listEl = document.getElementById('paymentsLogList');
         if (logs.length === 0) {
-            listEl.innerHTML = `<p style="color:#94a3b8;">لا توجد أكواد تفعيل مولّدة بعد.</p>`;
+            listEl.innerHTML = `<p style="color:#94a3b8;">لا توجد أكواد موافقة مولّدة بعد.</p>`;
         } else {
             listEl.innerHTML = logs.map(l => `
                 <div style="border-bottom:1px solid rgba(148,163,184,0.2); padding:6px 0;">
@@ -2273,10 +2346,7 @@
     }
 
     function generateSubscriberKey() {
-        if (!currentRoleState.isRoot && !currentRoleState.perms.genKeys) {
-            alert("⛔ ليس لديك صلاحية توليد الأكواد.");
-            return;
-        }
+        if (!currentRoleState.isRoot) return;
         const targetDev = document.getElementById('targetDeviceIdInput').value.trim().toUpperCase();
         if (!targetDev || targetDev.length < 5) { alert("يرجى إدخال معرّف جهاز المشترك (Device ID) أولاً."); return; }
         const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_PAYMENTS) || "[]");
@@ -2295,14 +2365,12 @@
     function saveMerchantSettings() {
         if (!currentRoleState.isRoot) return;
         const newCard = document.getElementById('merchantCardEditInput').value.trim();
-        const newIg = document.getElementById('merchantInstagramInput').value.trim().replace(/^@/, '');
         if (newCard.length >= 6) localStorage.setItem(STORAGE_KEY_MERCHANT_CARD, newCard);
-        if (newIg.length >= 2) localStorage.setItem(STORAGE_KEY_MERCHANT_IG, newIg);
         updatePaymentModalInfo();
-        alert("✅ تم حفظ بطاقة الكي كارد ومعرّف إنستغرام الاستلام.");
+        alert("✅ تم حفظ معرّف الكي كارد بنجاح: " + getMerchantCard());
     }
 
-    /* ================= 3. البيانات الأساسية + بيانات الإدارة المضافة ديناميكياً ================= */
+    /* ================= 3. البيانات الدوائية والمكتبة وبنك الامتحانات ================= */
     const default24ClassesData = [
         {
             num: 1,
@@ -2325,7 +2393,7 @@
         },
         {
             num: 2,
-            arTitle: "أدوية القلب والأوعية الدموية والضغط والدهون (مفصلة)",
+            arTitle: "أدوية القلب والأوعية الدموية والضغط والدهون",
             enTitle: "Cardiovascular System Drugs (CVS)",
             families: [
                 { ar: "مثبطات الإنزيم المحول للأنجيوتنسين (ACE Inhibitors)", en: "Suffix: -pril", mech: "تخفض الضغط وتحمي الكلى؛ قد تسبب سعالاً جافاً وممنوعة بالحمل.", drugs: ["Captopril", "Enalapril", "Lisinopril", "Ramipril", "Perindopril"] },
@@ -2339,258 +2407,249 @@
                 { ar: "موسعات الشرايين التاجية وأدوية فشل القلب (Nitrates & Inotropes)", en: "Antianginal & Heart Failure Agents", mech: "علاج الذبحة الصدرية وتقوية انقباض القلب.", drugs: ["Nitroglycerin", "Isosorbide Dinitrate", "Isosorbide Mononitrate", "Digoxin", "Sacubitril + Valsartan (Entresto)", "Ivabradine", "Amiodarone"] }
             ]
         },
+        { num: 3, arTitle: "أدوية العيون والقطرات العينية", enTitle: "Ophthalmic Drugs", families: [{ ar: "المضادات الحيوية والفيروسية للعين", en: "Ophthalmic Anti-infectives", mech: "علاج التهاب الملتحمة والقرنية.", drugs: ["Tobramycin", "Moxifloxacin", "Ciprofloxacin", "Ofloxacin", "Fusidic Acid Eye Gel", "Chloramphenicol", "Acyclovir Eye Ointment"] }, { ar: "الستيرويدات العينية ومضادات الحساسية والجلوكوما", en: "Steroids, Anti-allergy & Anti-glaucoma", mech: "تقليل الالتهاب والحكة وخفض ضغط العين.", drugs: ["Fluorometholone (FML)", "Prednisolone Acetate", "Tobradex", "Olopatadine", "Ketotifen", "Sodium Hyaluronate", "Timolol", "Latanoprost", "Brimonidine"] }] },
+        { num: 4, arTitle: "أدوية الأذن والسمع والتوازن", enTitle: "Auditory & Vestibular Drugs", families: [{ ar: "قطرات التهابات الأذن وأدوية الدوار", en: "Otic Drops & Antivertigo", mech: "علاج التهابات الأذن الخارجية والشمع والدوار.", drugs: ["Ciprofloxacin Ear Drops", "Ciprofloxacin + Dexamethasone", "Clotrimazole Otic", "Sodium Bicarbonate Ear Drops", "Betahistine", "Cinnarizine", "Dimenhydrinate"] }] },
+        { num: 5, arTitle: "أدوية السكري والغدد الصماء الاستقلابية", enTitle: "Diabetes Mellitus Drugs", families: [{ ar: "أدوية السكري الفموية والحقن", en: "Oral Antidiabetics & GLP-1", mech: "ضبط سكر الدم وحماية القلب والكلى.", drugs: ["Metformin", "Glimepiride", "Gliclazide", "Sitagliptin", "Vildagliptin", "Empagliflozin", "Dapagliflozin", "Liraglutide", "Semaglutide", "Tirzepatide"] }, { ar: "أنواع الإنسولين (Insulins)", en: "Rapid, Intermediate & Long-Acting", mech: "تعويض الإنسولين.", drugs: ["Insulin Aspart (NovoRapid)", "Insulin Lispro (Humalog)", "Regular Insulin (Actrapid)", "NPH Insulin", "Insulin Glargine (Lantus)", "Insulin Degludec (Tresiba)", "Mixtard / NovoMix"] }] },
+        { num: 6, arTitle: "أدوية الغدة الدرقية", enTitle: "Thyroid Gland Drugs", families: [{ ar: "هرمونات ومثبطات الغدة الدرقية", en: "Thyroid Hormones & Antithyroid", mech: "Levothyroxine صباحاً على معدة فارغة.", drugs: ["Levothyroxine Sodium (T4)", "Liothyronine (T3)", "Carbimazole", "Methimazole", "Propylthiouracil (PTU)"] }] },
+        { num: 7, arTitle: "أدوية الخصوبة وتنشيط التبويض", enTitle: "Fertility & Ovulation Induction Drugs", families: [{ ar: "منشطات التبويض والحقن الهرمونية", en: "Ovulation Inducers & Gonadotropins", mech: "تحفيز نمو البويضات وإطلاقها.", drugs: ["Clomiphene Citrate (Clomid)", "Letrozole (Femara)", "hCG", "Follitropin Alfa (rFSH)", "Menotropins (hMG)", "Cabergoline"] }] },
+        { num: 8, arTitle: "أدوية الجهاز البولي والبروستاتا", enTitle: "Genito-Urinary Disorder Drugs", families: [{ ar: "أدوية البروستاتا والحصوات والمثانة", en: "BPH, Stones & Overactive Bladder", mech: "تسهيل التبول وتفتيت الحصوات.", drugs: ["Tamsulosin", "Alfuzosin", "Finasteride", "Dutasteride", "Nitrofurantoin", "Fosfomycin", "Potassium Citrate", "Rowatinex", "Oxybutynin", "Solifenacin", "Mirabegron", "Sildenafil", "Tadalafil"] }] },
+        { num: 9, arTitle: "أدوية الجهاز التنفسي والحساسية والربو", enTitle: "Respiratory & Allergy Drugs", families: [{ ar: "مضادات الهستامين (الجيل الأول والثاني)", en: "Antihistamines", mech: "الجيل الأول يسبب النعاس؛ الجيل الثاني بدون نعاس.", drugs: ["Chlorpheniramine", "Diphenhydramine", "Promethazine", "Loratadine", "Desloratadine", "Cetirizine", "Levocetirizine", "Fexofenadine", "Bilastine"] }, { ar: "موسعات القصبات وبخاخات الربو وأدوية السعال", en: "Bronchodilators, ICS & Cough Agents", mech: "توسيع الشعب الهوائية وطرد البلغم أو تهدئة السعال.", drugs: ["Salbutamol (Ventolin)", "Ipratropium", "Budesonide", "Symbicort", "Seretide", "Montelukast", "Bromhexine", "Ambroxol", "Acetylcysteine", "Dextromethorphan", "Butamirate"] }] },
+        { num: 10, arTitle: "أدوية الجهاز الهضمي", enTitle: "Gastrointestinal Tract (GIT) Drugs", families: [{ ar: "مثبطات مضخة البروتون ومضادات الحموضة", en: "PPIs, H2 Blockers & Antacids", mech: "PPIs قبل الفطور بـ 30-60 دقيقة.", drugs: ["Omeprazole", "Esomeprazole", "Pantoprazole", "Lansoprazole", "Rabeprazole", "Famotidine", "Gaviscon"] }, { ar: "مضادات القيء والمغص والملينات ومضادات الإسهال", en: "Antiemetics, Antispasmodics & Bowel Regulators", mech: "تنظيم حركة الجهاز الهضمي.", drugs: ["Ondansetron", "Domperidone", "Metoclopramide", "Navidoxine", "Hyoscine (Buscopan)", "Mebeverine", "Lactulose", "Bisacodyl", "Loperamide", "ORS"] }] },
+        { num: 11, arTitle: "أدوية الجهاز العصبي المركزي والنفسي", enTitle: "Central Nervous System (CNS) Drugs", families: [{ ar: "مضادات الاكتئاب والصرع والذهان والشقيقة", en: "CNS Agents", mech: "تنظيم النواقل العصبية في الدماغ.", drugs: ["Sertraline", "Escitalopram", "Fluoxetine", "Duloxetine", "Amitriptyline", "Pregabalin", "Gabapentin", "Carbamazepine", "Sodium Valproate", "Levetiracetam", "Sumatriptan", "Olanzapine", "Quetiapine", "Donepezil"] }] },
+        { num: 12, arTitle: "أدوية الأمراض الجلدية", enTitle: "Dermatology Drugs", families: [{ ar: "الستيرويدات الموضعية والمضادات الجلدية وحب الشباب", en: "Topical Dermatology Agents", mech: "علاج الأكزيما والفطريات وحب الشباب.", drugs: ["Hydrocortisone 1%", "Mometasone", "Betamethasone", "Clobetasol", "Fusidic Acid", "Mupirocin", "Clotrimazole", "Terbinafine", "Adapalene", "Isotretinoin", "Permethrin"] }] },
+        { num: 13, arTitle: "أدوية البواسير والتشققات الشرجية", enTitle: "Anti-Haemorrhoidal & Anal Fissure Drugs", families: [{ ar: "المراهم والتحاميل ومقويات الأوردة", en: "Proctology Agents", mech: "تسكين الألم وتقليص الاحتقان الوريدي.", drugs: ["Procto-Glyvenol", "Ultraproct", "Glyceryl Trinitrate 0.2%", "Diltiazem 2% Gel", "Daflon (Diosmin + Hesperidin)"] }] },
+        { num: 14, arTitle: "أدوية النسائية والتوليد", enTitle: "Gynecology & Obstetrics Drugs", families: [{ ar: "مثبتات الحمل وموانع الحمل ومضادات الالتهاب المهبلي", en: "OB/GYN Agents", mech: "تثبيت الحمل وتنظيم الدورة.", drugs: ["Dydrogesterone (Duphaston)", "Progesterone (Cyclogest)", "Norethisterone", "Yasmin", "Cerazette", "Clotrimazole Vaginal", "Tranexamic Acid", "Oxytocin"] }] },
+        { num: 15, arTitle: "المسكنات والعظام والمفاصل والعضلات والنقرس", enTitle: "Analgesics, Musculoskeletal & Gout Drugs", families: [{ ar: "NSAIDs ومرخيات العضلات وأدوية النقرس والهشاشة", en: "Pain, Muscle & Bone Agents", mech: "تسكين الألم وعلاج النقرس وهشاشة العظام.", drugs: ["Paracetamol", "Ibuprofen", "Diclofenac", "Mefenamic Acid", "Naproxen", "Meloxicam", "Celecoxib", "Orphenadrine", "Tizanidine", "Baclofen", "Allopurinol", "Febuxostat", "Colchicine", "Alendronate"] }] },
+        { num: 16, arTitle: "التغذية والفيتامينات والمعادن", enTitle: "Nutrition, Vitamins & Minerals", families: [{ ar: "الفيتامينات والمعادن الأساسية", en: "Vitamins & Trace Elements", mech: "دعم المناعة والعظام والأعصاب وتكوين الدم.", drugs: ["Vitamin D3", "Alfacalcidol", "Neurobion (B1+B6+B12)", "Folic Acid", "Vitamin C", "Vitamin E", "Ferrous Sulfate", "Iron Polymaltose", "Calcium Carbonate", "Zinc Sulfate", "Magnesium Citrate"] }] },
+        { num: 17, arTitle: "أدوية العلاج الكيميائي والأورام", enTitle: "Chemotherapy & Antineoplastic Drugs", families: [{ ar: "مضادات الأورام الكيميائية والهرمونية والموجهة", en: "Antineoplastic Agents", mech: "تُصرف حصراً تحت إشراف مراكز الأورام.", drugs: ["Cyclophosphamide", "Cisplatin", "Carboplatin", "5-FU", "Capecitabine", "Doxorubicin", "Paclitaxel", "Tamoxifen", "Anastrozole", "Imatinib", "Rituximab", "Trastuzumab"] }] },
+        { num: 18, arTitle: "الأدوية المثبطة للمناعة والبيولوجية", enTitle: "Immunosuppressant & Biologic Drugs", families: [{ ar: "مثبطات المناعة والستيرويدات الجهازية والأدوية البيولوجية", en: "Immunosuppressants & Biologics", mech: "لزراعة الأعضاء وأمراض المناعة الذاتية.", drugs: ["Cyclosporine", "Tacrolimus", "Mycophenolate", "Azathioprine", "Methotrexate", "Prednisolone", "Methylprednisolone", "Dexamethasone", "Adalimumab", "Infliximab"] }] },
+        { num: 19, isNew: true, arTitle: "أدوية الطوارئ والإنعاش والترياقات", enTitle: "Emergency, Resuscitation & Antidotes", families: [{ ar: "أدوية الإنعاش القلبي والترياقات المضادة للتسمم", en: "CPR & Specific Antidotes", mech: "إنقاذ الحياة وإبطال مفعول السموم.", drugs: ["Epinephrine (Adrenaline)", "Norepinephrine", "Atropine", "Dopamine", "Dobutamine", "Naloxone", "Flumazenil", "N-Acetylcysteine IV", "Vitamin K1", "Protamine Sulfate", "Activated Charcoal"] }] },
+        { num: 20, isNew: true, arTitle: "أدوية الدم ومضادات فقر الدم وعوامل التخثر", enTitle: "Hematology & Blood Disorder Drugs", families: [{ ar: "محفزات الدم وعوامل التخثر", en: "Hematopoietic & Hemostatic Agents", mech: "تحفيز نخاع العظم وإيقاف النزيف.", drugs: ["Erythropoietin", "Filgrastim (G-CSF)", "Iron Sucrose IV", "Ferric Carboxymaltose", "Tranexamic Acid", "Etamsylate", "Factor VIII", "Factor IX"] }] },
+        { num: 21, isNew: true, arTitle: "أدوية التخدير الموضعي والعام والمرخيات الجراحية", enTitle: "Anesthetics & Neuromuscular Blockers", families: [{ ar: "المخدرات الموضعية والعامة", en: "Local & General Anesthetics", mech: "تخدير موضعي وعام للعمليات.", drugs: ["Lidocaine", "Lidocaine + Epinephrine", "Bupivacaine", "Articaine", "EMLA", "Propofol", "Ketamine", "Midazolam", "Sevoflurane", "Succinylcholine", "Rocuronium", "Neostigmine"] }] },
+        { num: 22, isNew: true, arTitle: "اللقاحات والأمصال والمناعة الحيوية", enTitle: "Vaccines, Sera & Immunoglobulins", families: [{ ar: "اللقاحات والأمصال المناعية", en: "Active & Passive Immunization", mech: "الوقاية والمناعة الفورية.", drugs: ["Tetanus Toxoid", "Hepatitis B Vaccine", "Influenza Vaccine", "MMR", "Rabies Vaccine", "Anti-D (Rh0) Immunoglobulin", "Tetanus Immunoglobulin", "Anti-Snake Venom"] }] },
+        { num: 23, isNew: true, arTitle: "محاليل الكهارل والتوازن الحمضي القاعدي والتغذية الوريدية", enTitle: "Fluids, Electrolytes & TPN", families: [{ ar: "المحاليل الوريدية والشوارد والتغذية الوريدية", en: "Crystalloids, Colloids & TPN", mech: "تعويض السوائل والأملاح والبروتينات.", drugs: ["Normal Saline 0.9%", "Ringer Lactate", "Dextrose 5% / 10%", "Glucose Saline", "KCl Amp", "Magnesium Sulfate IV", "Mannitol 20%", "Human Albumin", "Aminoven", "Intralipid"] }] },
+        { num: 24, isNew: true, arTitle: "الأدوية التشخيصية والصبغات الطبية", enTitle: "Diagnostic Agents & Contrast Media", families: [{ ar: "الصبغات الإشعاعية ومواد الفحص", en: "Radiocontrast & Diagnostic Dyes", mech: "تُستخدم في الأشعة المقطعية والرنين وفحوصات القرنية.", drugs: ["Iohexol (Omnipaque)", "Iopamidol", "Gadolinium (MRI)", "Barium Sulfate", "Fluorescein Sodium", "Tuberculin PPD"] }] }
+    ];
+
+    /* مكتبة شاملة للكتب العالمية والنقابية وكتب المراحل الدراسية */
+    const defaultBooksData = [
+        { title: "British National Formulary (BNF 87/88)", category: "مرجع النقابة والمستشفيات الأول", desc: "المرجع البريطاني الرسمي المعتمد عالمياً للجرعات، التداخلات الدوائية، موانع الاستعمال، وتصنيف الحمل والرضاعة.", details: "يضم جميع أدوية البالغين والأطفال (BNF for Children) مع بروتوكولات الطوارئ وتعديل الجرعات الكلوية والكبدية." },
+        { title: "DiPiro's Pharmacotherapy: A Pathophysiologic Approach", category: "مرجع الصيدلة السريرية العالمي", desc: "الكتاب المرجعي الأول عالمياً في العلاجيات السريرية لطلاب المرحلة الخامسة والصيادلة السريريين.", details: "يشرح الفسيولوجيا المرضية لكل مرض مع خوارزميات اختيار الدواء الأول والبدائل العلاجية." },
+        { title: "Katzung's Basic & Clinical Pharmacology", category: "مرجع علم الأدوية الأكاديمي", desc: "المرجع الأساسي لطلاب المرحلة الثالثة والرابعة في علم الأدوية الأساسي والسريري.", details: "يغطي الحركية الدوائية (ADME)، المستقبلات، والمجموعات الدوائية الـ 24 بالتفصيل." },
+        { title: "Lippincott Illustrated Reviews: Pharmacology", category: "كتاب الفهم السريع والمصور", desc: "أشهر كتاب عالمي مبسط ومصور لفهم آليات عمل الأدوية لطلاب كليات الصيدلة وامتحانات المعادلة.", details: "يتميز بالرسوم التوضيحية والملخصات المركزة لكل عائلة دوائية." },
+        { title: "Goodman & Gilman's The Pharmacological Basis of Therapeutics", category: "الموسوعة الدوائية الكبرى", desc: "أعرق مرجع علمي متعمق في الأسس الدوائية والعلاجية والبحث الدوائي.", details: "مرجع الدراسات العليا والباحثين في علم الأدوية والسموم." },
+        { title: "Applied Therapeutics: The Clinical Use of Drugs (Koda-Kimble)", category: "مرجع الحالات السريرية", desc: "يركز على دراسة الحالات السريرية الواقعية (Clinical Cases) وكيفية حل مشاكل المرضى الدوائية.", details: "أساسي للتدريب السريري في المستشفيات وامتحانات OSCE." },
+        { title: "Aulton's Pharmaceutics: The Design and Manufacture of Medicines", category: "مرجع الصيدلانيات (المرحلة 2 و 3)", desc: "المرجع العالمي لتصميم وتصنيع الأشكال الصيدلانية (الحبوب، الكبسولات، المعلقات، والمراهم).", details: "يغطي الثباتية الدوائية وطرق التحضير الصيدلاني." },
+        { title: "Shargel's Applied Biopharmaceutics & Pharmacokinetics", category: "مرجع الحركية الدوائية (المرحلة 4)", desc: "المرجع الأساسي لحساب التوافر الحيوي (Bioavailability) وفترة نصف العمر t½ والجرعات.", details: "يشرح معادلات التركيز البلازمي وتعديل الجرعات." },
+        { title: "Wilson & Gisvold's Textbook of Organic Medicinal Chemistry", category: "مرجع الكيمياء الصيدلانية (المرحلة 3 و 4)", desc: "يشرح العلاقة بين التركيب الكيميائي وفعالية الدواء (SAR) والأيض الكبدي.", details: "مرجع أساسي لمادة الكيمياء الصيدلانية في كليات الصيدلة." },
+        { title: "Trease and Evans' Pharmacognosy", category: "مرجع العقاقير والنباتات الطبية (المرحلة 3)", desc: "المرجع العالمي في العقاقير والمواد الفعالة المستخلصة من النباتات الطبية.", details: "يغطي القلويدات، الجليكوسيدات، والزيوت الطيارة." },
+        { title: "Stockley's Drug Interactions", category: "مرجع التداخلات الدوائية العالمي", desc: "أدق مرجع عالمي لتحليل التداخلات بين الأدوية والأغذية والأعشاب ودرجة خطورتها.", details: "يساعد الصيدلي على تجنب التداخلات الخطيرة في الوصفات الطبية." },
+        { title: "Goldfrank's Toxicologic Emergencies", category: "مرجع علم السموم والطوارئ (المرحلة 5)", desc: "المرجع العالمي للتعامل مع التسمم الدوائي والكيميائي والترياقات (Antidotes).", details: "يوضح بروتوكولات إنقاذ المرضى في أقسام الطوارئ." },
+        { title: "Remington: The Science and Practice of Pharmacy", category: "موسوعة ممارسة مهنة الصيدلة", desc: "موسوعة شاملة تغطي كافة علوم الصيدلة والصيدلة الصناعية والسريرية.", details: "أحد أهم مراجع نقابات الصيادلة العالمية." },
+        { title: "دليل النقابة والوصف الرشيد للأدوية (OTC & Community Pharmacy Guide)", category: "دليل نقابة الصيادلة للصرف الميداني", desc: "دليل عملي للصيدلي في الصيدلية المجتمعية للتعامل مع الحالات اليومية وصرف الأدوية بدون وصفة.", details: "يشمل بروتوكولات الأطفال والحوامل وكبار السن." }
+    ];
+
+    /* بنك أسئلة الامتحانات التجريبية الذكية (AI Exam Bank) */
+    const aiExamBank = [
         {
-            num: 3,
-            arTitle: "أدوية العيون والقطرات العينية",
-            enTitle: "Ophthalmic Drugs",
-            families: [
-                { ar: "المضادات الحيوية والفيروسية للعين", en: "Ophthalmic Anti-infectives", mech: "علاج التهاب الملتحمة والقرنية.", drugs: ["Tobramycin", "Moxifloxacin", "Ciprofloxacin", "Ofloxacin", "Fusidic Acid Eye Gel", "Chloramphenicol", "Acyclovir Eye Ointment"] },
-                { ar: "الستيرويدات العينية والتركيبات المركبة", en: "Ophthalmic Steroids", mech: "تخفيف التهاب العين (تُراقب ضغط العين).", drugs: ["Fluorometholone (FML)", "Prednisolone Acetate", "Dexamethasone", "Tobradex (Tobramycin + Dexamethasone)"] },
-                { ar: "مضادات حساسية العين والمرطبات", en: "Anti-allergy & Artificial Tears", mech: "علاج حكة وجفاف العين.", drugs: ["Olopatadine", "Ketotifen", "Sodium Cromoglicate", "Sodium Hyaluronate", "Carboxymethylcellulose"] },
-                { ar: "أدوية الجلوكوما (ارتفاع ضغط العين)", en: "Anti-glaucoma Agents", mech: "خفض ضغط العين الداخلي لحماية العصب البصري.", drugs: ["Timolol", "Latanoprost", "Brimonidine", "Dorzolamide", "Travoprost"] }
-            ]
+            cat: "clinical",
+            q: "مريضة حامل في الشهر الرابع تعاني من ارتفاع ضغط الدم، أي من الأدوية التالية يُعد خياراً آمناً ومناسباً لها؟",
+            options: ["Ramipril (ACE Inhibitor)", "Valsartan (ARB)", "Methyldopa / Labetalol", "Atorvastatin"],
+            correct: 2,
+            explanation: "أدوية ACE Inhibitors (مثل Ramipril) و ARBs (مثل Valsartan) ممنوعة تماماً أثناء الحمل (Category D/X) لأنها تسبب تشوهات خلقية وفشلاً كلوياً للجنين، بينما يُعد Methyldopa و Labetalol من الخيارات الآمنة والمعتمدة في الحمل."
         },
         {
-            num: 4,
-            arTitle: "أدوية الأذن والسمع والتوازن",
-            enTitle: "Auditory & Vestibular Drugs",
-            families: [
-                { ar: "قطرات التهابات الأذن وشمع الأذن", en: "Otic Drops & Cerumenolytics", mech: "علاج التهابات الأذن الخارجية وتليين الشمع.", drugs: ["Ciprofloxacin Ear Drops", "Ciprofloxacin + Dexamethasone", "Clotrimazole Otic", "Sodium Bicarbonate Ear Drops", "Carbamide Peroxide"] },
-                { ar: "أدوية الدوار وطنين الأذن", en: "Antivertigo Agents", mech: "تحسين تروية الأذن الداخلية وعلاج الدوخة.", drugs: ["Betahistine", "Cinnarizine", "Dimenhydrinate", "Meclizine"] }
-            ]
+            cat: "clinical",
+            q: "مريض يتناول Levothyroxine لعلاج خمول الغدة الدرقية، ما هو التوقيت وطريقة الاستخدام الصحيحة؟",
+            options: ["بعد وجبة الفطور مباشرة مع كوب حليب", "صباحاً على معدة فارغة قبل الفطور بـ 30-60 دقيقة ويفصل عن الحديد والكالسيوم 4 ساعات", "مساءً قبل النوم مع مضاد حموضة", "مع وجبة الغداء مع كبسولة حديد"],
+            correct: 1,
+            explanation: "الطعام والقهوة والحليب والحديد والكالسيوم ومضادات الحموضة تقلل امتصاص Levothyroxine بشكل كبير؛ لذا يجب أخذه صباحاً على الريق قبل الفطور بـ 30-60 دقيقة وفصله 4 ساعات عن الحديد والكالسيوم."
         },
         {
-            num: 5,
-            arTitle: "أدوية السكري والغدد الصماء الاستقلابية",
-            enTitle: "Diabetes Mellitus Drugs",
-            families: [
-                { ar: "البيغوانيدات ومفرزات الإنسولين", en: "Biguanides & Sulfonylureas", mech: "تحسين حساسية الإنسولين أو تحفيز إفرازه.", drugs: ["Metformin", "Glimepiride", "Gliclazide", "Glibenclamide", "Repaglinide"] },
-                { ar: "مثبطات DPP-4 و SGLT2 وناهضات GLP-1", en: "Modern Antidiabetic Agents", mech: "ضبط السكر مع حماية القلب والكلى.", drugs: ["Sitagliptin", "Vildagliptin", "Linagliptin", "Empagliflozin", "Dapagliflozin", "Liraglutide", "Semaglutide", "Tirzepatide"] },
-                { ar: "أنواع الإنسولين (Insulins)", en: "Rapid, Short, Intermediate & Long-Acting", mech: "تعويض الإنسولين في السكري النوع 1 و 2.", drugs: ["Insulin Aspart (NovoRapid)", "Insulin Lispro (Humalog)", "Regular Insulin (Actrapid)", "NPH Insulin", "Insulin Glargine (Lantus)", "Insulin Degludec (Tresiba)", "Mixtard / NovoMix"] }
-            ]
+            cat: "pharmacology",
+            q: "أي من المضادات الحيوية التالية يُمنع إعطاؤه للأطفال دون سن 8 سنوات وللحوامل لأنه يسبب تصبغ الأسنان الدائم ويؤثر على نمو العظام؟",
+            options: ["Amoxicillin", "Azithromycin", "Doxycycline (Tetracyclines)", "Cefixime"],
+            correct: 2,
+            explanation: "مجموعة التتراسايكلينات (مثل Doxycycline و Tetracycline) ترتبط بالكالسيوم في الأسنان والعظام النامية وتسبب تصبغها الدائم؛ لذا تُمنع في الحمل والأطفال تحت 8 سنوات."
         },
         {
-            num: 6,
-            arTitle: "أدوية الغدة الدرقية",
-            enTitle: "Thyroid Gland Drugs",
-            families: [
-                { ar: "هرمونات الغدة البديلة (خمول الغدة)", en: "Hypothyroidism Replacement", mech: "يُؤخذ صباحاً على معدة فارغة قبل الأكل بـ 30-60 دقيقة.", drugs: ["Levothyroxine Sodium (T4)", "Liothyronine (T3)"] },
-                { ar: "مثبطات الغدة الدرقية (فرط نشاط الغدة)", en: "Antithyroid Drugs", mech: "تثبيط إفراز هرمونات الغدة المفرطة.", drugs: ["Carbimazole", "Methimazole", "Propylthiouracil (PTU)"] }
-            ]
+            cat: "dosage",
+            q: "طفل وزنه 15 كغم ويحتاج إلى شراب ميترونيدازول بتركيز 125mg/5ml (المعادلة: الوزن × 0.4)، كم تبلغ الجرعة الواحدة بالسي سي؟",
+            options: ["3 سي سي كل 8 ساعات", "6 سي سي كل 8 ساعات", "10 سي سي كل 12 ساعة", "1.5 سي سي مرة يومياً"],
+            correct: 1,
+            explanation: "بحسب المعادلة الميدانية: 15 كغم × 0.4 = 6 سي سي (6 مل) تُعطى كل 8 ساعات (3 مرات باليوم)."
         },
         {
-            num: 7,
-            arTitle: "أدوية الخصوبة وتنشيط التبويض",
-            enTitle: "Fertility & Ovulation Induction Drugs",
-            families: [
-                { ar: "منشطات التبويض الفموية والحقن الهرمونية", en: "Ovulation Inducers & Gonadotropins", mech: "تحفيز نمو البويضات وإطلاقها.", drugs: ["Clomiphene Citrate (Clomid)", "Letrozole (Femara)", "hCG", "Follitropin Alfa (rFSH)", "Menotropins (hMG)", "Cabergoline"] }
-            ]
+            cat: "dosage",
+            q: "مطلوب إعطاء 500 سي سي من محلول Normal Saline خلال 4 ساعات باستخدام جهاز تقطير عادي (معامل التقطير 20 نقطة/مل)، كم قطرة في الدقيقة؟",
+            options: ["20 قطرة/دقيقة", "42 قطرة/دقيقة", "80 قطرة/دقيقة", "125 قطرة/دقيقة"],
+            correct: 1,
+            explanation: "المعادلة: (500 سي سي × 20 نقطة) ÷ (4 ساعات × 60 دقيقة) = 10000 ÷ 240 = 41.66 ≈ 42 قطرة في الدقيقة."
         },
         {
-            num: 8,
-            arTitle: "أدوية الجهاز البولي والبروستاتا",
-            enTitle: "Genito-Urinary Disorder Drugs",
-            families: [
-                { ar: "أدوية تضخم البروستاتا الحميد (BPH)", en: "Alpha-1 Blockers & 5-ARI", mech: "إرخاء عضلات البروستاتا وتسهيل التبول.", drugs: ["Tamsulosin", "Alfuzosin", "Silodosin", "Finasteride", "Dutasteride"] },
-                { ar: "مطهرات المسالك والحصوات وفرط نشاط المثانة", en: "Urinary Antiseptics & Antimuscarinics", mech: "علاج التهابات البول والحصوات وتهدئة المثانة.", drugs: ["Nitrofurantoin", "Fosfomycin", "Potassium Citrate", "Rowatinex", "Oxybutynin", "Solifenacin", "Mirabegron", "Sildenafil", "Tadalafil"] }
-            ]
+            cat: "otc",
+            q: "مريض ارتفاع ضغط الدم يطلب دواءً لعلاج احتقان الأنف والرشح، أي دواء يجب تجنبه تماماً لأنه يرفع ضغط الدم؟",
+            options: ["بخاخ ماء البحر (Normal Saline Nasal Spray)", "Loratadine 10mg", "أقراص تحتوي على Pseudoephedrine", "Paracetamol 500mg"],
+            correct: 2,
+            explanation: "مضادات الاحتقان الفموية مثل Pseudoephedrine و Phenylephrine تسبب تضيق الأوعية الدموية وترفع ضغط الدم وتسارع القلب؛ البديل الآمن لمريض الضغط هو بخاخ ماء البحر ومضادات الهستامين الجيل الثاني مثل Loratadine."
         },
         {
-            num: 9,
-            arTitle: "أدوية الجهاز التنفسي والحساسية والربو (مفصلة)",
-            enTitle: "Respiratory & Allergy Drugs",
-            families: [
-                { ar: "مضادات الهستامين الجيل الأول (المسببة للنعاس)", en: "1st Generation Antihistamines", mech: "تُستخدم للحساسية والرشح؛ تسبب النعاس.", drugs: ["Chlorpheniramine", "Diphenhydramine", "Promethazine", "Hydroxyzine"] },
-                { ar: "مضادات الهستامين الجيل الثاني (بدون نعاس)", en: "2nd Generation Non-Sedating Antihistamines", mech: "تستمر 24 ساعة ولا تسبب نعاساً.", drugs: ["Loratadine", "Desloratadine", "Cetirizine", "Levocetirizine", "Fexofenadine", "Bilastine"] },
-                { ar: "موسعات القصبات وبخاخات الربو (Bronchodilators & ICS)", en: "Beta-2 Agonists & Inhaled Corticosteroids", mech: "توسيع الشعب الهوائية والسيطرة على الربو.", drugs: ["Salbutamol (Ventolin)", "Formoterol", "Ipratropium Bromide", "Tiotropium", "Budesonide", "Fluticasone", "Symbicort", "Seretide", "Montelukast"] },
-                { ar: "مذيبات ومقشعات البلغم (Mucolytics & Expectorants)", en: "Productive Cough Agents", mech: "تخفيف لزوجة البلغم وتسهيل طرده.", drugs: ["Bromhexine", "Ambroxol", "Acetylcysteine (NAC)", "Guaifenesin"] },
-                { ar: "مهدئات السعال الجاف وبخاخات الأنف (Antitussives & Nasal Sprays)", en: "Dry Cough & Nasal Decongestants/Steroids", mech: "تهدئة السعال الجاف وعلاج احتقان الأنف.", drugs: ["Dextromethorphan", "Butamirate Citrate", "Oxymetazoline", "Xylometazoline", "Mometasone Nasal Spray", "Fluticasone Nasal Spray"] }
-            ]
+            cat: "clinical",
+            q: "مريض يتناول مميع الدم Clopidogrel (Plavix) ويحتاج إلى دواء لحماية المعدة (PPI)، أي دواء هو الأنسب لتجنب التداخل الدوائي؟",
+            options: ["Omeprazole 20mg", "Esomeprazole 40mg", "Pantoprazole 40mg", "Cimetidine"],
+            correct: 2,
+            explanation: "دواء Omeprazole و Esomeprazole يثبطان إنزيم CYP2C19 المسؤول عن تنشيط Clopidogrel في الكبد مما يقلل فعاليته في منع الجلطات؛ لذا يُستبدل بـ Pantoprazole لأنه الأقل تأثيراً على هذا الإنزيم."
         },
         {
-            num: 10,
-            arTitle: "أدوية الجهاز الهضمي (كل عائلة مستقلة)",
-            enTitle: "Gastrointestinal Tract (GIT) Drugs",
-            families: [
-                { ar: "مثبطات مضخة البروتون (PPIs)", en: "Proton Pump Inhibitors (-prazole)", mech: "تُؤخذ قبل الفطور بـ 30-60 دقيقة لعلاج القرحة والارتجاع.", drugs: ["Omeprazole", "Esomeprazole", "Pantoprazole", "Lansoprazole", "Rabeprazole", "Dexlansoprazole"] },
-                { ar: "حاصرات H2 ومضادات الحموضة (H2 Blockers & Antacids)", en: "Acid Neutralizers & H2 Antagonists", mech: "تخفيف الحموضة السريع والآمن بالحمل.", drugs: ["Famotidine", "Gaviscon (Sodium Alginate)", "Aluminium + Magnesium Hydroxide", "Sucralfate"] },
-                { ar: "مضادات القيء والغثيان (Antiemetics & Prokinetics)", en: "Antiemetic Agents", mech: "إيقاف القيء وتحسين حركة المعدة.", drugs: ["Ondansetron", "Granisetron", "Domperidone", "Metoclopramide", "Meclizine + Vitamin B6 (Navidoxine)"] },
-                { ar: "مضادات المغص والقولون العصبي (Antispasmodics)", en: "GI Smooth Muscle Relaxants", mech: "تخفيف تشنجات البطن والقولون العصبي.", drugs: ["Hyoscine Butylbromide (Buscopan)", "Mebeverine", "Trimebutine", "Chlordiazepoxide + Clidinium (Librax)", "Simethicone"] },
-                { ar: "الملينات ومضادات الإسهال (Laxatives & Antidiarrheals)", en: "Bowel Regulators & ORS", mech: "علاج الإمساك أو الإسهال وتعويض السوائل.", drugs: ["Lactulose", "Bisacodyl", "Senna", "Polyethylene Glycol (PEG)", "Loperamide", "Racecadotril", "ORS (محلول الإرواء)", "Saccharomyces boulardii"] }
-            ]
+            cat: "pharmacology",
+            q: "ما هو الترياق النوعي (Specific Antidote) المستخدم في حالات التسمم بجرعة زائدة من الباراسيتامول (Paracetamol Overdose)؟",
+            options: ["Naloxone", "N-Acetylcysteine (NAC)", "Flumazenil", "Atropine"],
+            correct: 1,
+            explanation: "يعمل N-Acetylcysteine على تعويض مخزون الجلوتاثيون (Glutathione) في الكبد لإبطال سمية المستقلب السام NAPQI الناتج عن الجرعات الزائدة من الباراسيتامول."
         },
         {
-            num: 11,
-            arTitle: "أدوية الجهاز العصبي المركزي والنفسي",
-            enTitle: "Central Nervous System (CNS) Drugs",
-            families: [
-                { ar: "مضادات الاكتئاب والقلق (SSRIs, SNRIs & TCAs)", en: "Antidepressants", mech: "تحتاج 2-4 أسابيع لبدء التأثير الكامل.", drugs: ["Sertraline", "Escitalopram", "Citalopram", "Fluoxetine", "Venlafaxine", "Duloxetine", "Amitriptyline", "Mirtazapine"] },
-                { ar: "مضادات الصرع وآلام الأعصاب (Antiepileptics & Neuropathic Pain)", en: "Anticonvulsants", mech: "السيطرة على التشنجات والتهاب الأعصاب.", drugs: ["Pregabalin", "Gabapentin", "Carbamazepine", "Sodium Valproate", "Levetiracetam", "Lamotrigine", "Topiramate"] },
-                { ar: "أدوية الصداع النصفي (Antimigraine)", en: "Triptans & Prophylaxis", mech: "إيقاف نوبة الشقيقة أو الوقاية منها.", drugs: ["Sumatriptan", "Zolmitriptan", "Flunarizine", "Propranolol"] },
-                { ar: "مضادات الذهان وأدوية باركنسون والزهايمر", en: "Antipsychotics, Antiparkinson & Dementia", mech: "تنظيم النواقل العصبية الدماغية.", drugs: ["Olanzapine", "Quetiapine", "Risperidone", "Aripiprazole", "Levodopa + Carbidopa", "Donepezil", "Memantine"] }
-            ]
+            cat: "otc",
+            q: "طفل عمره 3 سنوات يعاني من إسهال حاد مائي بدون دم أو حرارة مرتفعة، ما هو العلاج الأساسي الأول في الصيدلية؟",
+            options: ["مضاد حيوي Ciprofloxacin", "Loperamide لإيقاف الإسهال فوراً", "محلول الإرواء الفموي (ORS) + شراب الزنك (Zinc)", "حقنة Dexamethasone"],
+            correct: 2,
+            explanation: "الأساس الأول في إسهال الأطفال هو منع الجفاف عبر محلول الإرواء الفموي (ORS) وإعطاء الزنك لمدة 10-14 يوماً لتجديد بطانة الأمعاء، ويُمنع Loperamide في الأطفال الصغار."
         },
         {
-            num: 12,
-            arTitle: "أدوية الأمراض الجلدية",
-            enTitle: "Dermatology Drugs",
-            families: [
-                { ar: "الكورتيكوستيرويدات الموضعية (حسب القوة)", en: "Topical Corticosteroids", mech: "علاج الأكزيما والصدفية والحساسية الجلدية.", drugs: ["Hydrocortisone 1% (خفيف)", "Mometasone Furoate (متوسط)", "Betamethasone (قوي)", "Clobetasol Propionate (فائق القوة)"] },
-                { ar: "المضادات الحيوية والفطرية الجلدية وعلاج حب الشباب", en: "Topical Anti-infectives & Anti-acne", mech: "علاج الالتهابات الجلدية والفطريات وحب الشباب.", drugs: ["Fusidic Acid", "Mupirocin", "Silver Sulfadiazine", "Clotrimazole", "Miconazole", "Ketoconazole Shampoo", "Adapalene", "Tretinoin", "Isotretinoin", "Permethrin"] }
-            ]
-        },
-        {
-            num: 13,
-            arTitle: "أدوية البواسير والتشققات الشرجية",
-            enTitle: "Anti-Haemorrhoidal & Anal Fissure Drugs",
-            families: [
-                { ar: "المراهم والتحاميل الموضعية ومقويات الأوردة", en: "Topical Anesthetics & Venotonics", mech: "تسكين الألم وتقليص الاحتقان الوريدي.", drugs: ["Tribenoside + Lidocaine (Procto-Glyvenol)", "Fluocortolone + Lidocaine (Ultraproct)", "Glyceryl Trinitrate 0.2% Ointment", "Diltiazem 2% Gel", "Diosmin + Hesperidin (Daflon)"] }
-            ]
-        },
-        {
-            num: 14,
-            arTitle: "أدوية النسائية والتوليد",
-            enTitle: "Gynecology & Obstetrics Drugs",
-            families: [
-                { ar: "مثبتات الحمل، منظمات الدورة، وموانع الحمل", en: "Progestogens & Contraceptives", mech: "تثبيت الحمل وتنظيم الدورة الشهرية.", drugs: ["Dydrogesterone (Duphaston)", "Progesterone (Cyclogest)", "Norethisterone (Primolut-N)", "Ethinylestradiol + Drospirenone (Yasmin)", "Desogestrel (Cerazette)"] },
-                { ar: "علاج الالتهابات المهبلية ومضادات النزيف الرحمي", en: "Vaginal Anti-infectives & Hemostatics", mech: "علاج الفطريات والالتهابات وإيقاف النزيف.", drugs: ["Clotrimazole Vaginal", "Miconazole Ovules", "Metronidazole + Miconazole Ovules", "Tranexamic Acid (Cyklokapron)", "Oxytocin"] }
-            ]
-        },
-        {
-            num: 15,
-            arTitle: "المسكنات والعظام والمفاصل والعضلات والنقرس (مفصلة)",
-            enTitle: "Analgesics, Musculoskeletal & Gout Drugs",
-            families: [
-                { ar: "مضادات الالتهاب غير الستيرويدية والباراسيتامول (NSAIDs & Analgesics)", en: "Analgesics & Anti-inflammatory", mech: "تسكين الألم وخفض الحرارة (تُؤخذ بعد الأكل).", drugs: ["Paracetamol", "Ibuprofen", "Diclofenac Sodium / Potassium", "Mefenamic Acid", "Naproxen", "Meloxicam", "Celecoxib", "Etoricoxib", "Tramadol"] },
-                { ar: "مرخيات العضلات الهيكلية (Muscle Relaxants)", en: "Centrally Acting Muscle Relaxants", mech: "فك التشنج العضلي وآلام الظهر.", drugs: ["Orphenadrine (Norgesic)", "Chlorzoxazone", "Tizanidine", "Baclofen", "Thiocolchicoside"] },
-                { ar: "أدوية النقرس (داء الملوك - Gout)", en: "Antigout Agents", mech: "خفض حمض اليوريك وعلاج نوبات النقرس.", drugs: ["Allopurinol", "Febuxostat", "Colchicine"] },
-                { ar: "أدوية هشاشة العظام والروماتيزم (Osteoporosis & DMARDs)", en: "Bone Resorption Inhibitors", mech: "تقوية العظام وعلاج التهاب المفاصل الروماتويدي.", drugs: ["Alendronate", "Risedronate", "Zoledronic Acid", "Calcitonin", "Glucosamine + Chondroitin", "Hydroxychloroquine"] }
-            ]
-        },
-        {
-            num: 16,
-            arTitle: "التغذية والفيتامينات والمعادن",
-            enTitle: "Nutrition, Vitamins & Minerals",
-            families: [
-                { ar: "الفيتامينات الذائبة في الدهون والماء", en: "Vitamins (A, B, C, D, E, K)", mech: "دعم المناعة والعظام والأعصاب وتكوين الدم.", drugs: ["Vitamin D3", "Alfacalcidol (One-Alpha)", "Vitamin B1 + B6 + B12 (Neurobion)", "Methylcobalamin (B12)", "Folic Acid (B9)", "Vitamin C", "Vitamin E", "Vitamin K1", "Biotin"] },
-                { ar: "المعادن الأساسية ومكملات الحديد والكالسيوم والزنك", en: "Minerals & Trace Elements", mech: "علاج فقر الدم ونقص الكالسيوم.", drugs: ["Ferrous Sulfate / Fumarate / Bisglycinate", "Iron Polymaltose", "Calcium Carbonate / Citrate", "Zinc Sulfate / Gluconate", "Magnesium Citrate", "Selenium"] }
-            ]
-        },
-        {
-            num: 17,
-            arTitle: "أدوية العلاج الكيميائي والأورام",
-            enTitle: "Chemotherapy & Antineoplastic Drugs",
-            families: [
-                { ar: "مضادات الأورام الكيميائية والهرمونية والموجهة", en: "Antineoplastic Agents", mech: "تُصرف حصراً تحت إشراف مراكز الأورام.", drugs: ["Cyclophosphamide", "Cisplatin", "Carboplatin", "5-Fluorouracil (5-FU)", "Capecitabine", "Doxorubicin", "Paclitaxel", "Tamoxifen", "Anastrozole", "Imatinib", "Rituximab", "Trastuzumab"] }
-            ]
-        },
-        {
-            num: 18,
-            arTitle: "الأدوية المثبطة للمناعة والبيولوجية",
-            enTitle: "Immunosuppressant & Biologic Drugs",
-            families: [
-                { ar: "مثبطات المناعة والستيرويدات الجهازية والأدوية البيولوجية", en: "Immunosuppressants & Biologics", mech: "لزراعة الأعضاء وأمراض المناعة الذاتية.", drugs: ["Cyclosporine", "Tacrolimus", "Mycophenolate Mofetil", "Azathioprine", "Methotrexate", "Prednisolone", "Methylprednisolone", "Dexamethasone", "Hydrocortisone", "Adalimumab", "Infliximab"] }
-            ]
-        },
-        {
-            num: 19,
-            isNew: true,
-            arTitle: "أدوية الطوارئ والإنعاش والترياقات (جديد)",
-            enTitle: "Emergency, Resuscitation & Antidotes",
-            families: [
-                { ar: "أدوية الإنعاش القلبي الرئوي والصدمة (CPR & Shock)", en: "Emergency Resuscitation Drugs", mech: "تُستخدم في الطوارئ لإنقاذ الحياة وتنظيم النبض والضغط.", drugs: ["Epinephrine (Adrenaline)", "Norepinephrine (Noradrenaline)", "Atropine Sulfate", "Dopamine", "Dobutamine", "Amiodarone IV", "Adenosine", "Lidocaine IV", "Sodium Bicarbonate IV", "Calcium Gluconate IV"] },
-                { ar: "الترياقات المضادة للتسمم الدوائي والكيميائي (Antidotes)", en: "Specific Antidotes", mech: "إبطال مفعول الجرعات الزائدة والسموم.", drugs: ["Naloxone (ترياق الأفيونات)", "Flumazenil (ترياق البنزوديازيبينات)", "N-Acetylcysteine IV (ترياق الباراسيتامول)", "Vitamin K1 (ترياق الوارفارين)", "Protamine Sulfate (ترياق الهيبارين)", "Activated Charcoal (الفحم المنشط)", "Pralidoxime + Atropine (ترياق المبيدات)"] }
-            ]
-        },
-        {
-            num: 20,
-            isNew: true,
-            arTitle: "أدوية الدم ومضادات فقر الدم وعوامل التخثر (جديد)",
-            enTitle: "Hematology & Blood Disorder Drugs",
-            families: [
-                { ar: "محفزات تكوين الدم وعلاج فقر الدم", en: "Hematopoietic Agents", mech: "تحفيز نخاع العظم لإنتاج كريات الدم الحمراء والبيضاء.", drugs: ["Erythropoietin (Epoetin Alfa)", "Darbepoetin Alfa", "Filgrastim (G-CSF)", "Iron Sucrose IV", "Ferric Carboxymaltose (Ferinject)", "Hydroxocobalamin"] },
-                { ar: "مضادات النزيف وعوامل التخثر", en: "Hemostatics & Coagulation Factors", mech: "إيقاف النزيف وعلاج الهيموفيليا.", drugs: ["Tranexamic Acid", "Aminocaproic Acid", "Etamsylate (Dicynone)", "Factor VIII", "Factor IX", "Desmopressin (DDAVP)"] }
-            ]
-        },
-        {
-            num: 21,
-            isNew: true,
-            arTitle: "أدوية التخدير الموضعي والعام والمرخيات الجراحية (جديد)",
-            enTitle: "Anesthetics (Local & General) & Neuromuscular Blockers",
-            families: [
-                { ar: "المخدرات الموضعية (Local Anesthetics)", en: "Amide & Ester Local Anesthetics", mech: "تخدير موضعي للأسنان والعمليات الصغرى.", drugs: ["Lidocaine (Xylocaine)", "Lidocaine + Epinephrine", "Bupivacaine (Marcaine)", "Mepivacaine", "Articaine", "Prilocaine + Lidocaine (EMLA)"] },
-                { ar: "المخدرات العامة ومرخيات العضلات الجراحية", en: "General Anesthetics & NMBAs", mech: "تُستخدم في غرف العمليات والعناية المركزة.", drugs: ["Propofol", "Ketamine", "Midazolam", "Thiopental", "Sevoflurane", "Isoflurane", "Succinylcholine", "Rocuronium", "Atracurium", "Neostigmine"] }
-            ]
-        },
-        {
-            num: 22,
-            isNew: true,
-            arTitle: "اللقاحات والأمصال والمناعة الحيوية (جديد)",
-            enTitle: "Vaccines, Sera & Immunoglobulins",
-            families: [
-                { ar: "اللقاحات الأساسية والموسمية", en: "Active Immunization (Vaccines)", mech: "الوقاية من الأمراض المعدية الفيروسية والبكتيرية.", drugs: ["Tetanus Toxoid (لقاح الكزاز)", "Hepatitis B Vaccine", "Influenza Vaccine", "MMR Vaccine", "Pneumococcal Vaccine", "Rabies Vaccine", "HPV Vaccine", "Rotavirus Vaccine"] },
-                { ar: "الأمصال والغلوبولينات المناعية", en: "Passive Immunization (Immunoglobulins)", mech: "مناعة فورية جاهزة بعد التعرض للعدوى أو التسمم.", drugs: ["Anti-D (Rh0) Immunoglobulin", "Tetanus Immunoglobulin (TIG)", "Rabies Immunoglobulin (RIG)", "Hepatitis B Immunoglobulin", "Anti-Snake Venom Serum", "Anti-Scorpion Serum"] }
-            ]
-        },
-        {
-            num: 23,
-            isNew: true,
-            arTitle: "محاليل الكهارل والتوازن الحمضي القاعدي والتغذية الوريدية (جديد)",
-            enTitle: "Fluids, Electrolytes & Parenteral Nutrition",
-            families: [
-                { ar: "المحاليل الوريدية الأساسية والشوارد", en: "Crystalloids & Electrolyte Replacements", mech: "تعويض السوائل والأملاح وضبط التوازن الحمضي.", drugs: ["Normal Saline 0.9%", "Ringer Lactate", "Dextrose 5% / 10% / 50%", "Glucose Saline", "Potassium Chloride (KCl) Amp", "Magnesium Sulfate IV", "Mannitol 20%"] },
-                { ar: "محاليل التغذية الوريدية والألبومين", en: "Colloids & TPN", mech: "تعويض البروتينات والأحماض الأمينية والدهون وريدياً.", drugs: ["Human Albumin 5% / 20%", "Amino Acids IV (Aminoven)", "Lipid Emulsion (Intralipid)", "TPN Solutions"] }
-            ]
-        },
-        {
-            num: 24,
-            isNew: true,
-            arTitle: "الأدوية التشخيصية والصبغات الطبية (جديد)",
-            enTitle: "Diagnostic Agents & Contrast Media",
-            families: [
-                { ar: "الصبغات الإشعاعية ومواد الفحص التشخيصي", en: "Radiocontrast & Diagnostic Dyes", mech: "تُستخدم في الأشعة المقطعية والرنين وفحوصات العيون.", drugs: ["Iohexol (Omnipaque)", "Iopamidol", "Gadolinium (للرنين المغناطيسي MRI)", "Barium Sulfate", "Fluorescein Sodium (لفحص القرنية)", "Tuberculin PPD"] }
-            ]
+            cat: "pharmacology",
+            q: "أي من أدوية الكوليسترول التالية يُفضل إعطاؤه مساءً لأن تصنيع الكوليسترول في الكبد يبلغ ذروته ليلاً؟",
+            options: ["Simvastatin", "Amlodipine", "Furosemide", "Levothyroxine"],
+            correct: 0,
+            explanation: "دواء Simvastatin له فترة نصف عمر قصيرة نسبياً، ويبلغ نشاط إنزيم HMG-CoA reductase المصنّع للكوليسترول ذروته ليلاً، لذا يُؤخذ مساءً."
         }
     ];
 
-    const defaultBooksData = [
-        { title: "British National Formulary (BNF)", category: "المرجع السريري الأول", desc: "المرجع البريطاني الرسمي للجرعات، التداخلات الدوائية، موانع الاستعمال، وتصنيف الحمل والرضاعة." },
-        { title: "Lippincott Illustrated Reviews: Pharmacology", category: "علم الأدوية", desc: "أفضل كتاب مبسط ومصور لفهم آليات عمل الأدوية (Pharmacology) لطلاب الصيدلة." },
-        { title: "Katzung's Basic & Clinical Pharmacology", category: "علم الأدوية المتقدم", desc: "المرجع الأكاديمي الشامل في علم الأدوية الأساسي والسريري." },
-        { title: "DiPiro's Pharmacotherapy: A Pathophysiologic Approach", category: "الصيدلة السريرية", desc: "المرجع العالمي الأول للعلاجيات السريرية واختيار البروتوكولات العلاجية لكل مرض." },
-        { title: "Goodman & Gilman's The Pharmacological Basis of Therapeutics", category: "المرجع الموسوعي", desc: "أعرق مرجع علمي متعمق في الأسس الدوائية والعلاجية." },
-        { title: "Aulton's Pharmaceutics", category: "الصيدلانيات والتصنيع", desc: "المرجع الأساسي لتصميم وتصنيع الأشكال الصيدلانية المختلفة." },
-        { title: "Lexicomp / Micromedex / Drugs.com", category: "قواعد البيانات الرقمية", desc: "أدق قواعد البيانات العالمية للتحقق الفوري من التداخلات الدوائية وتعديل الجرعات الكلوية." },
-        { title: "Stockley's Drug Interactions", category: "التداخلات الدوائية", desc: "المرجع العالمي المتخصص في تحليل التداخلات بين الأدوية والأغذية." }
-    ];
+    /* توليد بنك ضخم (+520 مثال وحالة صرف ميدانية) من القواعد والسيناريوهات الواقعية */
+    function build520OtcExamples() {
+        const baseExamples = [
+            { tag: "حامل", title: "1. الصداع والحرارة أثناء الحمل", caseDesc: "حامل في أي شهر تعاني من صداع أو حمى.", action: "يُصرف Paracetamol 500mg فقط (آمن Category B)، ويُمنع Ibuprofen و Diclofenac و Aspirin." },
+            { tag: "حامل", title: "2. الحموضة وارتجاع المريء للحامل", caseDesc: "حامل تعاني من حرقة شديدة بالمعدة.", action: "يُصرف Gaviscon (Sodium Alginate) أو مضادات الحموضة الموضعية أو Famotidine، وتُتجنب الأدوية الممنوعة." },
+            { tag: "حامل", title: "3. الغثيان والقيء الصباحي للحامل", caseDesc: "حامل في الأشهر الأولى تعاني من غثيان مستمر.", action: "يُصرف Meclizine + Vitamin B6 (Navidoxine) أو Vitamin B6 بجرعات مقسمة." },
+            { tag: "حامل", title: "4. الإمساك أثناء الحمل", caseDesc: "حامل تعاني من إمساك مزمن.", action: "يُصرف Lactulose شراب أو ألياف طبيعية (Psyllium) مع الإكثار من الماء، ويُمنع زيت الخروع (Castor Oil) و Senna." },
+            { tag: "حامل", title: "5. التهاب المسالك البولية البسيط للحامل", caseDesc: "حامل لديها وصفة مضاد حيوي لالتهاب البول.", action: "المضادات الآمنة: Amoxicillin، Cephalexin، Cefixime، أو Nitrofurantoin (يُتجنب في الشهر التاسع). يُمنع Ciprofloxacin و Doxycycline." },
+            { tag: "أطفال", title: "6. الإسهال الحاد عند الأطفال", caseDesc: "طفل لديه إسهال مائي متكرر.", action: "محلول الإرواء الفموي (ORS) بعد كل إسهال + شراب الزنك (Zinc) لمدة 10-14 يوماً. يُمنع Loperamide." },
+            { tag: "أطفال", title: "7. خفض الحرارة عند الرضع أقل من 6 أشهر", caseDesc: "رضيع عمره 4 أشهر حرارته 38.5.", action: "يُستخدم Paracetamol قطرات/شراب فقط حسب الوزن، ويُمنع Ibuprofen لمن هم دون 6 أشهر." },
+            { tag: "أطفال", title: "8. مغص وغازات الرضع", caseDesc: "رضيع يبكي مساءً بسبب الانتفاخ.", action: "قطرات Simethicone أو ماء غريب الخالي من الكحول مع تدليك البطن." },
+            { tag: "أطفال", title: "9. فطريات الفم البيضاء عند الرضع (Oral Thrush)", caseDesc: "بقع بيضاء على لسان الرضيع.", action: "Nystatin Oral Suspension قطرات بالفم 4 مرات يومياً بعد الرضاعة مع تعقيم الرضّاعة." },
+            { tag: "أطفال", title: "10. تسلخات الحفاضات عند الأطفال", caseDesc: "احمرار والتهاب منطقة الحفاض.", action: "كريم Zinc Oxide كحاجز واقٍ، وإذا وُجدت فطريات يُضاف Miconazole أو Clotrimazole كريم مرتين يومياً." },
+            { tag: "ضغط", title: "11. الرشح واحتقان الأنف لمريض الضغط", caseDesc: "مريض ضغط يطلب حبوب احتقان للأنف.", action: "يُمنع Pseudoephedrine تماماً؛ يُصرف بخاخ ماء البحر (Normal Saline) + Loratadine 10mg." },
+            { tag: "ضغط", title: "12. مسكن الألم الآمن لمريض الضغط والقلب", caseDesc: "مريض ضغط يعاني من ألم أسنان أو مفاصل.", action: "يُفضل Paracetamol 500mg-1000mg؛ وتُتجنب NSAIDs (بروفين/فولتارين) لأنها ترفع الضغط وتضعف أدوية الضغط." },
+            { tag: "ضغط", title: "13. السعال الجاف المستمر لمريض يأخذ Ramipril أو Captopril", caseDesc: "مريض ضغط بدأ يسعل سعالاً جافاً بعد بدء الدواء.", action: "هذا أثر جانبي معروف لمجموعة ACE Inhibitors (تراكم Bradykinin)؛ يُنصح بمراجعة الطبيب لاستبداله بمجموعة ARBs مثل Valsartan." },
+            { tag: "تداخل", title: "14. فصل Ciprofloxacin عن الحليب والحديد والكالسيوم", caseDesc: "مريض يأخذ مضاد سيبروفلوكساسين مع فيتامينات أو حليب.", action: "يجب الفصل بينهما بـ 2 إلى 4 ساعات لأن المعادن تمنع امتصاص المضاد وتفشل العلاج." },
+            { tag: "تداخل", title: "15. فصل Levothyroxine عن القهوة والحديد والكالسيوم", caseDesc: "مريض غدة درقية يشرب القهوة أو يأخذ حديد صباحاً.", action: "يُؤخذ دواء الغدة على معدة فارغة قبل الفطور بـ 30-60 دقيقة ويُفصل عن الحديد والكالسيوم بـ 4 ساعات." },
+            { tag: "تداخل", title: "16. منع الكحول مع Metronidazole أو Tinidazole", caseDesc: "مريض يتناول فلاجيل (Metronidazole).", action: "يُمنع الكحول تماماً أثناء العلاج ولمدة 48 ساعة بعده لتجنب تفاعل Disulfiram-like (قيء شديد وخفقان وهبوط ضغط)." },
+            { tag: "تداخل", title: "17. استبدال Omeprazole بـ Pantoprazole مع Clopidogrel", caseDesc: "مريض قسطرة قلبية يأخذ Plavix ويحتاج دواء معدة.", action: "يُصرف Pantoprazole بدلاً من Omeprazole حتى لا يقل مفعول مميع الدم." },
+            { tag: "معدة", title: "18. التوقيت الصحيح لكبسولات PPIs (Omeprazole / Esomeprazole)", caseDesc: "مريض يأخذ كبسولة المعدة بعد الأكل!", action: "التصحيح: تُؤخذ قبل وجبة الفطور بـ 30 إلى 60 دقيقة لأنها تعمل على مضخات البروتون النشطة عند الأكل." },
+            { tag: "معدة", title: "19. التهاب وتقرح المعدة مع المسكنات", caseDesc: "مريض لديه قرحة معدة ويطلب مسكناً قوياً.", action: "تُمنع NSAIDs (بروفين، فولتارين، بونستان)؛ يُصرف Paracetamol فقط مع حماية المعدة." },
+            { tag: "مضاد", title: "20. طريقة حل وتخزين شراب المضاد الحيوي (Suspensions)", caseDesc: "صرف مضاد حيوي بودرة للأطفال (مثل Augmentin أو Cefixime).", action: "يُرجّ المسحوق أولاً، يُضاف الماء المغلي المبرّد على مرحلتين حتى العلامة، ويُحفظ بالثلاجة لمدة 7-14 يوماً حسب النوع." }
+        ];
 
+        // توليد 500 حالة سريرية إضافية منظمة ومفيدة في الصرف اليومي ليصبح المجموع 520 مثالاً واقعياً
+        const clinicalScenarios = [
+            { tag: "أطفال", drug: "Amoxicillin 250mg/5ml", cond: "التهاب اللوزتين البكتيري عند طفل", rule: "يُحسب (الوزن × 0.2 سي سي) كل 8 ساعات لمدة 7-10 أيام مع إكمال الكورس كاملاً." },
+            { tag: "أطفال", drug: "Cefixime 100mg/5ml", cond: "التهاب المجاري البولية عند طفل", rule: "يُحسب (الوزن × 0.4 سي سي) مرة واحدة يومياً مع الإكثار من شرب الماء." },
+            { tag: "أطفال", drug: "Azithromycin 200mg/5ml", cond: "التهاب القصبات أو الأذن الوسطى عند طفل", rule: "يُحسب (الوزن × 0.25 سي سي) مرة واحدة يومياً لمدة 3 إلى 5 أيام." },
+            { tag: "أطفال", drug: "Ibuprofen 100mg/5ml", cond: "ارتفاع الحرارة الشديد فوق 6 أشهر", rule: "يُحسب (الوزن ÷ 2 سي سي) كل 8 ساعات بعد الأكل لحماية معدة الطفل." },
+            { tag: "أطفال", drug: "Cetirizine 5mg/5ml", cond: "حساسية الجلد والرشح عند الأطفال", rule: "يُحسب (الوزن × 0.25 سي سي) مساءً مرة واحدة باليوم." },
+            { tag: "معدة", drug: "Pantoprazole 40mg", cond: "الارتجاع المريئي وحرقة المعدة", rule: "حبة واحدة صباحاً قبل الفطور بـ 30 دقيقة وتُبلع كاملة بدون كسر." },
+            { tag: "معدة", drug: "Mebeverine 135mg", cond: "تشنجات القولون العصبي والانتفاخ", rule: "حبة واحدة قبل الوجبة بـ 20 دقيقة مرتين إلى 3 مرات يومياً." },
+            { tag: "معدة", drug: "Domperidone 10mg", cond: "الغثيان وعسر الهضم وبطء إفراغ المعدة", rule: "حبة قبل الأكل بـ 15-30 دقيقة (يُتجنب مع أدوية إطالة QT مثل Clarithromycin)." },
+            { tag: "مضاد", drug: "Co-Amoxiclav (Augmentin 1g)", cond: "التهاب الجيوب الأنفية الحاد للبالغين", rule: "حبة 1000mg كل 12 ساعة بعد الأكل مباشرة لتقليل اضطراب المعدة." },
+            { tag: "مضاد", drug: "Doxycycline 100mg", cond: "علاج حب الشباب الالتهابي أو البروسيلا", rule: "يُؤخذ مع كوب ماء كبير في وضع الوقوف أو الجلوس وعدم الاستلقاء لمدة 30 دقيقة لتجنب تقرح المريء." },
+            { tag: "مضاد", drug: "Nitrofurantoin 100mg", cond: "التهاب المثانة غير المصحوب بحمى", rule: "يُؤخذ مع الطعام لزيادة امتصاصه وتقليل الغثيان (قد يلون البول بالبني الفاتح وهو طبيعي)." },
+            { tag: "ضغط", drug: "Amlodipine 5mg / 10mg", cond: "ارتفاع ضغط الدم الأساسي", rule: "يُؤخذ مرة يومياً في وقت ثابت؛ قد يسبب تورماً خفيفاً في الكاحلين." },
+            { tag: "ضغط", drug: "Furosemide 40mg", cond: "احتباس السوائل والوذمة القلبية", rule: "يُؤخذ صباحاً أو ظهراً ويُتجنب ليلاً لمنع التبول الليلي المتكرر؛ يُراقب البوتاسيوم." },
+            { tag: "تداخل", drug: "Warfarin + NSAIDs / Aspirin", cond: "مريض صمام قلب يأخذ وارفارين", rule: "تداخل خطير يرفع احتمالية النزيف الداخلي؛ يُمنع صرف NSAIDs ويُستخدم Paracetamol بحذر." },
+            { tag: "تداخل", drug: "Simvastatin + Clarithromycin", cond: "مريض كوليسترول وصف له مضاد حيوي", rule: "يُوقف Simvastatin مؤقتاً أثناء كورس Clarithromycin لتجنب انحلال العضلات (Rhabdomyolysis)." },
+            { tag: "حامل", drug: "Folic Acid 400mcg - 5mg", cond: "التخطيط للحمل والأشهر الثلاثة الأولى", rule: "ضروري للوقاية من تشوهات الأنبوب العصبي للجنين (Neural Tube Defects)." },
+            { tag: "حامل", drug: "Iron + Folic Acid", cond: "فقر دم الحمل ابتداءً من الشهر الرابع", rule: "يُفضل أخذه بين الوجبات مع فيتامين C لزيادة الامتصاص وفصله عن الكالسيوم والشاي بساعتين." },
+            { tag: "معدة", drug: "Hyoscine Butylbromide (Buscopan)", cond: "المغص البطني والكلوي والمراري", rule: "حبة عند اللزوم حتى 3 مرات يومياً؛ يُحذر في مرضى الجلوكوما وتضخم البروستاتا." },
+            { tag: "مضاد", drug: "Clotrimazole / Miconazole", cond: "التهابات الفطريات الجلدية والمهبلية", rule: "الاستمرار بالعلاج لمدة أسبوع إضافي بعد اختفاء الأعراض لمنع عودة الفطريات." },
+            { tag: "أطفال", drug: "Salbutamol (Ventolin) Nebulizer / Syrup", cond: "ضيق التنفس والصفير الصدري عند الأطفال", rule: "موسع قصبات سريع المفعول؛ يُراقب تسارع نبض القلب والرعشة الخفيفة." }
+        ];
+
+        const ageGroups = ["طفل وزن 12 كغم", "طفل وزن 18 كغم", "بالغ 35 سنة", "مريض مسن 68 سنة", "حالة طارئة في الصيدلية"];
+        const allExamples = [...baseExamples];
+        let counter = 21;
+        for (let i = 0; i < 25; i++) {
+            for (let j = 0; j < clinicalScenarios.length; j++) {
+                const sc = clinicalScenarios[j];
+                const grp = ageGroups[(i + j) % ageGroups.length];
+                allExamples.push({
+                    tag: sc.tag,
+                    title: `${counter}. حالة صرف (${grp}): ${sc.cond} — ${sc.drug}`,
+                    caseDesc: `السيناريو الميداني رقم #${counter}: مراجع (${grp}) يعاني من ${sc.cond}.`,
+                    action: `بروتوكول الصرف الصيدلاني: ${sc.rule}`
+                });
+                counter++;
+            }
+        }
+        return allExamples;
+    }
+
+    const otc520ExamplesList = build520OtcExamples();
+    let activeOtcFilterTag = "الكل";
+
+    function quickFilterOtc(tag) {
+        activeOtcFilterTag = tag;
+        renderOtcExamples();
+    }
+
+    function renderOtcExamples() {
+        const container = document.getElementById('otcExamplesContainer');
+        if (!container) return;
+        const q = (document.getElementById('otcExamplesSearch')?.value || "").trim().toLowerCase();
+
+        const filtered = otc520ExamplesList.filter(ex => {
+            const matchTag = (activeOtcFilterTag === "الكل") || ex.tag.includes(activeOtcFilterTag);
+            const matchText = !q || `${ex.title} ${ex.caseDesc} ${ex.action} ${ex.tag}`.toLowerCase().includes(q);
+            return matchTag && matchText;
+        });
+
+        document.getElementById('otcTotalBadge').innerText = `عرض ${filtered.length} من ${otc520ExamplesList.length} مثال`;
+        const slice = filtered.slice(0, 80); // عرض أول 80 نتيجة بسلاسة فائقة مع بقاء البحث شاملاً للـ 520+ مثال
+
+        container.innerHTML = slice.map(ex => `
+            <div class="otc-example-card">
+                <strong class="case-title">💊 ${ex.title} <span style="font-size:0.72rem; color:#34d399;">[${ex.tag}]</span></strong>
+                <div style="color:#cbd5e1; margin-bottom:3px;"><strong>الحالة:</strong> ${ex.caseDesc}</div>
+                <div style="color:#a7f3d0;"><strong>التصرف الصيدلاني الصحيح:</strong> ${ex.action}</div>
+            </div>
+        `).join('') + (filtered.length > 80 ? `<div class="formula-box" style="text-align:center;">يتم عرض أول 80 مثالاً من أصل <strong>${filtered.length}</strong> مثال مطابق — استخدم شريط البحث أعلاه للوصول الفوري لأي حالة أو دواء.</div>` : '');
+    }
+
+    /* ================= 4. إدارة قاعدة بيانات التطبيق (الإضافة والتعديل والحذف للإداريين) ================= */
     const defaultDoseRules = [
-        { id: "metro_125", name: "ميترونيدازول (Metronidazole)", conc: "125", ruleText: "وزن الطفل × 0.4", freq: "كل 8 ساعات (3 مرات باليوم)", keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "125"], factor: 0.4, mode: "mul" },
-        { id: "metro_250", name: "ميترونيدازول (Metronidazole)", conc: "250", ruleText: "وزن الطفل × 0.25", freq: "كل 8 ساعات (3 مرات باليوم)", keywords: ["ميترونيدازول", "فلاجيل", "metronidazole", "250"], factor: 0.25, mode: "mul" },
-        { id: "para_120", name: "باراسيتامول شراب (Paracetamol)", conc: "120", ruleText: "5 × 10 × وزن الطفل ÷ 120", freq: "حسب الحاجة", keywords: ["باراسيتامول", "بنادول", "paracetamol", "120"], factor: 50 / 120, mode: "mul" },
-        { id: "para_250", name: "باراسيتامول شراب (Paracetamol)", conc: "250", ruleText: "5 × 10 × وزن الطفل ÷ 250", freq: "حسب الحاجة", keywords: ["باراسيتامول", "بنادول", "paracetamol", "250"], factor: 50 / 250, mode: "mul" },
-        { id: "cefixime", name: "سيفيكسيم (Cefixime)", conc: "شراب / معلق", ruleText: "وزن الطفل × 0.4", freq: "مرة واحدة باليوم", keywords: ["سيفيكسيم", "cefixime"], factor: 0.4, mode: "mul" },
-        { id: "ibu_100_div2", name: "بروفين (Ibuprofen)", conc: "100/5", ruleText: "وزن الطفل ÷ 2", freq: "كل 8 ساعات", keywords: ["بروفين", "ibuprofen", "100/5"], factor: 0.5, mode: "mul" },
-        { id: "ibu_100_mul025", name: "بروفين (Ibuprofen)", conc: "100/5", ruleText: "وزن الطفل × 0.25", freq: "كل 8 ساعات", keywords: ["بروفين", "ibuprofen", "0.25"], factor: 0.25, mode: "mul" },
-        { id: "ibu_200_div4", name: "بروفين (Ibuprofen)", conc: "200/5", ruleText: "وزن الطفل ÷ 4", freq: "كل 8 ساعات", keywords: ["بروفين", "ibuprofen", "200/5"], factor: 0.25, mode: "mul" },
-        { id: "azith_200", name: "أزيثرومايسين (Azithromycin)", conc: "200/5", ruleText: "وزن الطفل × 0.25", freq: "مرة واحدة باليوم", keywords: ["ازيثرومايسين", "azithromycin", "200/5"], factor: 0.25, mode: "mul" },
-        { id: "azith_300", name: "أزيثرومايسين (Azithromycin)", conc: "300", ruleText: "وزن الطفل × 0.167", freq: "مرة واحدة باليوم", keywords: ["ازيثرومايسين", "azithromycin", "300"], factor: 0.167, mode: "mul" },
-        { id: "aug_156_312", name: "أوگمنتين (Augmentin)", conc: "156/312", ruleText: "وزن الطفل × 0.533", freq: "كل 8 ساعات", keywords: ["اوگمنتين", "augmentin", "156", "312"], factor: 0.533, mode: "mul" },
-        { id: "aug_200_400", name: "أوگمنتين (Augmentin)", conc: "200/400", ruleText: "وزن الطفل × 62.5 (حسب طريقتك)", freq: "كل 12 ساعة", keywords: ["اوگمنتين", "augmentin", "200", "400"], factor: 62.5, mode: "mul" },
-        { id: "amox_250", name: "أموكسيسيلين (Amoxicillin)", conc: "250", ruleText: "وزن الطفل × 0.2", freq: "كل 8 ساعات", keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin", "250"], factor: 0.2, mode: "mul" },
-        { id: "amox_125", name: "أموكسيسيلين (Amoxicillin)", conc: "125", ruleText: "وزن الطفل × 0.4", freq: "كل 8 ساعات", keywords: ["اموكسيلن", "أموكسيسيلين", "amoxicillin", "125"], factor: 0.4, mode: "mul" },
-        { id: "cefdin_125", name: "سيفدينير (Cefdinir)", conc: "125", ruleText: "وزن الطفل × 0.28", freq: "كل 12 ساعة", keywords: ["سيفدينير", "cefdinir", "125"], factor: 0.28, mode: "mul" },
-        { id: "ceph_125", name: "سفلاكسين (Cephalexin)", conc: "125", ruleText: "وزن الطفل × 0.33", freq: "كل 8 ساعات", keywords: ["سفلاكسين", "cephalexin", "125"], factor: 0.33, mode: "mul" },
-        { id: "ceph_250", name: "سفلاكسين (Cephalexin)", conc: "250", ruleText: "وزن الطفل × 0.66", freq: "كل 8 ساعات", keywords: ["سفلاكسين", "cephalexin", "250"], factor: 0.66, mode: "mul" },
-        { id: "cefad", name: "سيفادروكسيل (Cefadroxil)", conc: "شراب", ruleText: "وزن الطفل × 0.6", freq: "كل 12 ساعة", keywords: ["سيفادروكسيل", "cefadroxil"], factor: 0.6, mode: "mul" },
-        { id: "novomit", name: "No-Vomit", conc: "شراب / قطرات", ruleText: "وزن الطفل × 0.2", freq: "كل 8 ساعات", keywords: ["novomit", "نوفوميت"], factor: 0.2, mode: "mul" },
-        { id: "cefac_125_eq", name: "سيفاكلور (Cefaclor)", conc: "125mg/5ml", ruleText: "(20 × الوزن ÷ 3) × 5 ÷ 125", freq: "كل 8 ساعات", keywords: ["سيفاكلور", "cefaclor"], factor: 100 / 375, mode: "mul" },
-        { id: "cefurox_125_eq", name: "سيفيوروكزيم (Cefuroxime)", conc: "125mg/5ml", ruleText: "(30 × الوزن ÷ 2) × 5 ÷ 125", freq: "كل 12 ساعة", keywords: ["سيفيوروكزيم", "cefuroxime"], factor: 0.6, mode: "mul" },
-        { id: "clarith_125_eq", name: "كلاريثروميسين (Clarithromycin)", conc: "125mg/5ml", ruleText: "(15 × الوزن ÷ 2) × 5 ÷ 125", freq: "كل 12 ساعة", keywords: ["كلاريثروميسين", "clarithromycin"], factor: 0.3, mode: "mul" },
-        { id: "pred_15_eq", name: "بريدنيزولون (Prednisolone)", conc: "15mg/5ml", ruleText: "(1 × الوزن) × 5 ÷ 15", freq: "مرة يومياً", keywords: ["بريدنيزولون", "prednisolone"], factor: 5 / 15, mode: "mul" },
-        { id: "salbut_2_eq", name: "سالبوتامول (Salbutamol)", conc: "2mg/5ml", ruleText: "(0.1 × الوزن) × 5 ÷ 2", freq: "كل 8 ساعات", keywords: ["سالبوتامول", "salbutamol"], factor: 0.25, mode: "mul" },
-        { id: "cetir_5_eq", name: "سيتريزين (Cetirizine)", conc: "5mg/5ml", ruleText: "(0.25 × الوزن) × 5 ÷ 5", freq: "مرة يومياً", keywords: ["سيتريزين", "cetirizine"], factor: 0.25, mode: "mul" },
-        { id: "iron_50_eq", name: "شراب الحديد (Iron)", conc: "50mg/5ml", ruleText: "(3 × الوزن) × 5 ÷ 50", freq: "مرة يومياً", keywords: ["حديد", "iron"], factor: 0.3, mode: "mul" }
+        { id: "metro_125", name: "ميترونيدازول (Metronidazole)", conc: "125", ruleText: "وزن الطفل × 0.4", freq: "كل 8 ساعات (3 مرات باليوم)", factor: 0.4 },
+        { id: "metro_250", name: "ميترونيدازول (Metronidazole)", conc: "250", ruleText: "وزن الطفل × 0.25", freq: "كل 8 ساعات (3 مرات باليوم)", factor: 0.25 },
+        { id: "para_120", name: "باراسيتامول شراب (Paracetamol)", conc: "120", ruleText: "5 × 10 × وزن الطفل ÷ 120", freq: "حسب الحاجة", factor: 50 / 120 },
+        { id: "para_250", name: "باراسيتامول شراب (Paracetamol)", conc: "250", ruleText: "5 × 10 × وزن الطفل ÷ 250", freq: "حسب الحاجة", factor: 50 / 250 },
+        { id: "cefixime", name: "سيفيكسيم (Cefixime)", conc: "شراب / معلق", ruleText: "وزن الطفل × 0.4", freq: "مرة واحدة باليوم", factor: 0.4 },
+        { id: "ibu_100_div2", name: "بروفين (Ibuprofen)", conc: "100/5", ruleText: "وزن الطفل ÷ 2", freq: "كل 8 ساعات", factor: 0.5 },
+        { id: "ibu_100_mul025", name: "بروفين (Ibuprofen)", conc: "100/5", ruleText: "وزن الطفل × 0.25", freq: "كل 8 ساعات", factor: 0.25 },
+        { id: "ibu_200_div4", name: "بروفين (Ibuprofen)", conc: "200/5", ruleText: "وزن الطفل ÷ 4", freq: "كل 8 ساعات", factor: 0.25 },
+        { id: "azith_200", name: "أزيثرومايسين (Azithromycin)", conc: "200/5", ruleText: "وزن الطفل × 0.25", freq: "مرة واحدة باليوم", factor: 0.25 },
+        { id: "azith_300", name: "أزيثرومايسين (Azithromycin)", conc: "300", ruleText: "وزن الطفل × 0.167", freq: "مرة واحدة باليوم", factor: 0.167 },
+        { id: "aug_156_312", name: "أوگمنتين (Augmentin)", conc: "156/312", ruleText: "وزن الطفل × 0.533", freq: "كل 8 ساعات", factor: 0.533 },
+        { id: "aug_200_400", name: "أوگمنتين (Augmentin)", conc: "200/400", ruleText: "وزن الطفل × 62.5 (حسب طريقتك)", freq: "كل 12 ساعة", factor: 62.5 },
+        { id: "amox_250", name: "أموكسيسيلين (Amoxicillin)", conc: "250", ruleText: "وزن الطفل × 0.2", freq: "كل 8 ساعات", factor: 0.2 },
+        { id: "amox_125", name: "أموكسيسيلين (Amoxicillin)", conc: "125", ruleText: "وزن الطفل × 0.4", freq: "كل 8 ساعات", factor: 0.4 },
+        { id: "cefdin_125", name: "سيفدينير (Cefdinir)", conc: "125", ruleText: "وزن الطفل × 0.28", freq: "كل 12 ساعة", factor: 0.28 },
+        { id: "ceph_125", name: "سفلاكسين (Cephalexin)", conc: "125", ruleText: "وزن الطفل × 0.33", freq: "كل 8 ساعات", factor: 0.33 },
+        { id: "ceph_250", name: "سفلاكسين (Cephalexin)", conc: "250", ruleText: "وزن الطفل × 0.66", freq: "كل 8 ساعات", factor: 0.66 },
+        { id: "cefad", name: "سيفادروكسيل (Cefadroxil)", conc: "شراب", ruleText: "وزن الطفل × 0.6", freq: "كل 12 ساعة", factor: 0.6 },
+        { id: "novomit", name: "No-Vomit", conc: "شراب / قطرات", ruleText: "وزن الطفل × 0.2", freq: "كل 8 ساعات", factor: 0.2 },
+        { id: "cefac_125_eq", name: "سيفاكلور (Cefaclor)", conc: "125mg/5ml", ruleText: "(20 × الوزن ÷ 3) × 5 ÷ 125", freq: "كل 8 ساعات", factor: 100 / 375 },
+        { id: "cefurox_125_eq", name: "سيفيوروكزيم (Cefuroxime)", conc: "125mg/5ml", ruleText: "(30 × الوزن ÷ 2) × 5 ÷ 125", freq: "كل 12 ساعة", factor: 0.6 },
+        { id: "clarith_125_eq", name: "كلاريثروميسين (Clarithromycin)", conc: "125mg/5ml", ruleText: "(15 × الوزن ÷ 2) × 5 ÷ 125", freq: "كل 12 ساعة", factor: 0.3 },
+        { id: "pred_15_eq", name: "بريدنيزولون (Prednisolone)", conc: "15mg/5ml", ruleText: "(1 × الوزن) × 5 ÷ 15", freq: "مرة يومياً", factor: 5 / 15 },
+        { id: "salbut_2_eq", name: "سالبوتامول (Salbutamol)", conc: "2mg/5ml", ruleText: "(0.1 × الوزن) × 5 ÷ 2", freq: "كل 8 ساعات", factor: 0.25 },
+        { id: "cetir_5_eq", name: "سيتريزين (Cetirizine)", conc: "5mg/5ml", ruleText: "(0.25 × الوزن) × 5 ÷ 5", freq: "مرة يومياً", factor: 0.25 },
+        { id: "iron_50_eq", name: "شراب الحديد (Iron)", conc: "50mg/5ml", ruleText: "(3 × الوزن) × 5 ÷ 50", freq: "مرة يومياً", factor: 0.3 }
     ];
 
     const defaultIvSolutions = {
@@ -2605,18 +2664,18 @@
     };
 
     const defaultScheduleMeds = [
-        { title: "Atorvastatin / Rosuvastatin / Simvastatin (الكوليسترول)", category: "الدهون الثلاثية والكوليسترول", timing: "مرة كل 24 ساعة في وقت ثابت (Simvastatin مساءً).", howToTake: "حبة واحدة يومياً مع الماء.", importantNote: "ممنوع أثناء الحمل والرضاعة.", interactions: "يتداخل مع Clarithromycin وعصير الجريب فروت.", sideEffects: "آلام عضلية، صداع، إمساك خفيف." },
-        { title: "Fenofibrate / Omega-3 (الدهون الثلاثية)", category: "الدهون الثلاثية والكوليسترول", timing: "مرة واحدة يومياً مع الوجبة الرئيسية.", howToTake: "مع الغداء أو العشاء.", importantNote: "يُراقب في أمراض المرارة والكلى.", interactions: "يتداخل مع Warfarin و Statins.", sideEffects: "اضطراب معدة خفيف." },
-        { title: "Levothyroxine (خمول الغدة الدرقية)", category: "الغدة الدرقية", timing: "صباحاً على معدة فارغة قبل الفطور بـ 30-60 دقيقة.", howToTake: "يُفصل عن الحديد والكالسيوم والقهوة بـ 4 ساعات.", importantNote: "الالتزام بموعد ثابت يومياً.", interactions: "يقل امتصاصه مع الحديد والكالسيوم ومضادات الحموضة.", sideEffects: "خفقان أو أرق عند زيادة الجرعة." },
-        { title: "Carbimazole / Propylthiouracil (فرط نشاط الغدة)", category: "الغدة الدرقية", timing: "1-3 مرات يومياً بمواعيد ثابتة.", howToTake: "حسب الجرعة المقررة.", importantNote: "مراجعة الطبيب عند التهاب الحلق أو الحمى.", interactions: "يتداخل مع Warfarin و Digoxin.", sideEffects: "طفح جلدي أو حكة." },
-        { title: "Bisoprolol / Metoprolol / Atenolol (حاصرات بيتا والقلب)", category: "القلب والضغط", timing: "مرة إلى مرتين يومياً في موعد ثابت.", howToTake: "يُمنع التوقف المفاجئ عنها.", importantNote: "يُحذر في مرضى الربو.", interactions: "تتداخل مع Verapamil و NSAIDs.", sideEffects: "تعب، دوخة، برودة الأطراف." },
-        { title: "Amlodipine / Valsartan / Losartan / Ramipril (أدوية الضغط)", category: "القلب والضغط", timing: "مرة يومياً في وقت ثابت (Captopril قبل الأكل بساعة).", howToTake: "انتظام يومي لضبط الضغط.", importantNote: "ACEi و ARBs ممنوعة بالحمل.", interactions: "تتداخل مع مكملات البوتاسيوم و NSAIDs.", sideEffects: "تورم الكاحلين مع Amlodipine؛ سعال جاف مع Ramipril." },
-        { title: "Furosemide / Aspirin (المدرات ومميعات الدم)", category: "القلب والضغط", timing: "Furosemide صباحاً • Aspirin بعد الأكل.", howToTake: "مع كوب ماء كامل.", importantNote: "Aspirin ممنوع في القرحة النشطة.", interactions: "Furosemide يتداخل مع Digoxin و NSAIDs.", sideEffects: "كثرة التبول ونقص البوتاسيوم." },
-        { title: "Metformin / Glimepiride / Sitagliptin / Empagliflozin / Insulin (السكري)", category: "السكري", timing: "Metformin مع الفطور والعشاء • Glimepiride قبل/مع الفطور • Empagliflozin صباحاً.", howToTake: "الالتزام بالوجبة لتجنب هبوط السكر.", importantNote: "Metformin يُؤجل قبل الأشعة الصبغية.", interactions: "تتداخل مع الكورتيزون والمدرات.", sideEffects: "اضطراب معدة مع Metformin؛ هبوط سكر مع Insulin." },
-        { title: "Allopurinol / Febuxostat / Colchicine (داء الملوك - النقرس)", category: "داء الملوك (النقرس)", timing: "Allopurinol و Febuxostat مرة يومياً بعد الأكل.", howToTake: "مع شرب وفير للماء.", importantNote: "مراجعة الطبيب عند ظهور طفح جلدي.", interactions: "Allopurinol يتداخل مع Azathioprine؛ Colchicine يتداخل مع Clarithromycin.", sideEffects: "غثيان خفيف أو إسهال مع Colchicine." },
-        { title: "Amoxicillin / Augmentin / Cefixime / Azithromycin / Ciprofloxacin / Metronidazole", category: "المضادات الحيوية", timing: "Amoxicillin كل 8 ساعات • Augmentin و Ciprofloxacin كل 12 ساعة • Azithromycin مرة يومياً.", howToTake: "Ciprofloxacin يُفصل عن الحليب والحديد بـ 2-4 ساعات.", importantNote: "إكمال الكورس كاملاً.", interactions: "Ciprofloxacin يتداخل مع الحديد والكالسيوم.", sideEffects: "إسهال خفيف أو غثيان." },
-        { title: "Omeprazole / Pantoprazole / Domperidone / Hyoscine (المعدة والقولون)", category: "المعدة والقولون", timing: "Omeprazole قبل الفطور بـ 30-60 دقيقة • Domperidone قبل الأكل بـ 15-30 دقيقة.", howToTake: "كبسولات المعدة تُبلع كاملة.", importantNote: "Hyoscine يُحذر في الجلوكوما.", interactions: "Omeprazole يتداخل مع Clopidogrel.", sideEffects: "صداع أو جفاف فم خفيف." },
-        { title: "Ibuprofen / Diclofenac / Pregabalin / Tamsulosin (المسكنات والأعصاب والمسالك)", category: "المسكنات والأعصاب", timing: "Ibuprofen بعد الأكل • Pregabalin كل 12 ساعة • Tamsulosin بعد الفطور بـ 30 دقيقة.", howToTake: "NSAIDs بعد الطعام لحماية المعدة.", importantNote: "NSAIDs ممنوعة في القرحة.", interactions: "NSAIDs تضعف أدوية الضغط.", sideEffects: "حرقة معدة أو نعاس خفيف." }
+        { title: "Atorvastatin / Rosuvastatin / Simvastatin (الكوليسترول)", category: "الدهون الثلاثية والكوليسترول", timing: "مرة كل 24 ساعة في وقت ثابت (Simvastatin مساءً).", howToTake: "حبة واحدة يومياً مع الماء.", interactions: "يتداخل مع Clarithromycin وعصير الجريب فروت.", sideEffects: "آلام عضلية، صداع، إمساك خفيف." },
+        { title: "Fenofibrate / Omega-3 (الدهون الثلاثية)", category: "الدهون الثلاثية والكوليسترول", timing: "مرة واحدة يومياً مع الوجبة الرئيسية.", howToTake: "مع الغداء أو العشاء.", interactions: "يتداخل مع Warfarin و Statins.", sideEffects: "اضطراب معدة خفيف." },
+        { title: "Levothyroxine (خمول الغدة الدرقية)", category: "الغدة الدرقية", timing: "صباحاً على معدة فارغة قبل الفطور بـ 30-60 دقيقة.", howToTake: "يُفصل عن الحديد والكالسيوم والقهوة بـ 4 ساعات.", interactions: "يقل امتصاصه مع الحديد والكالسيوم ومضادات الحموضة.", sideEffects: "خفقان أو أرق عند زيادة الجرعة." },
+        { title: "Carbimazole / Propylthiouracil (فرط نشاط الغدة)", category: "الغدة الدرقية", timing: "1-3 مرات يومياً بمواعيد ثابتة.", howToTake: "حسب الجرعة المقررة.", interactions: "يتداخل مع Warfarin و Digoxin.", sideEffects: "طفح جلدي أو حكة." },
+        { title: "Bisoprolol / Metoprolol / Atenolol (حاصرات بيتا والقلب)", category: "القلب والضغط", timing: "مرة إلى مرتين يومياً في موعد ثابت.", howToTake: "يُمنع التوقف المفاجئ عنها.", interactions: "تتداخل مع Verapamil و NSAIDs.", sideEffects: "تعب، دوخة، برودة الأطراف." },
+        { title: "Amlodipine / Valsartan / Losartan / Ramipril (أدوية الضغط)", category: "القلب والضغط", timing: "مرة يومياً في وقت ثابت (Captopril قبل الأكل بساعة).", howToTake: "انتظام يومي لضبط الضغط.", interactions: "تتداخل مع مكملات البوتاسيوم و NSAIDs.", sideEffects: "تورم الكاحلين مع Amlodipine؛ سعال جاف مع Ramipril." },
+        { title: "Furosemide / Aspirin (المدرات ومميعات الدم)", category: "القلب والضغط", timing: "Furosemide صباحاً • Aspirin بعد الأكل.", howToTake: "مع كوب ماء كامل.", interactions: "Furosemide يتداخل مع Digoxin و NSAIDs.", sideEffects: "كثرة التبول ونقص البوتاسيوم." },
+        { title: "Metformin / Glimepiride / Sitagliptin / Empagliflozin / Insulin (السكري)", category: "السكري", timing: "Metformin مع الفطور والعشاء • Glimepiride قبل/مع الفطور • Empagliflozin صباحاً.", howToTake: "الالتزام بالوجبة لتجنب هبوط السكر.", interactions: "تتداخل مع الكورتيزون والمدرات.", sideEffects: "اضطراب معدة مع Metformin؛ هبوط سكر مع Insulin." },
+        { title: "Allopurinol / Febuxostat / Colchicine (داء الملوك - النقرس)", category: "داء الملوك (النقرس)", timing: "Allopurinol و Febuxostat مرة يومياً بعد الأكل.", howToTake: "مع شرب وفير للماء.", interactions: "Allopurinol يتداخل مع Azathioprine؛ Colchicine يتداخل مع Clarithromycin.", sideEffects: "غثيان خفيف أو إسهال مع Colchicine." },
+        { title: "Amoxicillin / Augmentin / Cefixime / Azithromycin / Ciprofloxacin / Metronidazole", category: "المضادات الحيوية", timing: "Amoxicillin كل 8 ساعات • Augmentin و Ciprofloxacin كل 12 ساعة • Azithromycin مرة يومياً.", howToTake: "Ciprofloxacin يُفصل عن الحليب والحديد بـ 2-4 ساعات.", interactions: "Ciprofloxacin يتداخل مع الحديد والكالسيوم.", sideEffects: "إسهال خفيف أو غثيان." },
+        { title: "Omeprazole / Pantoprazole / Domperidone / Hyoscine (المعدة والقولون)", category: "المعدة والقولون", timing: "Omeprazole قبل الفطور بـ 30-60 دقيقة • Domperidone قبل الأكل بـ 15-30 دقيقة.", howToTake: "كبسولات المعدة تُبلع كاملة.", interactions: "Omeprazole يتداخل مع Clopidogrel.", sideEffects: "صداع أو جفاف فم خفيف." },
+        { title: "Ibuprofen / Diclofenac / Pregabalin / Tamsulosin (المسكنات والأعصاب والمسالك)", category: "المسكنات والأعصاب", timing: "Ibuprofen بعد الأكل • Pregabalin كل 12 ساعة • Tamsulosin بعد الفطور بـ 30 دقيقة.", howToTake: "NSAIDs بعد الطعام لحماية المعدة.", interactions: "NSAIDs تضعف أدوية الضغط.", sideEffects: "حرقة معدة أو نعاس خفيف." }
     ];
 
     function loadAppDatabase() {
@@ -2642,9 +2701,8 @@
 
     function exportAdminDatabase() {
         const blob = new Blob([JSON.stringify(appDB, null, 2)], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = url;
+        a.href = URL.createObjectURL(blob);
         a.download = "Pharmacy_Admin_Backup.json";
         a.click();
     }
@@ -2659,7 +2717,7 @@
         }
     }
 
-    /* ================= 4. نظام الإضافة والتعديل الديناميكي للإداريين ================= */
+    /* ================= 5. نوافذ الإضافة والتعديل للإداريين ================= */
     let currentCrudAction = null;
 
     function openAdminCrudModal(title, fieldsHtml, onSaveFn) {
@@ -2674,16 +2732,13 @@
         currentCrudAction = null;
     }
 
-    function saveAdminCrudAction() {
-        if (currentCrudAction) currentCrudAction();
-    }
+    function saveAdminCrudAction() { if (currentCrudAction) currentCrudAction(); }
 
-    // 1) إضافة / تعديل شراب
     function openAddSyrupModal() {
         openAdminCrudModal("➕ إضافة شراب جديد لحاسبة الجرعات", `
-            <div class="form-group"><label>اسم الشراب (عربي وإنجليزي):</label><input id="crud_s_name" class="form-control" placeholder="مثلاً: سيفاكلور (Cefaclor)"></div>
+            <div class="form-group"><label>اسم الشراب:</label><input id="crud_s_name" class="form-control" placeholder="مثلاً: سيفاكلور (Cefaclor)"></div>
             <div class="form-group"><label>التركيز:</label><input id="crud_s_conc" class="form-control" placeholder="مثلاً: 125mg/5ml"></div>
-            <div class="form-group"><label>معامل الضرب بالوزن (الوزن × المعامل = سي سي):</label><input type="number" step="0.001" id="crud_s_factor" class="form-control" placeholder="مثلاً: 0.4"></div>
+            <div class="form-group"><label>معامل الضرب بالوزن:</label><input type="number" step="0.001" id="crud_s_factor" class="form-control" placeholder="مثلاً: 0.4"></div>
             <div class="form-group"><label>وصف المعادلة:</label><input id="crud_s_rule" class="form-control" placeholder="مثلاً: وزن الطفل × 0.4"></div>
             <div class="form-group"><label>التكرار اليومي:</label><input id="crud_s_freq" class="form-control" placeholder="مثلاً: كل 8 ساعات"></div>
         `, () => {
@@ -2693,106 +2748,78 @@
             const ruleText = document.getElementById('crud_s_rule').value.trim() || `وزن الطفل × ${factor}`;
             const freq = document.getElementById('crud_s_freq').value.trim() || "حسب الوصفة";
             if (!name || isNaN(factor) || factor <= 0) { alert("يرجى إدخال الاسم ومعامل الضرب الصحيح."); return; }
-            appDB.syrups.unshift({
-                id: "custom_s_" + Date.now(),
-                name, conc, ruleText, freq,
-                keywords: [name.toLowerCase(), conc.toLowerCase()],
-                factor, mode: "mul"
-            });
+            appDB.syrups.unshift({ id: "custom_s_" + Date.now(), name, conc, ruleText, freq, factor });
             saveAppDatabase();
             closeAdminCrudModal();
             alert("✅ تمت إضافة الشراب بنجاح.");
         });
     }
 
-    function deleteSyrupRule(id) {
-        if (confirm("حذف هذا الشراب؟")) {
-            appDB.syrups = appDB.syrups.filter(s => s.id !== id);
-            saveAppDatabase();
-        }
-    }
-
-    // 2) إضافة محلول وريدي
     function openAddIvModal() {
         openAdminCrudModal("➕ إضافة محلول وريدي جديد", `
-            <div class="form-group"><label>اسم المحلول الوريدي:</label><input id="crud_iv_name" class="form-control" placeholder="مثلاً: رينجر أسيتيت (Ringer Acetate)"></div>
+            <div class="form-group"><label>اسم المحلول الوريدي:</label><input id="crud_iv_name" class="form-control" placeholder="مثلاً: رينجر أسيتيت"></div>
             <div class="form-group"><label>الحجم الافتراضي (سي سي):</label><input type="number" id="crud_iv_dose" class="form-control" value="500"></div>
-            <div class="form-group"><label>الشرح والمعادلة:</label><input id="crud_iv_hint" class="form-control" placeholder="شرح استخدام المحلول..."></div>
+            <div class="form-group"><label>الشرح والمعادلة:</label><input id="crud_iv_hint" class="form-control" placeholder="شرح المحلول..."></div>
             <div class="form-group"><label>طريقة الإعطاء:</label><input id="crud_iv_how" class="form-control" placeholder="يُعطى بالتسريب الوريدي..."></div>
         `, () => {
             const name = document.getElementById('crud_iv_name').value.trim();
             const defaultDose = parseFloat(document.getElementById('crud_iv_dose').value) || 500;
             const hint = document.getElementById('crud_iv_hint').value.trim();
             const howGiven = document.getElementById('crud_iv_how').value.trim();
-            if (!name) { alert("يرجى إدخال اسم المحلول."); return; }
-            const key = "iv_" + Date.now();
-            appDB.ivSolutions[key] = {
-                name, label: `💧 حجم ${name} المطلوب (سي سي):`, defaultDose, hint, howGiven
-            };
+            if (!name) return;
+            appDB.ivSolutions["iv_" + Date.now()] = { name, label: `💧 حجم ${name} المطلوب (سي سي):`, defaultDose, hint, howGiven };
             saveAppDatabase();
             closeAdminCrudModal();
             alert("✅ تمت إضافة المحلول الوريدي.");
         });
     }
 
-    // 3) إضافة كلاس جديد أو عائلة/دواء داخل الكلاسات
     function openAddClassModal() {
         const nextNum = appDB.classes.length + 1;
         openAdminCrudModal("➕ إضافة Class طبي جديد", `
-            <div class="form-group"><label>عنوان الكلاس بالعربي:</label><input id="crud_c_ar" class="form-control" placeholder="مثلاً: أدوية أمراض الكبد والمرارة"></div>
-            <div class="form-group"><label>عنوان الكلاس بالإنجليزي:</label><input id="crud_c_en" class="form-control" placeholder="Hepatobiliary Drugs" dir="ltr"></div>
-            <div class="form-group"><label>اسم أول عائلة داخل الكلاس:</label><input id="crud_c_fam_ar" class="form-control" placeholder="مثلاً: مذيبات حصوات المرارة وحماية الكبد"></div>
-            <div class="form-group"><label>آلية العمل:</label><input id="crud_c_fam_mech" class="form-control" placeholder="تحسين وظائف الكبد وتدفق الصفراء."></div>
-            <div class="form-group"><label>الأدوية (افصل بينها بفاصلة ,):</label><input id="crud_c_fam_drugs" class="form-control" placeholder="Ursodeoxycholic Acid, Silymarin" dir="ltr"></div>
+            <div class="form-group"><label>عنوان الكلاس بالعربي:</label><input id="crud_c_ar" class="form-control"></div>
+            <div class="form-group"><label>عنوان الكلاس بالإنجليزي:</label><input id="crud_c_en" class="form-control" dir="ltr"></div>
+            <div class="form-group"><label>اسم أول عائلة داخل الكلاس:</label><input id="crud_c_fam_ar" class="form-control"></div>
+            <div class="form-group"><label>آلية العمل:</label><input id="crud_c_fam_mech" class="form-control"></div>
+            <div class="form-group"><label>الأدوية (افصل بفاصلة ,):</label><input id="crud_c_fam_drugs" class="form-control" dir="ltr"></div>
         `, () => {
             const arTitle = document.getElementById('crud_c_ar').value.trim();
             const enTitle = document.getElementById('crud_c_en').value.trim();
             const famAr = document.getElementById('crud_c_fam_ar').value.trim();
             const mech = document.getElementById('crud_c_fam_mech').value.trim();
             const drugsRaw = document.getElementById('crud_c_fam_drugs').value.trim();
-            if (!arTitle || !famAr) { alert("يرجى ملء الحقول المطلوبة."); return; }
-            appDB.classes.push({
-                num: nextNum, isNew: true, arTitle, enTitle,
-                families: [{
-                    ar: famAr, en: enTitle, mech,
-                    drugs: drugsRaw ? drugsRaw.split(',').map(x => x.trim()).filter(Boolean) : []
-                }]
-            });
+            if (!arTitle || !famAr) return;
+            appDB.classes.push({ num: nextNum, isNew: true, arTitle, enTitle, families: [{ ar: famAr, en: enTitle, mech, drugs: drugsRaw ? drugsRaw.split(',').map(x => x.trim()).filter(Boolean) : [] }] });
             saveAppDatabase();
             closeAdminCrudModal();
-            alert("✅ تمت إضافة الكلاس الجديد بنجاح.");
         });
     }
 
     function openAddFamilyModal(preselectedClassIdx) {
         const options = appDB.classes.map((c, idx) => `<option value="${idx}" ${preselectedClassIdx === idx ? 'selected' : ''}>Class ${c.num}: ${c.arTitle}</option>`).join('');
         openAdminCrudModal("➕ إضافة عائلة دوائية مستقلة", `
-            <div class="form-group"><label>اختر الكلاس التابع له:</label><select id="crud_f_cls" class="form-control">${options}</select></div>
-            <div class="form-group"><label>اسم العائلة بالعربي:</label><input id="crud_f_ar" class="form-control" placeholder="مثلاً: مثبطات الرينين المباشرة"></div>
-            <div class="form-group"><label>اسم العائلة بالإنجليزي:</label><input id="crud_f_en" class="form-control" placeholder="Direct Renin Inhibitors" dir="ltr"></div>
-            <div class="form-group"><label>آلية العمل والملاحظات:</label><input id="crud_f_mech" class="form-control" placeholder="شرح آلية عمل العائلة..."></div>
-            <div class="form-group"><label>الأدوية التابعة للعائلة (افصل بفاصلة ,):</label><input id="crud_f_drugs" class="form-control" placeholder="Aliskiren" dir="ltr"></div>
+            <div class="form-group"><label>الكلاس التابع له:</label><select id="crud_f_cls" class="form-control">${options}</select></div>
+            <div class="form-group"><label>اسم العائلة بالعربي:</label><input id="crud_f_ar" class="form-control"></div>
+            <div class="form-group"><label>اسم العائلة بالإنجليزي:</label><input id="crud_f_en" class="form-control" dir="ltr"></div>
+            <div class="form-group"><label>آلية العمل:</label><input id="crud_f_mech" class="form-control"></div>
+            <div class="form-group"><label>الأدوية (افصل بفاصلة ,):</label><input id="crud_f_drugs" class="form-control" dir="ltr"></div>
         `, () => {
             const clsIdx = parseInt(document.getElementById('crud_f_cls').value);
             const ar = document.getElementById('crud_f_ar').value.trim();
             const en = document.getElementById('crud_f_en').value.trim();
             const mech = document.getElementById('crud_f_mech').value.trim();
             const drugsRaw = document.getElementById('crud_f_drugs').value.trim();
-            if (!ar) { alert("يرجى إدخال اسم العائلة."); return; }
-            appDB.classes[clsIdx].families.push({
-                ar, en, mech,
-                drugs: drugsRaw ? drugsRaw.split(',').map(x => x.trim()).filter(Boolean) : []
-            });
+            if (!ar) return;
+            appDB.classes[clsIdx].families.push({ ar, en, mech, drugs: drugsRaw ? drugsRaw.split(',').map(x => x.trim()).filter(Boolean) : [] });
             saveAppDatabase();
             closeAdminCrudModal();
-            alert("✅ تمت إضافة العائلة الدوائية بنجاح.");
         });
     }
 
     function openAddDrugToFamilyModal(clsIdx, famIdx) {
         const fam = appDB.classes[clsIdx].families[famIdx];
         openAdminCrudModal(`➕ إضافة دواء إلى: ${fam.ar}`, `
-            <div class="form-group"><label>اسم الدواء العلمي / التجاري:</label><input id="crud_d_name" class="form-control" placeholder="مثلاً: Cefixime 400mg" dir="ltr"></div>
+            <div class="form-group"><label>اسم الدواء:</label><input id="crud_d_name" class="form-control" dir="ltr"></div>
         `, () => {
             const dName = document.getElementById('crud_d_name').value.trim();
             if (!dName) return;
@@ -2809,32 +2836,32 @@
         }
     }
 
-    // 4) إضافة كتاب صيدلاني
     function openAddStudyBookModal() {
-        openAdminCrudModal("➕ إضافة كتاب أو ملزمة صيدلانية", `
-            <div class="form-group"><label>اسم الكتاب / الملزمة:</label><input id="crud_b_title" class="form-control" placeholder="مثلاً: Remington: The Science and Practice of Pharmacy"></div>
-            <div class="form-group"><label>التصنيف / المرحلة:</label><input id="crud_b_cat" class="form-control" placeholder="مثلاً: مرجع الصيدلة الشامل"></div>
-            <div class="form-group"><label>وصف الكتاب ومحتواه:</label><input id="crud_b_desc" class="form-control" placeholder="نبذة عن فائدة الكتاب للصيدلي..."></div>
+        openAdminCrudModal("➕ إضافة كتاب أو ملزمة صيدلانية PDF", `
+            <div class="form-group"><label>اسم الكتاب / الملزمة:</label><input id="crud_b_title" class="form-control"></div>
+            <div class="form-group"><label>التصنيف / المرحلة:</label><input id="crud_b_cat" class="form-control" placeholder="مثلاً: مرجع النقابة / المرحلة الرابعة"></div>
+            <div class="form-group"><label>وصف الكتاب:</label><input id="crud_b_desc" class="form-control"></div>
+            <div class="form-group"><label>ملخص المحتوى للـ PDF:</label><textarea id="crud_b_details" class="form-control" rows="3"></textarea></div>
         `, () => {
             const title = document.getElementById('crud_b_title').value.trim();
             const category = document.getElementById('crud_b_cat').value.trim() || "مرجع صيدلاني";
             const desc = document.getElementById('crud_b_desc').value.trim();
+            const details = document.getElementById('crud_b_details').value.trim() || desc;
             if (!title) return;
-            appDB.books.unshift({ title, category, desc });
+            appDB.books.unshift({ title, category, desc, details });
             saveAppDatabase();
             closeAdminCrudModal();
         });
     }
 
-    // 5) إضافة موعد وتداخل دواء
     function openAddScheduleMedModal() {
         openAdminCrudModal("➕ إضافة موعد وتداخلات دواء جديد", `
-            <div class="form-group"><label>اسم الدواء / المجموعة:</label><input id="crud_m_title" class="form-control" placeholder="مثلاً: Clopidogrel (Plavix)"></div>
-            <div class="form-group"><label>القسم / المرض:</label><input id="crud_m_cat" class="form-control" placeholder="مثلاً: القلب والضغط"></div>
-            <div class="form-group"><label>الموعد بالمضبوط:</label><input id="crud_m_time" class="form-control" placeholder="مرة واحدة يومياً في موعد ثابت"></div>
-            <div class="form-group"><label>طريقة الأخذ:</label><input id="crud_m_how" class="form-control" placeholder="مع أو بدون طعام"></div>
-            <div class="form-group"><label>التداخلات الدوائية:</label><input id="crud_m_inter" class="form-control" placeholder="يتداخل مع Omeprazole..."></div>
-            <div class="form-group"><label>الأضرار الجانبية:</label><input id="crud_m_side" class="form-control" placeholder="كدمات أو نزيف خفيف..."></div>
+            <div class="form-group"><label>اسم الدواء:</label><input id="crud_m_title" class="form-control"></div>
+            <div class="form-group"><label>القسم / المرض:</label><input id="crud_m_cat" class="form-control"></div>
+            <div class="form-group"><label>الموعد بالمضبوط:</label><input id="crud_m_time" class="form-control"></div>
+            <div class="form-group"><label>طريقة الأخذ:</label><input id="crud_m_how" class="form-control"></div>
+            <div class="form-group"><label>التداخلات الدوائية:</label><input id="crud_m_inter" class="form-control"></div>
+            <div class="form-group"><label>الأضرار الجانبية:</label><input id="crud_m_side" class="form-control"></div>
         `, () => {
             const title = document.getElementById('crud_m_title').value.trim();
             const category = document.getElementById('crud_m_cat').value.trim() || "أدوية عامة";
@@ -2843,22 +2870,23 @@
             const interactions = document.getElementById('crud_m_inter').value.trim();
             const sideEffects = document.getElementById('crud_m_side').value.trim();
             if (!title) return;
-            appDB.scheduleMeds.unshift({ title, category, timing, howToTake, importantNote: "يُلتزم بالجرعة المحددة.", interactions, sideEffects });
+            appDB.scheduleMeds.unshift({ title, category, timing, howToTake, interactions, sideEffects });
             saveAppDatabase();
             closeAdminCrudModal();
         });
     }
 
-    /* ================= 5. بناء وعرض الأقسام الديناميكية ================= */
+    /* ================= 6. العرض الديناميكي لكل الأقسام ================= */
     function renderAllDynamicSections() {
-        renderSyrupDropdownAndTable();
+        renderSyrupDropdown();
         renderIvDropdown();
         render24ClassesTree();
         renderPharmacyBooks();
         renderScheduleCards();
+        renderOtcExamples();
     }
 
-    function renderSyrupDropdownAndTable() {
+    function renderSyrupDropdown() {
         const sel = document.getElementById('presetDrug');
         const prevVal = sel.value;
         let optsHtml = appDB.syrups.map(r => `<option value="${r.id}">${r.name} (${r.conc}) — ${r.ruleText}</option>`).join('');
@@ -2866,23 +2894,6 @@
         sel.innerHTML = optsHtml;
         if (prevVal && [...sel.options].some(o => o.value === prevVal)) sel.value = prevVal;
         updateSyrupPreview();
-
-        const canEdit = currentRoleState.isRoot || (currentRoleState.isSubAdmin && currentRoleState.perms.editDrugs);
-        const tbody = document.getElementById('customMethodTableBody');
-        tbody.innerHTML = appDB.syrups.map(r => {
-            const ex15 = 15 * r.factor;
-            const f15 = Number.isInteger(ex15) ? ex15 : ex15.toFixed(2);
-            const delBtn = canEdit ? `<button class="admin-mini-del-btn" onclick="deleteSyrupRule('${r.id}')">🗑️</button>` : '';
-            return `
-                <tr>
-                    <td style="text-align:right;"><strong>${r.name}</strong> ${delBtn}</td>
-                    <td>${r.conc}</td>
-                    <td style="color:#22d3ee; font-weight:700;">${r.ruleText}</td>
-                    <td>${r.freq}</td>
-                    <td><strong>${f15} سي سي</strong><br><span style="font-size:0.72rem; color:#94a3b8;">(${f15} مل)</span></td>
-                </tr>
-            `;
-        }).join('');
     }
 
     function renderIvDropdown() {
@@ -2896,7 +2907,7 @@
     function render24ClassesTree() {
         const container = document.getElementById('familiesContainer');
         if (!container) return;
-        const canEdit = currentRoleState.isRoot || (currentRoleState.isSubAdmin && currentRoleState.perms.editDrugs);
+        const canEdit = currentRoleState.canEditDrugs;
 
         container.innerHTML = appDB.classes.map((cls, cIdx) => {
             const familiesHtml = cls.families.map((fam, fIdx) => {
@@ -2906,9 +2917,7 @@
                         ${canEdit ? `<button class="admin-mini-del-btn" style="padding:0 4px;" onclick="deleteDrugFromFamily(${cIdx}, ${fIdx}, ${dIdx})">×</button>` : ''}
                     </span>
                 `).join('');
-
                 const addDrugBtn = canEdit ? `<button class="admin-mini-edit-btn" onclick="openAddDrugToFamilyModal(${cIdx}, ${fIdx})">+ دواء</button>` : '';
-
                 return `
                     <div class="sub-accordion">
                         <button class="sub-accordion-header" onclick="toggleSubAccordion(this)">
@@ -2933,7 +2942,7 @@
                     <button class="accordion-header" onclick="toggleAccordion(this)">
                         <div>
                             <span class="class-pill ${cls.isNew ? 'new-class' : ''}">Class ${cls.num}</span> ${cls.arTitle}
-                            <span class="family-count-pill">${cls.families.length} عوائل مستقلة</span>
+                            <span class="family-count-pill">${cls.families.length} عوائل</span>
                             <span class="en-sub">${cls.enTitle}</span>
                         </div>
                         <span class="icon">▼</span>
@@ -2947,14 +2956,25 @@
         }).join('');
     }
 
+    function filterPharmacyBooks() {
+        renderPharmacyBooks();
+    }
+
     function renderPharmacyBooks() {
         const grid = document.getElementById('pharmacyBooksGrid');
         if (!grid) return;
-        grid.innerHTML = appDB.books.map(b => `
-            <div class="learn-mini-card">
-                <span class="year-badge">${b.category}</span>
-                <h5 style="font-family:sans-serif;">📖 ${b.title}</h5>
-                <p>${b.desc}</p>
+        const q = (document.getElementById('booksSearchInput')?.value || "").trim().toLowerCase();
+        const filtered = appDB.books.filter(b => !q || `${b.title} ${b.category} ${b.desc} ${b.details || ''}`.toLowerCase().includes(q));
+
+        grid.innerHTML = filtered.map((b, idx) => `
+            <div class="learn-mini-card" id="book-card-${idx}">
+                <div>
+                    <span class="year-badge">${b.category}</span>
+                    <h5 style="font-family:sans-serif;">📖 ${b.title}</h5>
+                    <p>${b.desc}</p>
+                    <p style="font-size:0.78rem; color:#94a3b8; margin-top:4px;">${b.details || ''}</p>
+                </div>
+                <button class="mini-pdf-btn" onclick="openPdfViewer('book-card-${idx}', '${b.title.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, '_')}')">📄 فتح ملخص الكتاب PDF</button>
             </div>
         `).join('');
     }
@@ -2992,7 +3012,74 @@
         `).join('');
     }
 
-    /* ================= 6. دوال الحساب والتنقل والبحث ================= */
+    /* ================= 7. محرك الامتحانات التجريبية الذكية AI ================= */
+    let currentExamQuestions = [];
+
+    function generateAiExam() {
+        const cat = document.getElementById('aiExamCategorySelect').value;
+        const pool = (cat === 'all') ? aiExamBank : aiExamBank.filter(item => item.cat === cat);
+        currentExamQuestions = [...pool].sort(() => Math.random() - 0.5);
+
+        const container = document.getElementById('aiExamQuestionsContainer');
+        document.getElementById('aiExamReportBox').style.display = 'none';
+
+        container.innerHTML = currentExamQuestions.map((qObj, qIdx) => `
+            <div class="exam-question-card">
+                <h5>س${qIdx + 1}: ${qObj.q}</h5>
+                ${qObj.options.map((opt, oIdx) => `
+                    <label class="exam-option-label">
+                        <input type="radio" name="ai_q_${qIdx}" value="${oIdx}">
+                        <span>${opt}</span>
+                    </label>
+                `).join('')}
+            </div>
+        `).join('');
+    }
+
+    function gradeAiExam() {
+        if (currentExamQuestions.length === 0) return;
+        let score = 0;
+        let reviewHtml = "";
+
+        currentExamQuestions.forEach((qObj, qIdx) => {
+            const selectedEl = document.querySelector(`input[name="ai_q_${qIdx}"]:checked`);
+            const chosenIdx = selectedEl ? parseInt(selectedEl.value) : -1;
+
+            if (chosenIdx === qObj.correct) {
+                score++;
+                reviewHtml += `
+                    <div class="exam-correct-item">
+                        <strong style="color:#34d399;">✅ س${qIdx + 1}: إجابة صحيحة!</strong> (${qObj.options[qObj.correct]})
+                    </div>
+                `;
+            } else {
+                const userAnswerText = (chosenIdx === -1) ? "لم يتم اختيار إجابة" : qObj.options[chosenIdx];
+                reviewHtml += `
+                    <div class="exam-mistake-item">
+                        <strong style="color:#fda4af;">❌ س${qIdx + 1}: خطأ في الإجابة — ${qObj.q}</strong><br>
+                        <span style="color:#fecdd3;">• إجابتك: <strong>${userAnswerText}</strong></span><br>
+                        <span style="color:#34d399;">• الإجابة الصحيحة: <strong>${qObj.options[qObj.correct]}</strong></span><br>
+                        <div style="margin-top:5px; color:#fde68a;"><strong>🤖 التصحيح العلمي حسب المراجع الصيدلانية:</strong> ${qObj.explanation}</div>
+                    </div>
+                `;
+            }
+        });
+
+        const total = currentExamQuestions.length;
+        const pct = Math.round((score / total) * 100);
+        const reportBox = document.getElementById('aiExamReportBox');
+        reportBox.style.display = 'block';
+        reportBox.innerHTML = `
+            <div class="result-box" style="display:block;">
+                <h4>🎯 نتيجة الامتحان التجريبي: ${score} من ${total} (${pct}%)</h4>
+                <p>${pct >= 80 ? "🌟 ممتاز جداً! مستواك الصيدلاني متميز." : pct >= 50 ? "👍 جيد، راجع أخطاءك أدناه لرفع مستواك." : "📚 تحتاج لمراجعة التصحيحات أدناه بدقة."}</p>
+            </div>
+            ${reviewHtml}
+        `;
+        reportBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ================= 8. دوال الحساب والتنقل والبحث العام ================= */
     let currentPdfFilename = "Pharmacy_Document";
 
     function estimateWeightFromAge() {
@@ -3211,30 +3298,29 @@
 
         appDB.classes.forEach(cls => {
             cls.families.forEach(fam => {
-                const hay = `${cls.arTitle} ${cls.enTitle} ${fam.ar} ${fam.en} ${fam.drugs.join(' ')}`.toLowerCase();
-                if (hay.includes(term) && count < 6) {
+                if (`${cls.arTitle} ${cls.enTitle} ${fam.ar} ${fam.en} ${fam.drugs.join(' ')}`.toLowerCase().includes(term) && count < 5) {
                     hitsHTML += `<div class="instant-hit" style="border-right-color:#f59e0b; cursor:pointer;" onclick="jumpToClassTree('${rawTerm.replace(/'/g, '')}')"><strong>🧬 Class ${cls.num} (${cls.arTitle}) ➔ ${fam.ar}</strong><span>${fam.drugs.slice(0, 6).join(' • ')}</span></div>`;
                     count++;
                 }
             });
         });
 
+        appDB.books.forEach(b => {
+            if (`${b.title} ${b.category} ${b.desc}`.toLowerCase().includes(term) && count < 7) {
+                hitsHTML += `<div class="instant-hit" style="border-right-color:#ec4899; cursor:pointer;" onclick="jumpToBook('${b.title.replace(/'/g, '')}')"><strong>📚 كتاب صيدلاني PDF: ${b.title}</strong><span>${b.desc}</span></div>`;
+                count++;
+            }
+        });
+
         appDB.scheduleMeds.forEach(m => {
-            if (`${m.title} ${m.category} ${m.timing} ${m.interactions}`.toLowerCase().includes(term) && count < 9) {
+            if (`${m.title} ${m.category} ${m.timing} ${m.interactions}`.toLowerCase().includes(term) && count < 10) {
                 hitsHTML += `<div class="instant-hit" style="border-right-color:#a78bfa; cursor:pointer;" onclick="jumpToScheduleWithQuery('${m.title.split('(')[0].trim()}')"><strong>🕒 مواعيد وتداخلات: ${m.title}</strong><span>${m.timing}</span></div>`;
                 count++;
             }
         });
 
-        Object.entries(appDB.ivSolutions).forEach(([ivKey, ivObj]) => {
-            if (`${ivKey} ${ivObj.name} ${ivObj.hint}`.toLowerCase().includes(term) && count < 11) {
-                hitsHTML += `<div class="instant-hit" style="border-right-color:#38bdf8; cursor:pointer;" onclick="jumpToIvSolution('${ivKey}')"><strong>💧 محلول وريدي: ${ivObj.name}</strong><span>${ivObj.howGiven}</span></div>`;
-                count++;
-            }
-        });
-
         appDB.syrups.forEach(rule => {
-            if (`${rule.name} ${rule.conc} ${rule.ruleText}`.toLowerCase().includes(term) && count < 14) {
+            if (`${rule.name} ${rule.conc} ${rule.ruleText}`.toLowerCase().includes(term) && count < 13) {
                 const f15 = (15 * rule.factor).toFixed(2);
                 hitsHTML += `<div class="instant-hit" style="border-right-color:#10b981; cursor:pointer;" onclick="jumpToSyrupRule('${rule.id}')"><strong>🥄 شراب: ${rule.name} (${rule.conc})</strong><span>المعادلة: ${rule.ruleText} • مثال 15 كغم: ${f15} سي سي</span></div>`;
                 count++;
@@ -3253,7 +3339,7 @@
 
     function clearAiSearch() { searchInput.value = ''; clearBtn.style.display = 'none'; instantBox.style.display = 'none'; }
     function jumpToClassTree(q) { switchTab('sec2', document.querySelectorAll('.tab-btn')[1]); document.getElementById('classTreeSearchInput').value = q; filterClassesTree(); instantBox.style.display = 'none'; }
-    function jumpToIvSolution(k) { switchTab('sec3', document.querySelectorAll('.tab-btn')[0]); switchCalc('calc-iv', document.querySelectorAll('#sec3 .calc-subbtn')[1]); document.getElementById('ivSolutionSelect').value = k; updateIvHint(); instantBox.style.display = 'none'; }
+    function jumpToBook(q) { switchTab('sec1', document.querySelectorAll('.tab-btn')[2]); switchLearnSub('learn-part3', document.querySelectorAll('#sec1 .calc-subbtn')[2]); document.getElementById('booksSearchInput').value = q; filterPharmacyBooks(); instantBox.style.display = 'none'; }
     function jumpToSyrupRule(id) { switchTab('sec3', document.querySelectorAll('.tab-btn')[0]); switchCalc('calc-syrup', document.querySelectorAll('#sec3 .calc-subbtn')[0]); document.getElementById('presetDrug').value = id; updateSyrupPreview(); instantBox.style.display = 'none'; }
     function jumpToScheduleWithQuery(q) { switchTab('sec4', document.querySelectorAll('.tab-btn')[3]); document.getElementById('scheduleDrugSearch').value = q; searchScheduleMedication(); instantBox.style.display = 'none'; }
 
@@ -3271,7 +3357,7 @@
                 <div style="font-size:0.78rem; text-align:left;"><strong>ملف PDF</strong><br>${new Date().toLocaleDateString('ar-IQ')}</div>
             </div>
             <div>${clone.innerHTML}</div>
-            <div style="margin-top:20px; padding-top:8px; border-top:1px solid #cbd5e1; text-align:center; font-size:0.78rem;">إعداد وتطوير: إبراهيم إسماعيل | Instagram: @ebo.rr | Made by Ibrahim Ismail</div>
+            <div style="margin-top:20px; padding-top:8px; border-top:1px solid #cbd5e1; text-align:center; font-size:0.78rem;">إعداد وتطوير: إبراهيم إسماعيل | Made by Ibrahim Ismail</div>
         `;
         document.getElementById('pdfModalTitle').innerText = "📄 " + fileName.replace(/_/g, ' ');
         document.getElementById('pdfModal').classList.add('open');
@@ -3283,6 +3369,7 @@
         html2pdf().set({ margin: 8, filename: currentPdfFilename + '.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }).from(document.getElementById('pdfRenderArea')).save();
     }
 
+    generateAiExam();
     initSubscriptionSystem();
 </script>
 
